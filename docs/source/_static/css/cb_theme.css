@@ -1,0 +1,21 @@
+@import '../classic.css';
+
+.sphinxsidebar {
+    background-color: #3c3c46
+}
+
+.related ul {
+  background-color: #36363e
+}
+
+div.document {
+  background-color: #3c3c46;
+}
+
+.footer {
+  background-color: #3c3c46;
+}
+
+html {
+  background-color: #3c3c46;
+}
