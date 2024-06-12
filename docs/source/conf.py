@@ -30,3 +30,9 @@ html_logo = '_static/cb_logo.png'
 html_css_files = [
     'css/cb_theme.css',
 ]
+
+# Disable link "index"
+html_use_index = False
+
+# Disable link "Show Source"
+html_show_sourcelink = False
