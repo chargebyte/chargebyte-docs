@@ -21,3 +21,6 @@ dist/
 # Ignore sensitive or private information
 secrets.txt
 credentials.json
+
+# Ignore output folder for testing
+output/

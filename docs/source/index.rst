@@ -21,4 +21,5 @@ Charge Control C.
 
    introduction
    getting_started
+   hardware
    firmware

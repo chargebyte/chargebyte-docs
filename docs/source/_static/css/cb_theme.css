@@ -1,15 +1,20 @@
 @import '../classic.css';
 
 .sphinxsidebar {
-    background-color: #3c3c46
+  background-color: #3c3c46;
 }
 
 .related ul {
-  background-color: #36363e
+  background-color: #36363e;
 }
 
 div.document {
   background-color: #3c3c46;
+}
+
+div.body {
+  min-width: 50%;
+  max-width: 80%;
 }
 
 .footer {
@@ -18,4 +23,37 @@ div.document {
 
 html {
   background-color: #3c3c46;
+}
+
+table.docutils {
+  border: 1px solid #aaa;
+}
+
+table.docutils td {
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+
+table.docutils th {
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+
+table.docutils th p {
+  text-align: left;
+  font-size: larger;
+}
+
+table.docutils td p {
+  text-align: left;
+}
+
+figcaption p span.caption-text {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.line {
+  text-align: center;
 }
