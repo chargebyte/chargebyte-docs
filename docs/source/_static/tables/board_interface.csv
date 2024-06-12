@@ -1,0 +1,8 @@
+Board Interface;EIA-485 #1 isolated (X7);EIA-485 #2 (X8)
+Linux Interface;/dev/ttymxc0;/dev/ttymxc4
+Termination;yes, 120 Ohm enableable via SW1 (factory default: not activated);yes, 120 Ohm permanently activated
+Failsafe Biasing1;PCB board revision ≤ V0R32:no;yes
+;PCB board revision >V0R32:yes;
+Intended Usage;Charge Control C 100;link to backend / internal peripheral;-not available-
+;Charge Control C 200;link to backend / internal peripheral;-not available-
+;Charge Control C 300;link to backend;internal peripheral

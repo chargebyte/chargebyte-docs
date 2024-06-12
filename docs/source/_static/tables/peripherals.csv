@@ -1,0 +1,3 @@
+Manufacture;Model;Device type;Restrictions
+Huawei;E3531;Internet dongle (3G, GPRS/HSDPA/UMTS);--
+Huawei;E3372;Internet dongle (4G, LTE);Only supported with a separate USB power supply via e.g. an USB 2.0 hub with external power supply.
