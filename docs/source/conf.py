@@ -20,7 +20,6 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
@@ -30,3 +29,5 @@ html_logo = '_static/cb_logo.png'
 html_css_files = [
     'css/cb_theme.css',
 ]
+html_show_sourcelink = False
+html_use_index = False
