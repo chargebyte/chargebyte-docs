@@ -25,8 +25,15 @@ The following hardware components are required to set up the basic AC PWM charge
 Hardware Overview
 ^^^^^^^^^^^^^^^^^
 
-Connecting the Power Supply
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The following figure shows the basic setup of the AC PWM charger with the Charge Control C:
+
+.. image:: _static/images/ac_pwm_charger_ccc_setup.svg
+    :width: 500pt
+
+Note: Before you start setting up the setup, please check whether the HW components used are also
+listed in `Hardware Components section`_.
+
+.. _Hardware Components section: #hardware-components
 
 First Startup
 -------------
