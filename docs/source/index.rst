@@ -22,3 +22,4 @@ Charge Control C.
    introduction
    getting_started
    firmware
+   everest_charging_stack
