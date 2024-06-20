@@ -122,7 +122,7 @@ For easier customization of the boards, such as modifying configuration files or
 Replacement of :code:`/etc/rauc/keyring.pem`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Send us your pubilc CA certificate so that we can sign i.e. cross-sign it for you with our certificates.
+#. Send us your public CA certificate so that we can sign i.e. cross-sign it for you with our certificates.
 #. On a USB flash drive, place your cross-signed CA certificate together with the corresponding signature file. The pair has to be named as follows: :code:`fwupdate-keyring.pem` & :code:`fwupdate-keyring.pem.p7s`. You would get this pair from us as a result of step 1.
 #. Insert the USB flash drive in the USB port of the board. The following behavior will be triggered automatically:
 
