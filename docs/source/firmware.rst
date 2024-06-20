@@ -89,7 +89,7 @@ After making sure that the customized software is working on the board, there mi
 
       fsck.ext4 -f bundle-staging/core-image-minimal-tarragon.ext4
 
-#. This step only needs to be done, if you want chargebyte to intially flash your own firmware during the manufacturing process of the Charge Control C boards.
+#. This step only needs to be done, if you want chargebyte to initially flash your own firmware during the manufacturing process of the Charge Control C boards.
 
    Create MD5 hashsum of the file with the following command. This hash is used during production process to ensure that the image file is not altered but installed correctly into flash. Please send us this hash.
 
