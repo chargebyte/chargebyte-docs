@@ -31,6 +31,36 @@ charging stations.
 Product Features
 ----------------
 
+
+Safety Notes
+------------
+
+IMPORTANT: Read the following safety instruction carefully and clearly prior to the assembly and use
+of the device. Please keep these safety instructions for future reference.
+
+A coloured icon: :octicon:`report;1em;sd-text-info`, some more text.
+
+* The installation and assembly may only be carried out by a qualified electrician!
+* This device, which is supplied with mains power, has to be secured by means of a max. B6A circuit
+  breaker. In case of a multi-phase connection, such a circuit breaker has to be provided for each
+  connected outer conductor. These circuit breakers are to be installed directly next to each other.
+* WARNING! This device is connected to mains power and hazardous voltages which are not covered.
+  Hazardous voltages must be covered inside the charging station to prevent electrical shocks.
+* Attention! Make sure that the device is not exposed to heat sources which may lead to overheating.
+  Charge Control C can be damaged in case of overheating.
+* Attention! The device may only be connected in the range of overvoltage category 3 or lower.
+  Operating Charge Control C in a higher category can damage the device.
+* Attention! Ensure adequate ventilation at the site of installation. Charge Control C can be
+  damaged in case of overheating.
+* Attention! Do not operate the device in supply networks which do not comply with the
+  specifications on the type plate. Operating Charge Control C in networks not compatible with the
+  specifications on the type plate can damage the device.
+* Attention! The device may only be installed in dry areas. Exposing Charge Control C to wetness can
+  damage the device. 
+* This device is designed for installation on DIN rails which provide fire protection as per
+  DIN EN 60950-1.
+
+
 Order Information
 -----------------
 
