@@ -784,6 +784,8 @@ Since Charge Control C can be freely programmed, it is possible to add device su
 Digital Input & Output
 ======================
 
+.. _digital_input:
+
 Digital Input
 -------------
 
@@ -1152,6 +1154,7 @@ Both interfaces are referenced to GND.
     * - 3
       - :cspan:`1` GND
 
+.. _locking_motor:
 
 X9 / X10 - Locking Motor
 ========================

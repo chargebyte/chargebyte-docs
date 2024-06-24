@@ -79,10 +79,10 @@ the Charge Control C hardware platform.
 
 **CbTarragonDIs** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonDIs>`__)
 
-The Charge Control C is equipped with multiple digital inputs (DIs TODO: Add reference). The module :code:`CbTarragonDIs`
-is used for setting the reference PWM for these DIs. The reference PWM sets the threshold voltage for all 12V digital
-inputs, which is essential for their operation. The use of this module is optional and depends on the EVSE
-requirements where the Charge Control C is integrated.
+The Charge Control C is equipped with multiple digital inputs (For more information, refer to section :ref:`digital_input`).
+The module :code:`CbTarragonDIs` is used for setting the reference PWM for these DIs. The reference PWM
+sets the threshold voltage for all 12V digital inputs, which is essential for their operation.
+The use of this module is optional and depends on the EVSE requirements where the Charge Control C is integrated.
 
 **CbSystem** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbSystem>`__)
 
@@ -99,8 +99,8 @@ This module is not mandatory for an EVSE setup using Charge Control C in EVerest
 is configured for an AC supply equipment with a socket connector, the module :code:`CbTarragonPlugLock`
 can be utilized. This module is a driver for plug lock control and implements
 `connector_lock <https://github.com/EVerest/everest-core/blob/main/interfaces/connector_lock.yaml>`_ interface.
-It is designed to support all types of plug locks on connector X9 of the Charge Control C. Check section X to
-understand how to connect the locking motor to the Charge Control C.
+It is designed to support all types of plug locks on connector X9 of the Charge Control C. Check
+section :ref:`locking_motor` to understand how to connect the locking motor to the Charge Control C.
 
 Further reading
 ===============
