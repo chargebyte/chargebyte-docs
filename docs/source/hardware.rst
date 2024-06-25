@@ -956,6 +956,8 @@ temperature via the X3 fan connector. The responsible program is the shell scrip
 which is started automatically during boot on Charge Control C 300.
 
 
+.. _board-connections:
+
 *****************
 Board Connections
 *****************

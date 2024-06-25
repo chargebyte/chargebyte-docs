@@ -1,4 +1,4 @@
-.. firmware.rst:
+.. _firmware.rst:
 
 ********
 Firmware

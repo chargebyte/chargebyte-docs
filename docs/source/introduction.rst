@@ -53,6 +53,8 @@ Product Features
 Availability of the interfaces depends on the actual variant - see the product datasheet for more details.
 
 
+.. _safety_notes:
+
 Safety Notes
 ------------
 
