@@ -1,4 +1,4 @@
-.. everest_charging_stack.rst:
+.. _everest_charging_stack.rst:
 
 **********************
 EVerest charging stack
