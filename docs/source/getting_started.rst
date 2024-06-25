@@ -13,6 +13,7 @@ Setting Up the Hardware
 
 Before you start setting up the hardware, please read the :ref:`safety_notes`.
 
+
 Hardware Components
 ^^^^^^^^^^^^^^^^^^^
 
@@ -128,7 +129,7 @@ Here are the steps to connect to the Charge Control C via SSH using PuTTY:
    PuTTY configuration.
 
 .. note::
-   It is also possible to install a SSH key on the Charge Control C to log in without a
+   It is also possible to install an SSH key on the Charge Control C to log in without a
    password. Please look online for instructions on how to do this on a Linux system.
 
 .. figure:: _static/images/putty_config_ssh_fallback_ip.png
@@ -188,10 +189,10 @@ there is only a reference to the "bsp-only.yaml" file.
 
 .. code-block:: bash
 
-   root@chargecontrolc:~# ls -l /etc/everest
-   total 8
-   -rw-r--r-- 1 root root  0 Jan  1  1970 bsp-only.yaml
-   lrwxrwxrwx 1 root root 12 Jan  1  1970 my-config.yaml  -> config.yaml
+   root@tarragon:/etc/everest# ls -l /etc/everest/
+   total 28
+   -rw-r--r-- 1 root root 1134 Jun 20 07:45 bsp-only.yaml
+   lrwxrwxrwx 1 root root   14 Jun 25 19:26 config.yaml ->  my-config.yaml
 
 Let's take a look at the content of the bsp-only.yaml configuration file. This file is already
 prepared for the basic AC PWM charger setup.
@@ -310,7 +311,7 @@ EVSE Test Adapter is set to "B" and the current limit (adjustable via the PP sta
 After plugging in the IEC 62196 Type 2 EVSE Test Adapter, a CP state change from "A" to "B" should
 be visible in the EVerest log. By default, the authentication is disabled in the bsp-only.yaml
 configuration.
-Therefore, the duty dycle should directly switch from 100% to ~26.7%. The duty cycle change indicates
+Therefore, the duty cycle should directly switch from 100% to ~26.7%. The duty cycle change indicates
 16A to the EV and the EVSE is now able to supply power to the EV.
 
 The last EVerest log messages should look like this:
