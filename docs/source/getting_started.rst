@@ -11,8 +11,6 @@ is set up as an example and explained step by step.
 Setting Up the Hardware
 ------------------------
 
-Before you start setting up the hardware, please read the :ref:`safety_notes`.
-
 
 Hardware Components
 ^^^^^^^^^^^^^^^^^^^
@@ -30,6 +28,9 @@ The following hardware components are required to set up the basic AC PWM charge
 
 Hardware Overview
 ^^^^^^^^^^^^^^^^^
+
+.. warning::
+   Before you start setting up the hardware, please read the :ref:`safety_notes`.
 
 The following figure shows the basic setup of the AC PWM charger with the Charge Control C:
 
