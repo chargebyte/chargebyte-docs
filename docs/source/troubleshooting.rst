@@ -21,7 +21,7 @@ Is it possible to use the Charge Control C as a DC charge controller?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Yes, for prototypes it’s possible to use the Charge Control C as DC SECC for DIN 70121 or ISO 15118.
-But the Charge Control C was designed for AC use case in mind.
+But the Charge Control C was designed with the AC use case in mind.
 
    
 How can I use CAN with Charge Control C?
@@ -31,7 +31,7 @@ There is no Charge Control C with onboard CAN interface available, so we suggest
 USB adapter.
 
 
-I want to control EVerest via CAN, how can i achieve this?
+I want to control EVerest via CAN, how can I achieve this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Currently there is no such EVerest module available, you will need to implement it on your own. But
