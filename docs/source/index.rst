@@ -24,3 +24,4 @@ Charge Control C.
    hardware
    firmware
    everest_charging_stack
+   troubleshooting
