@@ -102,10 +102,10 @@ Here are the currently available order codes for Charge Control C with EVerest:
 | Available order code | SW-Variant                       | Housing    | HW-Variant         |
 +======================+==================================+============+====================+
 | I2CCSC-E00-204       | chargebyte software stack v0.8.0 | no housing | Charge Control 200 |
-|                      | based on EVerest 2024.3.0        | no housing |                    |
+|                      | based on EVerest 2024.3.0        |            |                    |
 +----------------------+----------------------------------+------------+--------------------+
-| I2CCSC-E00-303       | EVerest software stack v0.8.0    | no housing | Charge Control 300 |
-|                      | based on EVerest 2024.3.0        | no housing |                    |
+| I2CCSC-E00-303       | chargebyte software stack v0.8.0 | no housing | Charge Control 300 |
+|                      | based on EVerest 2024.3.0        |            |                    |
 +----------------------+----------------------------------+------------+--------------------+
 
 The following figure shows the structure of the "I2CCSC-E00-204" order code:
