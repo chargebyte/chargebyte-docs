@@ -40,6 +40,9 @@ The following figure shows the basic setup of the AC PWM charger with the Charge
     Figure: Basic Setup of the AC PWM Charger with the Charge Control C
 
 .. note::
+   The pin assignment of the Charge Control C can be found in the :ref:`board-connections` section.
+
+.. note::
    Before you start setting up the hardware, please check whether the HW components used are also
    listed in `Hardware Components section`_.
 
