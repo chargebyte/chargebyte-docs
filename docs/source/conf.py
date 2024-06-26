@@ -9,7 +9,6 @@
 project = 'Charge Control C User Guide'
 copyright = '2024, chargebyte GmbH'
 author = 'chargebyte GmbH'
-release = '0.1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
