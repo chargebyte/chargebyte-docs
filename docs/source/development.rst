@@ -73,7 +73,7 @@ This section will focus on integrating the module into the Yocto build system.
    `create a new Yocto layer <https://docs.yoctoproject.org/dev-manual/layers.html#creating-your-own-layer>`_
    or extend an existing one. This section will assume that a new layer has been created and added
    to the :code:`BBLAYERS` variable in the :code:`build/conf/bblayers.conf` file.
-#. A recipe file is needed to build the module. The recipe file is a file with the extension :code:`.bb` and
+#. A recipe file is needed to build the module. A recipe is a file with the extension :code:`.bb` and
    contains information about the module, such as the source code location, dependencies, and how to build it.
    The Yocto documentation provides a `guide on how to write a recipe file <https://docs.yoctoproject.org/dev-manual/new-recipe.html>`_.
    Let's assume that the new recipe is called :code:`my-module.bb`. It should look something like this:
@@ -83,7 +83,8 @@ This section will focus on integrating the module into the Yocto build system.
       SUMMARY = "My Module"
       DESCRIPTION = "A new EVerest module"
 
-      LICENSE = "CLOSED"
+      LICENSE = "APACHE-2.0"
+      LIC_FILES_CHKSUM = "file://LICENSE;md5=1234567890"
 
       SRC_URI = "git://github.com/my_org/my-module.git;branch=main"
       S = "${WORKDIR}/git"
@@ -119,7 +120,7 @@ Another way to integrate custom applications into the firmware image is to cross
 for Tarragon and include it in the image. A pre-requisite for this is to have the latest firmware image,
 preferably a developer build.
 
-#. On an Ubuntu or Debian Linux distribution, install the cross-compilers for Tarragon.
+#. On an Ubuntu or Debian-based Linux distribution, install the cross-compilers for Tarragon.
 
    .. code-block:: console
 
@@ -136,8 +137,8 @@ preferably a developer build.
 
    .. code-block:: console
 
-      sudo mkdir -p /tmp/rootfs
-      sudo mount bundle-staging/core-image-minimal-tarragon.ext4 /tmp/rootfs
+      sudo mkdir -p /mnt/rootfs
+      sudo mount bundle-staging/core-image-minimal-tarragon.ext4 /mnt/rootfs
 
 #. Create a new directory in the folder where the new module was created (my-module) and create a new
    file called :code:`toolchain.cmake`. This file is used to set the toolchain for the cross-compilation.
@@ -209,7 +210,7 @@ preferably a developer build.
 
    .. code-block:: console
 
-      cmake -DCMAKE_TOOLCHAIN_FILE=../toolchain/toolchain.cmake -DCMAKE_SYSROOT=/tmp/rootfs ..
+      cmake -DCMAKE_TOOLCHAIN_FILE=../toolchain/toolchain.cmake -DCMAKE_SYSROOT=/mnt/rootfs ..
 
 #. When this ends successfully, start cross-compiling using :code:`make`:
 
@@ -233,13 +234,13 @@ preferably a developer build.
 
    .. code-block:: console
 
-      cp dist/libexec/everest/modules/MyModule /tmp/rootfs/usr/libexec/everest/modules/
+      cp dist/libexec/everest/modules/MyModule /mnt/rootfs/usr/libexec/everest/modules/
 
 #. umount the loop device.
 
    .. code-block:: console
 
-      sudo umount /tmp/rootfs
+      sudo umount /mnt/rootfs
 
 #. Make sure that the customized filesystem is in a clean state.
 
