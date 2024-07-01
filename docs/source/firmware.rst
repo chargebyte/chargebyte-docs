@@ -164,6 +164,8 @@ This assumes that the first step has successfully ended, and the file :code:`/et
 
      openssl smime -verify -no_check_time -inform DER -CAfile <your_CA_certificate>.crt -content autorun.sh -in autorun.sh.p7s
 
+.. _firmware_update:
+
 Firmware Upgrade
 ================
 
@@ -256,6 +258,76 @@ The internal eMMC storage of a Charge Control device is divided into several par
    <div style="text-align: center;">
      Filesystem Mountpoints
    </div>
+
+.. _update_from_chargebyte_to_everest:
+
+Updating from chargebyte's proprietary charging stack to EVerest-based charging stack
+-------------------------------------------------------------------------------------
+
+The following information is important when updating from chargebyte's proprietary charging stack
+to EVerest-based charging stack:
+
+- Please ensure that you have at least installed chargebyte\'s proprietary charging stack v3.x.x,
+  before switching your board to EVerest and that this firmware booted once before the update.
+  Latest firmware can be found here:
+  `Charge Control C Download Section <https://chargebyte.com/controllers-and-modules/evse/charge-control-c#downloads>`_.
+- A note about configuration files:
+  When updating from chargebyte\'s proprietary charging stack to this EVerest-based charging stack,
+  the configuration files are not preserved and you start with a basic, default EVerest configuration.
+  When updating from an EVerest-based firmware to a newer EVerest-based one, some configuration
+  files are preserved, see the latest Quick start guide for details. However, no automatic config
+  file migrations/changes are applied, so this might break your setup - especially when EVerest
+  modules have new/changed configurations/dependencies etc.
+  In the worst case, this means that the EVerest stack does not start up correctly. Also note,
+  that the return path from EVerest to chargebyte\'s proprietary charging stack (when doing a
+  firmware update) is affected: since the EVerest configuration files differ significantly from
+  chargebyte\'s proprietary ones, such an update process cannot keep any configuration and uses
+  factory defaults. Only some basic Linux configuration files (SSH keys, hostname and similar)
+  are kept when switching between EVerest and proprietary stacks.
+- After the update has been completed, you can use the command
+  :code:`"rauc status mark-active other && reboot"` to switch back to the chargebyte proprietary
+  software. However, this only works as long as the partition with chargebyte\'s proprietary
+  charging stack has not been overwritten with another firmware image.
+- Files that are stored under :code:`"/srv"` are retained during the update process.
+
+.. _release_vs_development_images:
+
+Release Images vs Development Images
+-------------------------------------
+
+There are two types of firmware images available for Charge Control C devices:
+
+- Release images: These images are tested and verified by chargebyte and are recommended for
+  production use. The image size is optimized for production use and contains only the necessary
+  components.
+- Development images: These images are used for development purposes and are not tested or verified
+  by chargebyte. They are intended for developers who want to test new features or changes before
+  they are released. The image size is larger than the release image and contains additional
+  components that are not necessary for production use.
+
+.. note::
+   Before installation of a chargebyte EVerest image, please check whether you are installing a
+   developer or release image. In order to update the firmware with a chargebyte EVerest developer
+   image, the developer key must be set in the :code:`"/etc/rauc"` directory to pass the internal
+   validation process of the RAUC firmware update mechanism. The image type can be identified by the
+   file name.
+
+   Depending on the image type, the key must be adapted as follows:
+   
+   Change to developer key:
+
+   .. code-block:: bash
+
+      cd /etc/rauc
+      ln -sf i2se-devel.crt keyring.pem
+
+   Change to release key:
+
+   .. code-block:: bash
+
+      cd /etc/rauc
+      ln -sf i2se-release.crt keyring.pem
+
 
 Update via USB
 --------------

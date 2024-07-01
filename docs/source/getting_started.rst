@@ -176,6 +176,26 @@ Here are the steps to connect to the Charge Control C via serial interface using
     Figure: PuTTY Save Serial Connection
 
 
+Firmware Update
+^^^^^^^^^^^^^^^
+
+Before you start the initial configuration of the Charge Control C, it is recommended to update the
+firmware to the latest version. The firmware update process is explained in the
+:ref:`firmware_update` section. If necessary, please update the firmware to the latest version.
+
+.. note::
+   The firmware image can be obtained by contacting the `chargebyte
+   support desk <https://chargebyte.com/support>`_.
+
+.. note::
+   Before installation of a chargebyte EVerest image, please check whether you are installing a
+   developer or release image and prepare the Charge Control C accordingly. How to do this is
+   explained in the :ref:`release_vs_development_images` section.
+
+.. note::
+   In case you are updating from a chargebyte proprietary image to a chargebyte EVerest image,
+   please read the :ref:`update_from_chargebyte_to_everest` section carefully.
+
 Initial Configuration
 ---------------------
 
