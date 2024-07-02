@@ -272,21 +272,20 @@ to EVerest-based charging stack:
   Latest firmware can be found here:
   `Charge Control C Download Section <https://chargebyte.com/controllers-and-modules/evse/charge-control-c#downloads>`_.
 - A note about configuration files:
-  When updating from chargebyte\'s proprietary charging stack to this EVerest-based charging stack,
+  When updating from chargebyte's proprietary charging stack to this EVerest-based charging stack,
   the configuration files are not preserved and you start with a basic, default EVerest configuration.
-  When updating from an EVerest-based firmware to a newer EVerest-based one, some configuration
-  files are preserved, see the latest Quick start guide for details. However, no automatic config
-  file migrations/changes are applied, so this might break your setup - especially when EVerest
-  modules have new/changed configurations/dependencies etc.
-  In the worst case, this means that the EVerest stack does not start up correctly. Also note,
-  that the return path from EVerest to chargebyte\'s proprietary charging stack (when doing a
-  firmware update) is affected: since the EVerest configuration files differ significantly from
-  chargebyte\'s proprietary ones, such an update process cannot keep any configuration and uses
-  factory defaults. Only some basic Linux configuration files (SSH keys, hostname and similar)
-  are kept when switching between EVerest and proprietary stacks.
+  It is therefore inevitable that Everest must be reconfigured after starting the board.
+  In the worst case EVerest stack does not start up correctly. Also note, that the return path from
+  EVerest to chargebyte's proprietary charging stack (when doing a firmware update) is affected:
+  since the EVerest configuration files differ significantly from chargebyte's proprietary ones,
+  such an update process cannot keep any configuration and uses factory defaults. Only some basic
+  Linux configuration files (SSH keys, hostname and similar) are kept when switching between EVerest
+  and proprietary stacks.
+- Befor updating to EVerest, please check if you are installing a developer image or a release
+  image. For more information, see the section :ref:`release_vs_development_images`.
 - After the update has been completed, you can use the command
   :code:`"rauc status mark-active other && reboot"` to switch back to the chargebyte proprietary
-  software. However, this only works as long as the partition with chargebyte\'s proprietary
+  software. However, this only works as long as the partition with chargebyte's proprietary
   charging stack has not been overwritten with another firmware image.
 - Files that are stored under :code:`"/srv"` are retained during the update process.
 
@@ -301,9 +300,9 @@ There are two types of firmware images available for Charge Control C devices:
   production use. The image size is optimized for production use and contains only the necessary
   components.
 - Development images: These images are used for development purposes and are not tested or verified
-  by chargebyte. They are intended for developers who want to test new features or changes before
-  they are released. The image size is larger than the release image and contains additional
-  components that are not necessary for production use.
+  by chargebyte. They are intended for developers who want to implement and test new features or
+  applications before they are released. The image size is larger than the release image and
+  contains additional development tools and libraries that are not necessary for production use.
 
 .. note::
    Before installation of a chargebyte EVerest image, please check whether you are installing a

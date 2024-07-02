@@ -23,7 +23,7 @@ Is it possible to use the Charge Control C as a DC charge controller?
 Yes, for prototypes it’s possible to use the Charge Control C as DC SECC for DIN 70121 or ISO 15118.
 But the Charge Control C was designed with the AC use case in mind.
 
-   
+
 How can I use CAN with Charge Control C?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -44,6 +44,7 @@ Is it possible to upgrade the firmware from proprietary stack to EVerest and vic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Yes it is, but be aware that the configuration and database files will not be converted.
+For more information, please refer to the :ref:`update_from_chargebyte_to_everest` section.
 
 
 How can I access the EVerest admin panel on Charge Control C?

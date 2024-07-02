@@ -204,8 +204,8 @@ configuration.
 
 The configuration files of the EVerest charging stack are stored in the directory "/etc/everest".
 EVerest uses the YAML format for the configuration files. EVerest runs as a systemd service that
-uses by default "/etc/everest/config.yaml" as a configuration setup. If you take a look at the
-content of the configuration file, you will see that there is only a reference to the
+by default uses "/etc/everest/config.yaml" as a configuration setup. If you take a look at the
+content of the configuration file, you will see that it is only a reference to the
 "bsp-only.yaml" file.
 
 .. note::
