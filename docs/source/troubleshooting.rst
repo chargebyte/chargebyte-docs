@@ -46,6 +46,11 @@ Is it possible to upgrade the firmware from proprietary stack to EVerest and vic
 Yes it is, but be aware that the configuration and database files will not be converted.
 For more information, please refer to the :ref:`update_from_chargebyte_to_everest` section.
 
+.. note::
+   Before installation of a chargebyte EVerest image, please check whether you are installing a
+   developer or release image and prepare the Charge Control C accordingly. How to do this is
+   explained in the :ref:`release_vs_development_images` section.
+
 
 How can I access the EVerest admin panel on Charge Control C?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

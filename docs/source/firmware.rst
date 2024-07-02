@@ -281,13 +281,15 @@ to EVerest-based charging stack:
   such an update process cannot keep any configuration and uses factory defaults. Only some basic
   Linux configuration files (SSH keys, hostname and similar) are kept when switching between EVerest
   and proprietary stacks.
-- Befor updating to EVerest, please check if you are installing a developer image or a release
-  image. For more information, see the section :ref:`release_vs_development_images`.
+- **Attention!** Before updating to EVerest, please check if you are installing a developer image or
+  a release image. For more information, see the section :ref:`release_vs_development_images`.
 - After the update has been completed, you can use the command
   :code:`"rauc status mark-active other && reboot"` to switch back to the chargebyte proprietary
   software. However, this only works as long as the partition with chargebyte's proprietary
   charging stack has not been overwritten with another firmware image.
 - Files that are stored under :code:`"/srv"` are retained during the update process.
+- The update process of a chargebyte EVerest image also copies important files from the current file
+  system to the new system. These files are listed in the section :ref:`firmware_update_considerations`
 
 .. _release_vs_development_images:
 
