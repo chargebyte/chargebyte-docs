@@ -339,14 +339,14 @@ the current/active system partition to the partition with the newer/updated syst
 configuration allows to configure paths to many configuration files freely, customers should keep in
 mind that only the following files and directories are handled automatically during a firmware update:
 
-- file: /etc/everest/config.yaml
-- file: /etc/everest/ocpp-config.json
-- directory: /etc/everest/user-config
-- directory: /etc/everest/certs
-- directory: /var/lib/everest
-- directory: /etc/systemd/network
-- file: /etc/hostapd/hostapd.conf
-- file: /etc/shadow (only the root password)
+- file: :code:`/etc/everest/config.yaml`
+- file: :code:`/etc/everest/ocpp-config.json`
+- directory: :code:`/etc/everest/user-config`
+- directory: :code:`/etc/everest/certs`
+- directory: :code:`/var/lib/everest`
+- directory: :code:`/etc/systemd/network`
+- file: :code:`/etc/hostapd/hostapd.conf`
+- file: :code:`/etc/shadow` (only the root password)
 
 A complete list of copied files and directories during a firmware update can be found in the
 "meta-chargebyte-everest" github repository in the `bundles/core-bundels/post-install.d 
@@ -389,8 +389,8 @@ directory.
    It is assumed that only either OCPP or OCPP201 module is operational at the same time.
 
 .. note::
-   Please note, that in case /etc/everest/config.yaml is a symlink, after a firmware update it is
-   resolved and created as plain file on the updated system.
+   Please note, that in case :code:`/etc/everest/config.yaml` is a symlink, after a firmware update
+   it is resolved and created as plain file on the updated system.
 
 Update via USB
 --------------
