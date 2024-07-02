@@ -327,6 +327,68 @@ There are two types of firmware images available for Charge Control C devices:
       cd /etc/rauc
       ln -sf i2se-release.crt keyring.pem
 
+.. _firmware_update_considerations:
+
+Firmware Update Considerations
+------------------------------
+
+During a firmware update, several configuration files and runtime data files are copied over from
+the current/active system partition to the partition with the newer/updated system. Since the EVerest
+configuration allows to configure paths to many configuration files freely, customers should keep in
+mind that only the following files and directories are handled automatically during a firmware update:
+
+- file: /etc/everest/config.yaml
+- file: /etc/everest/ocpp-config.json
+- directory: /etc/everest/user-config
+- directory: /etc/everest/certs
+- directory: /var/lib/everest
+- directory: /etc/systemd/network
+- file: /etc/hostapd/hostapd.conf
+- file: /etc/shadow (only the root password)
+
+A complete list of copied files and directories during a firmware update can be found in the
+"meta-chargebyte-everest" github repository in the `bundles/core-bundels/post-install.d 
+<https://github.com/chargebyte/meta-chargebyte-everest/blob/kirkstone/bundles/core-bundle/post-install.d>`_
+directory.
+
+.. note::
+   Please take special care of the following EVerest module configuration keys, ensuring that they
+   point to file system locations which are saved as listed above.
+
+   .. list-table:: List of configuration keys pointing to configuration files and directories
+      :header-rows: 1
+
+      * - EVerest Module
+        - Configuration Key
+        - Recommended Content
+      * - OCPP
+        - ChargePointConfigPath
+        - :code:`/etc/everest/ocpp-config.json`
+      * - OCPP
+        - UserConfigPath
+        - :code:`/var/lib/everest/ocpp16/user-config.json`
+      * - OCPP
+        - DatabasePath
+        - :code:`/var/lib/everest/ocpp16`
+      * - OCPP201
+        - ChargePointConfigPath
+        - :code:`/etc/everest/ocpp-config.json`
+      * - OCPP201
+        - CertsPath
+        - :code:`/etc/everest/certs`
+      * - OCPP201
+        - CoreDatabasePath
+        - :code:`/var/lib/everest/ocpp201`
+      * - OCPP201
+        - DeviceModelDatabasePath
+        - :code:`/var/lib/everest/ocpp201/device_model_storage.db`
+
+.. note::
+   It is assumed that only either OCPP or OCPP201 module is operational at the same time.
+
+.. note::
+   Please note, that in case /etc/everest/config.yaml is a symlink, after a firmware update it is
+   resolved and created as plain file on the updated system.
 
 Update via USB
 --------------
