@@ -273,23 +273,23 @@ to EVerest-based charging stack:
   `Charge Control C Download Section <https://chargebyte.com/controllers-and-modules/evse/charge-control-c#downloads>`_.
 - A note about configuration files:
   When updating from chargebyte's proprietary charging stack to this EVerest-based charging stack,
-  the configuration files are not preserved and you start with a basic, default EVerest configuration.
+  the configuration files (e.g. the :code:`"/etc/secc/customer.json"`) are not preserved and you
+  start with a basic, default EVerest configuration.
   It is therefore inevitable that Everest must be reconfigured after starting the board.
   In the worst case EVerest stack does not start up correctly. Also note, that the return path from
   EVerest to chargebyte's proprietary charging stack (when doing a firmware update) is affected:
   since the EVerest configuration files differ significantly from chargebyte's proprietary ones,
-  such an update process cannot keep any configuration and uses factory defaults. Only some basic
-  Linux configuration files (SSH keys, hostname and similar) are kept when switching between EVerest
-  and proprietary stacks.
+  such an update process cannot keep any configuration and uses factory defaults.
+- The update process of a chargebyte EVerest image also copies important files and directories
+  (like the root password and the network configuration) from the current file system to the new system.
+  These are listed in the section :ref:`firmware_update_considerations`.
+- Files that are stored under :code:`"/srv"` are retained during the update process.
 - **Attention!** Before updating to EVerest, please check if you are installing a developer image or
   a release image. For more information, see the section :ref:`release_vs_development_images`.
 - After the update has been completed, you can use the command
   :code:`"rauc status mark-active other && reboot"` to switch back to the chargebyte proprietary
   software. However, this only works as long as the partition with chargebyte's proprietary
   charging stack has not been overwritten with another firmware image.
-- Files that are stored under :code:`"/srv"` are retained during the update process.
-- The update process of a chargebyte EVerest image also copies important files from the current file
-  system to the new system. These files are listed in the section :ref:`firmware_update_considerations`
 
 .. _release_vs_development_images:
 
@@ -339,14 +339,28 @@ the current/active system partition to the partition with the newer/updated syst
 configuration allows to configure paths to many configuration files freely, customers should keep in
 mind that only the following files and directories are handled automatically during a firmware update:
 
-- file: :code:`/etc/everest/config.yaml`
-- file: :code:`/etc/everest/ocpp-config.json`
-- directory: :code:`/etc/everest/user-config`
-- directory: :code:`/etc/everest/certs`
-- directory: :code:`/var/lib/everest`
-- directory: :code:`/etc/systemd/network`
-- file: :code:`/etc/hostapd/hostapd.conf`
-- file: :code:`/etc/shadow` (only the root password)
+.. list-table:: List of files/directories copied during a firmware update
+   :header-rows: 1
+
+   * - File/Directory
+     - Description
+   * - file: :code:`/etc/everest/config.yaml`
+     - EVerest configuration file
+   * - file: :code:`/etc/everest/ocpp-config.json`
+     - OCPP configuration file
+   * - directory: :code:`/etc/everest/user-config`
+     - User specific configuration files. The config file must have the same name as in the parent
+       directory ("config.yaml").
+   * - directory: :code:`/etc/everest/certs`
+     - Certificates directory, mainly for TLS and Plug&Charge
+   * - directory: :code:`/var/lib/everest`
+     - OCPP database
+   * - directory: :code:`/etc/systemd/network`
+     - Network configuration
+   * - file: :code:`/etc/hostapd/hostapd.conf`
+     - Hostapd configuration
+   * - file: :code:`/etc/shadow`
+     - Copies only the root password
 
 A complete list of copied files and directories during a firmware update can be found in the
 "meta-chargebyte-everest" github repository in the `bundles/core-bundels/post-install.d 
