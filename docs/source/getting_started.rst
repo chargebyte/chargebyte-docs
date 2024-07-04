@@ -176,6 +176,26 @@ Here are the steps to connect to the Charge Control C via serial interface using
     Figure: PuTTY Save Serial Connection
 
 
+Firmware Update
+^^^^^^^^^^^^^^^
+
+Before you start the initial configuration of the Charge Control C, it is recommended to update the
+firmware to the latest version. The firmware update process is explained in the
+:ref:`firmware_update` section. If necessary, please update the firmware to the latest version.
+
+.. note::
+   The firmware image can be obtained by contacting the `chargebyte
+   support desk <https://chargebyte.com/support>`_.
+
+.. note::
+   Before installation of a chargebyte EVerest image, please check whether you are installing a
+   developer or release image and prepare the Charge Control C accordingly. How to do this is
+   explained in the :ref:`release_vs_development_images` section.
+
+.. note::
+   In case you are updating from a chargebyte proprietary image to a chargebyte EVerest image,
+   please read the :ref:`update_from_chargebyte_to_everest` section carefully.
+
 Initial Configuration
 ---------------------
 
@@ -183,9 +203,10 @@ Now you are connected to the Charge Control C and we can take a deeper look at t
 configuration.
 
 The configuration files of the EVerest charging stack are stored in the directory "/etc/everest".
-EVerest uses the YAML format for the configuration files. The default configuration file of EVerest
-is the config.yaml. If you take a look at the content of the configuration file, you will see that
-there is only a reference to the "bsp-only.yaml" file.
+EVerest uses the YAML format for the configuration files. EVerest runs as a systemd service that
+by default uses "/etc/everest/config.yaml" as a configuration setup. If you take a look at the
+content of the configuration file, you will see that it is only a reference to the
+"bsp-only.yaml" file.
 
 .. note::
    If you create an own configuration file, you can also store it in the "/etc/everest" directory

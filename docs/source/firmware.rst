@@ -164,6 +164,8 @@ This assumes that the first step has successfully ended, and the file :code:`/et
 
      openssl smime -verify -no_check_time -inform DER -CAfile <your_CA_certificate>.crt -content autorun.sh -in autorun.sh.p7s
 
+.. _firmware_update:
+
 Firmware Upgrade
 ================
 
@@ -256,6 +258,153 @@ The internal eMMC storage of a Charge Control device is divided into several par
    <div style="text-align: center;">
      Filesystem Mountpoints
    </div>
+
+.. _update_from_chargebyte_to_everest:
+
+Updating from chargebyte's proprietary charging stack to EVerest-based charging stack
+-------------------------------------------------------------------------------------
+
+The following information is important when updating from chargebyte's proprietary charging stack
+to EVerest-based charging stack:
+
+- Please ensure that you have at least installed chargebyte\'s proprietary charging stack v3.x.x,
+  before switching your board to EVerest and that this firmware booted once before the update.
+  Latest firmware can be found here:
+  `Charge Control C Download Section <https://chargebyte.com/controllers-and-modules/evse/charge-control-c#downloads>`_.
+- A note about configuration files:
+  When updating from chargebyte's proprietary charging stack to this EVerest-based charging stack,
+  the configuration files (e.g. the :code:`"/etc/secc/customer.json"`) are not preserved and you
+  start with a basic, default EVerest configuration.
+  It is therefore inevitable that Everest must be reconfigured after starting the board.
+  In the worst case EVerest stack does not start up correctly. Also note, that the return path from
+  EVerest to chargebyte's proprietary charging stack (when doing a firmware update) is affected:
+  since the EVerest configuration files differ significantly from chargebyte's proprietary ones,
+  such an update process cannot keep any configuration and uses factory defaults.
+- The update process of a chargebyte EVerest image also copies important files and directories
+  (like the root password and the network configuration) from the current file system to the new system.
+  These are listed in the section :ref:`firmware_update_considerations`.
+- Files that are stored under :code:`"/srv"` are retained during the update process.
+- **Attention!** Before updating to EVerest, please check if you are installing a developer image or
+  a release image. For more information, see the section :ref:`release_vs_development_images`.
+- After the update has been completed, you can use the command
+  :code:`"rauc status mark-active other && reboot"` to switch back to the chargebyte proprietary
+  software. However, this only works as long as the partition with chargebyte's proprietary
+  charging stack has not been overwritten with another firmware image.
+
+.. _release_vs_development_images:
+
+Release Images vs Development Images
+-------------------------------------
+
+There are two types of firmware images available for Charge Control C devices:
+
+- Release images: These images are tested and verified by chargebyte and are recommended for
+  production use. The image size is optimized for production use and contains only the necessary
+  components.
+- Development images: These images are used for development purposes and are not tested or verified
+  by chargebyte. They are intended for developers who want to implement and test new features or
+  applications before they are released. The image size is larger than the release image and
+  contains additional development tools and libraries that are not necessary for production use.
+
+.. note::
+   Before installation of a chargebyte EVerest image, please check whether you are installing a
+   developer or release image. In order to update the firmware with a chargebyte EVerest developer
+   image, the developer key must be set in the :code:`"/etc/rauc"` directory to pass the internal
+   validation process of the RAUC firmware update mechanism. The image type can be identified by the
+   file name.
+
+   Depending on the image type, the key must be adapted as follows:
+   
+   Change to developer key:
+
+   .. code-block:: bash
+
+      cd /etc/rauc
+      ln -sf i2se-devel.crt keyring.pem
+
+   Change to release key:
+
+   .. code-block:: bash
+
+      cd /etc/rauc
+      ln -sf i2se-release.crt keyring.pem
+
+.. _firmware_update_considerations:
+
+Firmware Update Considerations
+------------------------------
+
+During a firmware update, several configuration files and runtime data files are copied over from
+the current/active system partition to the partition with the newer/updated system. Since the EVerest
+configuration allows to configure paths to many configuration files freely, customers should keep in
+mind that only the following files and directories are handled automatically during a firmware update:
+
+.. list-table:: List of files/directories copied during a firmware update
+   :header-rows: 1
+
+   * - File/Directory
+     - Description
+   * - file: :code:`/etc/everest/config.yaml`
+     - EVerest configuration file
+   * - file: :code:`/etc/everest/ocpp-config.json`
+     - OCPP configuration file
+   * - directory: :code:`/etc/everest/user-config`
+     - User specific configuration files. The config file must have the same name as in the parent
+       directory ("config.yaml").
+   * - directory: :code:`/etc/everest/certs`
+     - Certificates directory, mainly for TLS and Plug&Charge
+   * - directory: :code:`/var/lib/everest`
+     - OCPP database
+   * - directory: :code:`/etc/systemd/network`
+     - Network configuration
+   * - file: :code:`/etc/hostapd/hostapd.conf`
+     - Hostapd configuration
+   * - file: :code:`/etc/shadow`
+     - Copies only the root password
+
+A complete list of copied files and directories during a firmware update can be found in the
+"meta-chargebyte-everest" github repository in the `bundles/core-bundels/post-install.d 
+<https://github.com/chargebyte/meta-chargebyte-everest/blob/kirkstone/bundles/core-bundle/post-install.d>`_
+directory.
+
+.. note::
+   Please take special care of the following EVerest module configuration keys, ensuring that they
+   point to file system locations which are saved as listed above.
+
+   .. list-table:: List of configuration keys pointing to configuration files and directories
+      :header-rows: 1
+
+      * - EVerest Module
+        - Configuration Key
+        - Recommended Content
+      * - OCPP
+        - ChargePointConfigPath
+        - :code:`/etc/everest/ocpp-config.json`
+      * - OCPP
+        - UserConfigPath
+        - :code:`/var/lib/everest/ocpp16/user-config.json`
+      * - OCPP
+        - DatabasePath
+        - :code:`/var/lib/everest/ocpp16`
+      * - OCPP201
+        - ChargePointConfigPath
+        - :code:`/etc/everest/ocpp-config.json`
+      * - OCPP201
+        - CertsPath
+        - :code:`/etc/everest/certs`
+      * - OCPP201
+        - CoreDatabasePath
+        - :code:`/var/lib/everest/ocpp201`
+      * - OCPP201
+        - DeviceModelDatabasePath
+        - :code:`/var/lib/everest/ocpp201/device_model_storage.db`
+
+.. note::
+   It is assumed that only either OCPP or OCPP201 module is operational at the same time.
+
+.. note::
+   Please note, that in case :code:`/etc/everest/config.yaml` is a symlink, after a firmware update
+   it is resolved and created as plain file on the updated system.
 
 Update via USB
 --------------
