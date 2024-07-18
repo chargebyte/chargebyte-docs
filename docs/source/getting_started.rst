@@ -184,8 +184,7 @@ firmware to the latest version. The firmware update process is explained in the
 :ref:`firmware_update` section. If necessary, please update the firmware to the latest version.
 
 .. note::
-   The firmware image can be obtained by contacting the `chargebyte
-   support desk <https://chargebyte.com/support>`_.
+   How to download the firmware image is described in the section :ref:`download_firmware_images`.
 
 .. note::
    Before installation of a chargebyte EVerest image, please check whether you are installing a

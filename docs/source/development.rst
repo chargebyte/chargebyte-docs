@@ -113,6 +113,8 @@ directly, or used to `create a firmware image using RAUC <https://github.com/cha
 
 The custom image should now include the new EVerest module.
 
+.. _cross_compiling_for_tarragon:
+
 Cross-compiling for Tarragon
 ============================
 
