@@ -28,6 +28,28 @@ Some general notes and recommendation for custom software development:
 * If you start your project from scratch, have a look at libraries which are already required by EVerest Stack and/or Linux distribution. Re-use these libraries to keep the overall firmware footprint small. The benefit is when updating the boards, it will take less time when transferring the firmware update image and flashing it to internal storage.
 * You need to determine how your software components will interact with the EVerest stack. You can develop your software as an EVerest module and use one of the EVerest interfaces for interaction. Alternatively, you can utilize the simple MQTT-based API provided by the EVerest '`API <https://github.com/EVerest/everest-core/tree/main/modules/API>`_' module, which gives you access to the EVerest stack internals. Check section X to figure out how to create an EVerest module.
 
+
+.. _download_firmware_images:
+
+Download Firmware Images
+------------------------
+
+Firmware images are released by chargebyte on our meta-chargebyte-everest repository, which is the
+Yocto layer to build the firmware images for Charge Control C. The image files can be found
+in the `"Release" section <https://github.com/chargebyte/meta-chargebyte-everest/releases>`_ of the
+repository. Here you can find the latest firmware images for Charge Control C and also older
+released versions.
+
+.. note::
+
+  Please read the release notes of the firmware image before downloading and installing it. In the
+  release notes you can find information about the changes and new features of the firmware image and
+  also the version information which "everest-core" tag the firmware image is based on. This information
+  is especially important if you build up your cross-compile environment in section :ref:`cross_compiling_for_tarragon`.
+  Please check that your cross-compile environment is using the same "everest-core" tag as the firmware
+  image you want to install.
+
+
 .. _firmware_customization:
 
 Firmware Update Customization and Signing
@@ -38,7 +60,7 @@ After making sure that the customized software is working on the board, there mi
 **Steps:**
 
 #. Download chargebyte's digital certificate found on `our website <https://chargebyte.com/controllers-and-modules/evse/charge-control-c>`_ which is used to validate distributed firmware update images.
-#. Use the latest firmware update image we provided or download it from the product's download section on the website.
+#. Use the latest firmware image. How to download the firmware image is described in the section :ref:`download_firmware_images`.
 #. Download and install RAUC tool for the host environment; follow the guide here: https://github.com/rauc/rauc/#host-build-prerequisites. It is also possible, that your Linux distribution already ships with pre-compiled packages which just need to be installed with your package management system. In this case, you can skip this step.
 
    .. code-block:: console
