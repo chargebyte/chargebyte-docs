@@ -230,7 +230,14 @@ Just type "less /etc/everest/bsp-only.conf" to see the content of the configurat
 In general, the EVerest charging stack consists of different modules, each of which fulfills a
 specific task. An EVerest module provides and requests interfaces. The configuration file shows
 which EVerest modules are activated, how they are configured and how they are connected to each
-other over the interfaces.
+other over the interfaces. The following figure illustrates how the EVerest modules are connected
+to each other:
+
+.. figure:: _static/images/admin_panel_bsp_only.png
+    :width: 500pt
+    :name: admin_panel_bsp_only
+
+    Figure: EVerest admin panel view of the bsp-only.yaml configuration
 
 However, not all configuration parameters of the modules are shown here. Only the configuration
 parameters that do not match the default configuration of the respective module need
