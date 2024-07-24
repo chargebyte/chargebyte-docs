@@ -357,9 +357,18 @@ Firmware Update Considerations
 ------------------------------
 
 During a firmware update, several configuration files and runtime data files are copied over from
-the current/active system partition to the partition with the newer/updated system. Since the EVerest
-configuration allows to configure paths to many configuration files freely, customers should keep in
-mind that only the following files and directories are handled automatically during a firmware update:
+the current/active system partition to the partition with the newer/updated system.
+
+To migrate single configuration keys of a YAML-based EVerest configuration file, chargebyte has
+introduced a migration mechanism. This mechanism allows migrating single configuration keys from one
+release to another. The migration mechanism is based on Bourne shell scripts (ending in ".sh") which
+are placed in the directory :code:`"/usr/libexec/everest/migration.d/"`. These scripts are executed before
+the launch of the EVerest stack. Please see the initial scripts in that location for how to ensure
+that they only get executed once.
+
+Since the EVerest configuration allows to configure paths to many configuration files freely, customers
+should keep in mind that only the following files and directories are handled automatically during a
+firmware update:
 
 .. list-table:: List of files/directories copied during a firmware update
    :header-rows: 1
