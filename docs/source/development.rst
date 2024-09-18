@@ -119,8 +119,11 @@ Cross-compiling for Tarragon
 ============================
 
 Another way to integrate custom applications into the firmware image is to cross-compile the application
-for Tarragon and include it in the image. A pre-requisite for this is to have the latest firmware image,
-preferably a developer build.
+for Tarragon and include it in the image. A pre-requisite for this is to have the latest firmware image
+as a developer build. Always keep in mind, if you want to build a new EVerest module it must be
+compatible to the EVerest release within the firmware. Please have a look at the official
+`EVerest documentation <https://everest.github.io/nightly/dev_tools/edm.html#setting-up-and-updating-a-workspace>`_,
+how to checkout a dedicated EVerest release.
 
 #. On an Ubuntu or Debian-based Linux distribution, install the cross-compilers for Tarragon.
 
@@ -161,7 +164,7 @@ preferably a developer build.
       set(CMAKE_SYSTEM_PROCESSOR arm)
 
       set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-psabi" CACHE STRING "" FORCE )
-      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-psabi"  CACHE STRING "" FORCE )
+      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-psabi" CACHE STRING "" FORCE )
 
       if(CMAKE_BUILD_TYPE MATCHES Debug)
           # Debug flags

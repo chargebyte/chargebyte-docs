@@ -104,6 +104,16 @@ Then copy the device model database onto the Charge Control C (adapt IP address 
 Finally make sure the DeviceModelDatabasePath in your global YAML configuration points to
 /var/lib/everest/ocpp201/device_model_storage.db and then restart EVerest on the Charge Control C.
 
+I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can it fix this?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The EVerest mainline development is very dynamic and doesn't guarantee any
+stable API along the EVerest modules. So after almost every EVerest release,
+chargebyte needs to adapt their modules to the latest API changes.
+
+Please have a look at the `compatibility matrix <https://github.com/chargebyte/everest-chargebyte/blob/main/README.md>`_
+to see which EVerest release works with which chargebyte EVerest Modules release.
+
 
 I would like to implement a custom Modbus device in EVerest. Where should I start?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
