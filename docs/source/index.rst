@@ -24,5 +24,6 @@ Charge Control C.
    hardware
    firmware
    everest_charging_stack
+   cb_energy
    development
    troubleshooting
