@@ -1,8 +1,8 @@
 .. _cb_energy.rst:
 
-*********
+**********************
 CB energy
-*********
+**********************
 
 .. _introduction_nymea:
 
@@ -18,7 +18,7 @@ The main application of the nymea:core is to connect the wallbox with 3rd party 
 * overload protection
 * surplus charging
 * energy management
-* spotmarket charging
+* spot market charging
 * remote access
 * providing charging reports
 * target time charging
@@ -34,12 +34,16 @@ from chargebyte GmbH. For more information have a look `on our website <https://
 
 Both parts have to be in the same network. In order to monitor and control the wallboxes, the Everest charging stack is needed. The Everest stack provides an API module, that is used by CB Energy either on localhost (on the same hardware) or to access other instances in the same local network. 
 
-Note: This documentation is a quick start to get the nymea ecosystem running as fast as possible with Everest charging stack. If you are about to test CB Energy on one of chargebyte's Linux controllers, both EVerest and CB Energy are preinstalled in the latest firmware images. A more detailed documentation can be found `here <https://nymea.io>`_.
+Note: This documentation is a quick start to get the nymea ecosystem running as fast as possible with Everest charging stack. If you are about to test CB Energy on one of chargebyte's Linux controllers, both EVerest and CB Energy are preinstalled in the latest firmware images. A more detailed documentation can be found `on the nymea website <https://nymea.io>`_.
+
+.. important::
+  The `API module <https://github.com/EVerest/everest-core/tree/main/modules/API>`_ must be installed and active in the EVerest configuration.
+
 
 .. _cb_energy_app:
 
 CB energy app
-==========
+=============
 
 The CB energy app can be installed from the official stores.
 
@@ -122,7 +126,7 @@ Basically, you don't need solar inverters or meters for controlling the wallbox.
 The final steps of the wizard are
 
 * to set a grid limit for overload protection
-* add your initial EV parametres with name, netto battery capacity and minimum charging current as well as phase count of the on-board-charger
+* add your initial EV parameters with name, netto battery capacity and minimum charging current as well as phase count of the on-board-charger
 
 .. figure:: _static/images/cbenergy/setup-final.png
 
