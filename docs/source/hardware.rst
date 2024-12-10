@@ -1317,6 +1317,9 @@ One sense input for every switched load is supported.
 Both sense inputs need reference to Neutral (N). Leave it open for "inactive" feedback. Tie it to Neutral (N) for
 "active" feedback.
 
+It's necessary to connect a phase to COM_L connector to get the sense inputs working.
+
+
 
 JP1 - Bootmode Jumper
 =====================
