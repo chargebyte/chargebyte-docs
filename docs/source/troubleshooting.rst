@@ -65,10 +65,7 @@ Does EVerest on Charge Control C support ISO 15118-20 yet?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The required module for ISO 15118-20 has been included in the image since the chargebyte EVerest 1.0.0 release.
-The implementation is still under development and integrated into the image only for test purposes.
-Please not that it is currently not possible to support ISO 15118-20 together with the other
-protocols DIN 70121 and ISO15118-2. This is due to architectural reasons and will be fixed in a future
-release.
+Please note that the implementation is still under development and integrated into the image only for test purposes.
 
 
 How do I set up OCPP 2.0.1 on Charge Control C with EVerest?
