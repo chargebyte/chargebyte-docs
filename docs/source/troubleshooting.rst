@@ -64,11 +64,8 @@ file or just use a plain text editor.
 Does EVerest on Charge Control C support ISO 15118-20 yet?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ISO15118-20 implementation is currently still under development and not yet included in
-our EVerest releases. The implementation is located on a 
-`test branch of the everest-core repository <https://github.com/EVerest/everest-core/tree/testing/iso15118-20>`_.
-As soon as the implementation has been merged to the main branch, we will include this module in the
-next release cycle.
+The required module for ISO 15118-20 has been included in the image since the chargebyte EVerest 1.0.0 release.
+Please note that the implementation is still under development and integrated into the image only for test purposes.
 
 
 How do I set up OCPP 2.0.1 on Charge Control C with EVerest?
