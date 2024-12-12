@@ -203,9 +203,6 @@ https://everest.github.io/nightly/_generated/modules/SerialCommHub.html.
     * - Eastron SDM230
     * - Eastron SDM630 v2
     * - Klefr 693x/694x
-    * - Bauer powermeter (SunSpec compatible)
-      - PowermeterBSM
-      - Yes / Can also be used without (see :ref:`Other Powermeter Modules <bsmpowermeter>`)
     * - :cspan:`2`
     * - :cspan:`2` **RFID reader**
     * - StrongLink SL032 Modbus (proprietary UART protocol is not supported)
@@ -259,11 +256,6 @@ of the peripherals and/or change the configuration of SerialCommHub to make it w
       - none
       - 33
       -
-    * - Bauer powermeter (SunSpec compatible)
-      - 19200
-      - even
-      - 1
-      -
     * - StrongLink SL032 (with customized Modbus protocol)
       - 9600
       - none
@@ -314,19 +306,6 @@ The PowermeterIskra_WM3M4C module is a dedicated powermeter module for Iskra WM3
 * Frequency
 
 |
-
-.. _bsmpowermeter:
-
-**PowermeterBSM**
-
-The *PowermeterBSM* module is a dedicated powermeter module for Bauer product [Bauer]_
-and compatible with SunSpec protocol.
-The configuration can be found on https://everest.github.io/nightly/_generated/modules/PowermeterBSM.html.
-
-**Note:** In order to use this module connected to the *SerialCommHub* module, responsible for low level communication,
-configuration parameter *use_serial_comm_hub* must be set to *true*.
-
-.. [Bauer] https://www.bzr-bauer.de/produkte/bsm-e-mobilitaet/
 
 General Assumptions
 -------------------
