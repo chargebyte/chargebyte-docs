@@ -131,7 +131,7 @@ how to checkout a dedicated EVerest release.
 
       sudo apt install build-essential libc6-armhf-cross libc6-dev-armhf-cross binutils-arm-linux-gnueabihf gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 
-#. Download chargebyte's `digital certificate <https://chargebyte.com/controllers-and-modules/evse/charge-control-c>`_
+#. Download chargebyte's `digital certificate <https://chargebyte.com/controllers-and-modules/evse-controllers/charge-control-c#downloads>`_
    and use it to extract the root filesystem from the firmware image.
 
    .. code-block:: console
