@@ -1,59 +1,245 @@
 @import '../classic.css';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-.sphinxsidebar {
-  background-color: #3c3c46;
+body {
+  background-color: #162235 !important;
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.document .bodywrapper {
+  background-color: #162235 !important;
+}
+
+.document .bodywrapper .body {
+  background-color: rgba(17, 24, 39, 0.5) !important;
+  width: 100% !important;
+  max-width: 92% !important;
+  font-family: "Open Sans", sans-serif !important;
+  color: #fff !important;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset !important;
+}
+
+.document .bodywrapper .body p {
+  font-size: 18px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 100 !important;
+  line-height: 1.5 !important;
+}
+
+.document .bodywrapper .body p span.caption-text {
+  font-size: 30px !important;
+}
+
+.document .bodywrapper .body p strong,
+.document .bodywrapper .body p a span {
+  color: #ff8200 !important;
+  font-size: 20px !important;
+}
+
+.document .bodywrapper .body .toctree-wrapper.compound ul li.toctree-l1 a {
+  color: #ff8200 !important;
+  font-size: 24px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 100 !important;
+  line-height: 2 !important;
+}
+
+.document .bodywrapper .body .toctree-wrapper.compound ul li ul li.toctree-l2 a {
+  font-family: "Open Sans", sans-serif !important;
+  color: #fff !important;
+  font-size: 18px !important;
+}
+
+.document .sphinxsidebar {
+  background-color: #162235 !important;
+}
+
+.document .sphinxsidebar .sphinxsidebarwrapper .logo {
+  margin: 0 !important;
+}
+
+.document .sphinxsidebar .sphinxsidebarwrapper h4 {
+  font-size: 18px !important;
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.document .sphinxsidebar .sphinxsidebarwrapper .topless a {
+  font-size: 18px !important;
+  font-family: "Open Sans", sans-serif !important;
+  color: #fff !important;
+}
+
+.document .sphinxsidebar .sphinxsidebarwrapper p {
+  margin: 5px 10px 10px 0px !important;
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.document .sphinxsidebar .sphinxsidebarwrapper #searchlabel {
+  font-size: 18px !important;
+  font-family: "Open Sans", sans-serif !important;
+  color: #fff !important;
+}
+
+.document .bodywrapper h1 {
+  font-size: 50px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 800 !important;
+  background-color: transparent !important;
+  color: #fff !important;
+  text-align: center !important;
+}
+
+.document .bodywrapper h2 {
+  font-size: 36px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-bottom: none !important;
+  background-color: #141d2e !important;
+  color: #ff8200 !important;
+}
+
+.document .bodywrapper h3 {
+  font-size: 30px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #141d2e !important;
+  color: #fff !important;
+  width: fit-content !important;
+}
+
+.document .bodywrapper h4 {
+  font-size: 26px !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #ff8200 !important;
+  border-bottom: none !important;
+  color: #fff !important;
+}
+
+.document .bodywrapper .highlight {
+  background: #162235 !important;
+}
+
+.related {
+  background-color: #162235 !important;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
 }
 
 .related ul {
-  background-color: #36363e;
+  background-color: #162235 !important;
 }
 
-div.document {
-  background-color: #3c3c46;
+.related ul li {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  font-family: "Open Sans", sans-serif !important;
 }
 
-div.body {
-  min-width: 50%;
-  max-width: 80%;
+.related ul li.right a {
+  text-transform: capitalize;
+  padding: 10px 15px;
+  background-color: #ff8200;
+  border-radius: 5px;
+}
+
+.related ul li.right a:hover {
+  padding: 11px 17px;
+  text-decoration: none;
 }
 
 .footer {
-  background-color: #3c3c46;
+  background-color: #111827 !important;
 }
 
-html {
-  background-color: #3c3c46;
+.document .bodywrapper .warning {
+  background-color: #1c354f !important;
+  padding: 20px 10px !important;
 }
 
-table.docutils {
-  border: 1px solid #aaa;
+.document .bodywrapper th,
+dl.field-list>dt {
+  background-color: #1c354f !important;
 }
 
-table.docutils td {
-  border-right: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
+.document .bodywrapper .note {
+  background-color: #1c354f !important;
 }
 
-table.docutils th {
-  border-right: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
+.document .bodywrapper .highlight .go {
+  color: #aaa !important
 }
 
-table.docutils th p {
-  text-align: left;
-  font-size: 1.1em;
+.document .bodywrapper code {
+  background-color: #284a6d !important;
 }
 
-table.docutils td p {
-  text-align: left;
-}
+@media only screen and (max-width: 600px) {
+  .document .bodywrapper {
+    margin: 0 0 0 150px !important;
+  }
 
-figcaption p span.caption-text {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
+  .document .bodywrapper .body {
+    max-width: 78% !important;
+  }
 
-.line {
-  text-align: center;
+  .document h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 25px !important;
+  }
+
+  .document .bodywrapper h2 {
+    font-size: 23px !important;
+  }
+
+  .document .bodywrapper h3 {
+    font-size: 21px !important;
+  }
+
+  .document .bodywrapper h4 {
+    font-size: 19px !important;
+  }
+
+  .document .sphinxsidebar {
+    width: 150px !important;
+  }
+
+  .document .bodywrapper .body p {
+    font-size: 14px !important;
+  }
+
+  .document .bodywrapper .body p strong,
+  .document .bodywrapper .body p a span {
+    font-size: 17px !important;
+  }
+
+  .document .bodywrapper .body p span.caption-text {
+    font-size: 22px !important;
+  }
+
+  .document .bodywrapper .body .toctree-wrapper.compound ul li.toctree-l1 a {
+    font-size: 20px !important;
+  }
+
+  .document .bodywrapper .body .toctree-wrapper.compound ul {
+    padding: 5px !important;
+  }
+
+  .document .bodywrapper .body .toctree-wrapper.compound ul li ul li.toctree-l2 a {
+    font-size: 16px !important;
+  }
+
+  .document .bodywrapper .body .toctree-wrapper.compound ul li ul {
+    padding: 0 0 0 10px;
+  }
 }
