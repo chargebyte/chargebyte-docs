@@ -2,16 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
-  background-color: #162235 !important;
+  background-color: #111827 !important;
   font-family: "Open Sans", sans-serif !important;
 }
 
 .document .bodywrapper {
-  background-color: #162235 !important;
+  background-color: #111827 !important;
 }
 
 .document .bodywrapper .body {
-  background-color: rgba(17, 24, 39, 0.5) !important;
+  background-color: #111827 !important;
   width: 100% !important;
   max-width: 92% !important;
   font-family: "Open Sans", sans-serif !important;
@@ -51,7 +51,7 @@ body {
 }
 
 .document .sphinxsidebar {
-  background-color: #162235 !important;
+  background-color: #111827 !important;
 }
 
 .document .sphinxsidebar .sphinxsidebarwrapper .logo {
@@ -80,6 +80,10 @@ body {
   color: #fff !important;
 }
 
+.document .sphinxsidebar a {
+  color: #fff !important;
+}
+
 .document .bodywrapper h1 {
   font-size: 50px !important;
   font-family: "Open Sans", sans-serif !important;
@@ -87,6 +91,7 @@ body {
   background-color: transparent !important;
   color: #fff !important;
   text-align: center !important;
+  border-bottom: none !important;
 }
 
 .document .bodywrapper h2 {
@@ -96,7 +101,7 @@ body {
   margin: 0 !important;
   padding: 0 !important;
   border-bottom: none !important;
-  background-color: #141d2e !important;
+  background-color: #111827 !important;
   color: #ff8200 !important;
 }
 
@@ -106,7 +111,7 @@ body {
   font-weight: 600 !important;
   margin: 0 !important;
   padding: 0 !important;
-  background-color: #141d2e !important;
+  background-color: #111827 !important;
   color: #fff !important;
   width: fit-content !important;
 }
@@ -123,7 +128,29 @@ body {
 }
 
 .document .bodywrapper .highlight {
-  background: #162235 !important;
+  background: #153659 !important;
+}
+
+.document .bodywrapper section p a {
+  color: #ff8200 !important;
+}
+
+.document .bodywrapper section img {
+  background: #1c354f;
+}
+
+.document .bodywrapper .highlight .nt {
+  color: #8cb0ff !important;
+}
+
+.document .bodywrapper .highlight .c1,
+.document .bodywrapper .highlight .s,
+.document .bodywrapper .highlight .s2 {
+  color: #fff !important;
+}
+
+.document .bodywrapper .highlight .nb {
+  color: #ff8200 !important;
 }
 
 .related {
@@ -176,7 +203,7 @@ dl.field-list>dt {
 }
 
 .document .bodywrapper .highlight .go {
-  color: #aaa !important
+  color: #ddd !important
 }
 
 .document .bodywrapper code {
