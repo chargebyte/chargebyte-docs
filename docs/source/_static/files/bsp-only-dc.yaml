@@ -1,0 +1,116 @@
+#
+# This is an example configuration for free DC charging
+#
+active_modules:
+  api:
+    module: API
+    connections:
+      evse_manager:
+        - module_id: connector
+          implementation_id: evse
+      error_history:
+        - module_id: error_history
+          implementation_id: error_history
+  bsp:
+    module: CbChargeSOMDriver
+  connector:
+    module: EvseManager
+    config_module:
+      connector_id: 1
+      charge_mode: DC
+      evse_id: DE*CHB*E123456*1
+      evse_id_din: 49A80737A45678
+      session_logging: true
+      session_logging_path: /tmp/everest-logs
+      session_logging_xml: false
+    connections:
+      bsp:
+        - module_id: bsp
+          implementation_id: evse_board_support
+      slac:
+        - module_id: evse_slac
+          implementation_id: main
+      powersupply_DC:
+        - module_id: powersupply_dc
+          implementation_id: main
+      imd:
+        - module_id: imd
+          implementation_id: main
+      hlc:
+        - module_id: iso15118_charger
+          implementation_id: charger
+  energy_manager:
+    module: EnergyManager
+    connections:
+      energy_trunk:
+        - module_id: grid_connection_point
+          implementation_id: energy_grid
+  grid_connection_point:
+    module: EnergyNode
+    config_module:
+      fuse_limit_A: 16
+      phase_count: 3
+    connections:
+      energy_consumer:
+        - module_id: connector
+          implementation_id: energy_grid
+  error_history:
+    module: ErrorHistory
+    config_implementation:
+      error_history:
+        database_path: /tmp/error_history.db
+  iso15118_charger:
+    module: EvseV2G
+    config_module:
+      device: eth1
+    connections:
+      security:
+        - module_id: evse_security
+          implementation_id: main
+  evse_security:
+    module: EvseSecurity
+    config_module:
+      private_key_password: "123456"
+  evse_slac:
+    module: EvseSlac
+    config_implementation:
+      main:
+        device: eth1
+  auth:
+    module: Auth
+    config_module:
+      connection_timeout: 10
+      prioritize_authorization_over_stopping_transaction: true
+      selection_algorithm: PlugEvents
+    connections:
+      token_provider:
+        - module_id: token_provider
+          implementation_id: main
+      token_validator:
+        - module_id: token_validator
+          implementation_id: main
+      evse_manager:
+        - module_id: connector
+          implementation_id: evse
+  powersupply_dc:
+    module: DCSupplySimulator
+  imd:
+    module: IMDSimulator
+  token_provider:
+    module: DummyTokenProvider
+    config_implementation:
+      main:
+        timeout: 10
+        token: DEADBEEF
+        type: RFID
+    connections:
+      evse:
+        - module_id: connector
+          implementation_id: evse
+  token_validator:
+    module: DummyTokenValidator
+    config_implementation:
+      main:
+        sleep: 0.25
+        validation_reason: Token seems valid
+        validation_result: Accepted

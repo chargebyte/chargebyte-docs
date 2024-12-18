@@ -1,8 +1,8 @@
-Charge Control C Product Documentation
-======================================
+Charge SOM Product Documentation
+================================
 
-This is the product documentation project for Charge Control C, a product of chargebyte GmbH.
-This documentation is intended for users, developers, and administrators of Charge Control C.
+This is the product documentation project for the Charge SOM, a product of chargebyte GmbH.
+This documentation is intended for users, developers, and administrators of the Charge SOM.
 This documentation is hosted on Read the Docs and can be accessed at
 https://chargebyte-docs.readthedocs.io/en/latest/.
 
@@ -10,7 +10,7 @@ https://chargebyte-docs.readthedocs.io/en/latest/.
 Contents:
 ---------
 
-- Charge Control C User Guide
+- Charge SOM User Guide
 
 
 Building the documentation locally:
@@ -35,7 +35,7 @@ If you would like to contribute to the documentation, please fork the repository
 request with your changes. Please make sure to follow the guidelines for contributing to the
 documentation:
 
-- The branch name for the pull request should be `everest/ccc_{your_branch_name}`.
+- The branch name for the pull request should be `everest/csom_{your_branch_name}`.
 - Maximum line length should be 120 characters (Preferably 100 characters).
 - Images should be stored in the `docs/source/_static/images` directory
 - CSS files should be stored in the `docs/source/_static/css` directory
@@ -44,7 +44,7 @@ documentation:
 - A documentation file should start with referenceable label of the file name (e.g. ".. _hardware.rst:")
 - Sections and chapters should be separated by one blank line after the title and two blank lines before the title
 - Sections with a chapter title before, need to have only one blank line before the title
-- First letters of section and chapter titles should be capitalized (e.g. "Charge Control C User Guide")
+- First letters of section and chapter titles should be capitalized (e.g. "Charge SOM User Guide")
 
 
 License:
