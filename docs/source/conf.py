@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'chargebyte EVerest SECC documentation'
-copyright = '2024, chargebyte GmbH'
+copyright = '2025, chargebyte GmbH'
 author = 'chargebyte GmbH'
 release = '0.1.0'
 
