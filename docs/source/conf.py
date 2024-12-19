@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Charge SOM User Guide'
-copyright = '2024, chargebyte GmbH'
+copyright = '2025, chargebyte GmbH'
 author = 'chargebyte GmbH'
 
 # -- General configuration ---------------------------------------------------
