@@ -15,3 +15,4 @@ The following list refers to the current product documentation:
    :maxdepth: 2
 
    Charge Control C User Guide <https://chargebyte-docs.readthedocs.io/projects/everest-charge-control-c>
+   Charge SOM User Guide <https://chargebyte-docs.readthedocs.io/projects/everest-charge-som>
