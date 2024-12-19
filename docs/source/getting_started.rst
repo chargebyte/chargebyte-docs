@@ -30,7 +30,7 @@ Hardware Overview
 The following figure shows the basic setup of the DC charger with the Charge SOM Evaluation Kit:
 
 .. figure:: _static/images/dc_charger_charge_som_setup.svg
-    :width: 800pt
+    :width: 900pt
 
     Figure: Basic Setup of the DC charger with the Charge SOM
 
