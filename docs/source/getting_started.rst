@@ -20,7 +20,7 @@ The following hardware components are required to set up the basic DC charger:
 - Charge SOM Evaluation Kit
 - 12 V DC Power Supply
 - Ethernet cable for SSH connection or USB to serial adapter for serial connection
-- DIN70121 or ISO15118-2 EV simulator (e.g. Charge Module S Evaluation board)
+- DIN70121 or ISO15118-2 EV simulator (e.g. `Charge Module S Evaluation board <https://chargebyte.com/controllers-and-modules/evaluation-tools/charge-module-s-evaluation-board>`_. )
 - Wiring material
 
 
@@ -57,7 +57,7 @@ Here are some key points about the boot process of the Charge controller:
   used for storing update bundles, logs, etc.
 - After connecting the Charge controller to the power supply, the U-Boot bootloader starts the
   currently active slot managed by RAUC.
-- The LED status indicators on the Charge controller provide information about the current status of
+- The LED status indicators on the carrier board provide information about the current status of
   the boot process.
 - EVerest is automatically started with the default configuration of chargebyte after the boot
   process is completed. The initial configuration is explained in the `Initial Configuration`_ section.
@@ -66,7 +66,7 @@ Here are some key points about the boot process of the Charge controller:
 Understanding LED Status Indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now you can plug in the Charge SOM Evaluation Kit to the power supply. The LED status indicator on the
+Now you can connect the Charge SOM Evaluation Kit (X24) to the power supply. The LED status indicator on the
 carrier board provide information about the current status of the boot process. The following table
 shows the meaning of the LED status indicators:
 
@@ -142,7 +142,7 @@ directory.
 Each module has a specific configuration file. This file is called "manifest.yaml" and is stored 
 in the main directory of the module.
 Here you can also see all other configuration parameters of the respective module. 
-Now please type "less /usr/libexec/everest/modules/CbChargeSOMDriver/manifest.yaml" to see the
+In order to see the content of the configuration file you can take a look usingNow please type "less /usr/libexec/everest/modules/CbChargeSOMDriver/manifest.yaml" to see the
 content of the configuration file and check whether the configuration fits to your hardware setup.
 
 If you want to change a configuration parameter of a module, which is not part of your EVerest YAML
@@ -286,7 +286,7 @@ The EVerest log messages should look like this:
    2024-12-13T15:52:03.156415+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC DC mode. We are in 5percent mode so we can continue without further action.
    2024-12-13T15:52:03.156895+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC Charger state: Wait for Auth->PrepareCharging
    
-After that the EV simulator should establish a powerline connection to the Charge SOM via SLAC.
+After that, the EV simulator should establish a powerline connection to the Charge SOM via SLAC.
 
 .. code-block:: sh
 
@@ -322,7 +322,7 @@ After that the EV simulator should establish a powerline connection to the Charg
    2024-12-13T15:52:04.637408+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO SLAC MATCHED
    2024-12-13T15:52:04.661360+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO D-LINK_READY (true)
 
-Now the EV simulator discovers the V2G service of the Charge SOM and establish a TCP connection.
+Now the EV simulator discovers the V2G service of the Charge SOM and establishes a TCP connection.
 Both hosts negotiate the protocol ISO 15118-2 and start a charging session. Since the setup
 lacks some components of a real DC charger (e.g. HV contactors, power modules) only the state
 ChargeParameterDiscovery will be reached.
