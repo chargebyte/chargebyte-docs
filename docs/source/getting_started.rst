@@ -139,11 +139,11 @@ need to be adapted. The hardware related tasks are mainly handled by the CbCharg
 The configuration of the CbChargeSOMDriver module can be found in "/usr/libexec/everest/modules/CbChargeSOMDriver"
 directory.
 
-Each module has a specific configuration file. This file is called "manifest.yaml" and is stored 
-in the main directory of the module.
-Here you can also see all other configuration parameters of the respective module. 
-In order to see the content of the configuration file you can take a look usingNow please type "less /usr/libexec/everest/modules/CbChargeSOMDriver/manifest.yaml" to see the
-content of the configuration file and check whether the configuration fits to your hardware setup.
+Each module has a description of all configuration parameter including their defaults.
+This file is called "manifest.yaml" and is stored in the main directory of the module.
+In order to see the content of the configuration file you can take a look using
+"less /usr/libexec/everest/modules/CbChargeSOMDriver/manifest.yaml" to see the
+content of the manifest file and check whether the configuration fits to your hardware setup.
 
 If you want to change a configuration parameter of a module, which is not part of your EVerest YAML
 configuration file, just copy the specific configuration key from the "manifest.yaml" file of the
