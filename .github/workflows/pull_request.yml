@@ -1,0 +1,17 @@
+name: Pull Request Docs Check
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ammaraskar/sphinx-action@4.3.2
+      with:
+        build-command: "sphinx-build -b linkcheck source/ build/"
+        docs-folder: "docs/"
