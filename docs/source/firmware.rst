@@ -12,7 +12,7 @@ Charge Control C is shipped with pre-flashed firmware including one of the follo
 * chargebyte's proprietary charging stack.
 * EVerest charging stack along with additional EVerest modules e.g., CbTarragonDriver, CbSystem.
 
-The shipped firmware was created using the Yocto project; an open-source collaboration initiative that provides templates, tools, and methods to help developers create custom Linux-based systems for embedded devices. It supports a wide range of hardware architectures and provides a consistent, reproducible environment for developing, building, and maintaining embedded systems. To get familiar with the Yocto project, you can find all the required information on the project's `website <https://www.yoctoproject.org/>`_.
+The shipped firmware was created using the Yocto project; an open-source collaboration initiative that provides templates, tools, and methods to help developers create custom Linux-based systems for embedded devices. It supports a wide range of hardware architectures and provides a consistent, reproducible environment for developing, building, and maintaining embedded systems. To get familiar with the Yocto project, you can find all the required information on the project's `website <https://www.yoctoprojectxyz.org/>`_.
 
 .. _programming:
 
