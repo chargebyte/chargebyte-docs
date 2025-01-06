@@ -53,7 +53,7 @@ Setting up Yocto Build Environment
    #. :code:`chargebyte-bsp`: A clone of the 'chargebyte-bsp' repository containing the manifest file and configurations folder.
    #. :code:`build`: Initially holds a link to the :code:`conf` folder in :code:`chargebyte-bsp`.
 
-Follow the `documentation <https://github.com/chargebyte/chargebyte-bsp/blob/kirkstone-everest/README.md>`_ in the
+Follow the `documentation <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md>`_ in the
 'chargebyte-bsp' repository to build a firmware image based on the Tarragon board support package (BSP).
 This will include EVerest and chargebyte's hardware abstraction layer (HAL).
 
@@ -106,10 +106,10 @@ The module is now integrated into the Yocto build system. The next step is to bu
 Creating a Development Image
 ============================
 
-In order to build the custom image, follow the section "`Building an image <https://github.com/chargebyte/chargebyte-bsp/blob/kirkstone-everest/README.md#build>`_"
+In order to build the custom image, follow the section "`Building an image <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md#user-content-build>`_"
 found in "chargebyte-bsp" repository which produces a Linux root filesystem. This can be either
-`flashed <https://github.com/chargebyte/chargebyte-bsp/blob/kirkstone-everest/README.md#flashing-an-image->`_
-directly, or used to `create a firmware image using RAUC <https://github.com/chargebyte/chargebyte-bsp/blob/kirkstone-everest/README.md#flashing-an-image->`_.
+`flashed <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md#user-content-flash>`_
+directly, or used to `create a firmware image using RAUC <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md#user-content-flash>`_.
 
 The custom image should now include the new EVerest module.
 

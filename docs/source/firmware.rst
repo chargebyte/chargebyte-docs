@@ -61,7 +61,7 @@ After making sure that the customized software is working on the board, there mi
 
 #. Download chargebyte's digital certificate found on `our website <https://chargebyte.com/controllers-and-modules/evse-controllers/charge-control-c>`_ which is used to validate distributed firmware update images.
 #. Use the latest firmware image. How to download the firmware image is described in the section :ref:`download_firmware_images`.
-#. Download and install RAUC tool for the host environment; follow the guide here: https://github.com/rauc/rauc/#host-build-prerequisites. It is also possible, that your Linux distribution already ships with pre-compiled packages which just need to be installed with your package management system. In this case, you can skip this step.
+#. Download and install RAUC tool for the host environment; follow the guide here: https://github.com/rauc/rauc/#user-content-prerequisites . It is also possible, that your Linux distribution already ships with pre-compiled packages which just need to be installed with your package management system. In this case, you can skip this step.
 
    .. code-block:: console
 
