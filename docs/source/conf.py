@@ -31,3 +31,8 @@ html_css_files = [
 ]
 html_show_sourcelink = False
 html_use_index = False
+
+# -- Options for the linkcheck builder ---------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder
+
+linkcheck_anchors = False
