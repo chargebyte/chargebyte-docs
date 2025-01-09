@@ -258,7 +258,7 @@ The internal eMMC storage of a Charge Control device is divided into several par
      - 1 GB
      - Root file system B
    * - /dev/mmcblk0p3
-     -
+     - 1.3 GB
      - Extended Partition Container
    * - /dev/mmcblk0p5
      - 1 GB

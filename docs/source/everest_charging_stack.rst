@@ -102,6 +102,25 @@ can be utilized. This module is a driver for plug lock control and implements
 It is designed to support all types of plug locks on connector X9 of the Charge Control C. Check
 section :ref:`locking_motor` to understand how to connect the locking motor to the Charge Control C.
 
+**API** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/API>`__)
+
+This module is not mandatory for an EVSE setup using Charge Control C in EVerest. However, the module
+:code:`API` is responsible to provide a simple MQTT based API to EVerest internals.
+
+**ErrorHistory** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/ErrorHistory>`__)
+
+This module is not mandatory for an EVSE setup using Charge Control C in EVerest. This module is responsible
+for storing EVerest error events in a database file. The location of the database file can be defined
+over a configuration parameter.
+
+**OCPP** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/OCPP>`__)
+
+This module implements and integrates OCPP 1.6 support within EVerest.
+
+**OCPP201** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/OCPP201>`__)
+
+This module implements and integrates OCPP 2.0.1 support within EVerest.
+
 Further reading
 ===============
 
@@ -119,5 +138,6 @@ are maintained by chargebyte.
 For interesting discussions and solutions to common problems, visit the EVerest community's
 `Zulip <https://lfenergy.zulipchat.com/>`_ channels.
 
-For support and issues related to the EVerest modules developed by chargebyte, refer to section X for
-instructions on how to report problems and insights on contribution.
+For support and issues related to the EVerest modules developed by chargebyte, please check the
+:ref:`troubleshooting.rst` section of the documentation first.  If you can't find the answer, please don't
+hesitate to contact chargebyte's support team (:ref:`contact`).

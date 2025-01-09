@@ -119,6 +119,7 @@ EVerest already has a module which takes care of Modbus communication. Please ha
 `SerialCommHub <https://everest.github.io/nightly/_generated/modules/SerialCommHub.html>`_,
 and let your module interact with this module via the `serial_communication_hub` interface.
 
+.. _contact:
 
 Contact
 -------
