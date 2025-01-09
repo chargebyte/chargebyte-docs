@@ -98,7 +98,7 @@ The most important points are summarised here:
    used to initialize or update the device model database. To update a component config file, just the
    place a `component config file <https://github.com/EVerest/libocpp/tree/v0.16.2/config/v201/component_config>`_
    in the same directory structure in the DeviceModelConfigPath and change the values accordingly.
-   Importent keys of the component config files are:
+   Important keys of the component config files are:
 
    - `standardized/InternalCtrlr.json: ChargePointId`: In "attributes" adapt the "value" key to configure the ChargePointId. Used to identify the Charging Station.
    - `standardized/InternalCtrlr.json: NetworkConnectionProfiles`: In "attributes" adapt the "ocppCsmsUrl" key. The URL in "ocppCsmsUrl" is used to connect to the CSMS.

@@ -182,7 +182,7 @@ in order to check which configurations are possible and how the default values a
 The hardware related tasks are mainly handled by the CbTarragonDriver module. To view the content of
 the module's manifest file, use the following command:
 
-.. code-block:: sh
+.. code-block:: console
 
    less /usr/libexec/everest/modules/CbTarragonDriver/manifest.yaml
 
@@ -201,7 +201,7 @@ Here is an example of how to change the "connector_type" parameter of the CbTarr
 
 Snippet of a EVerest configuration file:
 
-.. code-block:: sh
+.. code-block:: yaml
 
    tarragon_bsp:
      module: CbTarragonDriver
@@ -214,7 +214,7 @@ By following these guidelines, you can now customize and manage your EVerest cha
 to suit your hardware and application requirements. After adjusting the configuration file, you have
 to restart the EVerest charging stack to apply the changes:
 
-.. code-block:: sh
+.. code-block:: console
 
    systemctl restart everest
 
@@ -241,7 +241,7 @@ charging stack and to follow the charging process in real time.
 
 The EVerest log should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    root@tarragon:~# journalctl -f -u everest -n 50
    2024-06-19T19:26:08.986317+0200 tarragon systemd[1]: Started EVerest.
@@ -292,7 +292,7 @@ Therefore, the duty cycle should directly switch from 100% to ~26.7%. The duty c
 
 The last EVerest log messages should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    2024-06-20T07:45:49.386995+0200 tarragon manager[18942]: [INFO] tarragon_bsp:Cb  :: CP state change from A to B, U_CP+: 9637 mV, U_CP-: -2 mV
    Read PP ampacity value: A_16 (U_PP: 3297 mV)
@@ -307,7 +307,7 @@ EVSE Test Adapter.
 After switching the CP state from "B" to "C", the EVSE contactor should close and the charging
 process should start. The last EVerest log messages should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    2024-06-21T07:45:50.605759+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: CP state change from B to C, U_CP+: 5996 mV, U_CP-: -11817 mV
    2024-06-21T07:45:50.766409+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: Closing contactor...
@@ -317,7 +317,7 @@ The charging process can be stopped by a CP state change from "C" to "B" via the
 
 The last EVerest log messages should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    2024-06-21T07:48:04.406373+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: CP state change from C to B, U_CP+: 8842 mV, U_CP-: -11826 mV
    2024-06-21T07:48:04.641265+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: Opening contactor...
@@ -329,7 +329,7 @@ from "B" to "C".
 
 The last EVerest log messages after removing the plug should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    2024-06-21T07:52:51.287007+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: CP state change from B to A, U_CP+: 11927 mV, U_CP-: -11970 mV
    2024-06-21T07:52:51.368428+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: handle_pwm_off: Setting new duty cycle of 100.00%

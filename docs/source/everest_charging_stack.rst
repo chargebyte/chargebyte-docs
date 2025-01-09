@@ -105,13 +105,13 @@ section :ref:`locking_motor` to understand how to connect the locking motor to t
 **API** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/API>`__)
 
 This module is not mandatory for an EVSE setup using Charge Control C in EVerest. However, the module
-:code:`API` is responsible to provide a simple MQTT based API to EVerest internals.
+:code:`API` is responsible for providing a simple MQTT based API to EVerest internals.
 
 **ErrorHistory** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/ErrorHistory>`__)
 
 This module is not mandatory for an EVSE setup using Charge Control C in EVerest. This module is responsible
 for storing EVerest error events in a database file. The location of the database file can be defined
-over a configuration parameter.
+via a configuration parameter.
 
 **OCPP** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/OCPP>`__)
 
