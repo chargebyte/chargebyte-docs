@@ -33,3 +33,8 @@ html_use_index = False
 
 # Disable link "Show Source"
 html_show_sourcelink = False
+
+# -- Options for the linkcheck builder ---------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder
+
+linkcheck_anchors = False
