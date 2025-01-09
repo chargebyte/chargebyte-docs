@@ -155,5 +155,3 @@ Bitterfelder Straße 1-5
 Germany
 
 Website: `<https://chargebyte.com>`_
-
-

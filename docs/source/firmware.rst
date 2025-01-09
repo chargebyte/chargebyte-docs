@@ -563,5 +563,3 @@ During development it may be useful to access/mount the inactive partition. Then
    mount-other-rootfs /mnt
 
 Note, that this helper script does not modify any RAUC status information regarding this slot.
-
-
