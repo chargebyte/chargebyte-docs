@@ -258,7 +258,7 @@ The internal eMMC storage of a Charge Control device is divided into several par
      - 1 GB
      - Root file system B
    * - /dev/mmcblk0p3
-     -
+     - 1.3 GB
      - Extended Partition Container
    * - /dev/mmcblk0p5
      - 1 GB
@@ -563,5 +563,3 @@ During development it may be useful to access/mount the inactive partition. Then
    mount-other-rootfs /mnt
 
 Note, that this helper script does not modify any RAUC status information regarding this slot.
-
-

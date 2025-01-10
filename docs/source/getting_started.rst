@@ -159,11 +159,11 @@ Just type "less /etc/everest/bsp-only.conf" to see the content of the configurat
    :language: yaml
    :linenos:
 
-In general, the EVerest charging stack consists of different modules, each of which fulfills a
-specific task. An EVerest module provides and requests interfaces. The configuration file shows
-which EVerest modules are activated, how they are configured and how they are connected to each
-other over the interfaces. The following figure illustrates how the EVerest modules are connected
-to each other:
+In general, the EVerest charging stack consists of different modules, each designed for a specific task.
+An EVerest module provides and requests interfaces and defines module-specific configuration parameters.
+The EVerest configuration file specifies the activated modules, their configurations, and their connections
+via these interfaces. The following figure illustrates how the EVerest modules are connected to each
+other in the bsp-only.yaml configuration file:
 
 .. figure:: _static/images/admin_panel_bsp_only.png
     :width: 500pt
@@ -171,45 +171,58 @@ to each other:
 
     Figure: EVerest admin panel view of the bsp-only.yaml configuration
 
-However, not all configuration parameters of the modules are shown here. Only the configuration
-parameters that do not match the default configuration of the respective module need
-to be specified here. Depending on the installed hardware components, the configuration file may
-need to be adapted. The hardware related tasks are mainly handled by the CbTarragonDriver module.
-The configuration of the CbTarragonDriver module can be found in "/usr/libexec/everest/modules/CbTarragonDriver"
-directory.
+However, not all configuration parameters of the modules are shown here. Only those that deviate from
+the module's default configuration need to be specified.
 
-Each module has a specific configuration file. This file is called "manifest.yaml" and is stored 
-in the main directory of the module.
-Here you can also see all other configuration parameters of the respective module. 
-Now please type "less /usr/libexec/everest/modules/CbTarragonDriver/manifest.yaml" to see the
-content of the configuration file and check whether the configuration fits to your hardware setup.
+Each module has a specific configuration file called "manifest.yaml", located in the module's main directory
+("/usr/libexec/everest/modules/{module_name}"). This file is used by the EVerest stack to verify configuration
+consistency and to load the default module configuration. As a user the manifest.yaml can also be used
+in order to check which configurations are possible and how the default values are set.
+
+The hardware related tasks are mainly handled by the CbTarragonDriver module. To view the content of
+the module's manifest file, use the following command:
+
+.. code-block:: console
+
+   less /usr/libexec/everest/modules/CbTarragonDriver/manifest.yaml
 
 If you want to change a configuration parameter of a module, which is not part of your EVerest YAML
 configuration file, just copy the specific configuration key from the "manifest.yaml" file of the
 module to the module specific "config_module" space in your EVerest configuration and adjust the
-value. Please note if you change it directly in the "manifest.yaml" file of a module, the changes
-will be get lost after a software update.
+value. If a default value in the manifest file meets your requirements, there is no need to redefine
+it in your EVerest configuration.
 
-Here is an excerpt of an EVerest configuration to change the parameter "connector_type" to
-"IEC62196Type2Cable" of the CbTarragonDriver module.
+.. note::
+   Do not modify the manifest.yaml file directly to change default behavior. Always make adjustments
+   in your EVerest configuration file to override the default values of the module parameters.
 
-.. code-block:: sh
+Here is an example of how to change the "connector_type" parameter of the CbTarragonDriver module to
+"IEC62196Type2Cable" in the EVerest configuration file.
 
-  tarragon_bsp:
-    module: CbTarragonDriver
-    config_module:
-      contactor_1_feedback_type: none
-      relay_2_name: none
-      connector_type: IEC62196Type2Cable
+Snippet of a EVerest configuration file:
 
+.. code-block:: yaml
 
-After adjusting the configuration file, you have to restart the EVerest charging stack to apply the
-changes. Just type "systemctl restart everest" to restart the EVerest charging stack.
+   tarragon_bsp:
+     module: CbTarragonDriver
+     config_module:
+       contactor_1_feedback_type: none
+       relay_2_name: none
+       connector_type: IEC62196Type2Cable
+
+By following these guidelines, you can now customize and manage your EVerest charging stack configuration
+to suit your hardware and application requirements. After adjusting the configuration file, you have
+to restart the EVerest charging stack to apply the changes:
+
+.. code-block:: console
+
+   systemctl restart everest
 
 .. note::
    You can also use the `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
    to adjust the EVerest configuration in a GUI. This tool must currently be installed manually on your
-   developer computer, because the resources on the board are limited.
+   developer computer, because the resources on the board are limited. Please note that the tool can
+   only display a configuration correctly if all interface and module descriptions are provided.
 
 .. note::
    If you have made a mistake in the configuration file, the EVerest charging stack will not
@@ -228,7 +241,7 @@ charging stack and to follow the charging process in real time.
 
 The EVerest log should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    root@tarragon:~# journalctl -f -u everest -n 50
    2024-06-19T19:26:08.986317+0200 tarragon systemd[1]: Started EVerest.
@@ -279,7 +292,7 @@ Therefore, the duty cycle should directly switch from 100% to ~26.7%. The duty c
 
 The last EVerest log messages should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    2024-06-20T07:45:49.386995+0200 tarragon manager[18942]: [INFO] tarragon_bsp:Cb  :: CP state change from A to B, U_CP+: 9637 mV, U_CP-: -2 mV
    Read PP ampacity value: A_16 (U_PP: 3297 mV)
@@ -294,7 +307,7 @@ EVSE Test Adapter.
 After switching the CP state from "B" to "C", the EVSE contactor should close and the charging
 process should start. The last EVerest log messages should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    2024-06-21T07:45:50.605759+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: CP state change from B to C, U_CP+: 5996 mV, U_CP-: -11817 mV
    2024-06-21T07:45:50.766409+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: Closing contactor...
@@ -304,7 +317,7 @@ The charging process can be stopped by a CP state change from "C" to "B" via the
 
 The last EVerest log messages should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    2024-06-21T07:48:04.406373+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: CP state change from C to B, U_CP+: 8842 mV, U_CP-: -11826 mV
    2024-06-21T07:48:04.641265+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: Opening contactor...
@@ -316,7 +329,7 @@ from "B" to "C".
 
 The last EVerest log messages after removing the plug should look like this:
 
-.. code-block:: sh
+.. code-block:: console
 
    2024-06-21T07:52:51.287007+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: CP state change from B to A, U_CP+: 11927 mV, U_CP-: -11970 mV
    2024-06-21T07:52:51.368428+0200 tarragon manager[5733]: [INFO] tarragon_bsp:Cb  :: handle_pwm_off: Setting new duty cycle of 100.00%

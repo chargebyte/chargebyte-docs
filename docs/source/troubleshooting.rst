@@ -71,35 +71,41 @@ Please note that the implementation is still under development and integrated in
 How do I set up OCPP 2.0.1 on Charge Control C with EVerest?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Unfortunately, some manual steps on a development PC are necessary. First, check out the
-libocpp and change into the OCPP 2.0.1 config directory:
+To support OCPP 2.0.1, the EVerest OCPP201 module must be integrated into the EVerest configuration.
+This module uses the `libocpp library <https://github.com/EVerest/libocpp>`_ to implement the OCPP 2.0.1
+protocol.
+The `OCPP201 module documentation <https://github.com/EVerest/everest-core/blob/main/modules/OCPP201/doc.rst>`_
+already contains some information about the module parameters, the provided and required interfaces,
+and the initial creation of the OCPP 2.0.1 database.
 
-.. code-block:: console
+The most important points are summarised here:
 
-   git clone https://github.com/EVerest/libocpp.git
-   cd libocpp/config/v201
+1. The OCPP201 module must be included in your EVerest configuration.
+2. The CbSystem module can be used to fulfill the requirement of the system interface. 
+3. While configuring the OCPP 2.0.1 module, ensure that you are using OCPP configuration and database
+   paths which are covered by the update mechanism. The following paths are recommended:
 
-Now adapt OCPP 2.0.1 config.json to your needs (e.g. NetworkConnectionProfiles):
+   - `CoreDatabasePath`: /var/lib/everest/ocpp201
+   - `DeviceModelDatabasePath`: /var/lib/everest/ocpp201/device_model_storage.db
+   - `DeviceModelConfigPath`: /var/lib/everest/ocpp201/component_config
 
-.. code-block:: console
+   Otherwise, if you don't want to use a persistent storage, you can also deploy those files in your
+   RAUC image.
+4. The `CoreDatabasePath` is used, among other things, to store OCPP transaction data.
+5. The OCPP 2.0.1 device model initialization is done automatically by the OCPP201 module after the
+   first start of EVerest. The database is stored the `DeviceModelDatabasePath`.
+6. The component config files are stored in the `DeviceModelConfigPath`. Component config files are
+   used to initialize or update the device model database. To update a component config file, just the
+   place a `component config file <https://github.com/EVerest/libocpp/tree/v0.16.2/config/v201/component_config>`_
+   in the same directory structure in the DeviceModelConfigPath and change the values accordingly.
+   Important keys of the component config files are:
 
-   gedit config.json
+   - `standardized/InternalCtrlr.json: ChargePointId`: In "attributes" adapt the "value" key to configure the ChargePointId. Used to identify the Charging Station.
+   - `standardized/InternalCtrlr.json: NetworkConnectionProfiles`: In "attributes" adapt the "ocppCsmsUrl" key. The URL in "ocppCsmsUrl" is used to connect to the CSMS.
+   - `standardized/SecurityCtrlr.json: SecurityCtrlrIdentity`: In "attributes" adapt the "value" key to configure the SecurityCtrlrIdentity. It is the Charging Station identity.
 
-After that you can create the device model database and insert the configuration:
-
-.. code-block:: console
-   
-   python3 init_device_model_db.py --db device_model_storage.db --schemas component_schemas/ init
-   python3 init_device_model_db.py --db device_model_storage.db --schemas component_schemas/ --config config.json insert
-   
-Then copy the device model database onto the Charge Control C (adapt IP address to your environment):
-
-.. code-block:: console
-
-   scp device_model_storage.db root@<ip-address>:/var/lib/everest/ocpp201
-   
-Finally make sure the DeviceModelDatabasePath in your global YAML configuration points to
-/var/lib/everest/ocpp201/device_model_storage.db and then restart EVerest on the Charge Control C.
+   For further information about the device model initialization, please refer to the
+   `libocpp documentation <https://github.com/EVerest/libocpp/blob/main/doc/v201/ocpp_201_device_model_initialization.md>`_.
 
 I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can it fix this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -119,6 +125,7 @@ EVerest already has a module which takes care of Modbus communication. Please ha
 `SerialCommHub <https://everest.github.io/nightly/_generated/modules/SerialCommHub.html>`_,
 and let your module interact with this module via the `serial_communication_hub` interface.
 
+.. _contact:
 
 Contact
 -------
@@ -148,5 +155,3 @@ Bitterfelder Straße 1-5
 Germany
 
 Website: `<https://chargebyte.com>`_
-
-
