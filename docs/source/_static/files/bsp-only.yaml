@@ -9,6 +9,12 @@ active_modules:
       evse_manager:
         - module_id: connector
           implementation_id: evse
+      evse_energy_sink:
+        - module_id: grid_connection_point
+          implementation_id: external_limits
+      error_history:
+        - module_id: error_history
+          implementation_id: error_history
   tarragon_bsp:
     module: CbTarragonDriver
     config_module:
@@ -18,6 +24,9 @@ active_modules:
     module: CbTarragonDIs
   connector:
     module: EvseManager
+    mapping:
+      module:
+        evse: 1
     config_module:
       connector_id: 1
       has_ventilation: false
@@ -34,6 +43,9 @@ active_modules:
           implementation_id: energy_grid
   grid_connection_point:
     module: EnergyNode
+    mapping:
+      module:
+        evse: 1
     config_module:
       fuse_limit_A: 16
       phase_count: 3
@@ -41,3 +53,8 @@ active_modules:
       energy_consumer:
         - module_id: connector
           implementation_id: energy_grid
+  error_history:
+    module: ErrorHistory
+    config_implementation:
+      error_history:
+        database_path: /tmp/error_history.db
