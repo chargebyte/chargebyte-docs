@@ -105,7 +105,7 @@ The most important points are summarised here:
    - `standardized/SecurityCtrlr.json: SecurityCtrlrIdentity`: In "attributes" adapt the "value" key to configure the SecurityCtrlrIdentity. It is the Charging Station identity.
 
    For further information about the device model initialization, please refer to the
-   `libocpp documentation <https://github.com/EVerest/libocpp/blob/main/doc/v201/ocpp_201_device_model_initialization.md>`_.
+   `libocpp documentation <https://github.com/EVerest/libocpp/blob/main/doc/v2/ocpp_201_device_model_initialization.md>`_.
 
 I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can it fix this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
