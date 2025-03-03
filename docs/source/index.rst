@@ -20,3 +20,4 @@ Charge SOM Evaluation Kit.
    :caption: Contents:
 
    getting_started
+   troubleshooting
