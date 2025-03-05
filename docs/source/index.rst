@@ -21,5 +21,6 @@ Charge SOM Evaluation Kit.
 
    getting_started
    everest_charging_stack
+   cb_energy
    development
    troubleshooting
