@@ -26,7 +26,7 @@ Some general notes and recommendation for custom software development:
 * Develop your customer software on your local PC Linux environment, where you can use a compiler, debugger etc. you are familiar with. If the software you developed does not depend on specific hardware components, you can use the `Software-in-the-Loop <https://everest.github.io/nightly/tutorials/run_sil/index.html>`_ (SiL) environment provided by EVerest to test your software. If everything works as expected in this setup, you can then switch to cross-compiling for the target system.
 * Using tools like autotools, cmake and pkg-config in your own projects makes the integration and cross-compiling process much easier. Yocto itself has rich support for these widely used tools and provides many examples on how to use them.
 * If you start your project from scratch, have a look at libraries which are already required by EVerest Stack and/or Linux distribution. Re-use these libraries to keep the overall firmware footprint small. The benefit is when updating the boards, it will take less time when transferring the firmware update image and flashing it to internal storage.
-* You need to determine how your software components will interact with the EVerest stack. You can develop your software as an EVerest module and use one of the EVerest interfaces for interaction. Alternatively, you can utilize the simple MQTT-based API provided by the EVerest '`API <https://github.com/EVerest/everest-core/tree/main/modules/API>`_' module, which gives you access to the EVerest stack internals. Check section X to figure out how to create an EVerest module.
+* You need to determine how your software components will interact with the EVerest stack. You can develop your software as an EVerest module and use one of the EVerest interfaces for interaction. Alternatively, you can utilize the simple MQTT-based API provided by the EVerest '`API <https://github.com/EVerest/everest-core/tree/main/modules/API>`_' module, which gives you access to the EVerest stack internals. Check section :ref:`adding-a-custom-everest-module` to figure out how to create an EVerest module.
 
 
 .. _download_firmware_images:
@@ -59,7 +59,7 @@ After making sure that the customized software is working on the board, there mi
 
 **Steps:**
 
-#. Download chargebyte's digital certificate found on `our website <https://chargebyte.com/controllers-and-modules/evse-controllers/charge-control-c>`_ which is used to validate distributed firmware update images.
+#. Download chargebyte's digital certificate found on `our website <https://chargebyte.com/controllers-and-modules/evse-controllers/charge-control-c#downloads>`_ which is used to validate distributed firmware update images.
 #. Use the latest firmware image. How to download the firmware image is described in the section :ref:`download_firmware_images`.
 #. Download and install RAUC tool for the host environment; follow the guide here: https://github.com/rauc/rauc/#user-content-prerequisites . It is also possible, that your Linux distribution already ships with pre-compiled packages which just need to be installed with your package management system. In this case, you can skip this step.
 
@@ -292,7 +292,7 @@ to EVerest-based charging stack:
 - Please ensure that you have at least installed chargebyte\'s proprietary charging stack v3.x.x,
   before switching your board to EVerest and that this firmware booted once before the update.
   Latest firmware can be found here:
-  `Charge Control C Download Section <https://chargebyte.com/controllers-and-modules/evse-controllers/charge-control-c#downloads>`_.
+  `Legacy software stack "Truffle" <https://chargebyte.atlassian.net/servicedesk/customer/portal/13>`_.
 - A note about configuration files:
   When updating from chargebyte's proprietary charging stack to this EVerest-based charging stack,
   the configuration files (e.g. the :code:`"/etc/secc/customer.json"`) are not preserved and you

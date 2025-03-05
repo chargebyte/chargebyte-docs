@@ -60,6 +60,8 @@ This will include EVerest and chargebyte's hardware abstraction layer (HAL).
 The next step in this chapter is to write a new EVerest module and build a custom image that incorporates
 this new module.
 
+.. _adding-a-custom-everest-module:
+
 Adding a Custom EVerest Module
 ==============================
 
