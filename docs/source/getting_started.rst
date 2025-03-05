@@ -229,6 +229,7 @@ to restart the EVerest charging stack to apply the changes:
    start. Therefore, it is recommended to back up the original configuration file before making
    changes.
 
+.. _start_charging_and_monitoring:
 
 Starting and Monitoring the Charging Process
 --------------------------------------------

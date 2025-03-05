@@ -109,3 +109,5 @@ how to checkout a dedicated EVerest release.
 
 #. Follow the steps under the section :ref:`firmware_customization` to install your PKI certificate, pack
    the modified root filesystem image again into the firmware update image, and test the new firmware image.
+
+.. include:: ../../includes/development_debugging_and_logging.inc
