@@ -4,38 +4,9 @@
 EVerest charging stack
 **********************
 
-Introduction to EVerest
-=======================
+.. include:: ../../includes/everest_introduction_to_everest.inc
 
-EVerest is an open-source modular framework designed to create a comprehensive software stack for
-electric vehicle (EV) charging.
-
-The modular software architecture promotes flexibility and customization, allowing users to configure specific charging
-scenarios using interchangeable modules. This architecture is integrated and coordinated using MQTT (Message Queuing
-Telemetry Transport). EVerest aims to standardize and simplify the development of EV charging
-infrastructure, making it easier for developers and companies to implement robust and scalable charging solutions.
-The project includes support for various protocols like ISO 15118, OCPP, and IEC 61851, ensuring broad
-compatibility and future-proofing of the charging systems.
-
-For more information, visit the `EVerest GitHub repository <https://github.com/EVerest/EVerest>`_.
-
-Basic configuration
-===================
-
-In order to test EVerest, you need to build it either natively on host Linux machine or integrate it into a
-firmware suitable for a specific target platform using Yocto. To build it natively, follow the instructions
-found in the main EVerest repository "`everest-core <https://github.com/EVerest/everest-core>`_".
-Additionally, there is a `quickstart guide <https://everest.github.io/nightly/general/03_quick_start_guide.html>`_
-to EVerest, which presents the different EVerest tools, build instructions, and a dive into simulating EVerest.
-
-For Yocto, EVerest offers "`meta-everest <https://github.com/EVerest/meta-everest>`_"; a Yocto meta layer
-that can be used to integrate the EVerest charging stack into a platform-specific firmware image.
-chargebyte utilizes this layer to produce firmware images suitable for chargebyte hardware platforms. Detailed instructions on
-how to integrate EVerest into a chargebyte firmware image can be found on `GitHub <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest>`_.
-
-For setting up a use case with EVerest, such as basic setup for AC or DC charging, a YAML configuration file is needed.
-Various example configurations, including those for software-in-the-loop tests, can be found in
-the "`config <https://github.com/EVerest/everest-core/tree/main/config>`_" folder of the everest-core repository.
+.. include:: ../../includes/everest_basic_configuration.inc
 
 Below is an example configuration file provided by chargebyte in its images:
 
@@ -51,65 +22,7 @@ The use case described in this configuration file includes the following:
 
 An overview of the EVerest modules that are defined within a configuration file is shown in the next section.
 
-Overview of EVerest modules
-============================
-
-As seen from the previous configuration file, some modules are required in order to use EVerest.
-Which modules are required is highly dependent on the use case you want to release. The following
-is a list of modules that are part of the chargebyte EVerest charging software:
-
-**EvseManager** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/EvseManager>`_)
-
-The main module in a charging infrastructure EVerest setup. It manages a single EVSE (i.e., one connector for
-charging a car) and may control multiple connectors under some circumstances. It handles charging
-logic (basic charging and HLC), gathers all relevant data for the charging session, such as energy
-delivered during the session, and provides control over the charging port/session. For more information about
-its capabilities, refer to the `module documentation <https://github.com/EVerest/everest-core/blob/main/modules/EvseManager/doc.rst>`_.
-
-**EnergyManager** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/EnergyManager>`__)
-
-This module is the global Energy Manager for all EVSE/Charging stations in a building.
-
-**API** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/API>`__)
-
-This module is not mandatory for an EVSE setup using Charge Control C in EVerest. However, the module
-:code:`API` is responsible for providing a simple MQTT based API to EVerest internals.
-
-**ErrorHistory** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/ErrorHistory>`__)
-
-This module is not mandatory for an EVSE setup using Charge Control C in EVerest. This module is responsible
-for storing EVerest error events in a database file. The location of the database file can be defined
-via a configuration parameter.
-
-**DummyTokenProvider** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/DummyTokenValidator>`__)
-
-This module listens to AuthRequired event from evse_manager module and then publishes one token.
-
-**DummyTokenValidator** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/DummyTokenValidator>`__)
-
-This module always returning the same configured token validation result for every token. The
-validation result is a configuration key in the manifest of the module.
-
-**CbSystem** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbSystem>`__)
-
-This module is an adaptation of the "`System <https://github.com/EVerest/everest-core/tree/main/modules/System>`_"
-module in EVerest. It implements the "`system <https://github.com/EVerest/everest-core/blob/main/interfaces/system.yaml>`__"
-interface and, like the :code:`System` module, is responsible for performing system-wide operations but
-tailored for chargebyte's hardware platforms. The use of this module depends on the specific use case,
-such as if OCPP is required. In such cases, the :code:`CbSystem` module is responsible for executing
-commands from OCPP e.g. :code:`UpdateFirmware`.
-
-**OCPP** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/OCPP>`__)
-
-This module implements and integrates OCPP 1.6 support within EVerest.
-
-**OCPP201** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/OCPP201>`__)
-
-This module implements and integrates OCPP 2.0.1 support within EVerest.
-
-**AuthListValidator**
-
-This module validating if an incoming token exists in a in a predefined list of authorized tokens.
+.. include:: ../../includes/everest_overview_of_everest_modules.inc
 
 **CbTarragonDriver** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonDriver>`__)
 
@@ -250,23 +163,4 @@ The full description of all these parameters can be found in the
 .. note::
    Phase count switching is only possible in basic charging mode.
 
-Further reading
-===============
-
-For more information on getting started with EVerest, including an overview of the necessary tools and
-instructions on writing your own modules, please refer to the official
-`EVerest documentation <https://everest.github.io/nightly>`_.
-
-EVerest consists of multiple repositories, such as "`everest-core <https://github.com/EVerest/everest-core>`_"
-and "`libocpp <https://github.com/EVerest/libocpp>`_". Each repository has its own documentation detailing its
-specific role within EVerest. It should be noted that Pionix GmbH and the EVerest community maintain
-all repositories that are a part of the EVerest GitHub organization. Only the EVerest modules that chargebyte
-implemented and that are located in "`everest-chargebyte <https://github.com/chargebyte/everest-chargebyte>`_"
-are maintained by chargebyte.
-
-For interesting discussions and solutions to common problems, visit the EVerest community's
-`Zulip <https://lfenergy.zulipchat.com/>`_ channels.
-
-For support and issues related to the EVerest modules developed by chargebyte, please check the
-:ref:`troubleshooting.rst` section of the documentation first.  If you can't find the answer, please don't
-hesitate to contact chargebyte's support team (:ref:`contact`).
+.. include:: ../../includes/everest_further_reading.inc
