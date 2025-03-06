@@ -138,6 +138,14 @@ how to checkout a dedicated EVerest release.
 
       rauc extract --keyring=<chargebyte_certificate>.crt <shipped_firmware>.image bundle-staging
 
+   .. note::
+      Alternatively, if the above command does not work, you can use the following command:
+       .. code-block:: console
+       
+          unsquashfs -d bundle-staging <shipped_firmware>.image
+
+      But this will not verify the signature of the firmware image.
+
 #. Mount the ext4 root filesystem image as a loop device.
 
    .. code-block:: console
