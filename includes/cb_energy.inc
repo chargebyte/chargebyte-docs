@@ -22,13 +22,13 @@ The second part is the CB energy app running on end user platforms like iOS and 
 nymea:core.
 The nymea:core and the different integration plugins for wallbox, meters and inverters are open source
 and can be found on `Github <https://github.com/nymea>`_.
-Features like generating chargingsession report and the energy management are closed source and require a license
+Features like generating charging session report and the energy management are closed source and require a license
 from chargebyte GmbH. For more information have a look `on our website <https://chargebyte.com/software/energy-manager>`_.
 
 
 Both parts have to be in the same network. In order to monitor and control the wallboxes, the Everest charging stack is needed. The Everest stack provides an API module, that is used by CB Energy either on localhost (on the same hardware) or to access other instances in the same local network. 
 
-Note: This documentation is a quick start to get the nymea ecosystem running as fast as possible with Everest charging stack. If you are about to test CB Energy on one of chargebyte's Linux controllers, both EVerest and CB Energy are preinstalled in the latest firmware images. A more detailed documentation can be found `on the nymea website <https://nymea.io>`_.
+Note: This documentation is a quick start to get the nymea ecosystem running as fast as possible with Everest charging stack. If you are testing CB Energy on one of chargebyte's Linux controllers, both EVerest and CB Energy are preinstalled in the latest firmware images. A more detailed documentation can be found `on the nymea website <https://nymea.io>`_.
 
 .. important::
   The `API module <https://github.com/EVerest/everest-core/tree/main/modules/API>`_ must be installed and active in the EVerest configuration.
@@ -79,7 +79,7 @@ The CB energy App (client) automatically discovers available instances (servers)
 .. figure:: ../../includes/_static/images/cbenergy/discover.png
 	:height: 600px
 
-If the discovery has not found any wallbox in the local network you can try to setup an manual connection as described in :ref:`connection_option`.
+If the discovery has not found any wallbox in the local network you can try to set up a manual connection as described in :ref:`connection_option`.
 
 
 .. _user_setup:
