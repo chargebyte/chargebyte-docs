@@ -1,3 +1,5 @@
+.. _connecting-via-ssh-or-serial-interface:
+
 Connecting via SSH or Serial Interface
 --------------------------------------
 
