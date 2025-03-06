@@ -19,18 +19,19 @@ This module is the global Energy Manager for all EVSE/Charging stations in a bui
 
 **API** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/API>`__)
 
-This module is not mandatory for an EVSE setup using Charge Control C in EVerest. However, the module
+This module is not mandatory for an EVSE setup in EVerest. However, the module
 :code:`API` is responsible for providing a simple MQTT based API to EVerest internals.
 
 **ErrorHistory** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/ErrorHistory>`__)
 
-This module is not mandatory for an EVSE setup using Charge Control C in EVerest. This module is responsible
+This module is not mandatory for an EVSE setup in EVerest. This module is responsible
 for storing EVerest error events in a database file. The location of the database file can be defined
 via a configuration parameter.
 
 **DummyTokenProvider** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/DummyTokenValidator>`__)
 
-This module listens to AuthRequired event from evse_manager module and then publishes one token.
+This module is used for automatically providing an authorization token, instead of requiring e.g. an
+actual RFID reader. It listens to the AuthRequired event from evse_manager module and then publishes one token.
 
 **DummyTokenValidator** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/DummyTokenValidator>`__)
 

@@ -12,6 +12,6 @@ that can be used to integrate the EVerest charging stack into a platform-specifi
 chargebyte utilizes this layer to produce firmware images suitable for chargebyte hardware platforms. Detailed instructions on
 how to integrate EVerest into a chargebyte firmware image can be found on `GitHub <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest>`_.
 
-For setting up a use case with EVerest, such as basic setup for AC or DC charging, a YAML configuration file is needed.
+For setting up a use case with EVerest, such as basic setups for AC or DC charging, a YAML configuration file is needed.
 Various example configurations, including those for software-in-the-loop tests, can be found in
 the "`config <https://github.com/EVerest/everest-core/tree/main/config>`_" folder of the everest-core repository.
