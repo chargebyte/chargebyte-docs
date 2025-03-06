@@ -30,12 +30,13 @@ to EVerest, which presents the different EVerest tools, build instructions, and 
 
 For Yocto, EVerest offers "`meta-everest <https://github.com/EVerest/meta-everest>`_"; a Yocto meta layer
 that can be used to integrate the EVerest charging stack into a platform-specific firmware image.
-chargebyte utilizes this layer to produce firmware images suitable for Charge Control C. Detailed instructions on
-how to integrate EVerest into a Charge Control C firmware image can be found on `GitHub <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest>`_.
+chargebyte utilizes this layer to produce firmware images suitable for chargebyte hardware platforms. Detailed instructions on
+how to integrate EVerest into a chargebyte firmware image can be found on `GitHub <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest>`_.
 
-For setting up a use case with EVerest, such as basic PWM charging, a YAML configuration file is needed.
+For setting up a use case with EVerest, such as basic setup for AC or DC charging, a YAML configuration file is needed.
 Various example configurations, including those for software-in-the-loop tests, can be found in
 the "`config <https://github.com/EVerest/everest-core/tree/main/config>`_" folder of the everest-core repository.
+
 Below is an example configuration file provided by chargebyte in its images:
 
 .. literalinclude:: _static/files/bsp-only.yaml
@@ -48,13 +49,14 @@ The use case described in this configuration file includes the following:
 * 1 contactor for 3 phase
 * No phase switching
 
-The modules :code:`CbTarragonDriver` and :code:`CbTarragonDIs` are part of the Hardware Abstraction Layer (HAL)
-used to integrate Charge Control C with EVerest. This will be explained in the next section.
+An overview of the EVerest modules that are defined within a configuration file is shown in the next section.
 
-Required modules for Charge Control C
-=====================================
+Overview of EVerest modules
+============================
 
-As seen from the previous configuration file, some modules are required in order to use EVerest with Charge Control C.
+As seen from the previous configuration file, some modules are required in order to use EVerest.
+Which modules are required is highly dependent on the use case you want to release. The following
+is a list of modules that are part of the chargebyte EVerest charging software:
 
 **EvseManager** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/EvseManager>`_)
 
@@ -68,40 +70,6 @@ its capabilities, refer to the `module documentation <https://github.com/EVerest
 
 This module is the global Energy Manager for all EVSE/Charging stations in a building.
 
-**CbTarragonDriver** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonDriver>`__)
-
-This is the Hardware Abstraction Layer (HAL) for Charge Control C in EVerest. It implements
-the `evse_board_support <https://github.com/EVerest/everest-core/blob/main/interfaces/evse_board_support.yaml>`_
-interface, enabling communication with the :code:`EvseManager` and control of the board. The EVerest community
-often refers to these HAL modules as BSPs, such as MicroMegaWattBSP and PhyVersoBSP. This module is
-essential for controlling the Charge Control C. The term "Tarragon" in :code:`CbTarragonDriver` refers to
-the Charge Control C hardware platform.
-
-**CbTarragonDIs** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonDIs>`__)
-
-The Charge Control C is equipped with multiple digital inputs (For more information, refer to section :ref:`digital_input`).
-The module :code:`CbTarragonDIs` is used for setting the reference PWM for these DIs. The reference PWM
-sets the threshold voltage for all 12V digital inputs, which is essential for their operation.
-The use of this module is optional and depends on the EVSE requirements where the Charge Control C is integrated.
-
-**CbSystem** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbSystem>`__)
-
-This module is an adaptation of the "`System <https://github.com/EVerest/everest-core/tree/main/modules/System>`_"
-module in EVerest. It implements the "`system <https://github.com/EVerest/everest-core/blob/main/interfaces/system.yaml>`__"
-interface and, like the :code:`System` module, is responsible for performing system-wide operations but
-tailored for chargebyte's hardware platforms. The use of this module depends on the specific use case,
-such as if OCPP is required. In such cases, the :code:`CbSystem` module is responsible for executing
-commands from OCPP e.g. :code:`UpdateFirmware`.
-
-**CbTarragonPlugLock** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonPlugLock>`__)
-
-This module is not mandatory for an EVSE setup using Charge Control C in EVerest. However, if EVerest
-is configured for an AC supply equipment with a socket connector, the module :code:`CbTarragonPlugLock`
-can be utilized. This module is a driver for plug lock control and implements
-`connector_lock <https://github.com/EVerest/everest-core/blob/main/interfaces/connector_lock.yaml>`_ interface.
-It is designed to support all types of plug locks on connector X9 of the Charge Control C. Check
-section :ref:`locking_motor` to understand how to connect the locking motor to the Charge Control C.
-
 **API** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/API>`__)
 
 This module is not mandatory for an EVSE setup using Charge Control C in EVerest. However, the module
@@ -113,6 +81,24 @@ This module is not mandatory for an EVSE setup using Charge Control C in EVerest
 for storing EVerest error events in a database file. The location of the database file can be defined
 via a configuration parameter.
 
+**DummyTokenProvider** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/DummyTokenValidator>`__)
+
+This module listens to AuthRequired event from evse_manager module and then publishes one token.
+
+**DummyTokenValidator** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/DummyTokenValidator>`__)
+
+This module always returning the same configured token validation result for every token. The
+validation result is a configuration key in the manifest of the module.
+
+**CbSystem** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbSystem>`__)
+
+This module is an adaptation of the "`System <https://github.com/EVerest/everest-core/tree/main/modules/System>`_"
+module in EVerest. It implements the "`system <https://github.com/EVerest/everest-core/blob/main/interfaces/system.yaml>`__"
+interface and, like the :code:`System` module, is responsible for performing system-wide operations but
+tailored for chargebyte's hardware platforms. The use of this module depends on the specific use case,
+such as if OCPP is required. In such cases, the :code:`CbSystem` module is responsible for executing
+commands from OCPP e.g. :code:`UpdateFirmware`.
+
 **OCPP** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/OCPP>`__)
 
 This module implements and integrates OCPP 1.6 support within EVerest.
@@ -120,6 +106,35 @@ This module implements and integrates OCPP 1.6 support within EVerest.
 **OCPP201** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/OCPP201>`__)
 
 This module implements and integrates OCPP 2.0.1 support within EVerest.
+
+**AuthListValidator**
+
+This module validating if an incoming token exists in a in a predefined list of authorized tokens.
+
+**CbTarragonDriver** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonDriver>`__)
+
+This is the Hardware Abstraction Layer (HAL) for Charge Control C in EVerest. It implements
+the `evse_board_support <https://github.com/EVerest/everest-core/blob/main/interfaces/evse_board_support.yaml>`_
+interface, enabling communication with the :code:`EvseManager` and control of the board. The EVerest community
+often refers to these HAL modules as BSPs, such as MicroMegaWattBSP and PhyVersoBSP. This module is
+essential for controlling the Charge Control C. The term "Tarragon" in :code:`CbTarragonDriver` refers to
+the Charge Control C hardware platform.
+
+**CbTarragonPlugLock** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonPlugLock>`__)
+
+This module is not mandatory for an EVSE setup using Charge Control C in EVerest. However, if EVerest
+is configured for an AC supply equipment with a socket connector, the module :code:`CbTarragonPlugLock`
+can be utilized. This module is a driver for plug lock control and implements
+`connector_lock <https://github.com/EVerest/everest-core/blob/main/interfaces/connector_lock.yaml>`_ interface.
+It is designed to support all types of plug locks on connector X9 of the Charge Control C. Check
+section :ref:`locking_motor` to understand how to connect the locking motor to the Charge Control C.
+
+**CbTarragonDIs** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonDIs>`__)
+
+The Charge Control C is equipped with multiple digital inputs (For more information, refer to section :ref:`digital_input`).
+The module :code:`CbTarragonDIs` is used for setting the reference PWM for these DIs. The reference PWM
+sets the threshold voltage for all 12V digital inputs, which is essential for their operation.
+The use of this module is optional and depends on the EVSE requirements where the Charge Control C is integrated.
 
 Energy Management: 3 phase / 1 phase switching
 ==============================================
