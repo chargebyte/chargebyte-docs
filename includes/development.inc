@@ -53,7 +53,7 @@ Setting up Yocto Build Environment
 
 Follow the `documentation <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md>`_ in the
 'chargebyte-bsp' repository to build a firmware image based on the hardware platform specific board support package (BSP).
-Currently supported are the hardware platforms tarragon (Charge Control C) and charge SOM.
+Currently supported are the hardware platforms Tarragon (Charge Control C) and Charge SOM.
 
 This will include EVerest and chargebyte's hardware abstraction layer (HAL).
 
