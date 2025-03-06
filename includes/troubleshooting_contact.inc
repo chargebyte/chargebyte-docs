@@ -12,7 +12,7 @@ Do you have general questions about EVerest, please use the EVerest community's
 `Zulip <https://lfenergy.zulipchat.com/>`_.
 
 Do you have questions about the chargebyte BSP (incl. Yocto), please use
-`our support desk <https://chargebyte.com/support>`_.
+`our support desk <https://chargebyte.atlassian.net/servicedesk/customer/portal/13>`_.
 
 Address
 ^^^^^^^
