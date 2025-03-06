@@ -7,7 +7,7 @@ Development
 As mentioned in the section ":ref:`programming`", customers can create their own applications and
 integrate them into a custom firmware image. This section will guide you through the process of creating a custom
 EVerest module and integrating it into an image. This is done by either using the Yocto build system or
-cross-compiling the application for Tarragon - the Charge Control C hardware platform.
+cross-compiling the application for the chargebyte hardware platform.
 
 
 Setting up Yocto Build Environment
@@ -54,7 +54,9 @@ Setting up Yocto Build Environment
    #. :code:`build`: Initially holds a link to the :code:`conf` folder in :code:`chargebyte-bsp`.
 
 Follow the `documentation <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md>`_ in the
-'chargebyte-bsp' repository to build a firmware image based on the Tarragon board support package (BSP).
+'chargebyte-bsp' repository to build a firmware image based on the hardware platform specific board support package (BSP).
+Currently supported are the hardware platforms tarragon (Charge Control C) and charge SOM.
+
 This will include EVerest and chargebyte's hardware abstraction layer (HAL).
 
 The next step in this chapter is to write a new EVerest module and build a custom image that incorporates
@@ -113,10 +115,10 @@ directly, or used to `create a firmware image using RAUC <https://github.com/cha
 
 The custom image should now include the new EVerest module.
 
-.. _cross_compiling_for_tarragon:
+.. _cross_compiling:
 
-Cross-compiling for Tarragon
-============================
+Cross-compiling
+===============
 
 Another way to integrate custom applications into the firmware image is to cross-compile the application
 for Tarragon and include it in the image. A pre-requisite for this is to have the latest firmware image
@@ -166,51 +168,7 @@ how to checkout a dedicated EVerest release.
 
 #. Store the following lines in the :code:`toolchain.cmake` file:
 
-   .. code-block:: cmake
-
-      set(CMAKE_SYSTEM_NAME Linux)
-      set(CMAKE_SYSTEM_PROCESSOR arm)
-
-      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-psabi" CACHE STRING "" FORCE )
-      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-psabi" CACHE STRING "" FORCE )
-
-      if(CMAKE_BUILD_TYPE MATCHES Debug)
-          # Debug flags
-          message("Enabling Debug build")
-          set(CMAKE_CXX_FLAGS_DEBUG "-g")
-      else()
-          # Enable compiler optimization flags
-          set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Os")
-          set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os")
-
-          # Strip debug symbols
-          set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -s")
-      endif()
-
-      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -L${CMAKE_SYSROOT}/usr/lib")
-      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -L${CMAKE_SYSROOT}/usr/lib")
-
-      if(EXISTS ${CMAKE_SYSROOT} AND IS_DIRECTORY ${CMAKE_SYSROOT})
-        message(STATUS "SYSROOT found")
-      else()
-        message(FATAL_ERROR "ERROR: SYSROOT '${CMAKE_SYSROOT}' not found!!!")
-      endif()
-
-      set(ENV{PKG_CONFIG_PATH} "${CMAKE_SYSROOT}/usr/lib/pkgconfig:$ENV{PKG_CONFIG_PATH}")
-
-      set(CMAKE_CXX_STANDARD_LIBRARIES "${CMAKE_SYSROOT}/usr/lib/libstdc++.so")
-
-      set(NODEJS_INCLUDE_DIR /usr/include/node) # make sure that nodejs is installed. If not, sudo apt-get install nodejs-dev
-
-      set(PYTHON_INCLUDE_DIRS "${CMAKE_SYSROOT}/usr/include/python3.10")
-      set(PYTHON_LIBRARIES "${CMAKE_SYSROOT}/usr/lib/libpython3.10.so")
-
-      set(CMAKE_C_COMPILER /usr/bin/arm-linux-gnueabihf-gcc)
-      set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabihf-g++)
-
-      set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
-      set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-      set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+   .. literalinclude:: ../../includes/_static/files/toolchain.cmake
 
 #. Create a new :code:`build` directory in "my-module" and navigate to it.
 
@@ -241,7 +199,8 @@ how to checkout a dedicated EVerest release.
 
    .. code-block:: console
 
-      dist/libexec/everest/modules/MyModule/MyModule: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=9f287c2dbdcacd9ecde770df4820de9218deb439, for GNU/Linux 3.2.0, not stripped
+      dist/libexec/everest/modules/MyModule/MyModule: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (GNU/Linux),
+      dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=9f287c2dbdcacd9ecde770df4820de9218deb439, for GNU/Linux 3.2.0, not stripped
 
 #. The resulting binary and manifest file can be copied to the previously mounted root filesystem.
 
