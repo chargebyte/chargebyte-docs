@@ -65,7 +65,7 @@ The CB energy app can be installed from the official stores.
 Setup and configuration
 =======================
 
-On a chargebyte controller, the nymea Daemon will start automatically, together with the Everest stack while the system is booting up.
+On a chargebyte controller, the nymea daemon will start automatically, together with the Everest stack while the system is booting up.
 Once the services are running the app will be able to detect the instance automatically on localhost or in the local network.
 
 
@@ -74,7 +74,7 @@ Once the services are running the app will be able to detect the instance automa
 Client discovery
 ================
 
-The CB energy App (client) automatically discovers available instances (servers) in your local network. Please make sure to allow the Smartphone App to have access to your local network devices after installing it.
+The CB energy app (client) automatically discovers available instances (servers) in your local network. Please make sure to allow the smartphone app to have access to your local network devices after installing it.
 
 .. figure:: ../../includes/_static/images/cbenergy/discover.png
 	:height: 600px

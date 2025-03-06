@@ -107,7 +107,7 @@ Creating a Development Image
 ============================
 
 In order to build the custom image, follow the section "`Building an image <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md#user-content-build>`_"
-found in "chargebyte-bsp" repository which produces a Linux root filesystem. This can be either
+found in the "chargebyte-bsp" repository which produces a Linux root filesystem. This can be either
 `flashed <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md#user-content-flash>`_
 directly, or used to `create a firmware image using RAUC <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md#user-content-flash>`_.
 

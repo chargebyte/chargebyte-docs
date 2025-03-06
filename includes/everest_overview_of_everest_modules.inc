@@ -35,7 +35,7 @@ actual RFID reader. It listens to the AuthRequired event from evse_manager modul
 
 **DummyTokenValidator** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/DummyTokenValidator>`__)
 
-This module always returning the same configured token validation result for every token. The
+This module always returns the same configured token validation result for every token. The
 validation result is a configuration key in the manifest of the module.
 
 **CbSystem** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbSystem>`__)
@@ -57,4 +57,4 @@ This module implements and integrates OCPP 2.0.1 support within EVerest.
 
 **AuthListValidator**
 
-This module validating if an incoming token exists in a in a predefined list of authorized tokens.
+This module validates if an incoming token exists in a predefined list of authorized tokens.
