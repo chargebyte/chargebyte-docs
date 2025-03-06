@@ -92,7 +92,7 @@ Once you are connected to the nymea:core, you can start to set up your system.
 .. figure:: ../../includes/_static/images/cbenergy/user.png
 	:height: 600px
 
-It is time to create login credentials to keep the CB energy setup protected. When connecting to the system for the first time, it will prompt for a username and a password. Optionally, you can also provide your name and E-Mail address.
+It is time to create login credentials to keep the CB energy setup protected. When connecting to the system for the first time, it will prompt for a username and a password. Optionally, you can also provide your name and e-mail address.
 This information is stored locally.
 
 
@@ -102,14 +102,14 @@ This information is stored locally.
 Setup of ecosystem
 =========================
 
-In the next step, nymea:core starts a discovery for EV Chargers. This might be the same machine (localhost) or any other supported Charger in the local network.
+In the next step, nymea:core starts a discovery for EV chargers. This might be the same machine (localhost) or any other supported charger in the local network.
 
 .. figure:: ../../includes/_static/images/cbenergy/setup.png
 
 If you are trying CB energy on a chargebyte controller an EVerest connector will be discovered.
 
 
-After discovering and setting up the  wallbox, CB Energy tries to discover other assets like solar inverters and meters. If there aren't any of these devices around, you can skip this step.
+After discovering and setting up the wallbox, CB Energy tries to discover other assets like solar inverters and meters. If there aren't any of these devices around, you can skip this step.
 
 .. figure:: ../../includes/_static/images/cbenergy/setup-skip.png
 	:height: 600px
@@ -157,7 +157,7 @@ Since the fundamental IoT middleware of CB energy - nymea - is open source, you 
 Manual connection option
 ========================
 
-If Discovery between CB energy app (client) and nymea:core (server) fails for some reason (e.g. blocked UPnP/ZeroConf in company network), you can still enter the endpoints manually.
+If discovery between CB energy app (client) and nymea:core (server) fails for some reason (e.g. blocked UPnP/ZeroConf in company network), you can still enter the endpoints manually.
 There are three options for the connection protocol:
 
 #. TCP
