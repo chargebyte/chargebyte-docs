@@ -297,7 +297,7 @@ to EVerest-based charging stack:
   When updating from chargebyte's proprietary charging stack to this EVerest-based charging stack,
   the configuration files (e.g. the :code:`"/etc/secc/customer.json"`) are not preserved and you
   start with a basic, default EVerest configuration.
-  It is therefore inevitable that Everest must be reconfigured after starting the board.
+  It is therefore inevitable that EVerest must be reconfigured after starting the board.
   In the worst case EVerest stack does not start up correctly. Also note, that the return path from
   EVerest to chargebyte's proprietary charging stack (when doing a firmware update) is affected:
   since the EVerest configuration files differ significantly from chargebyte's proprietary ones,

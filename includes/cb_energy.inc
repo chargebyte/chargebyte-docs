@@ -26,9 +26,9 @@ Features like generating charging session report and the energy management are c
 from chargebyte GmbH. For more information have a look `on our website <https://chargebyte.com/software/energy-manager>`_.
 
 
-Both parts have to be in the same network. In order to monitor and control the wallboxes, the Everest charging stack is needed. The Everest stack provides an API module, that is used by CB Energy either on localhost (on the same hardware) or to access other instances in the same local network. 
+Both parts have to be in the same network. In order to monitor and control the wallboxes, the EVerest charging stack is needed. The EVerest stack provides an API module, that is used by CB Energy either on localhost (on the same hardware) or to access other instances in the same local network.
 
-Note: This documentation is a quick start to get the nymea ecosystem running as fast as possible with Everest charging stack. If you are testing CB Energy on one of chargebyte's Linux controllers, both EVerest and CB Energy are preinstalled in the latest firmware images. A more detailed documentation can be found `on the nymea website <https://nymea.io>`_.
+Note: This documentation is a quick start to get the nymea ecosystem running as fast as possible with EVerest charging stack. If you are testing CB Energy on one of chargebyte's Linux controllers, both EVerest and CB Energy are preinstalled in the latest firmware images. A more detailed documentation can be found `on the nymea website <https://nymea.io>`_.
 
 .. important::
   The `API module <https://github.com/EVerest/everest-core/tree/main/modules/API>`_ must be installed and active in the EVerest configuration.
@@ -65,7 +65,7 @@ The CB energy app can be installed from the official stores.
 Setup and configuration
 =======================
 
-On a chargebyte controller, the nymea daemon will start automatically, together with the Everest stack while the system is booting up.
+On a chargebyte controller, the nymea daemon will start automatically, together with the EVerest stack while the system is booting up.
 Once the services are running the app will be able to detect the instance automatically on localhost or in the local network.
 
 
