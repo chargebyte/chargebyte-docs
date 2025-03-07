@@ -76,7 +76,7 @@ how to checkout a dedicated EVerest release.
 
       make install -j$(nproc)
 
-#. Test that the resulting binaries are compiled for charge SOM as a target:
+#. Test that the resulting binaries are compiled for Charge SOM as a target:
 
    .. code-block:: console
 

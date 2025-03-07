@@ -10,10 +10,10 @@ Frequently Asked Questions
    :local:
 
 
-Is it possible to use the ChargeSOM as an EV simulator?
+Is it possible to use the Charge SOM as an EV simulator?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-No, the Control Pilot interface on ChargeSOM is not able to operate as an EV. Please look at
+No, the Control Pilot interface on Charge SOM is not able to operate as an EV. Please look at
 our `website <https://www.chargebyte.com/>`_ for more suitable products.
 
 
@@ -26,22 +26,22 @@ and a `library <https://github.com/EVerest/everest-core/tree/main/lib/staging/ca
 which uses the CAN interface.
 
 
-How can I access the EVerest admin panel on ChargeSOM?
+How can I access the EVerest admin panel on Charge SOM?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ChargeSOM doesn't have an `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
+The Charge SOM doesn't have an `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
 because of its limited resources. Please use your development environment to set up your configuration
 file or just use a plain text editor.
 
 
-Does EVerest on ChargeSOM support ISO 15118-20 yet?
+Does EVerest on Charge SOM support ISO 15118-20 yet?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The required module for ISO 15118-20 has been included in the image since the chargebyte EVerest 0.2.0 release.
 Please note that the implementation is still under development.
 
 
-How do I set up OCPP 2.0.1 on ChargeSOM with EVerest?
+How do I set up OCPP 2.0.1 on Charge SOM with EVerest?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To support OCPP 2.0.1, the EVerest OCPP201 module must be integrated into the EVerest configuration.

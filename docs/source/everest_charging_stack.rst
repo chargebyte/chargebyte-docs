@@ -17,7 +17,7 @@ The use case described in this configuration file includes the following:
 * DC charging mode
 * No TLS (Transport Layer Security) enabled for HLC (High Level Communication)
 * 3 phase, 16A fuse limit
-* Simulation of the IDM (Insulation Monitoring Device)
+* Simulation of the IMD (Insulation Monitoring Device)
 * Simulation of the DC Supply Device
 
 An overview of the EVerest modules is shown in the next section.
