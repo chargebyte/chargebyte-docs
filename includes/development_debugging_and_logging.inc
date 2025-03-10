@@ -16,10 +16,10 @@ To view the logs, connect to the charge controller via SSH and run the following
 
 .. code-block:: console
 
-    journalctl -f -u everest
+    journalctl -f -n 100 -u everest
 
-The -f flag is used to follow the logs live when they are written. The -u flag is used to filter the logs
-for the everest service. To stop following the logs, press :code:`Ctrl + C`.
+The -f flag is used to follow the logs live, and the -n flag is used to view the last 100 lines.
+The -u flag is used to filter the logs for the everest service. To stop following the logs, press :code:`Ctrl + C`.
 
 The logs are stored by the systemd journal service in a binary format in
 "/var/log/journal". To open the binary in a human-readable format, use the following command:
@@ -28,9 +28,8 @@ The logs are stored by the systemd journal service in a binary format in
     
     journalctl -u everest --file /path/to/your/file.journal
 
-
 As shown in the :ref:`start_charging_and_monitoring` section, a log line consists, among other things,
-of a timestamp, a log level, a module name, and a message. The log level can be one of the following:
+of a timestamp, a log level, a module id, a module name, and a message. The log level can be one of the following:
 
     - "VERB" (Verbose)
     - "DEBG" (Debug)
@@ -39,8 +38,9 @@ of a timestamp, a log level, a module name, and a message. The log level can be 
     - "ERRO" (Error)
     - "CRIT" (Critical)
 
-The log level can be configured for each module separately in the logging configuration file. This file
-is located in the "/etc/everest/default_logging.cfg" directory.
+The log level can be configured for each EVerest module separately in the logging configuration file.
+The logging configuration file is located at "/etc/everest/default_logging.cfg". The filter can be configured
+using the log level and the module identifier as defined in the EVerest configuration.
 Here is an example to configure the message filter to change the log level of the EvseManager module
 to DEBUG:
 
@@ -48,8 +48,8 @@ to DEBUG:
 
     # The filter expression consists of two parts:
     # 1. Logs with severity level INFO or higher (affects all EVerest modules).
-    # 2. Logs from the EvseManager process with severity level DEBUG or higher.
-    Filter="(%Severity% >= INFO) or (%Process% contains EvseManager and %Severity% >= DEBG)"
+    # 2. Logs from the EvseManager with module id "connector" with severity level DEBUG or higher.
+    Filter="(%Severity% >= INFO) or (%Process% contains connector and %Severity% >= DEBG)"
 
 pcap traces
 -----------
@@ -62,7 +62,7 @@ In general, there are two ways to capture pcap traces:
 
         tcpdump -i eth1 -w /srv/charge_com_01.pcap 
 
-    This command captures all packets on the eth1 (QCA interface) interface and writes them to
+    This command captures all packets on the eth1 (QCA) interface and writes them to
     a pcap file. Stop the capture by pressing :code:`Ctrl + C`.
 
     .. note::
@@ -72,10 +72,10 @@ In general, there are two ways to capture pcap traces:
 #. Using the EVerest "PacketSniffer" module
 
     The `PacketSniffer <https://github.com/EVerest/everest-core/tree/main/modules/PacketSniffer>`_ module
-    is part of EVerest-core and can be used to capture pcap traces automatically. Please look into
+    is part of everest-core and can be used to capture pcap traces automatically. Please look into
     the module manifest to see how to configure the PacketSniffer module.
 
-pcap traces with V2G communication can be analyzed using Wireshark with a V2G plugin like from `dSPACE <https://www.dspace.com/de/gmb/home/news/wireshark-charging-plug-in.cfm>`_.
+pcap traces with V2G communication can be analyzed using Wireshark with a V2G plugin like from `dSPACE <https://www.dspace.com/en/pub/home/news/wireshark-charging-plug-in.cfm>`_.
 
 .. note::
     TLS encrypted communication cannot be analyzed with Wireshark without the TLS session key. Please
@@ -85,8 +85,8 @@ pcap traces with V2G communication can be analyzed using Wireshark with a V2G pl
 
 Session logging of the EVSEManager
 ----------------------------------
-The EVerest "EVSEManager" is able to generate session log files with information about e.g. current session state,
-configured, CP state, duty cycle and is also able to decode and log the content of the V2G messages.
+The EVerest "EVSEManager" can generate session log files with information about the current session state,
+configured CP state and duty cycle. It can also decode and log the content of the V2G messages.
 Please look into the module manifest to see how to configure the EVSEManager module to activate session logging.
 
 .. note::
@@ -94,7 +94,6 @@ Please look into the module manifest to see how to configure the EVSEManager mod
 
 MQTT logs
 ---------
-
 It is also possible to observe the internal MQTT communication between the EVerest modules.
 When developing new modules, this can be helpful to better understand the internal processes regarding
 the use of the interfaces.
