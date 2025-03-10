@@ -5,8 +5,8 @@ Logging and Debugging
 
 There are different ways to analyze the EVerest charging software. In the following, different
 ways are described. In preparation for starting this chapter, it is necessary to be connected to the board
-via Ethernet. This is also necessary to copy logs and traces from the board to the local PC via an FTP
-tool like WinSCP <https://winscp.net/eng/download.php>`_ or FileZilla <https://filezilla-project.org/>`_. 
+via Ethernet. This is also necessary to copy logs and traces from the board to the local PC via a SFTP
+tool like `WinSCP <https://winscp.net/eng/download.php>`_ or `FileZilla <https://filezilla-project.org/>`_. 
 
 journalctl logs
 ---------------
@@ -62,7 +62,7 @@ In general, there are two ways to capture pcap traces:
 
         tcpdump -i eth1 -w /srv/charge_com_01.pcap 
 
-    This command captures all packets on the eth1 (QCA) interface and writes them to
+    This command captures all packets on the eth1 (PLC) interface and writes them to
     a pcap file. Stop the capture by pressing :code:`Ctrl + C`.
 
     .. note::
