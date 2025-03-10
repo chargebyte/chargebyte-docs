@@ -14,6 +14,11 @@ Do you have general questions about EVerest, please use the EVerest community's
 Do you have questions about the chargebyte BSP (incl. Yocto), please use
 `our support desk <https://chargebyte.atlassian.net/servicedesk/customer/portal/13>`_.
 
+.. note::
+    Before submitting a support request, make sure that all relevant log files have been captured.
+    The chapter :ref:`logging_and_debugging` describes the debugging options EVerest offers and shows
+    which logs are relevant for the respective case.
+
 Address
 ^^^^^^^
 

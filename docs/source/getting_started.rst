@@ -229,6 +229,7 @@ to restart the EVerest charging stack to apply the changes:
    start. Therefore, it is recommended to back up the original configuration file before making
    changes.
 
+.. _start_charging_and_monitoring:
 
 Starting and Monitoring the Charging Process
 --------------------------------------------
@@ -237,7 +238,8 @@ Before we start the first charging session, we shall open the EVerest log to mon
 process. The EVerest log is stored in the systemd journal and can be accessed via the journalctl
 command. The journalctl command provides a lot of options to filter the log messages. 
 Now just type "journalctl -f -u everest -n 50" to see the last 50 log messages of the EVerest
-charging stack and to follow the charging process in real time.
+charging stack and to follow the charging process in real time. For more information about the
+EVerest log, see the :ref:`logging_and_debugging` chapter.
 
 The EVerest log should look like this:
 
