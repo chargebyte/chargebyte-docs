@@ -63,14 +63,14 @@ firmware update:
    * - file: :code:`/etc/everest/config.yaml`
      - EVerest configuration file
    * - file: :code:`/etc/everest/ocpp-config.json`
-     - OCPP configuration file
+     - OCPP 1.6 configuration file
    * - directory: :code:`/etc/everest/user-config`
      - User specific configuration files. The config file must have the same name as in the parent
        directory ("config.yaml").
    * - directory: :code:`/etc/everest/certs`
      - Certificates directory, mainly for TLS and Plug&Charge
    * - directory: :code:`/var/lib/everest`
-     - OCPP database
+     - OCPP databases
    * - directory: :code:`/etc/systemd/network`
      - Network configuration
    * - file: :code:`/etc/hostapd/hostapd.conf`
@@ -79,7 +79,7 @@ firmware update:
      - Copies only the root password
 
 A complete list of copied files and directories during a firmware update can be found in the
-"meta-chargebyte-everest" github repository in the `bundles/core-bundels/post-install.d 
+"meta-chargebyte-everest" github repository in the `bundles/core-bundle/post-install.d
 <https://github.com/chargebyte/meta-chargebyte-everest/blob/kirkstone/bundles/core-bundle/post-install.d>`_
 directory.
 
@@ -102,9 +102,6 @@ directory.
       * - OCPP
         - DatabasePath
         - :code:`/var/lib/everest/ocpp16`
-      * - OCPP201
-        - ChargePointConfigPath
-        - :code:`/etc/everest/ocpp-config.json`
       * - OCPP201
         - CertsPath
         - :code:`/etc/everest/certs`

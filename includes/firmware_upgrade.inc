@@ -23,10 +23,10 @@ The currently installed firmware version can be checked by reading the content o
 
 .. _download_firmware_images:
 
-Download Firmware Images
-------------------------
+Download EVerest Firmware Images
+--------------------------------
 
-Firmware images are released by chargebyte on our meta-chargebyte-everest repository, which is the Yocto layer to build the firmware images.
+EVerest firmware images are released by chargebyte on our meta-chargebyte-everest repository, which is the Yocto layer to build the firmware images.
 The image files can be found in the `"Release" section <https://github.com/chargebyte/meta-chargebyte-everest/releases>`_ of the
 repository. Here you can find the latest firmware images and also older released versions.
 
