@@ -11,9 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout repository with submodules
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        fetch-depth: 0
+
+    - name: Initialize and update submodules
+      run: git submodule update --init --recursive
     # This external action cares about all the sphinx stuff
-    - uses: ammaraskar/sphinx-action@4.3.2
+    - name: Build project
+      uses: ammaraskar/sphinx-action@4.3.2
       with:
         build-command: "sphinx-build -b linkcheck source/ build/"
         docs-folder: "docs/"
