@@ -6,7 +6,7 @@
 Partitioning
 -------------
 
-The internal eMMC storage of a chargebyte device is divided into several partitions. The main aim is to have two independent systems available, i.e. system A and system B. This allows to running firmware updates in background while performing normal charging operation, and then switching to the updated system with a fast restart of the device. This also allows to supporting a rollback mechanism in case of failures during firmware updates. In other words, during a firmware update, the active root file system switches from A to B or vice versa, leaving the other as rollback.
+The internal eMMC storage of a chargebyte device is divided into several partitions to support two independent systems: system A and system B. This setup enables firmware updates to run in the background while the device continues normal charging operations. Once the update is complete, the system can switch to the updated version with a reboot of the device. Additionally, this approach supports a rollback mechanism in case of update failures. In other words, during a firmware update, the active root file system switches from A to B (or vice versa), leaving the other partition available for rollback if needed.
 
 .. list-table:: eMMC Partitioning
    :header-rows: 1
