@@ -34,7 +34,7 @@ The internal eMMC storage of a chargebyte device is divided into several partiti
      - 128 MB
      - Logging file system B (/var/log)
 
-.. image:: _static/images/mountpoints_tarragon.svg
+.. image:: ../../includes/_static/images/mountpoints.svg
    :alt: Filesystem-Mountpoints
    :align: center
 
