@@ -13,14 +13,14 @@ Frequently Asked Questions
 Is it possible to use the Charge SOM as an EV simulator?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-No, the Control Pilot interface on Charge SOM is not able to operate as an EV. Please look at
-our `website <https://www.chargebyte.com/>`_ for more suitable products.
+The Charge SOM hardware is not designed to be used as an EV simulator. Please refer to our
+`website <https://www.chargebyte.com/>`_ for more suitable products.
 
 
 I want to control EVerest via CAN, how can I achieve this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently there is no such EVerest module available, you will need to implement it on your own. But
+Currently, there is no such EVerest module available, you will need to implement it on your own. But
 at least there is a `module <https://github.com/EVerest/everest-core/tree/main/modules/DPM1000>`_
 and a `library <https://github.com/EVerest/everest-core/tree/main/lib/staging/can_dpm1000>`_,
 which uses the CAN interface.
@@ -29,15 +29,15 @@ which uses the CAN interface.
 How can I access the EVerest admin panel on Charge SOM?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Charge SOM doesn't have an `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
-because of its limited resources. Please use your development environment to set up your configuration
-file or just use a plain text editor.
+Currently, the Charge SOM does not have integrated the `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
+Please use your development environment to set up your configuration file. Alternatively, you can use a plain text
+editor.
 
 
 Does EVerest on Charge SOM support ISO 15118-20 yet?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The required module for ISO 15118-20 has been included in the image since the chargebyte EVerest 0.2.0 release.
+The required module for ISO 15118-20 has been included in the image since the Charge SOM EVerest release 0.2.0.
 Please note that the implementation is still under development.
 
 
