@@ -250,7 +250,7 @@ The EVerest log should look like this:
    2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::   ________      __                _
    2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  |  ____\ \    / /               | |
    2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  | |__   \ \  / /__ _ __ ___  ___| |_
-   2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  |  __|   \ \/ / _ \ \'__/ _ \/ __| __|
+   2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  |  __|   \ \/ / _ \ '__/ _ \/ __| __|
    2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  | |____   \  /  __/ | |  __/\__ \ |_
    2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  |______|   \/ \___|_|  \___||___/\__|
    2025-02-26T08:30:30.191154+0100 tarragon manager[24855]: [INFO] manager          ::
@@ -262,17 +262,17 @@ The EVerest log should look like this:
    2025-02-26T08:30:31.174881+0100 tarragon manager[24855]: [INFO] manager          :: Loading config file at: /etc/everest/bsp-only.yaml
    2025-02-26T08:30:31.174881+0100 tarragon manager[24855]: [INFO] manager          :: Config loading completed in 819ms
    2025-02-26T08:30:31.174881+0100 tarragon manager[24855]: [INFO] manager          :: Starting 7 modules
-   2025-02-26T08:30:32.461078+0100 tarragon manager[24880]: [INFO] tarragon_dig_in  :: chargebyte\'s Tarragon driver for configuration of digital input reference PWM (version: 0.18.0)
+   2025-02-26T08:30:32.461078+0100 tarragon manager[24880]: [INFO] tarragon_dig_in  :: chargebyte's Tarragon driver for configuration of digital input reference PWM (version: 0.18.0)
    2025-02-26T08:30:32.461078+0100 tarragon manager[24880]: [INFO] tarragon_dig_in  :: Enabled digital input reference PWM 2084000.pwm, channel 0 with period 40000 and duty cycle 20000
    2025-02-26T08:30:32.461078+0100 tarragon manager[24880]: [INFO] tarragon_dig_in  :: Module tarragon_dig_in_ref initialized [1774ms]
    2025-02-26T08:30:32.915061+0100 tarragon manager[24884]: [INFO] energy_manager:  :: Module energy_manager initialized [1797ms]
-   2025-02-26T08:30:33.059561+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: chargebyte\'s Hardware EVerest Modules (version: 0.18.0)
+   2025-02-26T08:30:33.059561+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: chargebyte's Hardware EVerest Modules (version: 0.18.0)
    2025-02-26T08:30:33.207183+0100 tarragon manager[24883]: [INFO] error_history:E  :: Using database at "/tmp/error_history.db"
    2025-02-26T08:30:33.207183+0100 tarragon manager[24883]: [INFO] error_history:E  :: Checking database
    2025-02-26T08:30:33.207183+0100 tarragon manager[24883]: [INFO] error_history:E  :: Module error_history initialized [2033ms]
    2025-02-26T08:30:33.461684+0100 tarragon manager[24882]: [INFO] grid_connection  :: Module grid_connection_point initialized [2166ms]
    2025-02-26T08:30:33.554315+0100 tarragon manager[24886]: [INFO] api:API          :: Module api initialized [2071ms]
-   2025-02-26T08:30:33.603804+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Contactor feedback type: \'none\'
+   2025-02-26T08:30:33.603804+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Contactor feedback type: 'none'
    2025-02-26T08:30:33.603804+0100 tarragon manager[24881]: [WARN] tarragon_bsp:Cb CbTarragonContactorControlSimple::CbTarragonContactorControlSimple(std::unique_ptr<CbTarragonRelay>, const string&) :: The contactor has the feedback pin not connected. This is not recommended.
    2025-02-26T08:30:33.603804+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Control Pilot Observation Thread started
    2025-02-26T08:30:33.603804+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Module tarragon_bsp initialized [2275ms]
