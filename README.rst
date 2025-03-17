@@ -12,6 +12,13 @@ Contents:
 
 - Charge Control C User Guide
 
+Repo initialization:
+-------------------
+This repository is using git submodules to share documents between the user guides.
+After cloning of the project please execute the following command:
+
+git submodule update --init --force --remote
+
 
 Building the documentation locally:
 -----------------------------------
