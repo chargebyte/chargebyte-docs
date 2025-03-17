@@ -1,0 +1,4 @@
+[submodule "includes"]
+	path = includes
+	url = https://github.com/chargebyte/chargebyte-docs.git
+	branch = shared-docs
