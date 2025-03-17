@@ -639,7 +639,7 @@ In order to use different Plug Lock devices, five parameters have to be consider
     - Normally open
     - No feedback
 
-**Note:** The feedback type describes which state the feeback switch has when the plug lock is in unlocked state.
+**Note:** The feedback type describes which state the feedback switch has when the plug lock is in unlocked state.
 
 
 Configuration For Plug Locks Without Feedback
