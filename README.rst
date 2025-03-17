@@ -8,7 +8,7 @@ This documentation contains all necessary information and guides for the use and
 Contents:
 ---------
 
-- Product specifc User Guides and Manuals (In Progress)
+- Product specific User Guides and Manuals (In Progress)
 - Developer Documentation (In Progress)
 - FAQs and Troubleshooting (In Progress)
 
