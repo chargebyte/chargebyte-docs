@@ -148,7 +148,7 @@ In some situations, e.g., rescuing data of the other partition after a firmware 
 
 The chargebyte device uses the RAUC update framework for updating the device with a new firmware version and managing the boot partitions. Before using RAUC command line tool, it is necessary to establish a connection via SSH or Debug UART. After the connection is established, the status of the RAUC managed partitions can be retrieved by using the :code:`rauc status` console command. The following figure shows the console output of the RAUC status command. Here the board was booted from the first partition “rootfs.0” (A).
 
-.. image:: _static/images/rauc_status.jpg
+.. image:: _static/images/rauc_status.png
    :alt: RAUC status
    :align: center
 
@@ -160,7 +160,7 @@ The chargebyte device uses the RAUC update framework for updating the device wit
 
 The rollback to the other partition can now be performed by using the command :code:`rauc status mark-active other`. The console output should now look like the following figure.
 
-.. image:: _static/images/rauc_status_mark_other.jpg
+.. image:: _static/images/rauc_status_mark_other.png
    :alt: RAUC status mark-active
    :align: center
 
