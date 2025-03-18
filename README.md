@@ -10,8 +10,12 @@ This documentation contains all necessary information and guides for the use and
 >
 > Please refer to either:
 >
-> - **Charge Control C** at https://github.com/chargebyte/chargebyte-docs/tree/everest/charge_control_c
-> - **Charge SOM** at https://github.com/chargebyte/chargebyte-docs/tree/everest/charge_som
+> - **Charge Control C**
+>   - documentation sources at https://github.com/chargebyte/chargebyte-docs/tree/everest/charge_control_c
+>   - browse the User Guide at https://chargebyte-docs.readthedocs.io/projects/everest-charge-control-c
+> - **Charge SOM**
+>   - documentation sources at https://github.com/chargebyte/chargebyte-docs/tree/everest/charge_som
+>   - browse the User Guide at https://chargebyte-docs.readthedocs.io/projects/everest-charge-som
 
 Contact:
 --------
