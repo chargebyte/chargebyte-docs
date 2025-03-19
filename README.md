@@ -22,4 +22,4 @@ Contact:
 
 If you have any questions or inquiries, please contact our support team at https://chargebyte.com/support.
 
-Thank you for using products from chargebyte GmbH!
+Thank you for choosing chargebyte products!
