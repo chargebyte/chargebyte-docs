@@ -3,6 +3,19 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import os
+
+# Documentation version
+current_version = "latest"
+
+# Check if the current version is "latest"; if not, display a warning
+if os.getenv("READTHEDOCS_VERSION") and os.getenv("READTHEDOCS_VERSION") != current_version:
+    html_context = {
+        "display_lower_left": True,
+        "current_version": os.getenv("READTHEDOCS_VERSION"),
+        "warning_banner": "This documentation is outdated. Visit the latest version at: https://yourproject.readthedocs.io/en/latest/"
+    }
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
