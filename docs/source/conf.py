@@ -16,6 +16,9 @@ if os.getenv("READTHEDOCS_VERSION") and os.getenv("READTHEDOCS_VERSION") != curr
         "warning_banner": "This documentation is outdated. Visit the latest version at: https://yourproject.readthedocs.io/en/latest/"
     }
 
+rtd_version = os.getenv("READTHEDOCS_VERSION", "NOT SET")
+print(f"DEBUG: READTHEDOCS_VERSION = {rtd_version}")
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
