@@ -10,10 +10,13 @@ current_version = "latest"
 
 # Check if the current version is "latest"; if not, display a warning
 if os.getenv("READTHEDOCS_VERSION") and os.getenv("READTHEDOCS_VERSION") != current_version:
-    html_context = {
-        "display_lower_left": True,
-        "current_version": os.getenv("READTHEDOCS_VERSION"),
-        "warning_banner": "This documentation is outdated. Visit the latest version at: https://yourproject.readthedocs.io/en/latest/"
+#    html_context = {
+#        "display_lower_left": True,
+#        "current_version": os.getenv("READTHEDOCS_VERSION"),
+#        "warning_banner": "This documentation is outdated. Visit the latest version at: https://yourproject.readthedocs.io/en/latest/"
+#    }
+    html_theme_options = {
+    "warning_banner": "This documentation is outdated. Visit the latest version at: https://yourproject.readthedocs.io/en/latest/"
     }
 
 rtd_version = os.getenv("READTHEDOCS_VERSION", "NOT SET")
