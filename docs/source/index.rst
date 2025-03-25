@@ -20,6 +20,7 @@ Charge SOM Evaluation Kit.
    :caption: Contents:
 
    getting_started
+   hardware
    firmware
    everest_charging_stack
    cb_energy
