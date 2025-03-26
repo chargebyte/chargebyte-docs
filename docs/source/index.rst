@@ -20,6 +20,7 @@ Charge SOM Evaluation Kit.
    :caption: Contents:
 
    getting_started
+   peripheral_compat_list
    hardware
    firmware
    everest_charging_stack
