@@ -60,8 +60,8 @@ Charge Control C comes with three switches as shown in Figure *Switches On Charg
     Switches On Charge Control C
 
 
-SW1 - EA-485 Termination
-------------------------
+SW1 - EIA-485 Termination
+-------------------------
 
 SW1 enables or disables the termination resistor of the EIA-485 1 available on X7.
 
@@ -118,8 +118,8 @@ Hardware Interfaces
 Ethernet
 ========
 
-This device supports 10/100 Mbit/s Ethernet. In the Linux operating system it is available as network interface eth0.
-This interface is part of a bridge interface br0, see following sections for details.
+This device supports 10/100 Mbit/s Ethernet. In the Linux operating system it is available as network interface ``eth0``.
+This interface is part of a bridge interface ``br0``, see following sections for details.
 
 .. flat-table:: Ethernet
    :header-rows: 1
@@ -147,7 +147,7 @@ Overview
 In order to connect Charge Control C to an internal peripheral (e.g. smart meters, display and RFID readers),
 the board supports up to two EIA-485 interfaces.
 The EVerest stack ships with included support for some peripheral devices.
-The baud rate of each EIA-485 interface is configurable up to 115200 bps.
+The baudrate of each EIA-485 interface is configurable up to 115200 bps.
 
 .. flat-table:: Board Interface
     :header-rows: 1
@@ -169,98 +169,6 @@ The baud rate of each EIA-485 interface is configurable up to 115200 bps.
 
 .. [1] 390 Ohm Pull-up & 390 Ohm Pull-down resistors permanently activated
 .. [2] PCB board revision string can be found on the left side of the board near the relays
-
-
-Supported Peripheral Devices
-----------------------------
-
-The EVerest charging stack supports several peripheral devices out-of-the-box.
-The EVerest charging stack support is provided in the form of different modules , i.e. "GenericPowermeter",
-"SL032ModbusTokenProvider", "PowermeterIskra_WM3M4C".
-
-Some of this modules need to be connected to the module "SerialCommHub", provided by EVerests charging stack.
-This module is responsible for the low level communication (Modbus).
-
-The configuration of the *SerialCommHub* module can be found on EVerests documentation platform:
-https://everest.github.io/nightly/_generated/modules/SerialCommHub.html.
-
-.. flat-table:: Currently Supported Internal Peripherals Using Modbus
-    :header-rows: 1
-    :widths: auto
-
-    * - Model
-      - Used EVerest module
-      - SerialCommHub needed
-    * - :cspan:`2`
-    * - :cspan:`2` **Electricity meter**
-    * - Iskra WM3M4/WM3M4C
-      - PowermeterIskra_WM3M4C
-      - Yes
-    * - Eastron SDM72D-M
-      - :rspan:`4` GenericPowermeter
-      - :rspan:`4` Yes
-    * - Eastron SDM72D-M v2
-    * - Eastron SDM230
-    * - Eastron SDM630 v2
-    * - Klefr 693x/694x
-    * - :cspan:`2`
-    * - :cspan:`2` **RFID reader**
-    * - StrongLink SL032 Modbus (proprietary UART protocol is not supported)
-      - SL032ModbusTokenProvider
-      - Yes
-
-**Note:** It should be avoided to use different protocols on the same connector.
-
-Since Charge Control C can be freely programmed, it is possible that customers add additional device
-support on their own, either by writing a customer EVerest module or adapting a model for GenericPowermeter.
-
-The following table documents the default communication parameters for supported Modbus peripherals.
-Usually, these defaults are derived from the peripherals default settings to allow Plug & Play.
-But especially in cases where a implementation supports several models (i.e. GenericPowermeter),
-it must be cross-checked that the connected peripherals (default) settings matches - adapt the configuration
-of the peripherals and/or change the configuration of SerialCommHub to make it work.
-
-.. flat-table:: Communication Parameters For Modbus Peripherals
-    :header-rows: 1
-    :widths: auto
-
-    * - Peripherals Device
-      - Baud rate
-      - Parity
-      - Modbus Address
-      - Note
-
-    * - Eastron SDM72D-M
-      - 9600
-      - none
-      - 1
-      - Only parity "even" is documented as default in device manuals.
-    * - Eastron SDM230
-      - 9600
-      - none
-      - 1
-      - This Eastron model is shipped with factory defaults set to baud rate 2400 and settings 8E1, so customer \
-        usually needs to change baud rate and parity values in customer.json.
-    * - Eastron SDM630 v2
-      - 9600
-      - none
-      - 1
-      - No documented defaults in device manuals.
-    * - Klefr 693x/694x
-      - 9600
-      - none
-      - 1
-      -
-    * - Iskra WM3M4/WM3M4C
-      - 115200
-      - none
-      - 33
-      -
-    * - StrongLink SL032 (with customized Modbus protocol)
-      - 9600
-      - none
-      - 17
-      -
 
 
 Supported Electricity Meter Measurands
@@ -314,8 +222,8 @@ An EIA-485 bus is not considered a plug and play bus. It is assumed that periphe
 powering the charging station, or at least power up simultaneously with the Charge Control C board.
 
 
-Main PLC
-========
+Mains PLC
+=========
 
 This device supports 10 Mbit/s HomePlug Green PHY™ power line communication on mains.
 This interface is available (if present) as eth2. Please note, that for security reasons this
@@ -467,16 +375,17 @@ Configuration
       - voltage5
       - `-`
 
-In order to use Highlevel communication the EVerest modules *EvseV2G* and *EvSlac* must be considered.
-The configuration parameters can be found on EVerests
-documentations platform: https://everest.github.io/nightly/_generated/modules/EvseV2G.html
+In order to use High-Level Communication, the EVerest modules *EvseV2G* and *EvseSlac* must be considered.
+The configuration parameters can be found on EVerest's
+documentation platform: https://everest.github.io/nightly/_generated/modules/EvseV2G.html
 and https://everest.github.io/nightly/_generated/modules/EvseSlac.html.
 
-**Note:** The Charge Control boards use a Qualcomm Atheros QCA7000 chip for Green PHY communication on CP line.
-The shipped QCA7000 firmware configuration contains a default set of prescalers which influence the
-CP signal level (,,loudness”).
-It is recommended to re-check these settings in customer’s specific setup and environment and tune them
-accordingly if necessary.
+.. note::
+   The Charge Control C boards use a Qualcomm Atheros QCA700x chip for Green PHY communication on CP line.
+   The shipped QCA700x firmware configuration contains a default set of prescalers which influence the
+   CP signal level ("loudness").
+   It is recommended to re-check these settings in customer’s specific setup and environment and tune them
+   accordingly if necessary.
 
 
 Locking Motors
