@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to chargebyte EVerest SECC documentation!
-=================================================================
+=================================================
 
 chargebyte GmbH offers various products with the EVerest software stack. Our products are designed
 to make it as quick and easy as possible to get started with EV charging.
