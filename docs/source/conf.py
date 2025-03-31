@@ -18,9 +18,12 @@ extensions = ['linuxdoc.rstFlatTable', 'sphinx_copybutton']
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+numfig = True
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
+html_title = project
 html_theme = 'classic'
 html_static_path = ['_static']
 html_logo = '_static/cb_logo.png'
