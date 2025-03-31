@@ -27,22 +27,27 @@ Electricity Meters
 AC
 --
 
-+---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
-| Vendor / Product    | Interface | Protocol | Implementer | EVerest Module Name    | EVerest Module Supports | Tested by chargebyte |
-|                     |           |          |             |                        |    German Eichrecht     |                      |
-+=====================+===========+==========+=============+========================+=========================+======================+
-| Eastron SDM230      | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✗           |
-+---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
-| Eastron SDM72D-M    | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✓           |
-+---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
-| Eastron SDM72D-M v2 | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✓           |
-+---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
-| Eastron SDM630 v2   | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✓           |
-+---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
-| Klefr 693x/694x     | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✓           |
-+---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
-| Iskra WM3M4/WM3M4C  | EIA-485   | Modbus   | chargebyte  | PowermeterIskra_WM3M4C |            ✗            |          ✓           |
-+---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
+.. table:: Supported AC Electricity Meters
+   :align: center
+   :width: 100%
+   :widths: 3,1,1,1,2,2,2
+
+   +---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
+   | Vendor / Product    | Interface | Protocol | Implementer | EVerest Module Name    | EVerest Module Supports | Tested by chargebyte |
+   |                     |           |          |             |                        | German Eichrecht        |                      |
+   +=====================+===========+==========+=============+========================+=========================+======================+
+   | Eastron SDM230      | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✗           |
+   +---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
+   | Eastron SDM72D-M    | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✓           |
+   +---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
+   | Eastron SDM72D-M v2 | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✓           |
+   +---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
+   | Eastron SDM630 v2   | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✓           |
+   +---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
+   | Klefr 693x/694x     | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |          ✓           |
+   +---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
+   | Iskra WM3M4/WM3M4C  | EIA-485   | Modbus   | chargebyte  | PowermeterIskra_WM3M4C |            ✗            |          ✓           |
+   +---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
 
 .. _EVerest: https://github.com/EVerest/everest-core
 .. _GenericPowermeter: https://github.com/EVerest/everest-core/tree/main/modules/GenericPowermeter
@@ -62,14 +67,19 @@ AC
 DC
 --
 
-+----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
-| Vendor / Product                 | Interface | Protocol | Implementer | EVerest Module Name                   | EVerest Module Supports | Tested by chargebyte |
-|                                  |           |          |             |                                       |    German Eichrecht     |                      |
-+==================================+===========+==========+=============+=======================================+=========================+======================+
-| `LEM DCBM 400/600`_              | Ethernet  | HTTP     | `EVerest`_  | `LemDCBM400600`_                      |            ✓            |          ✗           |
-+----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
-| `Isabellenhütte IEM-DCR series`_ | Ethernet  | HTTP     | `EVerest`_  | `IsabellenhuetteIemDcr`_ (pending PR) |            ✓            |          ✗           |
-+----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
+.. table:: Supported DC Electricity Meters
+   :align: center
+   :width: 100%
+   :widths: 3,1,1,1,2,2,2
+
+   +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
+   | Vendor / Product                 | Interface | Protocol | Implementer | EVerest Module Name                   | EVerest Module Supports | Tested by chargebyte |
+   |                                  |           |          |             |                                       | German Eichrecht        |                      |
+   +==================================+===========+==========+=============+=======================================+=========================+======================+
+   | `LEM DCBM 400/600`_              | Ethernet  | HTTP     | `EVerest`_  | `LemDCBM400600`_                      |            ✓            |          ✗           |
+   +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
+   | `Isabellenhütte IEM-DCR series`_ | Ethernet  | HTTP     | `EVerest`_  | `IsabellenhuetteIemDcr`_ (pending PR) |            ✓            |          ✗           |
+   +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
 
 .. _LEM DCBM 400/600: https://www.lem.com/en/dcbm-400-600
 .. _LemDCBM400600: https://github.com/EVerest/everest-core/tree/main/modules/LemDCBM400600
@@ -81,13 +91,18 @@ DC
 DC Power Modules
 ================
 
-+-------------------------+-----------+-------------+---------------+----------------------+----------------------+
-| Vendor / Product        | Interface | Protocol    | Implementer   | EVerest Module Name  | Tested by chargebyte |
-+=========================+===========+=============+===============+======================+======================+
-| `SCU DPM series`_       | CAN       | Proprietary | `EVerest`_    | `DPM1000`_           |          ✗           |
-+-------------------------+-----------+-------------+---------------+----------------------+----------------------+
-| `Infypower BEG series`_ | CAN       | Proprietary | `chargebyte`_ | `InfypowerDCSupply`_ |          ✓           |
-+-------------------------+-----------+-------------+---------------+----------------------+----------------------+
+.. table:: Supported DC Power Modules
+   :align: center
+   :width: 100%
+   :widths: 6,1,1,1,2,2
+
+   +-------------------------+-----------+-------------+---------------+----------------------+----------------------+
+   | Vendor / Product        | Interface | Protocol    | Implementer   | EVerest Module Name  | Tested by chargebyte |
+   +=========================+===========+=============+===============+======================+======================+
+   | `SCU DPM series`_       | CAN       | Proprietary | `EVerest`_    | `DPM1000`_           |          ✗           |
+   +-------------------------+-----------+-------------+---------------+----------------------+----------------------+
+   | `Infypower BEG series`_ | CAN       | Proprietary | `chargebyte`_ | `InfypowerDCSupply`_ |          ✓           |
+   +-------------------------+-----------+-------------+---------------+----------------------+----------------------+
 
 .. _SCU DPM series: https://www.scupower.com/ev-charger/ev-charger-module/
 .. _DPM1000: https://github.com/EVerest/everest-core/tree/main/modules/DPM1000
@@ -100,11 +115,16 @@ DC Power Modules
 Insulation Monitoring Devices (IMDs)
 ====================================
 
-+--------------------------------------------------------+-----------+----------+-------------------------+----------------------+----------------------+
-| Vendor / Product                                       | Interface | Protocol | Implementer             | EVerest Module Name  | Tested by chargebyte |
-+========================================================+===========+==========+=========================+======================+======================+
-| `Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1`_ | EIA-485   | Modbus   | `chargebyte`_ (planned) | TBD                  |                      |
-+--------------------------------------------------------+-----------+----------+-------------------------+----------------------+----------------------+
+.. table:: Supported Insulation Monitoring Devices
+   :align: center
+   :width: 100%
+   :widths: 6,1,1,1,2,2
+
+   +--------------------------------------------------------+-----------+----------+-------------------------+----------------------+----------------------+
+   | Vendor / Product                                       | Interface | Protocol | Implementer             | EVerest Module Name  | Tested by chargebyte |
+   +========================================================+===========+==========+=========================+======================+======================+
+   | `Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1`_ | EIA-485   | Modbus   | `chargebyte`_ (planned) | TBD                  |                      |
+   +--------------------------------------------------------+-----------+----------+-------------------------+----------------------+----------------------+
 
 .. _Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1: https://www.bender.de/en/products/insulation-monitoring/isometer-isocha425hv-with-agh420-1/
 
@@ -113,11 +133,17 @@ Insulation Monitoring Devices (IMDs)
 Residual Current Monitors (RCMs)
 ================================
 
-+-----------------------------+----------------+----------+-----------------------------+----------------------+----------------------+
-| Vendor / Product            | Interface      | Protocol | Implementer                 | EVerest Module Name  | Tested by chargebyte |
-+=============================+================+==========+=============================+======================+======================+
-| `Western Automation RCM14`_ | Digital In/Out | -        | `chargebyte`_ (in progress) | `CbTarragonDriver`_  |          ✓           |
-+-----------------------------+----------------+----------+-----------------------------+----------------------+----------------------+
+
+.. table:: Supported Residual Current Monitors
+   :align: center
+   :width: 100%
+   :widths: 6,1,1,1,2,2
+
+   +-----------------------------+----------------+----------+-----------------------------+----------------------+----------------------+
+   | Vendor / Product            | Interface      | Protocol | Implementer                 | EVerest Module Name  | Tested by chargebyte |
+   +=============================+================+==========+=============================+======================+======================+
+   | `Western Automation RCM14`_ | Digital In/Out | none     | `chargebyte`_ (in progress) | `CbTarragonDriver`_  |          ✓           |
+   +-----------------------------+----------------+----------+-----------------------------+----------------------+----------------------+
 
 .. _Western Automation RCM14: https://emobility.westernautomation.com/ev-protection-devices/type-a/
 .. _CbTarragonDriver: https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonDriver
@@ -127,39 +153,49 @@ Residual Current Monitors (RCMs)
 RFID Readers
 ============
 
-+-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
-| Vendor / Product                        | Interface | Protocol    | Implementer | EVerest Module Name      | Tested by chargebyte |
-+=========================================+===========+=============+=============+==========================+======================+
-| Stronglink SL032 (RS-485 variant with   | EIA-485   | Modbus      | chargebyte  | SL032ModbusTokenProvider |          ✓           |
-| customer specific Modbus firmware)      |           |             |             |                          |                      |
-+-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
-| InTallyCom RFBT001                      | EIA-485   | Modbus      | chargebyte  | SL032ModbusTokenProvider |          ✓           |
-+-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
-| RFID Readers based on NXP's PN532 Chip  | UART      | Proprietary | `EVerest`_  | `PN532TokenProvider`_    |          ✗           |
-+-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
-| RFID Readers based on NXP's PN7160 Chip | I²C/SPI   | Proprietary | `EVerest`_  | `PN7160TokenProvider`_   |          ✗           |
-+-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
+.. table:: Supported RFID Readers
+   :align: center
+   :width: 100%
+   :widths: 6,1,1,1,2,2
+
+   +-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
+   | Vendor / Product                        | Interface | Protocol    | Implementer | EVerest Module Name      | Tested by chargebyte |
+   +=========================================+===========+=============+=============+==========================+======================+
+   | Stronglink SL032 (RS-485 variant with   | EIA-485   | Modbus      | chargebyte  | SL032ModbusTokenProvider |          ✓           |
+   | customer specific Modbus firmware)      |           |             |             |                          |                      |
+   +-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
+   | InTallyCom RFBT001                      | EIA-485   | Modbus      | chargebyte  | SL032ModbusTokenProvider |          ✓           |
+   +-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
+   | RFID Readers based on NXP's PN532 Chip  | UART      | Proprietary | `EVerest`_  | `PN532TokenProvider`_    |          ✗           |
+   +-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
+   | RFID Readers based on NXP's PN7160 Chip | I²C/SPI   | Proprietary | `EVerest`_  | `PN7160TokenProvider`_   |          ✗           |
+   +-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
 
 .. _PN532TokenProvider: https://github.com/EVerest/everest-core/tree/main/modules/PN532TokenProvider
 .. _PN7160TokenProvider: https://github.com/EVerest/everest-core/tree/main/modules/PN7160TokenProvider
 
 
 
-HMI Interfaces
-==============
+HMI Devices
+===========
 
-+-----------------------------------------+-------------+-----------+-------------+--------------------------+----------------------+
-| Vendor / Product                        | Interface   | Protocol  | Implementer | EVerest Module Name      | Tested by chargebyte |
-+=========================================+=============+===========+=============+==========================+======================+
-| Generic GPIO/Digital Output connected   | Digital Out | -         | chargebyte  | GpioLedControl + HmiLed  |          ✓           |
-| RGB LEDs (without PWM support)          |             |           |             |                          |                      |
-| for various general charger states      |             |           |             |                          |                      |
-+-----------------------------------------+-------------+-----------+-------------+--------------------------+----------------------+
-| Generic GPIO/Digital Output connected   | Digital Out | -         | chargebyte  | RfidLedFeedback          |          ✓           |
-| Single Color LED (without PWM support)  |             |           |             |                          |                      |
-| for signaling RFID token verification   |             |           |             |                          |                      |
-| result                                  |             |           |             |                          |                      |
-+-----------------------------------------+-------------+-----------+-------------+--------------------------+----------------------+
+.. table:: Supported HMI Devices
+   :align: center
+   :width: 100%
+   :widths: 6,1,1,1,2,2
+
+   +-----------------------------------------+-------------+-----------+-------------+--------------------------+----------------------+
+   | Vendor / Product                        | Interface   | Protocol  | Implementer | EVerest Module Name      | Tested by chargebyte |
+   +=========================================+=============+===========+=============+==========================+======================+
+   | Generic GPIO/Digital Output connected   | Digital Out | none      | chargebyte  | GpioLedControl + HmiLed  |          ✓           |
+   | RGB LEDs (without PWM support)          |             |           |             |                          |                      |
+   | for various general charger states      |             |           |             |                          |                      |
+   +-----------------------------------------+-------------+-----------+-------------+--------------------------+----------------------+
+   | Generic GPIO/Digital Output connected   | Digital Out | none      | chargebyte  | RfidLedFeedback          |          ✓           |
+   | Single Color LED (without PWM support)  |             |           |             |                          |                      |
+   | for signaling RFID token verification   |             |           |             |                          |                      |
+   | result                                  |             |           |             |                          |                      |
+   +-----------------------------------------+-------------+-----------+-------------+--------------------------+----------------------+
 
 
 
