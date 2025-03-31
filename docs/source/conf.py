@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Charge Control C User Guide'
-copyright = '2024, chargebyte GmbH'
+copyright = '2025, chargebyte GmbH'
 author = 'chargebyte GmbH'
 
 # -- General configuration ---------------------------------------------------
@@ -23,6 +23,7 @@ numfig = True
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
+html_title = project
 html_theme = 'classic'
 html_static_path = ['_static']
 html_logo = '_static/cb_logo.png'
