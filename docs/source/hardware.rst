@@ -5,7 +5,7 @@ Hardware
 ########
 
 Since the Charge SOM itself is a module which cannot be used without a carrier board,
-the following sections refer to the Charge SOM Evaluation Board as example.
+the following sections refer to the Charge SOM Evaluation Board as an example.
 
 
 ***************
