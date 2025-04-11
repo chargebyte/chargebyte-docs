@@ -103,7 +103,81 @@ in the following table.
 Safety Controller Communication Protocol
 ========================================
 
-TBD
+Packet format descriptions
+--------------------------
+
+Data packet format
+
+Data packets contain payload and can be sent out from host to safety controller or vice versa. A data packet from safety controller to host needs to be requested with an Inquiry packet which is described below.
+
++--------+--------+--------+-------------------+
+| Symbol | Size   | Code   | Description       |
++========+========+========+===================+
+| SOF    | 1 byte | 0xA5   | Start of frame    |
++--------+--------+--------+-------------------+
+| COM    | 1 byte |        | Packet type       |
++--------+--------+--------+-------------------+
+| Data   | 8 byte |        | Payload           |
++--------+--------+--------+-------------------+
+| CRC    | 1 byte |        | CRC checksum      |
++--------+--------+--------+-------------------+
+| EOF    | 1 byte | 0x03   | End of frame      |
++--------+--------+--------+-------------------+
+
+Inquiry packet format
+
+An Inquiry packet is only sent out from host to safety controller. Its purpose is to request a data packet from safety controller to host. The data packet is defined by the value of the COM type.
+
++--------+--------+--------+-------------------+
+| Symbol | Size   | Code   | Description       |
++========+========+========+===================+
+| SOF    | 1 byte | 0xA5   | Start of frame    |
++--------+--------+--------+-------------------+
+| COM    | 1 byte |        | Packet type       |
++--------+--------+--------+-------------------+
+| CRC    | 1 byte |        | CRC checksum      |
++--------+--------+--------+-------------------+
+| EOF    | 1 byte | 0x03   | End of frame      |
++--------+--------+--------+-------------------+
+
+COM Values
+----------
+
+The COM values are mapped in the ID you see below in the message description. This is the summary of the COM-Values.
+
++----------+---------------------------+---------------------+--------------------+-------------------------------------------------------------+
+| Value    | Description               | Communication Dir.  | Sent Automatically | Periodicity                                                 |
++==========+===========================+=====================+====================+=============================================================+
+| 0x06     | Charge Control            | Host → Safety       | ✓                  | periodically, every XXXms OR immediately if changes occur   |
++----------+---------------------------+---------------------+--------------------+-------------------------------------------------------------+
+| 0x07     | Charge State              | Safety → Host       | ✓                  | periodically, every XXXms                                   |
++----------+---------------------------+---------------------+--------------------+-------------------------------------------------------------+
+| 0x08     | PT1000 State              | Safety → Host       | ✓                  | after each PT1000 measurement cycle of XXXms                |
++----------+---------------------------+---------------------+--------------------+-------------------------------------------------------------+
+| 0x09     | Diagnostic Measurements 1 | Safety → Host       | (✓)                | conditionally periodically (host-controlled)                |
++----------+---------------------------+---------------------+--------------------+-------------------------------------------------------------+
+| 0x0E     | Error Message             | Safety → Host       | (✓)                | on occurrence of an error                                   |
++----------+---------------------------+---------------------+--------------------+-------------------------------------------------------------+
+| 0x0A     | Firmware Version          | Safety → Host       | ✗                  | only as response to explicit request                        |
++----------+---------------------------+---------------------+--------------------+-------------------------------------------------------------+
+
+CRC checksum field
+------------------
+
+The checksum is defined over:
+
+::
+
+    Width       = 8
+    Poly        = 0x1d
+    XorIn       = 0xff
+    ReflectIn   = False
+    XorOut      = 0xff
+    ReflectOut  = False
+    Algorithm   = table-driven
+    Name        = CRC8 SAE J1850
+
+.. include:: safety_protocol.rst
 
 
 EVerest Board Support Package Module

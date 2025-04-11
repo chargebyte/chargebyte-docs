@@ -26,7 +26,7 @@ Building the documentation locally:
 To build the documentation locally, you need to have Python and pip installed on your system.
 You can install the required dependencies by running the following command:
 
-pip install -r requirements.txt
+pip install -r docs/requirements.txt
 
 After installing the dependencies, you can build the documentation by running the following command:
 
