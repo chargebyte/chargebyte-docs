@@ -21,7 +21,7 @@ def signal_row(signal):
         signal.name,
         str(signal.start),
         str(signal.length),
-        "Intel" if signal.byte_order == "little_endian" else "Motorola",
+        "Little Endian" if signal.byte_order == "little_endian" else "Big Endian",
         "Yes" if signal.is_signed else "No",
         str(signal.scale),
         str(signal.offset),
@@ -33,6 +33,9 @@ def format_message_rst(msg):
     rst = f"{msg.name}\n{'=' * len(msg.name)}\n\n"
     rst += f"**ID**: 0x{msg.frame_id:X} ({msg.frame_id})\n\n"
     rst += f"**Length**: {msg.length} bytes\n\n"
+
+    rst += f"**Description**: {msg.comment}\n\n"
+
 
     # Map and filter senders
     senders = [sender_name_map.get(s, s) for s in msg.senders if s not in excluded_senders]

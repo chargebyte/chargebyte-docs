@@ -127,13 +127,13 @@ BO_ 7 ChargeState1: 8 Default_SafetyController
  SG_ CS_CurrentCpState : 18|3@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_CpShortCircuit : 19|1@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_DiodeFault : 20|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_CurrentDutyCycle : 1|10@0+ (10,0) [0|0] "%"  Default_HostController
+ SG_ CS_CurrentDutyCycle : 1|10@0+ (0.1,0) [0|0] "%"  Default_HostController
  SG_ CS_PWM_Active : 7|1@0+ (1,0) [0|0] ""  Default_HostController
 
 BO_ 6 ChargeControl1: 8 Default_HostController
  SG_ CC_Contactor1State : 16|1@0+ (1,0) [0|0] ""  Default_SafetyController
  SG_ CC_Contactor2State : 17|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ CC_TargetDutyCycle : 1|10@0+ (10,0) [0|0] "%"  Default_SafetyController
+ SG_ CC_TargetDutyCycle : 1|10@0+ (0.1,0) [0|0] "%"  Default_SafetyController
  SG_ CC_PWM_Active : 7|1@0+ (1,0) [0|0] ""  Default_SafetyController
 
 BO_ 10 FirmwareVersion: 8 Default_SafetyController
@@ -204,6 +204,9 @@ BO_TX_BU_ 8 : CCY_SafetyController,Default_SafetyController;
 BO_TX_BU_ 1 : Default_SafetyController,CCY_SafetyController;
 
 
+CM_ BO_ 7 "This message shall be sent from safety controller to host processor for indicating the state of the charging session as well as the state of connected peripherals.";
+CM_ BO_ 6 "This message shall be sent from the host processor to the safety controller to control the peripherals connected to the safety controller.";
+CM_ BO_ 8 "This message shall be sent from safety controller to host processor for indicating the state of the connected temperature sensors";
 BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";

@@ -5,6 +5,8 @@ ChargeState1
 
 **Length**: 8 bytes
 
+**Description**: This message shall be sent from safety controller to host processor for indicating the state of the charging session as well as the state of connected peripherals.
+
 **Senders**: Safety Controller
 
 .. list-table:: Signals in ChargeState1
@@ -22,15 +24,15 @@ ChargeState1
    * - CS_CurrentDutyCycle
      - 1
      - 10
-     - Motorola
+     - Big Endian
      - No
-     - 10
+     - 0.1
      - 0
      - %
    * - CS_PWM_Active
      - 7
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -38,7 +40,7 @@ ChargeState1
    * - CS_CurrentCpState
      - 18
      - 3
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -46,7 +48,7 @@ ChargeState1
    * - CS_CpShortCircuit
      - 19
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -54,7 +56,7 @@ ChargeState1
    * - CS_DiodeFault
      - 20
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -62,7 +64,7 @@ ChargeState1
    * - CS_CurrentPpState
      - 26
      - 3
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -70,7 +72,7 @@ ChargeState1
    * - CS_Contactor1State
      - 32
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -78,7 +80,7 @@ ChargeState1
    * - CS_Contactor2State
      - 33
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -86,7 +88,7 @@ ChargeState1
    * - CS_Contactor1Error
      - 34
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -94,7 +96,7 @@ ChargeState1
    * - CS_Contactor2Error
      - 35
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -102,7 +104,7 @@ ChargeState1
    * - CS_Estop1ChargingAbort
      - 40
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -110,7 +112,7 @@ ChargeState1
    * - CS_Estop2ChargingAbort
      - 41
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -118,7 +120,7 @@ ChargeState1
    * - CS_Estop3ChargingAbort
      - 42
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -126,7 +128,7 @@ ChargeState1
    * - CS_ImdRcmChargingAbort
      - 43
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -134,7 +136,7 @@ ChargeState1
    * - CS_ImdRcmTestFailure
      - 44
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -171,6 +173,8 @@ ChargeControl1
 
 **Length**: 8 bytes
 
+**Description**: This message shall be sent from the host processor to the safety controller to control the peripherals connected to the safety controller.
+
 **Senders**: Default_HostController
 
 .. list-table:: Signals in ChargeControl1
@@ -188,15 +192,15 @@ ChargeControl1
    * - CC_TargetDutyCycle
      - 1
      - 10
-     - Motorola
+     - Big Endian
      - No
-     - 10
+     - 0.1
      - 0
      - %
    * - CC_PWM_Active
      - 7
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -204,7 +208,7 @@ ChargeControl1
    * - CC_Contactor1State
      - 16
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -212,7 +216,7 @@ ChargeControl1
    * - CC_Contactor2State
      - 17
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -224,6 +228,8 @@ PT1000State
 **ID**: 0x8 (8)
 
 **Length**: 8 bytes
+
+**Description**: This message shall be sent from safety controller to host processor for indicating the state of the connected temperature sensors
 
 **Senders**: Safety Controller
 
@@ -242,7 +248,7 @@ PT1000State
    * - PT1_Temperature
      - 7
      - 14
-     - Motorola
+     - Big Endian
      - No
      - 10
      - 600
@@ -250,7 +256,7 @@ PT1000State
    * - PT1_ChargingStopped
      - 8
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -258,7 +264,7 @@ PT1000State
    * - PT1_SelftestFailed
      - 9
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -266,7 +272,7 @@ PT1000State
    * - PT2_Temperature
      - 23
      - 14
-     - Motorola
+     - Big Endian
      - No
      - 10
      - 600
@@ -274,7 +280,7 @@ PT1000State
    * - PT2_ChargingStopped
      - 24
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -282,7 +288,7 @@ PT1000State
    * - PT2_SelftestFailed
      - 25
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -290,7 +296,7 @@ PT1000State
    * - PT3_Temperature
      - 39
      - 14
-     - Motorola
+     - Big Endian
      - No
      - 10
      - 600
@@ -298,7 +304,7 @@ PT1000State
    * - PT3_ChargingStopped
      - 40
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -306,7 +312,7 @@ PT1000State
    * - PT3_SelftestFailed
      - 41
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -314,7 +320,7 @@ PT1000State
    * - PT4_Temperature
      - 55
      - 14
-     - Motorola
+     - Big Endian
      - No
      - 10
      - 600
@@ -322,7 +328,7 @@ PT1000State
    * - PT4_ChargingStopped
      - 56
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
@@ -330,7 +336,7 @@ PT1000State
    * - PT4_SelftestFailed
      - 57
      - 1
-     - Motorola
+     - Big Endian
      - No
      - 1
      - 0
