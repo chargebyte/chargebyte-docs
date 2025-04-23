@@ -78,13 +78,13 @@ DC
    +==================================+===========+==========+=============+=======================================+=========================+======================+
    | `LEM DCBM 400/600`_              | Ethernet  | HTTP     | `EVerest`_  | `LemDCBM400600`_                      |            ✓            |          ✗           |
    +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
-   | `Isabellenhütte IEM-DCR series`_ | Ethernet  | HTTP     | `EVerest`_  | `IsabellenhuetteIemDcr`_ (pending PR) |            ✓            |          ✗           |
+   | `Isabellenhütte IEM-DCR series`_ | Ethernet  | HTTP     | `EVerest`_  | `IsabellenhuetteIemDcr`_              |            ✓            |          ✗           |
    +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
 
 .. _LEM DCBM 400/600: https://www.lem.com/en/dcbm-400-600
 .. _LemDCBM400600: https://github.com/EVerest/everest-core/tree/main/modules/LemDCBM400600
 .. _Isabellenhütte IEM-DCR series: https://www.isabellenhuette.de/iem-dcr
-.. _IsabellenhuetteIemDcr: https://github.com/EVerest/everest-core/pull/1059/commits/a9518eb94f53208146c98da9a4c6366e56c5feec
+.. _IsabellenhuetteIemDcr: https://github.com/EVerest/everest-core/tree/main/modules/IsabellenhuetteIemDcr
 
 
 
