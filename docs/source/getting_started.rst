@@ -114,7 +114,7 @@ content of the configuration file, you will see that it is only a reference to t
 Let's take a look at the content of the bsp-only-dc.yaml configuration file. This file is already
 prepared for the basic DC charger setup.
 
-Just type "less /etc/everest/bsp-only-dc.conf" to see the content of the configuration file:
+Just type "less /etc/everest/bsp-only-dc.yaml" to see the content of the configuration file:
 
 .. literalinclude:: _static/files/bsp-only-dc.yaml
    :language: yaml
