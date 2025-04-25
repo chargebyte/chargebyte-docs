@@ -134,7 +134,9 @@ Data packets contain payload and can be sent out from host to safety controller 
 
 Inquiry packet format
 
-An Inquiry packet is only sent out from host to safety controller. Its purpose is to request a data packet from safety controller to host. The data packet is defined by the value of the COM type.
+An Inquiry packet is only sent out from host to safety controller. Its purpose is to request a data packet from safety controller to host that is not periodically availlable. The data packet is defined by the value of the COM type.
+
+!! In the current state of documentation there are only packets defined, that are periodically availlable. The packets that are sent out via inquiry paket will be added in another commir !!
 
 +--------+--------+--------+-------------------+
 | Symbol | Size   | Code   | Description       |
@@ -153,15 +155,15 @@ COM Values
 
 The COM values are mapped in the ID you see below in the message description. This is the summary of the COM-Values.
 
-+----------+---------------------------+---------------------+-------------------------------------------------------------+
-| Value    | Description               | Communication Dir.  | Periodicity                                                 |
-+==========+===========================+=====================+=============================================================+
-| 0x06     | Charge Control            | Host → Safety       | periodically, every 100ms OR immediately if changes occur   |
-+----------+---------------------------+---------------------+-------------------------------------------------------------+
-| 0x07     | Charge State              | Safety → Host       | periodically, every 100ms                                   |
-+----------+---------------------------+---------------------+-------------------------------------------------------------+
-| 0x08     | PT1000 State              | Safety → Host       | periodically, every 100ms                                   |
-+----------+---------------------------+---------------------+-------------------------------------------------------------+
++----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------+
+| Value    | Description               | Communication Dir.  | Periodicity                                                 | Triggered by Inquiry |
++==========+===========================+=====================+=============================================================+======================+
+| 0x06     | Charge Control            | Host → Safety       | periodically, every 100ms OR immediately if changes occur   | No                   |
++----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------|
+| 0x07     | Charge State              | Safety → Host       | periodically, every 100ms                                   | No                   |
++----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------|
+| 0x08     | PT1000 State              | Safety → Host       | periodically, every 100ms                                   | No                   |
++----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------|
 
 CRC checksum field
 ------------------
