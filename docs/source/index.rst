@@ -19,6 +19,7 @@ Charge SOM Evaluation Kit.
    :maxdepth: 2
    :caption: Contents:
 
+   introduction
    getting_started
    peripheral_compat_list
    hardware
