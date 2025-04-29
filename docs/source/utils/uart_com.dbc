@@ -152,16 +152,16 @@ BO_ 9 DiagnosticMeasurements: 8 Default_SafetyController
  SG_ DM_CP_VoltageNegativeSide : 7|16@0- (1,0) [0|0] ""  Default_SafetyController,Default_HostController
 
 BO_ 8 PT1000State: 8 Default_SafetyController
- SG_ PT4_Temperature : 55|14@0+ (10,600) [0|2600] "°C"  Default_HostController,CCY_HostController
+ SG_ PT4_Temperature : 55|14@0- (0.1,0) [0|0] "°C"  Default_HostController,CCY_HostController
  SG_ PT4_SelftestFailed : 57|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
  SG_ PT4_ChargingStopped : 56|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT3_Temperature : 39|14@0+ (10,600) [0|2600] "°C"  Default_HostController,CCY_HostController
+ SG_ PT3_Temperature : 39|14@0- (0.1,0) [0|0] "°C"  Default_HostController,CCY_HostController
  SG_ PT3_SelftestFailed : 41|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
  SG_ PT3_ChargingStopped : 40|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT2_Temperature : 23|14@0+ (10,600) [0|2600] "°C"  Default_HostController,CCY_HostController
+ SG_ PT2_Temperature : 23|14@0- (0.1,0) [0|0] "°C"  Default_HostController,CCY_HostController
  SG_ PT2_SelftestFailed : 25|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
  SG_ PT2_ChargingStopped : 24|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT1_Temperature : 7|14@0+ (10,600) [0|2600] "°C"  Default_HostController,CCY_HostController
+ SG_ PT1_Temperature : 7|14@0- (0.1,0) [0|0] "°C"  Default_HostController,CCY_HostController
  SG_ PT1_SelftestFailed : 9|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
  SG_ PT1_ChargingStopped : 8|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
 
@@ -205,8 +205,34 @@ BO_TX_BU_ 1 : Default_SafetyController,CCY_SafetyController;
 
 
 CM_ BO_ 7 "This message shall be sent from safety controller to host processor for indicating the state of the charging session as well as the state of connected peripherals.";
+CM_ SG_ 7 CS_Contactor1State "Is set when the contactor is closed";
+CM_ SG_ 7 CS_Contactor2State "Is set when the contactor is closed";
+CM_ SG_ 7 CS_Contactor1Error "Is set when an error in the contactor is detected";
+CM_ SG_ 7 CS_Contactor2Error "Is set when an error in the contactor is detected";
+CM_ SG_ 7 CS_CurrentPpState "State of the proximity pin. For fixed cables at CCS2, this value is 0x0: No Cable detected";
+CM_ SG_ 7 CS_CurrentCpState "Current state of the control pilot. See value mappings below";
+CM_ SG_ 7 CS_CpShortCircuit " Is set when the safety controller detects a short-circuit condition between CP and PE line.";
+CM_ SG_ 7 CS_DiodeFault " Is set when the safety controller detects that the diode on EV side is missing.";
+CM_ SG_ 7 CS_CurrentDutyCycle "The current duty cycle between 0.0% and 100.0%. If the PWM is not aczive this signal is 0";
+CM_ SG_ 7 CS_PWM_Active "Feedback if PWM is active. 0 means not active, 1 means active";
 CM_ BO_ 6 "This message shall be sent from the host processor to the safety controller to control the peripherals connected to the safety controller.";
+CM_ SG_ 6 CC_Contactor1State "Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.";
+CM_ SG_ 6 CC_Contactor2State "Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.";
+CM_ SG_ 6 CC_TargetDutyCycle "Duty cycle between 0.0 and 100.0%. Values above 100.0% are set as 100%. Only valid if the signal CC_PWM_Active is 1";
+CM_ SG_ 6 CC_PWM_Active "This flag indicates if the PWM should be activated. At a value of 0, the CP level is also 0V. At a value of 1, the CP level is dependant of the duty cycle";
 CM_ BO_ 8 "This message shall be sent from safety controller to host processor for indicating the state of the connected temperature sensors";
+CM_ SG_ 8 PT4_Temperature "Current temperature of PT1000 channel in °C with one decimal digit. 0x1FFF stands for: temp sensor not used.";
+CM_ SG_ 8 PT4_SelftestFailed "Indicates whether this PT1000 channel is disturbed, multiple channel can signal the condition in parallel.";
+CM_ SG_ 8 PT4_ChargingStopped "Indicates whether this PT1000 channel prevents charging, multiple channel can signal the condition in parallel.";
+CM_ SG_ 8 PT3_Temperature "Current temperature of PT1000 channel in °C with one decimal digit. 0x1FFF stands for: temp sensor not used.";
+CM_ SG_ 8 PT3_SelftestFailed "Indicates whether this PT1000 channel is disturbed, multiple channel can signal the condition in parallel.";
+CM_ SG_ 8 PT3_ChargingStopped "Indicates whether this PT1000 channel prevents charging, multiple channel can signal the condition in parallel.";
+CM_ SG_ 8 PT2_Temperature "Current temperature of PT1000 channel in °C with one decimal digit. 0x1FFF stands for: temp sensor not used.";
+CM_ SG_ 8 PT2_SelftestFailed "Indicates whether this PT1000 channel is disturbed, multiple channel can signal the condition in parallel.";
+CM_ SG_ 8 PT2_ChargingStopped "Indicates whether this PT1000 channel prevents charging, multiple channel can signal the condition in parallel.";
+CM_ SG_ 8 PT1_Temperature "Current temperature of PT1000 channel in °C with one decimal digit. 0x1FFF stands for: temp sensor not used.";
+CM_ SG_ 8 PT1_SelftestFailed "Indicates whether this PT1000 channel is disturbed, multiple channel can signal the condition in parallel.";
+CM_ SG_ 8 PT1_ChargingStopped "Indicates whether this PT1000 channel prevents charging, multiple channel can signal the condition in parallel.";
 BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";
@@ -217,9 +243,9 @@ VAL_ 16 CS_EStop_Reason 13 "HVReady_Malfunction" 12 "CE_Malfunction" 11 "ID_Malf
 VAL_ 16 CS_ID_State 15 "SNA" 14 "Invalid" 1 "Connected" 0 "Not_Connected" ;
 VAL_ 16 CS_CE_State 15 "SNA" 7 "Invalid" 6 "B0" 5 "EC" 4 "E" 3 "D" 2 "C" 1 "B" 0 "A" ;
 VAL_ 7 CS_CurrentPpState 7 "Error" 6 "Type1_ConnectedButtonPressed" 5 "Type1_Connected" 4 "63/70A" 3 "32A" 2 "20A" 1 "13A" 0 "NoCableDetected" ;
-VAL_ 7 CS_CurrentCpState 8 "Unknown" 7 "Invalid" 6 "F" 5 "E" 4 "D" 3 "C" 2 "B" 1 "A" ;
-VAL_ 8 PT4_Temperature 16383 "TempSensorNotUsed" ;
-VAL_ 8 PT3_Temperature 16383 "TempSensorNotUsed" ;
-VAL_ 8 PT2_Temperature 16383 "TempSensorNotUsed" ;
-VAL_ 8 PT1_Temperature 16383 "TempSensorNotUsed" ;
+VAL_ 7 CS_CurrentCpState 0 "Unknown" 7 "Invalid" 6 "F" 5 "E" 4 "D" 3 "C" 2 "B" 1 "A" ;
+VAL_ 8 PT4_Temperature 8191 "TempSensorNotUsed" ;
+VAL_ 8 PT3_Temperature 8191 "TempSensorNotUsed" ;
+VAL_ 8 PT2_Temperature 8191 "TempSensorNotUsed" ;
+VAL_ 8 PT1_Temperature 8191 "TempSensorNotUsed" ;
 

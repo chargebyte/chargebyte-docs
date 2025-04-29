@@ -12,20 +12,26 @@ sender_name_map = {
     "Default_Linux": "Linux Processor"
 }
 
-# Senders to exclude from display (not from the message)
+# Senders to exclude from display
 excluded_senders = {"CCY_SafetyController"}
 
-# Extract a signal row as list of string values
+# Extract a signal row as a list of strings
 def signal_row(signal):
+    def safe(value):
+        if value is None or str(value).strip() == "":
+            return "-"
+        return str(value).strip()
+
     return [
-        signal.name,
-        str(signal.start),
-        str(signal.length),
+        safe(signal.name),
+        safe(signal.start),
+        safe(signal.length),
         "Little Endian" if signal.byte_order == "little_endian" else "Big Endian",
         "Yes" if signal.is_signed else "No",
-        str(signal.scale),
-        str(signal.offset),
-        signal.unit or "",
+        safe(signal.scale),
+        safe(signal.offset),
+        safe(signal.unit),
+        signal.comment.strip() if signal.comment else "*No description available*"
     ]
 
 # Format one message block as RST
@@ -33,9 +39,7 @@ def format_message_rst(msg):
     rst = f"{msg.name}\n{'=' * len(msg.name)}\n\n"
     rst += f"**ID**: 0x{msg.frame_id:X} ({msg.frame_id})\n\n"
     rst += f"**Length**: {msg.length} bytes\n\n"
-
-    rst += f"**Description**: {msg.comment}\n\n"
-
+    rst += f"**Description**: {msg.comment.strip() if msg.comment else 'N/A'}\n\n"
 
     # Map and filter senders
     senders = [sender_name_map.get(s, s) for s in msg.senders if s not in excluded_senders]
@@ -43,9 +47,10 @@ def format_message_rst(msg):
 
     # Table header
     rst += f".. list-table:: Signals in {msg.name}\n"
-    rst += "   :widths: 30 6 6 10 7 7 7 6\n"
+    rst += "   :widths: 30 6 6 10 7 7 7 6 30\n"
     rst += "   :header-rows: 1\n\n"
-    headers = ["Name", "Start", "Length", "ByteOrder", "Signed", "Factor", "Offset", "Unit"]
+
+    headers = ["Name", "Start", "Length", "ByteOrder", "Signed", "Factor", "Offset", "Unit", "Description"]
     rst += "   * - " + "\n     - ".join(headers) + "\n"
 
     # Sort signals by start bit
@@ -54,7 +59,7 @@ def format_message_rst(msg):
         row = signal_row(sig)
         rst += "   * - " + "\n     - ".join(row) + "\n"
 
-    # Value descriptions (in hex)
+    # Value descriptions (choices)
     choice_blocks = []
     for sig in sorted_signals:
         if sig.choices:
@@ -68,9 +73,12 @@ def format_message_rst(msg):
 
 # Generate RST output
 output = ""
-for msg in db.messages:
-    if msg.name in target_msgs:
+for target_name in target_msgs:
+    msg = db.get_message_by_name(target_name)
+    if msg:
         output += format_message_rst(msg) + "\n"
+    else:
+        print(f"Warning: Message '{target_name}' not found in DBC!")
 
 # Write to file
 with open("../safety_protocol.rst", "w", encoding="utf-8") as f:
