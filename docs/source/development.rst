@@ -18,7 +18,7 @@ how to checkout a dedicated EVerest release.
 
    .. code-block:: console
 
-      sudo apt install build-essential libc6-arm64-cross gcc-aarch64-linux-gnu binutils-arm-linux-gnueabihf gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+      sudo apt install build-essential libc6-arm64-cross gcc-aarch64-linux-gnu g++-aarch64-linux-gnu binutils-arm-linux-gnueabihf gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 
 #. Download chargebyte's `digital certificate <https://chargebyte.com/controllers-and-modules/evse-controllers/charge-control-c#downloads>`_
    and use it to extract the root filesystem from the firmware image. The digital certificate is the same between Charge SOM and Charge Control C.
