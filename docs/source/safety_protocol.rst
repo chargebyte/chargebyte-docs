@@ -223,25 +223,25 @@ ChargeState1
 
 - **CS_CurrentCpState**
 
-  - 0x7 = Invalid
-  - 0x6 = F
-  - 0x5 = E
-  - 0x4 = D
-  - 0x3 = C
-  - 0x2 = B
-  - 0x1 = A
   - 0x0 = Unknown
+  - 0x1 = A
+  - 0x2 = B
+  - 0x3 = C
+  - 0x4 = D
+  - 0x5 = E
+  - 0x6 = F
+  - 0x7 = Invalid
 
 - **CS_CurrentPpState**
 
-  - 0x7 = Error
-  - 0x6 = Type1_ConnectedButtonPressed
-  - 0x5 = Type1_Connected
-  - 0x4 = 63/70A
-  - 0x3 = 32A
-  - 0x2 = 20A
-  - 0x1 = 13A
   - 0x0 = NoCableDetected
+  - 0x1 = 13A
+  - 0x2 = 20A
+  - 0x3 = 32A
+  - 0x4 = 63/70A
+  - 0x5 = Type1_Connected
+  - 0x6 = Type1_ConnectedButtonPressed
+  - 0x7 = Error
 
 PT1000State
 ===========
@@ -393,4 +393,162 @@ PT1000State
 - **PT4_Temperature**
 
   - 0x1FFF = TempSensorNotUsed
+
+FirmwareVersion
+===============
+
+**ID**: 0xA (10)
+
+**Length**: 8 bytes
+
+**Description**: This message provides information about the type and version of the flashed firmware
+
+**Senders**: Safety Controller
+
+.. list-table:: Signals in FirmwareVersion
+   :widths: 30 6 6 10 7 7 7 6 30
+   :header-rows: 1
+
+   * - Name
+     - Start
+     - Length
+     - ByteOrder
+     - Signed
+     - Factor
+     - Offset
+     - Unit
+     - Description
+   * - MajorVersion
+     - 7
+     - 8
+     - Big Endian
+     - No
+     - 1
+     - 0
+     - -
+     - Major version of the firmware
+   * - MinorVersion
+     - 15
+     - 8
+     - Big Endian
+     - No
+     - 1
+     - 0
+     - -
+     - Minor version of the firmware
+   * - BuildVersion
+     - 23
+     - 8
+     - Big Endian
+     - No
+     - 1
+     - 0
+     - -
+     - Build or patch version of the firmware
+   * - PlatformType
+     - 31
+     - 8
+     - Big Endian
+     - No
+     - 1
+     - 0
+     - -
+     - This firmware can be used for several products with minor changes in the build process. The platform type describes the used platform
+   * - ApplicationType
+     - 39
+     - 8
+     - Big Endian
+     - No
+     - 1
+     - 0
+     - -
+     - The type of firmware. See possible values below
+
+**Value Descriptions**
+
+- **PlatformType**
+
+  - 0x81 = chargeSOM
+  - 0x82 = CCY
+
+- **ApplicationType**
+
+  - 0x3 = Firmware
+  - 0x4 = End Of Line
+  - 0x5 = Qualification
+
+GitHash
+=======
+
+**ID**: 0xB (11)
+
+**Length**: 8 bytes
+
+**Description**: This message provides information about the GIT hash, written in the firmware
+
+**Senders**: Safety Controller
+
+.. list-table:: Signals in GitHash
+   :widths: 30 6 6 10 7 7 7 6 30
+   :header-rows: 1
+
+   * - Name
+     - Start
+     - Length
+     - ByteOrder
+     - Signed
+     - Factor
+     - Offset
+     - Unit
+     - Description
+   * - HashSignal
+     - 7
+     - 64
+     - Big Endian
+     - No
+     - 1
+     - 0
+     - -
+     - First 8 byte of the 64 byte GIT hash
+
+InquiryPacket
+=============
+
+**ID**: 0xFF (255)
+
+**Length**: 8 bytes
+
+**Description**: This packet is used to request a special message from the safety controller
+
+**Senders**: Default_HostController, CCY_HostController
+
+.. list-table:: Signals in InquiryPacket
+   :widths: 30 6 6 10 7 7 7 6 30
+   :header-rows: 1
+
+   * - Name
+     - Start
+     - Length
+     - ByteOrder
+     - Signed
+     - Factor
+     - Offset
+     - Unit
+     - Description
+   * - PacketId
+     - 7
+     - 8
+     - Big Endian
+     - No
+     - 1
+     - 0
+     - -
+     - The ID, which message shall be requested. Supported values are described below.
+
+**Value Descriptions**
+
+- **PacketId**
+
+  - 0xA = FirmwareVersion
+  - 0xB = GitHash
 

@@ -36,29 +36,17 @@ BS_:
 BU_: Default_HostController Default_SafetyController CCY_HostController CCY_SafetyController
 
 
-BO_ 138 FirmwareVersion_Inquiry: 1 Default_HostController
- SG_ reserved : 0|1@1+ (1,0) [0|0] ""  CCY_SafetyController,Default_SafetyController
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 146 DiagnosticMeasurements2_Inquiry: 1 CCY_HostController
- SG_ reserved : 0|1@1+ (1,0) [0|0] ""  CCY_SafetyController
-
-BO_ 129 DigitalInput_Inquiry: 1 Default_HostController
- SG_ reserved : 0|1@1+ (1,0) [0|0] ""  CCY_SafetyController,Default_SafetyController
-
-BO_ 137 DiagnosticMeasurements_Inquiry: 1 Default_HostController
- SG_ reserved : 0|1@1+ (1,0) [0|0] ""  Default_SafetyController
-
-BO_ 133 AnalogInput04_Inquiry: 1 Default_HostController
- SG_ reserved : 0|1@1+ (1,0) [0|0] ""  CCY_SafetyController,Default_SafetyController
-
-BO_ 132 AnalogInput03_Inquiry: 1 Default_HostController
- SG_ reserved : 0|1@1+ (1,0) [0|0] ""  CCY_SafetyController,Default_SafetyController
-
-BO_ 131 AnalogInput02_Inquiry: 1 Default_HostController
- SG_ reserved : 0|1@1+ (1,0) [0|0] ""  Default_SafetyController
-
-BO_ 130 AnalogInput01_Inquiry: 1 Default_HostController
- SG_ reserved : 0|1@1+ (1,0) [0|0] ""  CCY_SafetyController,Default_SafetyController
+BO_ 255 InquiryPacket: 8 Default_HostController
+ SG_ PacketId : 7|8@0+ (1,0) [0|0] ""  CCY_SafetyController,Default_SafetyController
 
 BO_ 0 DigitalOutput: 4 Default_HostController
  SG_ DO_SAFETY_HVSW3_PRECHARGE : 9|1@0+ (1,0) [0|0] ""  Default_SafetyController
@@ -137,7 +125,14 @@ BO_ 6 ChargeControl1: 8 Default_HostController
  SG_ CC_PWM_Active : 7|1@0+ (1,0) [0|0] ""  Default_SafetyController
 
 BO_ 10 FirmwareVersion: 8 Default_SafetyController
- SG_ FirmwareVersionString : 7|64@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+ SG_ MajorVersion : 7|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+ SG_ MinorVersion : 15|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+ SG_ BuildVersion : 23|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+ SG_ PlatformType : 31|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+ SG_ ApplicationType : 39|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+
+BO_ 11 GitHash: 8 Default_SafetyController
+ SG_ HashSignal : 7|64@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
 
 BO_ 14 ErrorMessage: 8 Default_SafetyController
  SG_ ErrorAddData2 : 55|16@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
@@ -190,11 +185,7 @@ BO_ 1 DigitalInput: 3 CCY_SafetyController
  SG_ DI_ESTOP1 : 18|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
  SG_ DI_SAFETY_K2_IN : 8|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
 
-BO_TX_BU_ 138 : CCY_HostController,Default_HostController;
-BO_TX_BU_ 129 : CCY_HostController,Default_HostController;
-BO_TX_BU_ 133 : CCY_HostController,Default_HostController;
-BO_TX_BU_ 132 : CCY_HostController,Default_HostController;
-BO_TX_BU_ 130 : CCY_HostController,Default_HostController;
+BO_TX_BU_ 255 : CCY_HostController,Default_HostController;
 BO_TX_BU_ 5 : CCY_SafetyController,Default_SafetyController;
 BO_TX_BU_ 4 : CCY_SafetyController,Default_SafetyController;
 BO_TX_BU_ 2 : CCY_SafetyController,Default_SafetyController;
@@ -204,6 +195,9 @@ BO_TX_BU_ 8 : CCY_SafetyController,Default_SafetyController;
 BO_TX_BU_ 1 : Default_SafetyController,CCY_SafetyController;
 
 
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ BO_ 255 "This packet is used to request a special message from the safety controller";
+CM_ SG_ 255 PacketId "The ID, which message shall be requested. Supported values are described below.";
 CM_ BO_ 7 "This message shall be sent from safety controller to host processor for indicating the state of the charging session as well as the state of connected peripherals.";
 CM_ SG_ 7 CS_Contactor1State "Is set when the contactor is closed";
 CM_ SG_ 7 CS_Contactor2State "Is set when the contactor is closed";
@@ -220,6 +214,14 @@ CM_ SG_ 6 CC_Contactor1State "Request to close the contactor state. A value of 0
 CM_ SG_ 6 CC_Contactor2State "Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.";
 CM_ SG_ 6 CC_TargetDutyCycle "Duty cycle between 0.0 and 100.0%. Values above 100.0% are set as 100%. Only valid if the signal CC_PWM_Active is 1";
 CM_ SG_ 6 CC_PWM_Active "This flag indicates if the PWM should be activated. At a value of 0, the CP level is also 0V. At a value of 1, the CP level is dependant of the duty cycle";
+CM_ BO_ 10 "This message provides information about the type and version of the flashed firmware";
+CM_ SG_ 10 MajorVersion "Major version of the firmware";
+CM_ SG_ 10 MinorVersion "Minor version of the firmware";
+CM_ SG_ 10 BuildVersion "Build or patch version of the firmware";
+CM_ SG_ 10 PlatformType "This firmware can be used for several products with minor changes in the build process. The platform type describes the used platform";
+CM_ SG_ 10 ApplicationType "The type of firmware. See possible values below";
+CM_ BO_ 11 "This message provides information about the GIT hash, written in the firmware";
+CM_ SG_ 11 HashSignal "First 8 byte of the 64 byte GIT hash";
 CM_ BO_ 8 "This message shall be sent from safety controller to host processor for indicating the state of the connected temperature sensors";
 CM_ SG_ 8 PT4_Temperature "Current temperature of PT1000 channel in °C with one decimal digit. 0x1FFF stands for: temp sensor not used.";
 CM_ SG_ 8 PT4_SelftestFailed "Indicates whether this PT1000 channel is disturbed, multiple channel can signal the condition in parallel.";
@@ -244,6 +246,9 @@ VAL_ 16 CS_ID_State 15 "SNA" 14 "Invalid" 1 "Connected" 0 "Not_Connected" ;
 VAL_ 16 CS_CE_State 15 "SNA" 7 "Invalid" 6 "B0" 5 "EC" 4 "E" 3 "D" 2 "C" 1 "B" 0 "A" ;
 VAL_ 7 CS_CurrentPpState 7 "Error" 6 "Type1_ConnectedButtonPressed" 5 "Type1_Connected" 4 "63/70A" 3 "32A" 2 "20A" 1 "13A" 0 "NoCableDetected" ;
 VAL_ 7 CS_CurrentCpState 0 "Unknown" 7 "Invalid" 6 "F" 5 "E" 4 "D" 3 "C" 2 "B" 1 "A" ;
+VAL_ 10 PlatformType 129 "chargeSOM" 130 "CCY" ;
+VAL_ 10 ApplicationType 3 "Firmware" 4 "End Of Line" 5 "Qualification" ;
+VAL_ 255 PacketId 10 "FirmwareVersion" 11 "GitHash";
 VAL_ 8 PT4_Temperature 8191 "TempSensorNotUsed" ;
 VAL_ 8 PT3_Temperature 8191 "TempSensorNotUsed" ;
 VAL_ 8 PT2_Temperature 8191 "TempSensorNotUsed" ;

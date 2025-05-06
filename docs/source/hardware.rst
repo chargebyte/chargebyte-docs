@@ -116,7 +116,7 @@ Packet format descriptions
 
 Data packet format
 
-Data packets contain payload and can be sent out from host to safety controller or vice versa. A data packet from safety controller to host needs to be requested with an Inquiry packet which is described below.
+Data packets contain payload and can be sent out from host to safety controller or vice versa. Data packets from safety controller to host can be transmitted periodically or by request via an inquiry packet.
 
 +--------+--------+--------+-------------------+
 | Symbol | Size   | Code   | Description       |
@@ -132,23 +132,6 @@ Data packets contain payload and can be sent out from host to safety controller 
 | EOF    | 1 byte | 0x03   | End of frame      |
 +--------+--------+--------+-------------------+
 
-Inquiry packet format
-
-An Inquiry packet is only sent out from host to safety controller. Its purpose is to request a data packet from safety controller to host that is not periodically availlable. The data packet is defined by the value of the COM type.
-
-!! In the current state of documentation there are only packets defined, that are periodically available. The packets that are sent out via inquiry paket will be added in another commit !!
-
-+--------+--------+--------+-------------------+
-| Symbol | Size   | Code   | Description       |
-+========+========+========+===================+
-| SOF    | 1 byte | 0xA5   | Start of frame    |
-+--------+--------+--------+-------------------+
-| COM    | 1 byte |        | Packet type       |
-+--------+--------+--------+-------------------+
-| CRC    | 1 byte |        | CRC checksum      |
-+--------+--------+--------+-------------------+
-| EOF    | 1 byte | 0x03   | End of frame      |
-+--------+--------+--------+-------------------+
 
 COM Values
 ----------
@@ -163,6 +146,12 @@ The COM values are mapped in the ID you see below in the message description. Th
 | 0x07     | Charge State              | Safety → Host       | periodically, every 100ms                                   | No                   |
 +----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------+
 | 0x08     | PT1000 State              | Safety → Host       | periodically, every 100ms                                   | No                   |
++----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------+
+| 0x0A     | Firmware Version          | Safety → Host       | no, only upon request via inquiry packet                    | Yes                  |
++----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------+
+| 0x0B     | GIT Hash                  | Safety → Host       | no, only upon request via inquiry packet                    | Yes                  |
++----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------+
+| 0xFF     | Inquiry packet            | Host → Safety       | no, only to trigger inquiries                               | No                   |
 +----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------+
 
 CRC checksum field

@@ -4,7 +4,7 @@ import cantools
 db = cantools.database.load_file("uart_com.dbc")
 
 # Messages you want to document
-target_msgs = {"ChargeControl1", "ChargeState1", "PT1000State"}
+target_msgs = ["ChargeControl1", "ChargeState1", "PT1000State", "FirmwareVersion", "GitHash", "InquiryPacket"]
 
 # Sender name mapping
 sender_name_map = {
@@ -63,7 +63,7 @@ def format_message_rst(msg):
     choice_blocks = []
     for sig in sorted_signals:
         if sig.choices:
-            lines = [f"  - 0x{int(k):X} = {v}" for k, v in sorted(sig.choices.items(), key=lambda x: int(x[0]), reverse=True)]
+            lines = [f"  - 0x{int(k):X} = {v}" for k, v in sorted(sig.choices.items(), key=lambda x: int(x[0]), reverse=False)]
             choice_blocks.append(f"- **{sig.name}**\n\n" + "\n".join(lines))
 
     if choice_blocks:
