@@ -36,6 +36,7 @@ Product Features
 * RTC support via I2C for precise timekeeping (IC/battery on carrier board)
 
 Host Controller
+
 * NXP i.MX93 1.7 GHz
 * 1 GB DDR4 RAM
 * 8 GB eMMC
