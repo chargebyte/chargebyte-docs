@@ -39,6 +39,44 @@ repository. Here you can find the latest firmware images and also older released
   Please check that your cross-compile environment is using the same "everest-core" tag as the firmware
   image you want to install.
 
+.. _release_vs_development_images:
+
+Release Images vs Development Images
+-------------------------------------
+
+There are two types of firmware images available for chargebyte devices:
+
+- Release images: These images are tested and verified by chargebyte and are recommended for
+  production use. The image size is optimized for production use and contains only the necessary
+  components.
+- Development images: These images are used for development purposes and are not tested or verified
+  by chargebyte. They are intended for developers who want to implement and test new features or
+  applications before they are released. The image size is larger than the release image and
+  contains additional development tools and libraries that are not necessary for production use.
+
+.. note::
+   Before installation of a chargebyte EVerest image, please check whether you are installing a
+   developer or release image. In order to update the firmware with a chargebyte EVerest developer
+   image, the developer key must be set in the :code:`"/etc/rauc"` directory to pass the internal
+   validation process of the RAUC firmware update mechanism. The image type can be identified by the
+   file name.
+
+   Depending on the image type, the key must be adapted as follows:
+
+   Change to developer key:
+
+   .. code-block:: bash
+
+      cd /etc/rauc
+      ln -sf i2se-devel.crt keyring.pem
+
+   Change to release key:
+
+   .. code-block:: bash
+
+      cd /etc/rauc
+      ln -sf i2se-release.crt keyring.pem
+
 Device Access
 -------------
 
