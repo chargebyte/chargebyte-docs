@@ -9,6 +9,20 @@ Frequently Asked Questions
 .. contents::
    :local:
 
+Does the Charge SOM have a CE certification?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Currently, the Charge SOM doesn't have any certification yet.
+
+
+Does the Charge SOM have Wifi support?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Charge SOM doesn't have builtin Wifi support, but it provides suitable
+interfaces (SDIO / USB 2.0 ) via its connectors. For instance the Charge SOM
+Single Channel DC Carrier Board provides a mini PCIe connector, which is
+connected to USB.
+
 
 Is it possible to use the Charge SOM as an EV simulator?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
