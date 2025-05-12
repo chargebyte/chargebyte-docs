@@ -123,7 +123,7 @@ Data packets contain payload and can be sent out from host to safety controller 
 +========+========+========+===================+
 | SOF    | 1 byte | 0xA5   | Start of frame    |
 +--------+--------+--------+-------------------+
-| COM    | 1 byte |        | Packet type       |
+| ID     | 1 byte |        | Packet Identifier |
 +--------+--------+--------+-------------------+
 | Data   | 8 byte |        | Payload           |
 +--------+--------+--------+-------------------+
@@ -133,13 +133,13 @@ Data packets contain payload and can be sent out from host to safety controller 
 +--------+--------+--------+-------------------+
 
 
-COM Values
-----------
+Packet Identifier (ID)
+----------------------
 
-The COM values are mapped in the ID you see below in the message description. This is the summary of the COM-Values.
+The values of the packet identifier (PacketId) are mapped to the messages as summarized below.
 
 +----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------+
-| Value    | Description               | Communication Dir.  | Periodicity                                                 | Triggered by Inquiry |
+| PacketId | Description               | Communication Dir.  | Periodicity                                                 | Triggered by Inquiry |
 +==========+===========================+=====================+=============================================================+======================+
 | 0x06     | Charge Control            | Host → Safety       | periodically, every 100ms OR immediately if changes occur   | No                   |
 +----------+---------------------------+---------------------+-------------------------------------------------------------+----------------------+

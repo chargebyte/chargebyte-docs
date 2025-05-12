@@ -34,29 +34,29 @@ ChargeControl1
    * - CC_PWM_Active
      - 7
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - This flag indicates if the PWM should be activated. At a value of 0, the CP level is also 0V. At a value of 1, the CP level is dependant of the duty cycle
    * - CC_Contactor1State
      - 16
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.
    * - CC_Contactor2State
      - 17
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.
 
 ChargeState1
@@ -95,128 +95,128 @@ ChargeState1
    * - CS_PWM_Active
      - 7
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Feedback if PWM is active. 0 means not active, 1 means active
    * - CS_CurrentCpState
      - 18
      - 3
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Current state of the control pilot. See value mappings below
    * - CS_CpShortCircuit
      - 19
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Is set when the safety controller detects a short-circuit condition between CP and PE line.
    * - CS_DiodeFault
      - 20
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Is set when the safety controller detects that the diode on EV side is missing.
    * - CS_CurrentPpState
      - 26
      - 3
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - State of the proximity pin. For fixed cables at CCS2, this value is 0x0: No Cable detected
    * - CS_Contactor1State
      - 32
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Is set when the contactor is closed
    * - CS_Contactor2State
      - 33
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Is set when the contactor is closed
    * - CS_Contactor1Error
      - 34
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Is set when an error in the contactor is detected
    * - CS_Contactor2Error
      - 35
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Is set when an error in the contactor is detected
    * - CS_Estop1ChargingAbort
      - 40
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - *No description available*
    * - CS_Estop2ChargingAbort
      - 41
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - *No description available*
    * - CS_Estop3ChargingAbort
      - 42
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - *No description available*
    * - CS_ImdRcmChargingAbort
      - 43
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - *No description available*
    * - CS_ImdRcmTestFailure
      - 44
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - *No description available*
 
 **Value Descriptions**
@@ -279,20 +279,20 @@ PT1000State
    * - PT1_ChargingStopped
      - 8
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Indicates whether this PT1000 channel prevents charging, multiple channel can signal the condition in parallel.
    * - PT1_SelftestFailed
      - 9
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Indicates whether this PT1000 channel is disturbed, multiple channel can signal the condition in parallel.
    * - PT2_Temperature
      - 23
@@ -306,20 +306,20 @@ PT1000State
    * - PT2_ChargingStopped
      - 24
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Indicates whether this PT1000 channel prevents charging, multiple channel can signal the condition in parallel.
    * - PT2_SelftestFailed
      - 25
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Indicates whether this PT1000 channel is disturbed, multiple channel can signal the condition in parallel.
    * - PT3_Temperature
      - 39
@@ -333,20 +333,20 @@ PT1000State
    * - PT3_ChargingStopped
      - 40
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Indicates whether this PT1000 channel prevents charging, multiple channel can signal the condition in parallel.
    * - PT3_SelftestFailed
      - 41
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Indicates whether this PT1000 channel is disturbed, multiple channel can signal the condition in parallel.
    * - PT4_Temperature
      - 55
@@ -360,20 +360,20 @@ PT1000State
    * - PT4_ChargingStopped
      - 56
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Indicates whether this PT1000 channel prevents charging, multiple channel can signal the condition in parallel.
    * - PT4_SelftestFailed
      - 57
      - 1
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Indicates whether this PT1000 channel is disturbed, multiple channel can signal the condition in parallel.
 
 **Value Descriptions**
@@ -421,47 +421,47 @@ FirmwareVersion
    * - MajorVersion
      - 7
      - 8
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Major version of the firmware
    * - MinorVersion
      - 15
      - 8
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Minor version of the firmware
    * - BuildVersion
      - 23
      - 8
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - Build or patch version of the firmware
    * - PlatformType
      - 31
      - 8
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - This firmware can be used for several products with minor changes in the build process. The platform type describes the used platform
    * - ApplicationType
      - 39
      - 8
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - The type of firmware. See possible values below
 
 **Value Descriptions**
@@ -508,8 +508,8 @@ GitHash
      - No
      - 1
      - 0
-     - -
-     - First 8 byte of the 64 byte GIT hash
+     - 
+     - First 8 byte of the 160 bit (SHA-1) GIT hash
 
 InquiryPacket
 =============
@@ -538,11 +538,11 @@ InquiryPacket
    * - PacketId
      - 7
      - 8
-     - Big Endian
+     - 
      - No
      - 1
      - 0
-     - -
+     - 
      - The ID, which message shall be requested. Supported values are described below.
 
 **Value Descriptions**

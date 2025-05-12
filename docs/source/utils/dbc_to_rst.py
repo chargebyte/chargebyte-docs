@@ -19,14 +19,21 @@ excluded_senders = {"CCY_SafetyController"}
 def signal_row(signal):
     def safe(value):
         if value is None or str(value).strip() == "":
-            return "-"
+            return ""
         return str(value).strip()
+    
+    if signal.byte_order == "little_endian" and signal.length > 8:
+        byte_order = "Little Endian"
+    elif signal.byte_order == "big_endian" and signal.length > 8:
+        byte_order = "Big Endian"
+    else:
+        byte_order = ""
 
     return [
         safe(signal.name),
         safe(signal.start),
         safe(signal.length),
-        "Little Endian" if signal.byte_order == "little_endian" else "Big Endian",
+        byte_order,
         "Yes" if signal.is_signed else "No",
         safe(signal.scale),
         safe(signal.offset),
