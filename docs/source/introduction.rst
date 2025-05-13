@@ -32,10 +32,11 @@ Product Features
 * `OCPP <https://openchargealliance.org/protocols/open-charge-point-protocol/>`_ for version 1.6, 2.0.1 and 2.1
 * ISO 15118-20 and lower
 * HomePlug Green PHY Standard & ISO 15118 Support utilizing the Vertexcom MSE1021 chipset
-* TPM for secure hardware-based key storage
+* TPM 2.0 standard compliant module for secure hardware-based key storage
 * RTC support via I2C for precise timekeeping (IC/battery on carrier board)
 
 Host Controller
+
 * NXP i.MX93 1.7 GHz
 * 1 GB DDR4 RAM
 * 8 GB eMMC
