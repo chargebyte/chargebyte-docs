@@ -36,15 +36,6 @@ BS_:
 BU_: Default_HostController Default_SafetyController CCY_HostController CCY_SafetyController
 
 
-BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
- SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ reserved : 0|1@1+ (1,0) [0|0] "" Vector__XXX
-
 BO_ 255 InquiryPacket: 8 Default_HostController
  SG_ PacketId : 7|8@0+ (1,0) [0|0] ""  CCY_SafetyController,Default_SafetyController
 
@@ -102,15 +93,16 @@ BO_ 16 ChargeState2: 8 CCY_SafetyController
  SG_ CS_CE_State : 7|4@0+ (1,0) [0|0] ""  CCY_HostController
 
 BO_ 7 ChargeState1: 8 Default_SafetyController
- SG_ CS_Estop1ChargingAbort : 40|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Estop2ChargingAbort : 41|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Estop3ChargingAbort : 42|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_ImdRcmChargingAbort : 43|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_ImdRcmTestFailure : 44|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor1State : 32|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor2State : 33|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor1Error : 34|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor2Error : 35|1@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_Estop1ChargingAbort : 41|2@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_Estop2ChargingAbort : 43|2@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_Estop3ChargingAbort : 45|2@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_ImdRcmChargingAbort : 46|1@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_ImdRcmTestFailure : 47|1@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_Contactor1State : 34|2@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_Contactor2State : 36|2@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_Contactor1Error : 32|1@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_Contactor2Error : 37|1@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_HV_Ready : 38|1@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_CurrentPpState : 26|3@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_CurrentCpState : 18|3@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_CpShortCircuit : 19|1@0+ (1,0) [0|0] ""  Default_HostController
@@ -195,7 +187,6 @@ BO_TX_BU_ 8 : CCY_SafetyController,Default_SafetyController;
 BO_TX_BU_ 1 : Default_SafetyController,CCY_SafetyController;
 
 
-CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
 CM_ BO_ 255 "This packet is used to request a special message from the safety controller";
 CM_ SG_ 255 PacketId "The ID, which message shall be requested. Supported values are described below.";
 CM_ BO_ 7 "This message shall be sent from safety controller to host processor for indicating the state of the charging session as well as the state of connected peripherals.";
@@ -203,6 +194,7 @@ CM_ SG_ 7 CS_Contactor1State "Is set when the contactor is closed";
 CM_ SG_ 7 CS_Contactor2State "Is set when the contactor is closed";
 CM_ SG_ 7 CS_Contactor1Error "Is set when an error in the contactor is detected";
 CM_ SG_ 7 CS_Contactor2Error "Is set when an error in the contactor is detected";
+CM_ SG_ 7 CS_HV_Ready "This is the state of the HV ready or State C output. This output is high, if the chargeSOM dont see any errors and CP is at state C. Otherwise it is low.";
 CM_ SG_ 7 CS_CurrentPpState "State of the proximity pin. For fixed cables at CCS2, this value is 0x0: No Cable detected";
 CM_ SG_ 7 CS_CurrentCpState "Current state of the control pilot. See value mappings below";
 CM_ SG_ 7 CS_CpShortCircuit " Is set when the safety controller detects a short-circuit condition between CP and PE line.";
@@ -253,4 +245,10 @@ VAL_ 8 PT4_Temperature 8191 "TempSensorNotUsed" ;
 VAL_ 8 PT3_Temperature 8191 "TempSensorNotUsed" ;
 VAL_ 8 PT2_Temperature 8191 "TempSensorNotUsed" ;
 VAL_ 8 PT1_Temperature 8191 "TempSensorNotUsed" ;
+VAL_ 7 CS_Contactor1State 0 "LOW" 1 "HIGH" 3 "NotConfigured" ;
+VAL_ 7 CS_Contactor2State 0 "LOW" 1 "HIGH" 3 "NotConfigured" ;
+VAL_ 7 CS_Estop1ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
+VAL_ 7 CS_Estop2ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
+VAL_ 7 CS_Estop3ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
+
 
