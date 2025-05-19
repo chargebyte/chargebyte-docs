@@ -161,17 +161,8 @@ ChargeState1
      - 0
      - 
      - State of the proximity pin. For fixed cables at CCS2, this value is 0x0: No Cable detected
-   * - CS_Contactor1Error
-     - 32
-     - 1
-     - 
-     - No
-     - 1
-     - 0
-     - 
-     - Is set when an error in the contactor is detected
    * - CS_Contactor1State
-     - 34
+     - 33
      - 2
      - 
      - No
@@ -179,6 +170,15 @@ ChargeState1
      - 0
      - 
      - Is set when the contactor is closed
+   * - CS_Contactor1Error
+     - 34
+     - 1
+     - 
+     - No
+     - 1
+     - 0
+     - 
+     - Is set when an error in the contactor is detected
    * - CS_Contactor2State
      - 36
      - 2
@@ -233,24 +233,6 @@ ChargeState1
      - 0
      - 
      - *No description available*
-   * - CS_ImdRcmChargingAbort
-     - 46
-     - 1
-     - 
-     - No
-     - 1
-     - 0
-     - 
-     - *No description available*
-   * - CS_ImdRcmTestFailure
-     - 47
-     - 1
-     - 
-     - No
-     - 1
-     - 0
-     - 
-     - *No description available*
 
 **Value Descriptions**
 
@@ -278,14 +260,14 @@ ChargeState1
 
 - **CS_Contactor1State**
 
-  - 0x0 = LOW
-  - 0x1 = HIGH
+  - 0x0 = OPEN
+  - 0x1 = CLOSE
   - 0x3 = NotConfigured
 
 - **CS_Contactor2State**
 
-  - 0x0 = LOW
-  - 0x1 = HIGH
+  - 0x0 = OPEN
+  - 0x1 = CLOSE
   - 0x3 = NotConfigured
 
 - **CS_Estop1ChargingAbort**
@@ -321,9 +303,9 @@ ChargeState1
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   3|                    |                    |                    |                    |                    | CS_CurrentPpState  |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-  4|                    |    CS_HV_Ready     | CS_Contactor2Error | CS_Contactor2State |                    | CS_Contactor1State |                    | CS_Contactor1Error |
+  4|                    |    CS_HV_Ready     | CS_Contactor2Error | CS_Contactor2State |                    | CS_Contactor1Error | CS_Contactor1State |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-  5|CS_ImdRcmTestFailure|CS_ImdRcmChargingAbo|CS_Estop3ChargingAbo|                    |CS_Estop2ChargingAbo|                    |CS_Estop1ChargingAbo|                    |
+  5|                    |                    |CS_Estop3ChargingAbo|                    |CS_Estop2ChargingAbo|                    |CS_Estop1ChargingAbo|                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   6|                    |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+

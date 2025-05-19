@@ -96,11 +96,9 @@ BO_ 7 ChargeState1: 8 Default_SafetyController
  SG_ CS_Estop1ChargingAbort : 41|2@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_Estop2ChargingAbort : 43|2@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_Estop3ChargingAbort : 45|2@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_ImdRcmChargingAbort : 46|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_ImdRcmTestFailure : 47|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor1State : 34|2@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_Contactor1State : 33|2@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_Contactor2State : 36|2@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor1Error : 32|1@0+ (1,0) [0|0] ""  Default_HostController
+ SG_ CS_Contactor1Error : 34|1@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_Contactor2Error : 37|1@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_HV_Ready : 38|1@0+ (1,0) [0|0] ""  Default_HostController
  SG_ CS_CurrentPpState : 26|3@0+ (1,0) [0|0] ""  Default_HostController
@@ -237,6 +235,11 @@ VAL_ 17 CC_CCSReady 2 "CCS_EmergencyStop" 1 "CCS_Ready" 0 "CCS_NotReady" ;
 VAL_ 16 CS_EStop_Reason 13 "HVReady_Malfunction" 12 "CE_Malfunction" 11 "ID_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "EmergencyInput" 0 "NoStop" ;
 VAL_ 16 CS_ID_State 15 "SNA" 14 "Invalid" 1 "Connected" 0 "Not_Connected" ;
 VAL_ 16 CS_CE_State 15 "SNA" 7 "Invalid" 6 "B0" 5 "EC" 4 "E" 3 "D" 2 "C" 1 "B" 0 "A" ;
+VAL_ 7 CS_Estop1ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
+VAL_ 7 CS_Estop2ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
+VAL_ 7 CS_Estop3ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
+VAL_ 7 CS_Contactor1State 0 "OPEN" 1 "CLOSE" 3 "NotConfigured" ;
+VAL_ 7 CS_Contactor2State 0 "OPEN" 1 "CLOSE" 3 "NotConfigured" ;
 VAL_ 7 CS_CurrentPpState 7 "Error" 6 "Type1_ConnectedButtonPressed" 5 "Type1_Connected" 4 "63/70A" 3 "32A" 2 "20A" 1 "13A" 0 "NoCableDetected" ;
 VAL_ 7 CS_CurrentCpState 0 "Unknown" 7 "Invalid" 6 "F" 5 "E" 4 "D" 3 "C" 2 "B" 1 "A" ;
 VAL_ 10 PlatformType 129 "chargeSOM" 130 "CCY" ;
@@ -245,10 +248,4 @@ VAL_ 8 PT4_Temperature 8191 "TempSensorNotUsed" ;
 VAL_ 8 PT3_Temperature 8191 "TempSensorNotUsed" ;
 VAL_ 8 PT2_Temperature 8191 "TempSensorNotUsed" ;
 VAL_ 8 PT1_Temperature 8191 "TempSensorNotUsed" ;
-VAL_ 7 CS_Contactor1State 0 "LOW" 1 "HIGH" 3 "NotConfigured" ;
-VAL_ 7 CS_Contactor2State 0 "LOW" 1 "HIGH" 3 "NotConfigured" ;
-VAL_ 7 CS_Estop1ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
-VAL_ 7 CS_Estop2ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
-VAL_ 7 CS_Estop3ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
-
 
