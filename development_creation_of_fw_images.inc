@@ -1,6 +1,23 @@
 Creation of customized firmware images
 ======================================
 
+The charge controller is based on the Yocto Project, which is a Linux Foundation project that provides
+tools and resources to create custom Linux-based systems for embedded devices.
+
+In general, there are two ways to create customized firmware images. Either you create a complete Yocto
+image based on the layer provided by chargebyte. Or you cross-compile individual EVerest modules,
+integrate them into a already existing mounted root file system and create an installable rauc image.
+
+The first option is the recommended way to create customized firmware images. It is more complex to set up
+the Yocto build environment, but it is the most flexible way to create customized firmware images.
+
+The second option is easier to set up, but it is less flexible. It is recommended if you only need less
+changes to the firmware image (e.g adding a new EVerest module).
+
+The following sections describe how to set up the Yocto build environment, how to add a custom EVerest
+module to the Yocto build system, and how to create a custom firmware image.
+
+
 Setting up Yocto Build Environment
 ----------------------------------
 
