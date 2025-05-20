@@ -70,6 +70,7 @@ This will include EVerest and chargebyte's hardware abstraction layer (HAL).
 The next step in this chapter is to write a new EVerest module and build a custom image that incorporates
 this new module.
 
+
 .. _adding-a-custom-everest-module:
 
 Adding a Custom EVerest Module
@@ -114,6 +115,7 @@ This section will focus on integrating the module into the Yocto build system.
    :code:`build/conf/local.conf` file so that the module is included in the image.
 
 The module is now integrated into the Yocto build system. The next step is to build the custom image.
+
 
 Creating a Development Image
 ----------------------------
