@@ -8,7 +8,7 @@ ways are described. In preparation for starting this chapter, it is necessary to
 via Ethernet. This is also necessary to copy logs and traces from the board to the local PC via a SFTP
 tool like `WinSCP <https://winscp.net/eng/download.php>`_ or `FileZilla <https://filezilla-project.org/>`_. 
 
-journalctl logs
+journalctl Logs
 ---------------
 As already described in the :ref:`start_charging_and_monitoring` section, the EVerest framework uses
 journalctl for logging. journalctl is a system service that collects and stores logging data.
@@ -51,7 +51,7 @@ to DEBUG:
     # 2. Logs from the EvseManager with module id "connector" with severity level DEBUG or higher.
     Filter="(%Severity% >= INFO) or (%Process% contains connector and %Severity% >= DEBG)"
 
-pcap traces
+pcap Traces
 -----------
 pcap traces can be used to debug and analyze the high-level communication (HLC) between SECC and EVCC.
 In general, there are two ways to capture pcap traces:
@@ -83,7 +83,7 @@ pcap traces with V2G communication can be analyzed using Wireshark with a V2G pl
     to export the TLS session key. E.g. the `IsoMux module <https://github.com/EVerest/everest-core/blob/main/modules/IsoMux/manifest.yaml>`_
     is able to export the TLS session key.
 
-Session logging of the EVSEManager
+Session Logging of the EVSEManager
 ----------------------------------
 The EVerest "EVSEManager" can generate session log files with information about the current session state,
 configured CP state and duty cycle. It can also decode and log the content of the V2G messages.

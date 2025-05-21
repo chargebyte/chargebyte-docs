@@ -1,5 +1,5 @@
-Creation of customized firmware images
-======================================
+Creating Customized Firmware Images with Yocto
+==============================================
 
 The charge controller is based on the Yocto Project, which is a Linux Foundation project that provides
 tools and resources to create custom Linux-based systems for embedded devices.
