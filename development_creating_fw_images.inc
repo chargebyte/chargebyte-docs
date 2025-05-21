@@ -1,31 +1,37 @@
 Creating Customized Firmware Images with Yocto
 ==============================================
 
-The charge controller is based on the Yocto Project, which is a Linux Foundation project that provides
-tools and resources to create custom Linux-based systems for embedded devices.
+As already mentioned in the :ref:`firmware.rst` chapter, chargebyte's firmware images are built using the Yocto
+Project build system.
 
 In general, there are two ways to create customized firmware images. Either you create a complete Yocto
-image based on the layer provided by chargebyte. Or you cross-compile individual EVerest modules,
-integrate them into a already existing mounted root file system and create an installable rauc image.
+image based on the layer provided by chargebyte. Or, as already described in the :ref:`cross_compiling` section,
+you cross-compile individual EVerest modules, integrate them into an already existing mounted root file system and
+create an installable rauc image.
 
 The first option is the recommended way to create customized firmware images. It is more complex to set up
 the Yocto build environment, but it is the most flexible way to create customized firmware images.
 
-The second option is easier to set up, but it is less flexible. It is recommended if you only need less
-changes to the firmware image (e.g adding a new EVerest module).
+The second option is easier to set up, but less flexible. It is recommended if you only need to make minor
+changes to the firmware image (e.g. adding a new EVerest module).
 
-The following sections describe how to set up the Yocto build environment, how to add a custom EVerest
-module to the Yocto build system, and how to create a custom firmware image.
+The following sections describe the first option in detail.
 
 
 Setting up Yocto Build Environment
 ----------------------------------
 
+This section describes how to set up the Yocto build environment for chargebyte's firmware images and
+how to create a customized firmware image by adding a new EVerest module based on the chargebyte
+Yocto layer. The Yocto build environment is based on the chargebyte BSP (Board Support Package),
+and please refer to our Board Support Package documentation in our public GitHub
+repository at: https://github.com/chargebyte/chargebyte-bsp for detailed instructions.
+
 #. Install the `required packages <https://docs.yoctoproject.org/ref-manual/system-requirements.html#required-packages-for-the-build-host>`_
    for Yocto on a Linux machine / virtual machine. (**Note**: We normally set up the Yocto build environment
    on an Ubuntu 20.04 or later Linux distribution.)
-#. Install :code:`repo` to help getting your Yocto environment ready. The :code:`repo` utility makes it
-   easy to reference several Git repositories within a top-level project, which you can then clone to your
+#. Install :code:`repo` to help set up your Yocto environment. The :code:`repo` utility makes it easy
+   to reference several Git repositories within a top-level project, which you can then clone to your
    local machine all at once.
 
    .. code-block:: console
@@ -45,7 +51,7 @@ Setting up Yocto Build Environment
    This requires a manifest file containing information about the repositories for the necessary Yocto
    layers and the specific branches to be checked out. The manifest file can be found in a repository
    called "`chargebyte-bsp <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest>`_".
-   (**Note**: chargebyte's Yocto build environment is currently based on 'Kirkstone' - a LTS release of the Yocto Project).
+   (**Note**: chargebyte's Yocto build environment is currently based on 'Kirkstone' – a LTS release of the Yocto Project, which ensures long-term support and stability for embedded Linux systems.)
 
    .. code-block:: console
 
@@ -78,7 +84,7 @@ Adding a Custom EVerest Module
 
 The EVerest documentation explains the `modules in detail <https://everest.github.io/nightly/general/04_detail_module_concept.html>`_
 and their `configurations <https://everest.github.io/nightly/general/05_existing_modules.html>`_,
-and includes a guide on `how to develop an new EVerest module <https://everest.github.io/nightly/tutorials/new_modules>`_.
+and includes a guide on `how to develop a new EVerest module <https://everest.github.io/nightly/tutorials/new_modules>`_.
 
 This section will focus on integrating the module into the Yocto build system.
 
