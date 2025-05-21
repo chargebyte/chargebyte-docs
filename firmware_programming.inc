@@ -134,8 +134,8 @@ The rollback to the other partition can now be performed by using the command :c
 
 After rebooting of the board with command reboot the board should be successfully booted on the other partition. To revert to the initial partition, just repeat this process.
 
-Development Tools
-^^^^^^^^^^^^^^^^^
+Mount Inactive Partition
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 During development it may be useful to access/mount the inactive partition. Then it is required to first determine the inactive partition using rauc command line tool. To simplify things, a helper shell script is included in the firmware which is called :code:`mount-other-rootfs`. It takes one command line argument as parameter, that is, a target directory used as mountpoint for the inactive root filesystem.
 
