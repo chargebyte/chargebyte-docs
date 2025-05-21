@@ -145,24 +145,10 @@ During development it may be useful to access/mount the inactive partition. Then
 
 Note, that this helper script does not modify any RAUC status information regarding this slot.
 
-.. _programming:
-
-Programming
-===========
-
-It is possible for customers to add new programs and software and/or modify configuration files. Customers can then integrate their custom-developed software components using the Yocto Project to create new Linux firmware images. Please refer to our Board Support Package documentation in our public GitHub repository at: https://github.com/chargebyte/chargebyte-bsp for detailed instructions.
-
-Some general notes and recommendation for custom software development:
-
-* Develop your customer software on your local PC Linux environment, where you can use a compiler, debugger etc. you are familiar with. If the software you developed does not depend on specific hardware components, you can use the `Software-in-the-Loop <https://everest.github.io/nightly/tutorials/run_sil/index.html>`_ (SiL) environment provided by EVerest to test your software. If everything works as expected in this setup, you can then switch to cross-compiling for the target system.
-* Using tools like autotools, cmake and pkg-config in your own projects makes the integration and cross-compiling process much easier. Yocto itself has rich support for these widely used tools and provides many examples on how to use them.
-* If you start your project from scratch, have a look at libraries which are already required by EVerest Stack and/or Linux distribution. Re-use these libraries to keep the overall firmware footprint small. The benefit is when updating the boards, it will take less time when transferring the firmware update image and flashing it to internal storage.
-* You need to determine how your software components will interact with the EVerest stack. You can develop your software as an EVerest module and use one of the EVerest interfaces for interaction. Alternatively, you can utilize the simple MQTT-based API provided by the EVerest '`API <https://github.com/EVerest/everest-core/tree/main/modules/API>`_' module, which gives you access to the EVerest stack internals. Check section :ref:`adding-a-custom-everest-module` to figure out how to create an EVerest module.
-
 .. _firmware_customization:
 
 Firmware Update Customization and Signing
------------------------------------------
+=========================================
 
 After making sure that the customized software is working on the board, there might be the requirement to pack this with our pre-flashed firmware to create your own firmware update file which should be signed. This facilitates the production process. The following steps illustrate how to create your own signed firmware update image. For this you would need a native Linux machine or a Linux virtual machine which includes the tool "`RAUC <https://rauc.readthedocs.io/en/latest/index.html>`_". RAUC is the framework we use for performing our firmware update. During the steps, the tool will be used to extract our firmware image, re-pack it including your customized software and sign the new firmware update image. Note that you need your own Public Key Infrastructure (PKI) to sign firmware update images later.
 
