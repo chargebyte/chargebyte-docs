@@ -13,9 +13,9 @@ Checklist before starting
 The following bullet points should be checked before starting with the development of a custom EVerest
 module:
 
-* Please make sure that your charge controller is started and running (:ref:`getting_started.rst`).
+* Please make sure that your charge controller is started and running (see :ref:`getting_started.rst` chapter).
   It is recommended to connect the charge controller to the local computer via Ethernet. This makes it
-  easier to share files (e.g., configuration, image, binary, or logging files) between the local computer
+  easier to share files (e.g. configuration, image, binary, or logging files) between the local computer
   and the charge controller.
 
 * The EVerest development environment should be set up on the local Linux machine. Please follow the
@@ -23,7 +23,7 @@ module:
   and the chapter `A Kind Of Quick Guide To EVerest <https://everest.github.io/nightly/general/03_quick_start_guide.html>`_.
   If you have problems setting up EVerest, please check the `Zulip chat <https://lfenergy.zulipchat.com/>`_
   to see whether this problem is already known and whether solutions have already been found.
-  To verify that everything is installed correctly, EVerest should be compiled once natively for your
+  To verify that everything is installed correctly, EVerest should be compiled once natively on your
   system.
 
 * Keep in mind that if you want to cross-compile an EVerest module, it must be compatible with the EVerest
