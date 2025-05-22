@@ -52,14 +52,31 @@ You need to determine how your software components will interact with the EVeres
 your software as an EVerest module and use one of the EVerest interfaces for interaction. Alternatively,
 you can utilize the simple MQTT-based API provided by the EVerest
 `API <https://github.com/EVerest/everest-core/tree/main/modules/API>`_ module, which gives you access
-to the EVerest stack internals. Refer to section :ref:`adding-a-custom-everest-module` to learn how to
-create an EVerest module.
+to the EVerest stack internals.
 
 The process of creating your own EVerest modules is described in the EVerest documentation:
-https://everest.github.io/nightly/tutorials/new_modules/index.html
+`How to: Develop New Modules <https://everest.github.io/nightly/tutorials/new_modules/index.html>`_.
+
 
 .. note::
-   It is also possible to create your module directly in the EVerest-core project in the modules directory. 
+   It is also possible to create your module directly in the everest-core project in the modules directory. 
    This is only recommended if you either want to work on a fork of everest-core or if you want to
    contribute the module to the EVerest core project. In general, it is recommended to create your own module
    in a separate EVerest module repository as described in the EVerest documentation.
+
+To test your own modules, they can be cross-compiled for the target platform and tested directly on the
+target. How this is done is described in the next section. As soon as the test phase is completed, the
+EVerest module can be integrated into your firmware image.
+
+In general, there are two ways to create customized firmware images. Either you create a complete Yocto
+image based on the layer provided by chargebyte. Or, as already described in the Cross-compilation of
+EVerest modules section, you cross-compile individual EVerest modules, integrate them into an already
+existing mounted root file system and create an installable rauc image.
+
+Building a complete Yocto image is the recommended way to create customized firmware images. It is more
+complex to set up the Yocto build environment, but it is the most flexible way to create customized
+firmware images. Adding individual EVerest modules to an already existing mounted root file system is easier to set up,
+but less flexible. It is recommended if you only need to make minor changes to the firmware image (e.g.
+adding a new EVerest module).
+The following sections describe the first option in detail. The second option is described in the
+section :ref:`creating_of_custom_firmware_images`.

@@ -1,25 +1,14 @@
+.. _creating_of_custom_firmware_images:
+
 Creating Customized Firmware Images with Yocto
 ==============================================
 
 As already mentioned in the :ref:`firmware.rst` chapter, chargebyte's firmware images are built using the Yocto
-Project build system.
+Project build system. This chapter describes how to set up the Yocto build environment for chargebyte's
+firmware images and how to create a customized firmware image by adding a new EVerest module based on
+the chargebyte Yocto layer.
 
-In general, there are two ways to create customized firmware images. Either you create a complete Yocto
-image based on the layer provided by chargebyte. Or, as already described in the :ref:`cross_compiling` section,
-you cross-compile individual EVerest modules, integrate them into an already existing mounted root file system and
-create an installable rauc image.
-
-The first option is the recommended way to create customized firmware images. It is more complex to set up
-the Yocto build environment, but it is the most flexible way to create customized firmware images.
-
-The second option is easier to set up, but less flexible. It is recommended if you only need to make minor
-changes to the firmware image (e.g. adding a new EVerest module).
-
-The following sections describe the first option in detail.
-
-
-Setting up Yocto Build Environment
-----------------------------------
+Setting up the Yocto Build Environment
 
 This section describes how to set up the Yocto build environment for chargebyte's firmware images and
 how to create a customized firmware image by adding a new EVerest module based on the chargebyte
