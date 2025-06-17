@@ -137,7 +137,7 @@ If State C is confirmed and all safety criteria are met, the controller is also 
 
 Reset Behaviour and Controller states
 =====================================
-The safety controller starts in an initialization state, to give the peripherals time to reach an defined state. It leaves the initialization state to a running state, after the reception of the first UART message from the host. In running state, it monitors the peripherals and sends out UART messages. If any error occurs, the system goes into safe state. This state can only be left by a reset.
+The safety controller starts in an initialization state, to give the peripherals time to reach an defined state. It leaves the initialization state to a running state, after the reception of the first UART message from the host. Only periodic messages leaves the init state. With the reception of inquiriy messages, the safety controller stays in initialization. This gives the option to fetch version information in an init state. In running state, it monitors the peripherals and sends out UART messages. If any error occurs, the system goes into safe state. This state can only be left by a reset.
 
 .. figure:: _static/images/safety_controller_states.svg
     :width: 1000pt
