@@ -51,15 +51,28 @@ The following steps describe how to cross-compile a module for the Tarragon plat
       mkdir toolchain
       cd toolchain
       touch toolchain.cmake
+      cd ..
+
+#. The resulting directory structure should look like this:
+
+   .. code-block:: console
+
+      everest-workspace/
+      |── {MyEVerestModule}
+      ├── everest-core
+      └── toolchain
+          └── toolchain.cmake
 
 #. Save the following content in the :code:`toolchain.cmake` file:
 
    .. literalinclude:: ../../includes/_static/files/toolchain.cmake
 
-#. Create a new :code:`build_tarragon` directory in the EVerest project directory (e.g. inside :code:`everest-core`):
+#. Create a new :code:`build_tarragon` directory in the EVerest project directory (e.g. within your own EVerest
+   module project directory or :code:`everest-core` if you want to build the everest-core modules):
 
    .. code-block:: console
 
+      cd {MyEVerestModule}
       mkdir build_tarragon
       cd build_tarragon
 
@@ -74,6 +87,19 @@ The following steps describe how to cross-compile a module for the Tarragon plat
    .. code-block:: console
 
       make install -j$(nproc)
+
+#. If the build was successful, a dist directory will be created with the cross-compiled binaries and
+   the manifest files of the modules. Please check if the following directory structure was created:
+
+   .. code-block:: console
+
+      dist/
+      └── libexec
+          └── everest
+              └── modules
+                  └── {MyEVerestModule}
+                      ├── {MyEVerestModule} (binary)
+                      └── {MyEVerestModule}.manifest (manifest file)
 
 #. Verify that the resulting binaries were compiled for the Tarragon target platform:
 
