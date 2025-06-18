@@ -56,16 +56,14 @@ to our Board Support Package documentation in our public GitHub repository: http
    #. :code:`build`: Initially links to the :code:`conf` folder in :code:`chargebyte-bsp`.
 
 Follow the `documentation <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md>`_ in the
-'chargebyte-bsp' repository to build a firmware image based on the platform-specific support package (BSP).
+'chargebyte-bsp' repository to build a firmware image based on the specific board support package (BSP).
 Currently supported hardware platforms are Tarragon (Charge Control C) and Charge SOM.
 
-This will include EVerest and chargebyte's hardware abstraction layer (HAL).
-
-The next step is to write a new EVerest module and build a custom image that incorporates it.
+The next step is to integrate a new EVerest module and build a custom image that incorporates it.
 
 .. _adding-a-custom-everest-module:
 
-Adding a Custom EVerest Module
+Integrating a Custom EVerest Module
 ------------------------------
 
 The EVerest documentation explains the `module concept in detail <https://everest.github.io/nightly/general/04_detail_module_concept.html>`_,

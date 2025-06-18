@@ -38,25 +38,28 @@ It is recommended to develop your custom software on your local PC Linux environ
 debugger, and tools that you are familiar with. Using tools like autotools, cmake, and pkg-config
 in your own projects makes the integration and cross-compiling process much easier.
 
-A native installation of EVerest is also recommended, as EVerest has some simulation examples installed,
-which can be used to start and test EVerest locally on your computer. If the software you developed does not
-depend on specific hardware components, it is also possible to test your EVerest module natively on the local
-machine before it is executed on the target hardware platform. Please refer to `Simulating EVerest <https://everest.github.io/nightly/tutorials/run_sil/index.html>`_
-for more information on how to start your EVerest module in the SiL environment.
+A native installation of EVerest on your host system is also recommended, as it includes simulation examples
+that allow you to start and test EVerest locally on your machine. If the software you developed does
+not depend on specific hardware components, it is also possible to test your EVerest module natively
+on the local machine before it is executed on the target hardware platform.
+Please refer to `Simulating EVerest <https://everest.github.io/nightly/tutorials/run_sil/index.html>`_ for more information
+on how to start your EVerest module in the SiL environment.
 
-If you start your project from scratch, have a look at libraries which are already required by the EVerest
-stack and/or Linux distribution. Reuse these libraries to keep the overall firmware footprint small.
-The benefit is that updating the boards will take less time to transfer the firmware update image
-and flash it to internal storage.
-You need to determine how your software components will interact with the EVerest stack. You can develop
-your software as an EVerest module and use one of the EVerest interfaces for interaction. Alternatively,
-you can utilize the simple MQTT-based API provided by the EVerest
-`API <https://github.com/EVerest/everest-core/tree/main/modules/API>`_ module, which gives you access
-to the EVerest stack internals.
+If you are starting your program from scratch and considering additional libraries to support specific
+functionality, first review the libraries already required by EVerest or included in the firmware’s Linux
+distribution. Minimizing dependencies helps reduce the size of the firmware update image, resulting in
+faster transfer and flashing times during board updates.
+
+When developing your software component, you need to decide how it will interact with the EVerest stack.
+You can either implement your software as an EVerest module and use the internal interfaces to communicate
+with the stack, or you can use the external MQTT-based EVerest API `API <https://github.com/EVerest/everest-core/tree/main/modules/API>`_
+provided by the API module to access the EVerest stack. For energy management use cases, the second option
+is certainly a valid approach. However, the standard and more flexible path is to create a dedicated EVerest
+module. For energy management use cases, a websocket JSON-RPC-based approach to communicate with the
+EVerest stack will be available in the near future. For more information, feel free to contact us.
 
 The process of creating your own EVerest modules is described in the EVerest documentation:
 `How to: Develop New Modules <https://everest.github.io/nightly/tutorials/new_modules/index.html>`_.
-
 
 .. note::
    It is also possible to create your module directly in the everest-core project in the modules directory. 
@@ -69,7 +72,7 @@ target. How this is done is described in the next section. As soon as the test p
 EVerest module can be integrated into your firmware image.
 
 In general, there are two ways to create customized firmware images. Either you create a complete Yocto
-image based on the layer provided by chargebyte. Or, as already described in the Cross-compilation of
+image based on the layers provided by chargebyte. Or, as already described in the Cross-compilation of
 EVerest modules section, you cross-compile individual EVerest modules, integrate them into an already
 existing mounted root file system and create an installable rauc image.
 
@@ -78,5 +81,7 @@ complex to set up the Yocto build environment, but it is the most flexible way t
 firmware images. Adding individual EVerest modules to an already existing mounted root file system is easier to set up,
 but less flexible. It is recommended if you only need to make minor changes to the firmware image (e.g.
 adding a new EVerest module).
-The following sections describe the first option in detail. The second option is described in the
-section :ref:`creating_of_custom_firmware_images`.
+
+In summary, for more complex projects, the second approach is typically used to test smaller changes to the image,
+while the first approach is used to create production-ready images. The following sections describe the
+first option in detail. For the second option, see the section :ref:`creating_of_custom_firmware_images`.
