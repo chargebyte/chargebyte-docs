@@ -7,8 +7,8 @@ starts with creating your own EVerest modules that can be cross-compiled and run
 creating fully customized firmware images that can be installed on the target. This chapter also
 explains how to debug issues within the EVerest environment on the target.
 
-Checklist before starting
-=========================
+Preparation Checklist for Development
+=====================================
 
 The following bullet points should be checked before starting with the development of a custom EVerest
 module:
