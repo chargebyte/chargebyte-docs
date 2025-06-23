@@ -2,115 +2,86 @@
 Development
 ***********
 
-As mentioned in the section ":ref:`programming`", customers can create their own applications and
-integrate them into a custom firmware image. This section will guide you through the process of creating a custom
-EVerest module and integrating it into an image. This is done by either using the Yocto build system or
-cross-compiling the application for the chargebyte hardware platform.
+This chapter shows which options are available to customize the charge controller to your own needs. It
+starts with creating your own EVerest modules that can be cross-compiled and run on the target, up to
+creating fully customized firmware images that can be installed on the target. This chapter also
+explains how to debug issues within the EVerest environment on the target.
 
+Preparation Checklist for Development
+=====================================
 
-Setting up Yocto Build Environment
-==================================
+The following bullet points should be checked before starting with the development of a custom EVerest
+module:
 
-#. Install the `required packages <https://docs.yoctoproject.org/ref-manual/system-requirements.html#required-packages-for-the-build-host>`_
-   for Yocto on a Linux machine / virtual machine. (**Note**: We normally set up the Yocto build environment
-   on an Ubuntu 20.04 or later Linux distribution.)
-#. Install :code:`repo` to help getting your Yocto environment ready. The :code:`repo` utility makes it
-   easy to reference several Git repositories within a top-level project, which you can then clone to your
-   local machine all at once.
+* Please make sure that your charge controller is started and running (see :ref:`getting_started.rst` chapter).
+  It is recommended to connect the charge controller to the local computer via Ethernet. This makes it
+  easier to share files (e.g. configuration, image, binary, or logging files) between the local computer
+  and the charge controller.
 
-   .. code-block:: console
+* The EVerest development environment should be set up on the local Linux machine. Please follow the
+  instructions in the EVerest documentation, in particular the chapter `Prepare Your Development Environment <https://everest.github.io/nightly/general/02_detail_pre_setup.html>`_
+  and the chapter `A Kind Of Quick Guide To EVerest <https://everest.github.io/nightly/general/03_quick_start_guide.html>`_.
+  If you have problems setting up EVerest, please check the `Zulip chat <https://lfenergy.zulipchat.com/>`_
+  to see whether this problem is already known and whether solutions have already been found.
+  To verify that everything is installed correctly, EVerest should be compiled once natively on your
+  system.
 
-      mkdir ~/bin
-      curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-      chmod a+x ~/bin/repo
+* Keep in mind that if you want to cross-compile an EVerest module, it must be compatible with the EVerest
+  release used in the firmware. Please have a look at the official `EVerest documentation <https://everest.github.io/nightly/dev_tools/edm.html#setting-up-and-updating-a-workspace>`_
+  to learn how to check out a dedicated EVerest release. The everest-core version used by the firmware
+  can be found in the release notes of the `firmware image <https://github.com/chargebyte/meta-chargebyte-everest/releases>`_.
 
-   You need to also make sure that :code:`~/bin` is added to your :code:`PATH` variable
-   (Usually the directory is added automatically in Ubuntu).
+Best practices for developing EVerest modules
+=============================================
 
-   .. code-block:: console
+It is recommended to develop your custom software on your local PC Linux environment, using a compiler,
+debugger, and tools that you are familiar with. Using tools like autotools, cmake, and pkg-config
+in your own projects makes the integration and cross-compiling process much easier.
 
-      echo 'export PATH="$PATH":~/bin' >> ~/.bashrc
+A native installation of EVerest on your host system is also recommended, as it includes simulation examples
+that allow you to start and test EVerest locally on your machine. If the software you developed does
+not depend on specific hardware components, it is also possible to test your EVerest module natively
+on the local machine before it is executed on the target hardware platform.
+Please refer to `Simulating EVerest <https://everest.github.io/nightly/tutorials/run_sil/index.html>`_ for more information
+on how to start your EVerest module in the SiL environment.
 
-#. The :code:`repo` tool should be used to checkout the Yocto layers needed to build the firmware image.
-   This requires a manifest file containing information about the repositories for the necessary Yocto
-   layers and the specific branches to be checked out. The manifest file can be found in a repository
-   called "`chargebyte-bsp <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest>`_".
-   (**Note**: chargebyte's Yocto build environment is currently based on 'Kirkstone' - a LTS release of the Yocto Project).
+If you are starting your program from scratch and considering additional libraries to support specific
+functionality, first review the libraries already required by EVerest or included in the firmware’s Linux
+distribution. Minimizing dependencies helps reduce the size of the firmware update image, resulting in
+faster transfer and flashing times during board updates.
 
-   .. code-block:: console
+When developing your software component, you need to decide how it will interact with the EVerest stack.
+You can either implement your software as an EVerest module and use the internal interfaces to communicate
+with the stack, or you can use the external MQTT-based EVerest API `API <https://github.com/EVerest/everest-core/tree/main/modules/API>`_
+provided by the API module to access the EVerest stack. For energy management use cases, the second option
+is certainly a valid approach. However, the standard and more flexible path is to create a dedicated EVerest
+module. For energy management use cases, a websocket JSON-RPC-based approach to communicate with the
+EVerest stack will be available in the near future. For more information, feel free to contact us.
 
-      mkdir yocto
-      cd yocto
-      repo init -u https://github.com/chargebyte/chargebyte-bsp -b kirkstone-everest
-      repo sync
+The process of creating your own EVerest modules is described in the EVerest documentation:
+`How to: Develop New Modules <https://everest.github.io/nightly/tutorials/new_modules/index.html>`_.
 
-   It should take a couple of minutes to download all the repositories using the command :code:`repo sync`.
-   After the command is executed, you should be able to find three folders in the created yocto directory:
+.. note::
+   It is also possible to create your module directly in the everest-core project in the modules directory. 
+   This is only recommended if you either want to work on a fork of everest-core or if you want to
+   contribute the module to the EVerest core project. In general, it is recommended to create your own module
+   in a separate EVerest module repository as described in the EVerest documentation.
 
-   #. :code:`source`: Where all the repositories representing the layers are cloned.
-   #. :code:`chargebyte-bsp`: A clone of the 'chargebyte-bsp' repository containing the manifest file and configurations folder.
-   #. :code:`build`: Initially holds a link to the :code:`conf` folder in :code:`chargebyte-bsp`.
+To test your own modules, they can be cross-compiled for the target platform and tested directly on the
+target. How this is done is described in the next section. As soon as the test phase is completed, the
+EVerest module can be integrated into your firmware image.
 
-Follow the `documentation <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md>`_ in the
-'chargebyte-bsp' repository to build a firmware image based on the hardware platform specific board support package (BSP).
-Currently supported are the hardware platforms Tarragon (Charge Control C) and Charge SOM.
+In general, there are two ways to create customized firmware images. Either you create a complete Yocto
+image based on the layers provided by chargebyte. Or, as already described in the Cross-compilation of
+EVerest modules section, you cross-compile individual EVerest modules, integrate them into an already
+existing mounted root file system and create an installable rauc image.
 
-This will include EVerest and chargebyte's hardware abstraction layer (HAL).
+Building a complete Yocto image is the recommended way to create customized firmware images. It is more
+complex to set up the Yocto build environment, but it is the most flexible way to create customized
+firmware images. Adding individual EVerest modules to an already existing mounted root file system is easier to set up,
+but less flexible. It is recommended if you only need to make minor changes to the firmware image (e.g.
+adding a new EVerest module).
 
-The next step in this chapter is to write a new EVerest module and build a custom image that incorporates
-this new module.
-
-.. _adding-a-custom-everest-module:
-
-Adding a Custom EVerest Module
-==============================
-
-The EVerest documentation explains the `modules in detail <https://everest.github.io/nightly/general/04_detail_module_concept.html>`_
-and their `configurations <https://everest.github.io/nightly/general/05_existing_modules.html>`_,
-and includes a guide on `how to develop an new EVerest module <https://everest.github.io/nightly/tutorials/new_modules>`_.
-
-This section will focus on integrating the module into the Yocto build system.
-
-#. In order to integrate custom EVerest modules into the Yocto build system, you can either
-   `create a new Yocto layer <https://docs.yoctoproject.org/dev-manual/layers.html#creating-your-own-layer>`_
-   or extend an existing one. This section will assume that a new layer has been created and added
-   to the :code:`BBLAYERS` variable in the :code:`build/conf/bblayers.conf` file.
-#. A recipe file is needed to build the module. A recipe is a file with the extension :code:`.bb` and
-   contains information about the module, such as the source code location, dependencies, and how to build it.
-   The Yocto documentation provides a `guide on how to write a recipe file <https://docs.yoctoproject.org/dev-manual/new-recipe.html>`_.
-   Let's assume that the new recipe is called :code:`my-module.bb`. It should look something like this:
-
-   .. code-block:: console
-
-      SUMMARY = "My Module"
-      DESCRIPTION = "A new EVerest module"
-
-      LICENSE = "APACHE-2.0"
-      LIC_FILES_CHKSUM = "file://LICENSE;md5=1234567890"
-
-      SRC_URI = "git://github.com/my_org/my-module.git;branch=main"
-      S = "${WORKDIR}/git"
-
-      inherit cmake
-
-      DEPENDS = "lib1 lib2"
-
-      do_install() {
-          install -d ${D}${bindir}
-          install -m 0755 ${B}/my-module ${D}${bindir}
-      }
-
-#. Add the name of the recipe :code:`my-module` to the :code:`IMAGE_INSTALL` variable in the
-   :code:`build/conf/local.conf` file so that the module is included in the image.
-
-The module is now integrated into the Yocto build system. The next step is to build the custom image.
-
-Creating a Development Image
-============================
-
-In order to build the custom image, follow the section "`Building an image <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md#user-content-build>`_"
-found in the "chargebyte-bsp" repository which produces a Linux root filesystem. This can be either
-`flashed <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md#user-content-flash>`_
-directly, or used to `create a firmware image using RAUC <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest/README.md#user-content-flash>`_.
-
-The custom image should now include the new EVerest module.
+In summary, for more complex projects, the second approach is typically used to test smaller changes to the image,
+while the first approach is used to create production-ready images. The following sections describe the
+first option in detail. For the second option, see the section :ref:`creating_of_custom_firmware_images`.
