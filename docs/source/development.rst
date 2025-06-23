@@ -99,7 +99,7 @@ The following steps describe how to cross-compile a module for the Tarragon plat
               └── modules
                   └── {MyEVerestModule}
                       ├── {MyEVerestModule} (binary)
-                      └── {MyEVerestModule}.manifest (manifest file)
+                      └── manifest.yaml (manifest file)
 
 #. Verify that the resulting binaries were compiled for the Tarragon target platform:
 
