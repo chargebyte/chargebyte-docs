@@ -8,7 +8,7 @@ Cross-compiling for Charge SOM
 ==============================
 
 Cross-compilation is the fastest and most convenient way to test your own modules directly on the target
-system during development. The cross-compiled project can then either be transferred directly via FTP
+system during development. The cross-compiled project can then either be transferred directly via SFTP
 to the charge controller or integrated into a firmware image and installed on the target using the `rauc` command.
 
 The following steps describe how to cross-compile a module for the Charge SOM platform.
@@ -66,16 +66,16 @@ The following steps describe how to cross-compile a module for the Charge SOM pl
       └── toolchain
           └── toolchain.cmake
 
-#. Create a new :code:`build_tarragon` directory in the EVerest project directory (e.g. within your own EVerest
+#. Create a new :code:`build_csom` directory in the EVerest project directory (e.g. within your own EVerest
    module project directory or :code:`everest-core` if you want to build the everest-core modules):
 
    .. code-block:: console
 
       cd ../{MyEVerestModule}
-      mkdir build_tarragon
-      cd build_tarragon
+      mkdir build_csom
+      cd build_csom
 
-#. Run the following command inside the `build_tarragon` directory to configure the build:
+#. Run the following command inside the `build_csom` directory to configure the build:
 
    .. code-block:: console
 
@@ -98,7 +98,7 @@ The following steps describe how to cross-compile a module for the Charge SOM pl
               └── modules
                   └── {MyEVerestModule}
                       ├── {MyEVerestModule} (binary)
-                      └── {MyEVerestModule}.manifest (manifest file)
+                      └── manifest.yaml (manifest file)
 
 #. Verify that the resulting binaries were compiled for the Charge SOM platform:
 
