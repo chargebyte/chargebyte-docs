@@ -125,7 +125,7 @@ The following steps describe how to cross-compile a module for the Charge SOM pl
 
    .. code-block:: console
 
-      cp -r dist/libexec/everest/modules/{MyEVerestModule} /mnt/rootfs/usr/libexec/everest/modules/
+      sudo cp -av dist/libexec/everest/modules/{MyEVerestModule} /mnt/rootfs/usr/libexec/everest/modules/
 
 #. Unmount the loop device:
 
