@@ -87,6 +87,18 @@ The following steps describe how to cross-compile a module for the Charge SOM pl
 
       make install -j$(nproc)
 
+   .. note::
+      This will use all available CPUs for parallel build processes. If you
+      have many CPUs, but little RAM, parallel compilation may run out of
+      memory. Consider using
+
+      .. code-block:: console
+
+         make install -j4
+
+      or a smaller number instead.
+
+
 #. If the build was successful, a dist directory will be created with the cross-compiled binaries and
    the manifest files of the modules. Please check if the following directory structure was created:
 
