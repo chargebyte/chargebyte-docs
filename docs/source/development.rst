@@ -126,7 +126,7 @@ To include the new module in a firmware image, copy the module directory into th
 
    .. code-block:: console
 
-      cp -r dist/libexec/everest/modules/{MyEVerestModule} /mnt/rootfs/usr/libexec/everest/modules/
+      sudo cp -av dist/libexec/everest/modules/{MyEVerestModule} /mnt/rootfs/usr/libexec/everest/modules/
 
 #. Unmount the loop device:
 
