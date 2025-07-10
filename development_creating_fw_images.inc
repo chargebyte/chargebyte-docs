@@ -64,7 +64,7 @@ The next step is to integrate a new EVerest module and build a custom image that
 .. _adding-a-custom-everest-module:
 
 Integrating a Custom EVerest Module
-------------------------------
+-----------------------------------
 
 The EVerest documentation explains the `module concept in detail <https://everest.github.io/nightly/general/04_detail_module_concept.html>`_,
 their `configuration <https://everest.github.io/nightly/general/05_existing_modules.html>`_,
