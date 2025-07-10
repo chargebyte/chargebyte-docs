@@ -42,7 +42,7 @@ A native installation of EVerest on your host system is also recommended, as it 
 that allow you to start and test EVerest locally on your machine. If the software you developed does
 not depend on specific hardware components, it is also possible to test your EVerest module natively
 on the local machine before it is executed on the target hardware platform.
-Please refer to `Simulating EVerest <https://everest.github.io/nightly/tutorials/run_sil/index.html>`_ for more information
+Please refer to `Simulating EVerest <https://everest.github.io/nightly/tutorials/run_sil/>`_ for more information
 on how to start your EVerest module in the SiL environment.
 
 If you are starting your program from scratch and considering additional libraries to support specific
@@ -59,7 +59,7 @@ module. For energy management use cases, a websocket JSON-RPC-based approach to 
 EVerest stack will be available in the near future. For more information, feel free to contact us.
 
 The process of creating your own EVerest modules is described in the EVerest documentation:
-`How to: Develop New Modules <https://everest.github.io/nightly/tutorials/new_modules/index.html>`_.
+`How to: Develop New Modules <https://everest.github.io/nightly/tutorials/new_modules/>`_.
 
 .. note::
    It is also possible to create your module directly in the everest-core project in the modules directory. 
