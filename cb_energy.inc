@@ -145,7 +145,7 @@ As mentioned in `setup`_, ``Eco mode`` is only available if at least one root me
 Supported devices
 =================
 
-Here you find a list of `supported devices <https://www.nymea.energy/integrations/>`_.
+Here you find a list of `supported devices <https://www.chargebyte.energy/integrations>`_.
 CB energy comes with license, maintenance, support and service level agreement. So for the number of integrations you want to use in your final product (e.g. smart EV charger with embedded HEMS), we make sure all integrations are maintained and work as intended.
 
 Since the fundamental IoT middleware of CB energy - nymea - is open source, you can add your own integration to the stack. The developer guide can be found `here <https://nymea.io/documentation/developers/integrations/getting-started-integration>`_.
