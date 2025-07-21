@@ -209,8 +209,9 @@ The checksum is defined over:
 .. include:: safety_protocol.rst
 
 
+************************************
 EVerest Board Support Package Module
-====================================
+************************************
 
 chargebyte developed a comprehensive hardware abstraction module (HAL, or also called BSP module - board support package)
 for EVerest charging stack to support the Charge SOM platform. The module is called ``CbChargeSOMDriver`` and is
