@@ -222,3 +222,27 @@ This module already implements the required communication protocol to interact w
 
 All Charge SOM boards ship with a Linux system preinstalled on eMMC, which also includes EVerest, the mentioned
 BSP module and example configuration files.
+
+**************
+I2C interfaces
+**************
+
+The i.MX93 on the Charge SOM provides several I2C interfaces:
+
++----------+------------+-------------------------------------+-----------------+
+| Hardware | Linux      | Usage                               | Clock frequency |
+|          |            |                                     |                 |
++==========+============+=====================================+=================+
+| I2C1     | i2c-0 [#]_ | on Single Channel DC Carrier Board: | 400 kHz         |
+|          |            | RTC (0x52)                          |                 |
++----------+------------+-------------------------------------+-----------------+
+| I2C2     | i2c-1      | on Charge SOM:                      | 400 kHz         |
+|          |            | Vertexcom MSE102x (0x4a, 0x72)      |                 |
++----------+------------+-------------------------------------+-----------------+
+| I2C3     | i2c-2      | on Charge SOM:                      | 400 kHz         |
+|          |            | PMIC (0x25) + EEPROM (0x50, 0x58)   |                 |
++----------+------------+-------------------------------------+-----------------+
+| I2C5     | disabled   |                                     | disabled        |
++----------+------------+-------------------------------------+-----------------+
+
+.. [#] This interface is only enabled in case of a Charge SOM Single Channel DC Carrier Board.
