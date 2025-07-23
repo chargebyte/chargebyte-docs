@@ -40,6 +40,45 @@ and a `library <https://github.com/EVerest/everest-core/tree/main/lib/staging/ca
 which uses the CAN interface.
 
 
+What is the difference between CHSTOP_IN and SAFETY_ESTOPx?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The signal CHSTOP_IN is connected to the i.MX93 SoC and could be used to gracefully stop the charging process. So it is not designed
+for timing critical use cases. Currently there is no EVerest module, which is able to handle this signal. This work is pending.
+
+In order to realize realtime emergency stop behavior use the SAFETY_ESTOPx signals, which are connected to the safety processor.
+
+
+Where can I find the device tree sources of the Charge SOM?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The device tree sources of the Charge SOM are divided into multiple layers:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Part
+     - Level
+     - Layer
+     - Filename
+   * - i.MX93
+     - 0
+     - SoC
+     - `imx93.dtsi <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93.dtsi>`_
+   * - phyCORE-i.MX93
+     - 1
+     - SoM
+     - `imx93-phycore-som.dtsi <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi>`_
+   * - Charge SOM
+     - 2
+     - SoM
+     - `imx93-charge-som.dtsi <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som.dtsi>`_
+   * - Charge SOM Single Channel DC Carrier Board
+     - 3
+     - Board
+     - `imx93-charge-som-dc-evb.dts <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som-dc-evb.dts>`_
+
+
 How can I access the EVerest admin panel on Charge SOM?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
