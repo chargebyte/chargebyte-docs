@@ -111,8 +111,8 @@ The following steps describe how to cross-compile a module for the Tarragon plat
 
    .. code-block:: console
 
-      dist/libexec/everest/modules/{MyEVerestModule}/{MyEVerestModule}: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (GNU/Linux),
-      dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=9f287c2dbdcacd9ecde770df4820de9218deb439, for GNU/Linux 3.2.0, not stripped
+      dist/libexec/everest/modules/{MyEVerestModule}/{MyEVerestModule}: ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV),
+      dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=9f287c2dbdcacd9ecde770df4820de9218deb439, for GNU/Linux 3.2.0, stripped
 
 The resulting binary and manifest can be found in the :code:`dist/libexec/everest/modules/{MyEVerestModule}`  
 directory. If you want to test the module on the target system, you can copy the module directory using  
@@ -126,7 +126,7 @@ To include the new module in a firmware image, copy the module directory into th
 
    .. code-block:: console
 
-      cp -r dist/libexec/everest/modules/{MyEVerestModule} /mnt/rootfs/usr/libexec/everest/modules/
+      sudo cp -av dist/libexec/everest/modules/{MyEVerestModule} /mnt/rootfs/usr/libexec/everest/modules/
 
 #. Unmount the loop device:
 
