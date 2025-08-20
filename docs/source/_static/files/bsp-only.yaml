@@ -1,0 +1,153 @@
+# This configuration is for an EVSE supporting ISO15118-20 DC with
+# a simulated authorization, isolation monitor and power supply.
+# Please ensure that a complete PKI is installed under "/etc/everest/certs".
+# Otherwise, the Evse15118D20 module cannot start successfully.
+# Create a folder under /srv and name it 'everest' to save your
+# traces, or change the 'logging_path' and 'session_logging_path' accordingly.
+
+active_modules:
+  evse_security:
+    module: EvseSecurity
+    config_module:
+      private_key_password: "123456"
+  iso15118_charger:
+    module: Evse15118D20
+    config_module:
+      device: eth1
+      logging_path: /srv/everest-logs
+      tls_negotiation_strategy: ACCEPT_CLIENT_OFFER
+      enable_tls_key_logging: true
+    connections:
+      security:
+        - module_id: evse_security
+          implementation_id: main
+  profinet:
+    module: Profinet
+    config_module:
+      device: eth2
+      charger_name: fortescue-dev
+    connections:
+      evse_manager:
+       - module_id: connector
+         implementation_id: evse
+      charger:
+       - module_id: iso15118_charger
+         implementation_id: charger
+      error_history:
+        - module_id: error_history
+          implementation_id: error_history
+      iso15118_extensions:
+        - module_id: iso15118_charger
+          implementation_id: extensions
+      temperature:
+        - module_id: bsp
+          implementation_id: temperatures
+      mcs:
+        - module_id: bsp
+          implementation_id: mcs
+  auth:
+    module: Auth
+    config_module:
+      connection_timeout: 20
+      prioritize_authorization_over_stopping_transaction: true
+      selection_algorithm: PlugEvents
+    connections:
+      token_provider:
+        - module_id: token_provider
+          implementation_id: main
+      token_validator:
+        - module_id: token_validator
+          implementation_id: main
+      evse_manager:
+        - module_id: connector
+          implementation_id: evse
+      kvs:
+        - module_id: persistent_store
+          implementation_id: main
+  persistent_store:
+    module: PersistentStore
+    config_module:
+      sqlite_db_file_path: /var/lib/everest/everest_persistent_store.db
+  bsp:
+    module: CbParsleyDriver
+    config_module:
+      serial_port: /dev/ttyLP1
+  energy_manager:
+    module: EnergyManager
+    connections:
+      energy_trunk:
+        - module_id: grid_connection_point
+          implementation_id: energy_grid
+  connector:
+    module: EvseManager
+    mapping:
+      module:
+        evse: 1
+    config_module:
+      charge_mode: DC
+      connector_id: 1
+      has_ventilation: false
+      dbg_hlc_auth_after_tstep: false
+      ev_receipt_required: false
+      evse_id: DE*CHB*E123456*1
+      evse_id_din: 49A80737A45678
+      session_logging: true
+      session_logging_path: /srv/everest-logs
+      session_logging_xml: false
+      payment_enable_contract: false
+      mcs_enable: true
+    connections:
+      bsp:
+        - module_id: bsp
+          implementation_id: evse_board_support
+      powersupply_DC:
+        - module_id: powersupply_dc
+          implementation_id: main
+      powermeter_car_side:
+        - module_id: powersupply_dc
+          implementation_id: powermeter
+      imd:
+        - module_id: imd
+          implementation_id: main
+      hlc:
+        - module_id: iso15118_charger
+          implementation_id: charger
+  powersupply_dc:
+    module: DCSupplySimulator
+  imd:
+    module: IMDSimulator
+  grid_connection_point:
+    module: EnergyNode
+    mapping:
+      module:
+        evse: 1
+    config_module:
+      fuse_limit_A: 63
+      phase_count: 3
+    connections:
+      energy_consumer:
+        - implementation_id: energy_grid
+          module_id: connector
+  token_provider:
+    module: DummyTokenProvider
+    config_implementation:
+      main:
+        timeout: 10
+        token: DEADBEEF
+        type: RFID
+    connections:
+      evse:
+        - module_id: connector
+          implementation_id: evse
+  token_validator:
+    module: DummyTokenValidator
+    config_implementation:
+      main:
+        sleep: 0.25
+        validation_reason: Token seems valid
+        validation_result: Accepted
+  error_history:
+    module: ErrorHistory
+    config_implementation:
+      error_history:
+        database_path: /tmp/error_history.db

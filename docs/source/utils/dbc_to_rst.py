@@ -4,16 +4,16 @@ import cantools
 db = cantools.database.load_file("uart_com.dbc")
 
 # Messages you want to document
-target_msgs = ["ChargeControl1", "ChargeState1", "PT1000State", "FirmwareVersion", "GitHash", "InquiryPacket"]
+target_msgs = ["ChargeControl2", "ChargeState2", "PT1000State", "FirmwareVersion", "GitHash", "InquiryPacket"]
 
 # Sender name mapping
 sender_name_map = {
-    "Default_SafetyController": "Safety Controller",
-    "Default_Linux": "Linux Processor"
+    "CCY_SafetyController": "Safety Controller",
+    "CCY_Linux": "Linux Processor"
 }
 
 # Senders to exclude from display
-excluded_senders = {"CCY_SafetyController"}
+excluded_senders = {"Default_SafetyController"}
 
 # Extract a signal row as a list of strings
 def signal_row(signal):
