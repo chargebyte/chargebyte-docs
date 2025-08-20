@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Charge SOM User Guide'
+project = 'Charge Control Y User Guide'
 copyright = '2025, chargebyte GmbH'
 author = 'chargebyte GmbH'
 

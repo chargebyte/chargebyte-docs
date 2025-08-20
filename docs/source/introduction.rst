@@ -6,6 +6,15 @@ Introduction
 Thank you very much for your trust. We are happy that you have chosen our Charge Control Y platform to
 operate your eMobility charging solution. This User Guide will help you to understand all features and will help to configure them properly to fit your requirements best.
 
+.. figure:: _static/images/CCY_V0R4A_closed-case.png
+    :width: 900pt
+
+    Figure: CCY front view with closed case
+    
+.. figure:: _static/images/CCY_V0R4A_open-case.png
+    :width: 900pt
+
+    Figure: CCY rear view with open case
 
 Product Description
 -------------------
