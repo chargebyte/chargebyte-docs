@@ -33,161 +33,173 @@ NS_ :
 
 BS_:
 
-BU_: Default_HostController Default_SafetyController CCY_HostController CCY_SafetyController
+BU_: chargeSOM_HostController chargeSOM_SafetyController CCY_HostController CCY_SafetyController
 
 
-BO_ 255 InquiryPacket: 8 Default_HostController
- SG_ PacketId : 7|8@0+ (1,0) [0|0] ""  CCY_SafetyController,Default_SafetyController
+BO_ 255 InquiryPacket: 8 chargeSOM_HostController
+ SG_ PacketId : 7|8@0+ (1,0) [0|0] ""  CCY_SafetyController,chargeSOM_SafetyController
 
-BO_ 0 DigitalOutput: 4 Default_HostController
- SG_ DO_SAFETY_HVSW3_PRECHARGE : 9|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_CP_INVERT : 3|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_CP_Dutycycle : 31|8@0+ (1,0) [0|0] "%"  Default_SafetyController
- SG_ DO_PP_SAE_IEC : 15|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_SAFETY_CP_STATE_C : 18|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_SAFETY_GPIO_EXP : 12|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_SAFETY_IMD_OD_EN : 11|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_SAFETY_MOTOR_OUT2 : 5|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_SAFETY_MOTOR_OUT1 : 6|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_SAFETY_HVSW2_HS : 13|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_SAFETY_HVSW1_HS : 14|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_PT1000_CTRLEN4 : 10|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_PT1000_CTRLEN3 : 19|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_PT1000_CTRLEN2 : 20|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ DO_PT1000_CTRLEN1 : 21|1@0+ (1,0) [0|0] ""  Default_SafetyController
+BO_ 0 DigitalOutput: 8 chargeSOM_HostController
+ SG_ DO_SAFETY_HVSW3_PRECHARGE : 9|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ DO_CP_INVERT : 3|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ DO_CP_Dutycycle : 31|8@0+ (1,0) [0|0] "%"  chargeSOM_SafetyController
+ SG_ DO_PP_SAE_IEC : 15|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ DO_SAFETY_CP_STATE_C : 18|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController,CCY_SafetyController
+ SG_ DO_SAFETY_GPIO_EXP : 12|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ DO_SAFETY_IMD_OD_EN : 11|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ DO_SAFETY_MOTOR_OUT2 : 5|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ DO_SAFETY_MOTOR_OUT1 : 6|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ DO_SAFETY_HVSW2_HS : 13|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ DO_SAFETY_HVSW1_HS : 14|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ DO_PT1000_CTRLEN4 : 10|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController,CCY_SafetyController
+ SG_ DO_PT1000_CTRLEN3 : 19|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController,CCY_SafetyController
+ SG_ DO_PT1000_CTRLEN2 : 20|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController,CCY_SafetyController
+ SG_ DO_PT1000_CTRLEN1 : 21|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController,CCY_SafetyController
+ SG_ DO_CE_S3 : 23|1@0+ (1,0) [0|0] ""  CCY_SafetyController
 
 BO_ 18 DiagnosticMeasurements2: 8 CCY_SafetyController
  SG_ DM_ID_ADC_VAL : 23|16@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ DM_CE_ADC_VAL : 7|16@0+ (1,0) [0|0] ""  CCY_HostController
 
-BO_ 5 AnalogInput04: 8 Default_SafetyController
- SG_ AI_INT_REFVOLT : 39|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
- SG_ AI_INT_TEMP : 23|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
- SG_ AI_PT1000_CFB3_4 : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
+BO_ 5 AnalogInput04: 8 chargeSOM_SafetyController
+ SG_ AI_PT1000_CFB3_4 : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
 
-BO_ 4 AnalogInput03: 8 Default_SafetyController
- SG_ AI_SAFETY_HS2_CFB : 39|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
- SG_ AI_SAFETY_HS1_CFB : 23|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
- SG_ AI_SAFETY_PRECHARGE_CFB : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
- SG_ AI_PT1000_CFB1_2 : 55|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
+BO_ 4 AnalogInput03: 8 chargeSOM_SafetyController
+ SG_ AI_SAFETY_HS2_CFB : 39|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_SAFETY_HS1_CFB : 23|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_SAFETY_PRECHARGE_CFB : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_PT1000_CFB1_2 : 55|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
 
-BO_ 3 AnalogInput02: 8 Default_SafetyController
- SG_ AI_SAFETY_U_IN_ADC : 55|16@0+ (1,0) [0|0] ""  Default_HostController
- SG_ AI_PP_VALUE_ADC : 39|16@0+ (1,0) [0|0] ""  Default_HostController
- SG_ AI_CP_BUFFERED_POS_ADC : 23|16@0+ (1,0) [0|0] ""  Default_HostController
- SG_ AI_CP_BUFFERED_NEG_ADC : 7|16@0+ (1,0) [0|0] ""  Default_HostController
+BO_ 3 AnalogInput02: 8 chargeSOM_SafetyController
+ SG_ AI_SAFETY_U_IN_ADC : 55|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ AI_PP_VALUE_ADC : 39|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ AI_CP_BUFFERED_POS_ADC : 23|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ AI_CP_BUFFERED_NEG_ADC : 7|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
 
-BO_ 2 AnalogInput01: 8 Default_SafetyController
- SG_ AI_PT1000_LEAD1_4 : 55|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
- SG_ AI_PT1000_LEAD1_3 : 39|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
- SG_ AI_PT1000_LEAD1_2 : 23|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
- SG_ AI_PT1000_LEAD1_1 : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,Default_HostController
+BO_ 19 AnalogInput05: 8 CCY_SafetyController
+ SG_ AI_HV_READY : 39|16@0+ (1,0) [0|0] ""  CCY_HostController
+ SG_ AI_CE_ADC : 23|16@0+ (1,0) [0|0] ""  CCY_HostController
+ SG_ AI_ID_ADC : 7|16@0+ (1,0) [0|0] ""  CCY_HostController
+
+BO_ 2 AnalogInput01: 8 chargeSOM_SafetyController
+ SG_ AI_PT1000_LEAD1_4 : 55|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_PT1000_LEAD1_3 : 39|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_PT1000_LEAD1_2 : 23|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_PT1000_LEAD1_1 : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
 
 BO_ 17 ChargeControl2: 8 CCY_HostController
  SG_ CC_ControllerReset : 3|2@0+ (1,0) [0|0] ""  CCY_SafetyController
  SG_ CC_CCSReady : 7|4@0+ (1,0) [0|0] ""  CCY_SafetyController
 
 BO_ 16 ChargeState2: 8 CCY_SafetyController
+ SG_ CS_SafeStateActive : 23|2@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ CS_EStop_Reason : 15|8@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ CS_ID_State : 3|4@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ CS_CE_State : 7|4@0+ (1,0) [0|0] ""  CCY_HostController
 
-BO_ 7 ChargeState1: 8 Default_SafetyController
- SG_ CS_Estop1ChargingAbort : 41|2@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Estop2ChargingAbort : 43|2@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Estop3ChargingAbort : 45|2@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor1State : 33|2@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor2State : 36|2@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor1Error : 34|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_Contactor2Error : 37|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_HV_Ready : 38|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_CurrentPpState : 26|3@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_CurrentCpState : 18|3@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_CpShortCircuit : 19|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_DiodeFault : 20|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ CS_CurrentDutyCycle : 1|10@0+ (0.1,0) [0|0] "%"  Default_HostController
- SG_ CS_PWM_Active : 7|1@0+ (1,0) [0|0] ""  Default_HostController
+BO_ 7 ChargeState1: 8 chargeSOM_SafetyController
+ SG_ CS_SafeStateReason : 55|8@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_SafeStateActive : 3|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Estop1ChargingAbort : 41|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Estop2ChargingAbort : 43|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Estop3ChargingAbort : 45|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Contactor1State : 33|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Contactor2State : 36|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Contactor1Error : 34|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Contactor2Error : 37|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_HV_Ready : 38|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_CurrentPpState : 26|3@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_CurrentCpState : 18|3@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_CpShortCircuit : 19|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_DiodeFault : 20|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_CurrentDutyCycle : 1|10@0+ (0.1,0) [0|0] "%"  chargeSOM_HostController
+ SG_ CS_PWM_Active : 7|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
 
-BO_ 6 ChargeControl1: 8 Default_HostController
- SG_ CC_Contactor1State : 16|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ CC_Contactor2State : 17|1@0+ (1,0) [0|0] ""  Default_SafetyController
- SG_ CC_TargetDutyCycle : 1|10@0+ (0.1,0) [0|0] "%"  Default_SafetyController
- SG_ CC_PWM_Active : 7|1@0+ (1,0) [0|0] ""  Default_SafetyController
+BO_ 6 ChargeControl1: 8 chargeSOM_HostController
+ SG_ CC_Contactor1State : 16|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ CC_Contactor2State : 17|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ CC_TargetDutyCycle : 1|10@0+ (0.1,0) [0|0] "%"  chargeSOM_SafetyController
+ SG_ CC_PWM_Active : 7|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
 
-BO_ 10 FirmwareVersion: 8 Default_SafetyController
- SG_ MajorVersion : 7|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ MinorVersion : 15|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ BuildVersion : 23|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PlatformType : 31|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ ApplicationType : 39|8@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+BO_ 10 FirmwareVersion: 8 chargeSOM_SafetyController
+ SG_ MajorVersion : 7|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ MinorVersion : 15|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ BuildVersion : 23|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ PlatformType : 31|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ ApplicationType : 39|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
 
-BO_ 11 GitHash: 8 Default_SafetyController
- SG_ HashSignal : 7|64@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+BO_ 11 GitHash: 8 chargeSOM_SafetyController
+ SG_ HashSignal : 7|64@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
 
-BO_ 14 ErrorMessage: 8 Default_SafetyController
- SG_ ErrorAddData2 : 55|16@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ ErrorAddData1 : 39|16@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ ErrorModule : 6|15@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ ErrorReason : 23|16@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ ErrorActive : 7|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+BO_ 14 ErrorMessage: 8 chargeSOM_SafetyController
+ SG_ ErrorAddData2 : 55|16@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ ErrorAddData1 : 39|16@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ ErrorModule : 6|15@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ ErrorReason : 23|16@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ ErrorActive : 7|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
 
-BO_ 9 DiagnosticMeasurements: 8 Default_SafetyController
- SG_ DM_PP_Voltage : 39|16@0- (1,0) [0|0] ""  Default_SafetyController,Default_HostController
- SG_ DM_CP_VoltagePositiveSide : 23|16@0- (1,0) [0|0] ""  Default_SafetyController,Default_HostController
- SG_ DM_CP_VoltageNegativeSide : 7|16@0- (1,0) [0|0] ""  Default_SafetyController,Default_HostController
+BO_ 9 DiagnosticMeasurements: 8 chargeSOM_SafetyController
+ SG_ DM_PP_Voltage : 39|16@0- (1,0) [0|0] ""  chargeSOM_SafetyController,chargeSOM_HostController
+ SG_ DM_CP_VoltagePositiveSide : 23|16@0- (1,0) [0|0] ""  chargeSOM_SafetyController,chargeSOM_HostController
+ SG_ DM_CP_VoltageNegativeSide : 7|16@0- (1,0) [0|0] ""  chargeSOM_SafetyController,chargeSOM_HostController
 
-BO_ 8 PT1000State: 8 Default_SafetyController
- SG_ PT4_Temperature : 55|14@0- (0.1,0) [0|0] "°C"  Default_HostController,CCY_HostController
- SG_ PT4_SelftestFailed : 57|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT4_ChargingStopped : 56|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT3_Temperature : 39|14@0- (0.1,0) [0|0] "°C"  Default_HostController,CCY_HostController
- SG_ PT3_SelftestFailed : 41|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT3_ChargingStopped : 40|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT2_Temperature : 23|14@0- (0.1,0) [0|0] "°C"  Default_HostController,CCY_HostController
- SG_ PT2_SelftestFailed : 25|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT2_ChargingStopped : 24|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT1_Temperature : 7|14@0- (0.1,0) [0|0] "°C"  Default_HostController,CCY_HostController
- SG_ PT1_SelftestFailed : 9|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ PT1_ChargingStopped : 8|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+BO_ 8 PT1000State: 8 chargeSOM_SafetyController
+ SG_ PT4_Temperature : 55|14@0- (0.1,0) [0|0] "°C"  chargeSOM_HostController,CCY_HostController
+ SG_ PT4_SelftestFailed : 57|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ PT4_ChargingStopped : 56|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ PT3_Temperature : 39|14@0- (0.1,0) [0|0] "°C"  chargeSOM_HostController,CCY_HostController
+ SG_ PT3_SelftestFailed : 41|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ PT3_ChargingStopped : 40|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ PT2_Temperature : 23|14@0- (0.1,0) [0|0] "°C"  chargeSOM_HostController,CCY_HostController
+ SG_ PT2_SelftestFailed : 25|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ PT2_ChargingStopped : 24|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ PT1_Temperature : 7|14@0- (0.1,0) [0|0] "°C"  chargeSOM_HostController,CCY_HostController
+ SG_ PT1_SelftestFailed : 9|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ PT1_ChargingStopped : 8|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
 
-BO_ 1 DigitalInput: 3 CCY_SafetyController
- SG_ DI_SAFETY_CP_STATE_C : 19|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ DI_SAFETY_MOTOR_OUT1 : 6|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ DI_SAFETY_MOTOR_OUT2 : 5|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ DI_SAFETY_MOTOR_FAULT : 4|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ DI_SAFETY_HVSW2_HS : 13|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ DI_SAFETY_HVSW1_HS : 14|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ DI_SAFETY_HVSW3_PRECHARGE : 9|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ DI_PP_SAE_IEC : 15|1@0+ (1,0) [0|0] ""  Default_HostController
- SG_ DI_SAFETY_DEV_1 : 0|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_SAFETY_DEV_2 : 1|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_EV_CP_EDGE : 2|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_CP_INVERT : 3|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_SAFETY_K1_IN : 7|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_PT4_EN : 10|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_PT3_EN : 20|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_PT2_EN : 21|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_PT1_EN : 22|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_SAFETY_IMD_OD_EN : 11|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_SAFETY_GPIO_EXP : 12|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_ESTOP3 : 16|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_ESTOP2 : 17|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_ESTOP1 : 18|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
- SG_ DI_SAFETY_K2_IN : 8|1@0+ (1,0) [0|0] ""  Default_HostController,CCY_HostController
+BO_ 1 DigitalInput: 8 CCY_SafetyController
+ SG_ DI_SAFETY_CP_STATE_C : 19|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ DI_SAFETY_MOTOR_OUT1 : 6|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_SAFETY_MOTOR_OUT2 : 5|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_SAFETY_MOTOR_FAULT : 4|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_SAFETY_HVSW2_HS : 13|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_SAFETY_HVSW1_HS : 14|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_SAFETY_HVSW3_PRECHARGE : 9|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_PP_SAE_IEC : 15|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_SAFETY_DEV_1 : 0|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_SAFETY_DEV_2 : 1|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_EV_CP_EDGE : 2|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_CP_INVERT : 3|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_SAFETY_K1_IN : 7|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_PT4_EN : 10|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ DI_PT3_EN : 20|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ DI_PT2_EN : 21|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ DI_PT1_EN : 22|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ DI_SAFETY_IMD_OD_EN : 11|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_SAFETY_GPIO_EXP : 12|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_ESTOP3 : 16|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_ESTOP2 : 17|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_ESTOP1 : 18|1@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ DI_SAFETY_K2_IN : 8|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ DI_CE_S3 : 23|1@0+ (1,0) [0|0] ""  CCY_HostController
 
-BO_TX_BU_ 255 : CCY_HostController,Default_HostController;
-BO_TX_BU_ 5 : CCY_SafetyController,Default_SafetyController;
-BO_TX_BU_ 4 : CCY_SafetyController,Default_SafetyController;
-BO_TX_BU_ 2 : CCY_SafetyController,Default_SafetyController;
-BO_TX_BU_ 10 : CCY_SafetyController,Default_SafetyController;
-BO_TX_BU_ 14 : CCY_SafetyController,Default_SafetyController;
-BO_TX_BU_ 8 : CCY_SafetyController,Default_SafetyController;
-BO_TX_BU_ 1 : Default_SafetyController,CCY_SafetyController;
+BO_TX_BU_ 255 : CCY_HostController,chargeSOM_HostController;
+BO_TX_BU_ 5 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 4 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 2 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 10 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 11 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 14 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 8 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 1 : chargeSOM_SafetyController,CCY_SafetyController;
 
 
 CM_ BO_ 255 "This packet is used to request a special message from the safety controller";
 CM_ SG_ 255 PacketId "The ID, which message shall be requested. Supported values are described below.";
+CM_ SG_ 16 CS_SafeStateActive "This signal reports, if the controller is in safeState or not.";
 CM_ BO_ 7 "This message shall be sent from safety controller to host processor for indicating the state of the charging session as well as the state of connected peripherals.";
+CM_ SG_ 7 CS_SafeStateReason "This signal describes in which module a fault was detected, why the controller went into safeState";
+CM_ SG_ 7 CS_SafeStateActive "This signal reports, if the controller is in safeState or not.";
 CM_ SG_ 7 CS_Contactor1State "Is set when the contactor is closed";
 CM_ SG_ 7 CS_Contactor2State "Is set when the contactor is closed";
 CM_ SG_ 7 CS_Contactor1Error "Is set when an error in the contactor is detected";
@@ -232,9 +244,12 @@ BA_DEF_DEF_  "BusType" "";
 BA_ "BusType" "J1708";
 VAL_ 255 PacketId 10 "FirmwareVersion" 11 "GitHash" ;
 VAL_ 17 CC_CCSReady 2 "CCS_EmergencyStop" 1 "CCS_Ready" 0 "CCS_NotReady" ;
-VAL_ 16 CS_EStop_Reason 13 "HVReady_Malfunction" 12 "CE_Malfunction" 11 "ID_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "EmergencyInput" 0 "NoStop" ;
-VAL_ 16 CS_ID_State 15 "SNA" 14 "Invalid" 1 "Connected" 0 "Not_Connected" ;
-VAL_ 16 CS_CE_State 15 "SNA" 7 "Invalid" 6 "B0" 5 "EC" 4 "E" 3 "D" 2 "C" 1 "B" 0 "A" ;
+VAL_ 16 CS_SafeStateActive 3 "SNA" 1 "SafeState" 0 "NormalState" ;
+VAL_ 16 CS_EStop_Reason 14 "EmergencyInput" 13 "HVReady_Malfunction" 12 "CE_Malfunction" 11 "ID_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "InternalError" 0 "NoStop" ;
+VAL_ 16 CS_ID_State 15 "Invalid" 2 "Connected" 1 "Not Connected" 0 "Unknown" ;
+VAL_ 16 CS_CE_State 15 "Invalid" 6 "EC" 5 "E" 4 "C" 3 "B" 2 "B0" 1 "A" 0 "Unknown" ;
+VAL_ 7 CS_SafeStateReason 18 "EmergencyInput3" 17 "EmergencyInput2" 16 "EmergencyInput1" 15 "HVSW_Malfunction" 14 "CP_DiodeFault" 13 "CP_ShortCircuit" 12 "CP_Malfunction" 11 "PP_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "InternalError" 0 "NoStop" ;
+VAL_ 7 CS_SafeStateActive 3 "SNA" 1 "SafeState" 0 "NormalState" ;
 VAL_ 7 CS_Estop1ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
 VAL_ 7 CS_Estop2ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
 VAL_ 7 CS_Estop3ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
