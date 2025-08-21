@@ -1,4 +1,4 @@
-Further reading
+Further Reading
 ===============
 
 For more information on getting started with EVerest, including an overview of the necessary tools and
