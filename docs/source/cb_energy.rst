@@ -1,7 +1,7 @@
 .. _cb_energy.rst:
 
-**********************
-CB energy
-**********************
+*********
+CB Energy
+*********
 
 .. include:: ../../includes/cb_energy.inc

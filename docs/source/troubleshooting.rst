@@ -27,8 +27,8 @@ But the Charge Control C was designed with the AC use case in mind.
 How can I use CAN with Charge Control C?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There is no Charge Control C with onboard CAN interface available, so we suggest to use a PeakCAN
-USB adapter.
+There is no Charge Control C with onboard CAN interface available, so we suggest to use an
+USB adapter, e.g. `Peak System <https://www.peak-system.com/>`_.
 
 
 I want to control EVerest via CAN, how can I achieve this?
@@ -81,7 +81,7 @@ and the initial creation of the OCPP 2.0.1 database.
 The most important points are summarised here:
 
 1. The OCPP201 module must be included in your EVerest configuration.
-2. The CbSystem module can be used to fulfill the requirement of the system interface. 
+2. The CbSystem module can be used to fulfill the requirement of the system interface.
 3. While configuring the OCPP 2.0.1 module, ensure that you are using OCPP configuration and database
    paths which are covered by the update mechanism. The following paths are recommended:
 
@@ -106,6 +106,7 @@ The most important points are summarised here:
 
    For further information about the device model initialization, please refer to the
    `libocpp documentation <https://github.com/EVerest/libocpp/blob/main/doc/v2/ocpp_201_device_model_initialization.md>`_.
+
 
 I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can it fix this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

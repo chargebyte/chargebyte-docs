@@ -1,7 +1,7 @@
 .. _everest_charging_stack.rst:
 
 **********************
-EVerest charging stack
+EVerest Charging Stack
 **********************
 
 .. include:: ../../includes/everest_introduction_to_everest.inc
@@ -48,6 +48,7 @@ The Charge Control C is equipped with multiple digital inputs (For more informat
 The module :code:`CbTarragonDIs` is used for setting the reference PWM for these DIs. The reference PWM
 sets the threshold voltage for all 12V digital inputs, which is essential for their operation.
 The use of this module is optional and depends on the EVSE requirements where the Charge Control C is integrated.
+
 
 Energy Management: 3 phase / 1 phase switching
 ==============================================

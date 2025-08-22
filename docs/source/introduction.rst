@@ -12,7 +12,7 @@ Product Description
 -------------------
 
 Charge Control C is an IEC 61851 and ISO 15118 compliant charging controller for Electric
-Vehicle Supply Equipment (EVSE). For communication between EVSE and PEV it supports Control Pilot, 
+Vehicle Supply Equipment (EVSE). For communication between EVSE and PEV it supports Control Pilot,
 Proximity Pilot as well as PWM signaling including Green PHY communication.
 
 The board is also capable of controlling and sensing different kind of actuators and sensors like
@@ -111,6 +111,6 @@ Here are the currently available order codes for Charge Control C with EVerest:
 The following figure shows the structure of the "I2CCSC-E00-204" order code:
 
 .. figure:: _static/images/Order_Code_Charge_Control_C.svg
-    :width: 600pt
+   :width: 600pt
 
-    Figure: Order Code Charge Control C EVerest
+   Figure: Order Code Charge Control C EVerest

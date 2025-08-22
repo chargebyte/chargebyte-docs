@@ -77,7 +77,7 @@ Charge Control C provide information about the current status of the boot proces
 table shows the meaning of the LED status indicators:
 
 .. raw:: html
- 
+
    <div style="text-align: center;">
      Table: Charge Control C LED Status Indicators
    </div>
@@ -108,12 +108,20 @@ table shows the meaning of the LED status indicators:
 .. include:: ../../includes/connecting.inc
 
 
-Firmware Update
-^^^^^^^^^^^^^^^
+First Firmware Update
+---------------------
 
-Before you start the initial configuration of the Charge Control C, it is recommended to update the
-firmware to the latest version. The firmware update process is explained in the
-:ref:`firmware_update` section. If necessary, please update the firmware to the latest version.
+When the Charge Control C is manufactured, a stable software version is flashed onto it.
+
+However, due to organizational processes and the continuous nature of software development,
+this version may already be outdated.
+
+We therefore recommend checking first, whether a software update for the Charge Control C
+is already available for download. If so, it should be installed immediately, as it likely
+includes bug fixes and possibly new features.
+
+Please look at section :ref:`firmware_update` for further details, e.g. where to find
+the firmware update images and how to install them.
 
 .. note::
    How to download the firmware image is described in the section :ref:`download_firmware_images`.
@@ -126,6 +134,7 @@ firmware to the latest version. The firmware update process is explained in the
 .. note::
    In case you are updating from a chargebyte proprietary image to a chargebyte EVerest image,
    please read the :ref:`update_from_chargebyte_to_everest` section carefully.
+
 
 Initial Configuration
 ---------------------
@@ -229,6 +238,7 @@ to restart the EVerest charging stack to apply the changes:
    start. Therefore, it is recommended to back up the original configuration file before making
    changes.
 
+
 .. _start_charging_and_monitoring:
 
 Starting and Monitoring the Charging Process
@@ -236,7 +246,7 @@ Starting and Monitoring the Charging Process
 
 Before we start the first charging session, we shall open the EVerest log to monitor the charging
 process. The EVerest log is stored in the systemd journal and can be accessed via the journalctl
-command. The journalctl command provides a lot of options to filter the log messages. 
+command. The journalctl command provides a lot of options to filter the log messages.
 Now just type "journalctl -f -u everest -n 50" to see the last 50 log messages of the EVerest
 charging stack and to follow the charging process in real time. For more information about the
 EVerest log, see the :ref:`logging_and_debugging` chapter.
