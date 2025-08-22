@@ -1,4 +1,4 @@
-Basic configuration
+Basic Configuration
 ===================
 
 In order to test EVerest, you need to build it either natively on host Linux machine or integrate it into a

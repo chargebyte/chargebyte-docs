@@ -6,10 +6,11 @@ Logging and Debugging
 There are different ways to analyze the EVerest charging software. In the following, different
 ways are described. In preparation for starting this chapter, it is necessary to be connected to the board
 via Ethernet. This is also necessary to copy logs and traces from the board to the local PC via a SFTP
-tool like `WinSCP <https://winscp.net/eng/download.php>`_ or `FileZilla <https://filezilla-project.org/>`_. 
+tool like `WinSCP <https://winscp.net/eng/download.php>`_ or `FileZilla <https://filezilla-project.org/>`_.
 
 journalctl Logs
 ---------------
+
 As already described in the :ref:`start_charging_and_monitoring` section, the EVerest framework uses
 journalctl for logging. journalctl is a system service that collects and stores logging data.
 To view the logs, connect to the charge controller via SSH and run the following command:
@@ -25,7 +26,7 @@ The logs are stored by the systemd journal service in a binary format in
 "/var/log/journal". To open the binary in a human-readable format, use the following command:
 
 .. code-block:: console
-    
+
     journalctl -u everest --file /path/to/your/file.journal
 
 As shown in the :ref:`start_charging_and_monitoring` section, a log line consists, among other things,
@@ -53,6 +54,7 @@ to DEBUG:
 
 pcap Traces
 -----------
+
 pcap traces can be used to debug and analyze the high-level communication (HLC) between SECC and EVCC.
 In general, there are two ways to capture pcap traces:
 
@@ -60,7 +62,7 @@ In general, there are two ways to capture pcap traces:
 
     .. code-block:: console
 
-        tcpdump -i eth1 -w /srv/charge_com_01.pcap 
+        tcpdump -i eth1 -w /srv/charge_com_01.pcap
 
     This command captures all packets on the eth1 (PLC) interface and writes them to
     a pcap file. Stop the capture by pressing :code:`Ctrl + C`.
@@ -85,6 +87,7 @@ pcap traces with V2G communication can be analyzed using Wireshark with a V2G pl
 
 Session Logging of the EVSEManager
 ----------------------------------
+
 The EVerest "EVSEManager" can generate session log files with information about the current session state,
 configured CP state and duty cycle. It can also decode and log the content of the V2G messages.
 Please look into the module manifest to see how to configure the EVSEManager module to activate session logging.
@@ -94,6 +97,7 @@ Please look into the module manifest to see how to configure the EVSEManager mod
 
 MQTT logs
 ---------
+
 It is also possible to observe the internal MQTT communication between the EVerest modules.
 When developing new modules, this can be helpful to better understand the internal processes regarding
 the use of the interfaces.
@@ -106,6 +110,7 @@ It is also possible to use the following command to monitor the MQTT communicati
 
 Summary
 -------
+
 There are several ways to debug and analyze the EVerest framework. Which way to choose depends on the
 specific use case and the information needed. The most common way is using journalctl logs. If it is
 necessary to analyze the high-level communication between SECC and EVCC, pcap traces are the best choice.
