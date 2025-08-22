@@ -30,9 +30,9 @@ Hardware Overview
 The following figure shows the basic setup of the DC charger with the Charge SOM Evaluation Kit:
 
 .. figure:: _static/images/dc_charger_charge_som_setup.svg
-    :width: 900pt
+   :width: 900pt
 
-    Figure: Basic Setup of the DC charger with the Charge SOM
+   Basic Setup of the DC charger with the Charge SOM
 
 .. note::
    The pin assignment of the Charge SOM Evaluation Kit can be found in the datasheet.
@@ -128,10 +128,10 @@ other over the interfaces. The following figure illustrates how the EVerest modu
 to each other:
 
 .. figure:: _static/images/admin_panel_bsp_only.png
-    :width: 600pt
-    :name: admin_panel_bsp_only
+   :width: 600pt
+   :name: admin_panel_bsp_only
 
-    Figure: EVerest admin panel view of the bsp-only-dc.yaml configuration
+   EVerest admin panel view of the bsp-only-dc.yaml configuration
 
 However, not all configuration parameters of the modules are shown here. Only the configuration
 parameters that do not match the default configuration of the respective module need
