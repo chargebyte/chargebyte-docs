@@ -1,4 +1,4 @@
-.. introduction.rst:
+.. _introduction.rst:
 
 Introduction
 ============
@@ -10,12 +10,12 @@ to fit your requirements best.
 .. figure:: _static/images/CCY_V0R4A_closed-case.png
    :width: 900pt
 
-   Figure: Charge Control Y front view with closed case
+   Charge Control Y front view with closed case
 
 .. figure:: _static/images/CCY_V0R4A_open-case.png
    :width: 900pt
 
-   Figure: Charge Control Y rear view with open case
+   Charge Control Y rear view with open case
 
 
 Product Description
@@ -59,4 +59,4 @@ Order Information
 -----------------
 
 You can acquire an Evaluation Kit using the order code ‘CBCCY-STD-000’.
-For more information, please contact 'info@chargebyte.com'.
+For more information, please contact `info@chargebyte.com <mailto:info@chargebyte.com>`_.

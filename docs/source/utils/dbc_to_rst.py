@@ -21,7 +21,7 @@ def signal_row(signal):
         if value is None or str(value).strip() == "":
             return ""
         return str(value).strip()
-    
+
     if signal.byte_order == "little_endian" and signal.length > 8:
         byte_order = "Little Endian"
     elif signal.byte_order == "big_endian" and signal.length > 8:
@@ -88,7 +88,7 @@ def format_bit_matrix(msg):
 
 # Format one message block as RST
 def format_message_rst(msg):
-    rst = f"{msg.name}\n{'=' * len(msg.name)}\n\n"
+    rst = f"{msg.name}\n{'^' * len(msg.name)}\n\n"
     rst += f"**ID**: 0x{msg.frame_id:X} ({msg.frame_id})\n\n"
     rst += f"**Length**: {msg.length} bytes\n\n"
     rst += f"**Description**: {msg.comment.strip() if msg.comment else 'N/A'}\n\n"

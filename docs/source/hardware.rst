@@ -143,7 +143,7 @@ IO
      - Ground (MCS)
 
 
-Wiring overview
+Wiring Overview
 ---------------
 
 
@@ -153,7 +153,7 @@ PT1000 Temperature Sensors
 .. figure:: _static/images/wiring_temp_sensors.svg
    :width: 1000pt
 
-   Figure: Wiring overview for the PT1000 Temperature Sensors
+   Wiring overview for the PT1000 Temperature Sensors
 
 This wiring diagram shows an overview of connecting the temperature sensors to the Charge Control Y:
 
@@ -168,9 +168,9 @@ Emergency Input
 ^^^^^^^^^^^^^^^
 
 .. figure:: _static/images/wiring_emergency_in.svg
-    :width: 1000pt
+   :width: 1000pt
 
-    Figure: Wiring overview for the emergency input
+   Wiring overview for the Emergency Input
 
 This wiring diagram shows an overview of connecting the emergeny input to the Charge Control Y:
 

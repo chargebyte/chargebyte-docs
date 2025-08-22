@@ -33,7 +33,7 @@ The following figure shows the basic setup of the MCS charger with the Charge Co
 .. figure:: _static/images/ccy_setup.svg
    :width: 900pt
 
-   Figure: Basic Setup of the MCS charger with Charge Control Y
+   Basic Setup of the MCS charger with Charge Control Y
 
 
 First Startup
@@ -123,7 +123,7 @@ to each other:
    :width: 600pt
    :name: admin_panel_bsp_only
 
-   Figure: EVerest admin panel view of the bsp-only.yaml configuration
+   EVerest admin panel view of the bsp-only.yaml configuration
 
 However, not all configuration parameters of the modules are shown here. Only the configuration
 parameters that do not match the default configuration of the respective module need
