@@ -74,4 +74,6 @@ Safety Notes
 Order Information
 -----------------
 
-You can acquire an Evaluation Kit using the order code 'CBCSOM-EVAL-KIT-01'. For more information on different models and peripheral of the Charge SOM, please contact `info@chargebyte.com`.
+You can acquire an Evaluation Kit using the order code 'CBCSOM-EVAL-KIT-01'.
+For more information on different models and peripheral of the Charge SOM,
+please contact `info@chargebyte.com <mailto:info@chargebyte.com>`_.
