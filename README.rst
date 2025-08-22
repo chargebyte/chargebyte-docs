@@ -1,21 +1,27 @@
 chargebyte GmbH Product Documentation
-=============================
+=====================================
 
 Welcome to the documentation for products of chargebyte GmbH.
 
 This documentation contains all necessary information and guides for the use and understanding of our products.
 
-Contents:
----------
+Contents
+--------
 
-- Product specifc User Guides and Manuals (In Progress)
+- Product specific User Guides and Manuals (In Progress)
 - Developer Documentation (In Progress)
 - FAQs and Troubleshooting (In Progress)
 
-Contact:
---------
+
+License
+-------
+
+See the LICENSE file for license rights and limitations (Apache 2.0).
+
+
+Contact
+-------
 
 If you have any questions or inquiries, please contact our support team at https://chargebyte.com/support.
 
 Thank you for using products from chargebyte GmbH!
-
