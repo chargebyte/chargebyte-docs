@@ -35,9 +35,9 @@ Hardware Overview
 The following figure shows the basic setup of the AC PWM charger with the Charge Control C:
 
 .. figure:: _static/images/ac_pwm_charger_ccc_setup.svg
-    :width: 500pt
+   :width: 500pt
 
-    Figure: Basic Setup of the AC PWM Charger with the Charge Control C
+   Basic Setup of the AC PWM Charger with the Charge Control C
 
 .. note::
    The pin assignment of the Charge Control C can be found in the :ref:`board-connections` section.
@@ -175,10 +175,10 @@ via these interfaces. The following figure illustrates how the EVerest modules a
 other in the bsp-only.yaml configuration file:
 
 .. figure:: _static/images/admin_panel_bsp_only.png
-    :width: 500pt
-    :name: admin_panel_bsp_only
+   :width: 500pt
+   :name: admin_panel_bsp_only
 
-    Figure: EVerest admin panel view of the bsp-only.yaml configuration
+   EVerest admin panel view of the bsp-only.yaml configuration
 
 However, not all configuration parameters of the modules are shown here. Only those that deviate from
 the module's default configuration need to be specified.
