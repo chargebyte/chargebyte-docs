@@ -4,7 +4,7 @@ Getting Started
 ===============
 
 This chapter is intended to help you get started as easily as possible with EV charging together
-with the Charge SOM Evaluation Kit and the EVerest charging stack. For this purpose, a basic DC 
+with the Charge SOM Evaluation Kit and the EVerest charging stack. For this purpose, a basic DC
 charger is set up as an example and explained step by step.
 
 
@@ -71,7 +71,7 @@ carrier board provide information about the current status of the boot process. 
 shows the meaning of the LED status indicators:
 
 .. raw:: html
- 
+
    <div style="text-align: center;">
      Table: Charge SOM Evaluation Kit LED Status Indicators
    </div>
@@ -87,6 +87,7 @@ shows the meaning of the LED status indicators:
 
 .. include:: ../../includes/connecting.inc
 
+.. include:: ../../includes/first_fw_update.inc
 
 Initial Configuration
 ---------------------
@@ -287,7 +288,7 @@ The EVerest log messages should look like this:
    2024-12-13T15:52:03.155499+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC Transaction Started (0 kWh)
    2024-12-13T15:52:03.156415+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC DC mode. We are in 5percent mode so we can continue without further action.
    2024-12-13T15:52:03.156895+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC Charger state: Wait for Auth->PrepareCharging
-   
+
 After that, the EV simulator should establish a powerline connection to the Charge SOM via SLAC.
 
 .. code-block:: sh

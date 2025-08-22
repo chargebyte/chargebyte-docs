@@ -1,8 +1,8 @@
 .. _cb_energy.rst:
 
-**********************
-CB energy
-**********************
+*********
+CB Energy
+*********
 
 .. note::
     CB Energy is currently intended only for connecting an EVerest AC charger. In the future, bi-directional

@@ -25,7 +25,7 @@ connected to USB.
 
 
 Is it possible to use the Charge SOM as an EV simulator?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Charge SOM hardware is not designed to be used as an EV simulator. Please refer to our
 `website <https://www.chargebyte.com/>`_ for more suitable products.
@@ -80,7 +80,7 @@ The device tree sources of the Charge SOM are divided into multiple layers:
 
 
 How can I access the EVerest admin panel on Charge SOM?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Currently, the Charge SOM does not have integrated the `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
 Please use your development environment to set up your configuration file. Alternatively, you can use a plain text
@@ -88,14 +88,14 @@ editor.
 
 
 Does EVerest on Charge SOM support ISO 15118-20 yet?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The required module for ISO 15118-20 has been included in the image since the Charge SOM EVerest release 0.2.0.
 Please note that the implementation is still under development.
 
 
 How do I set up OCPP 2.0.1 on Charge SOM with EVerest?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To support OCPP 2.0.1, the EVerest OCPP201 module must be integrated into the EVerest configuration.
 This module uses the `libocpp library <https://github.com/EVerest/libocpp>`_ to implement the OCPP 2.0.1
@@ -107,7 +107,7 @@ and the initial creation of the OCPP 2.0.1 database.
 The most important points are summarised here:
 
 1. The OCPP201 module must be included in your EVerest configuration.
-2. The CbSystem module can be used to fulfill the requirement of the system interface. 
+2. The CbSystem module can be used to fulfill the requirement of the system interface.
 3. While configuring the OCPP 2.0.1 module, ensure that you are using OCPP configuration and database
    paths which are covered by the update mechanism. The following paths are recommended:
 
@@ -132,6 +132,7 @@ The most important points are summarised here:
 
    For further information about the device model initialization, please refer to the
    `libocpp documentation <https://github.com/EVerest/libocpp/blob/main/doc/v2/ocpp_201_device_model_initialization.md>`_.
+
 
 I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can it fix this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
