@@ -1,20 +1,20 @@
 ..  _hardware.rst:
 
-
 Hardware
 ========
 
 Pinout
 ------
 
-The following figure shows the CCY from a front view with numbered pinouts:
+The following figure shows the Charge Control Y from a front view with numbered pinouts:
 
 .. figure:: _static/images/ccy_pinout.svg
    :width: 900px
    :alt: CCY pinout (front view)
    :align: center
 
-   CCY pinout (front view)
+   Charge Control Y pinout (front view)
+
 
 Power & Safety
 ^^^^^^^^^^^^^^
@@ -38,6 +38,7 @@ Power & Safety
    * - Shield
      - Ground (EVSE)
 
+
 Profinet
 ^^^^^^^^
 .. list-table::
@@ -60,6 +61,7 @@ Profinet
    * - Shield
      - Ground (EVSE)
 
+
 LAN (OCPP)
 ^^^^^^^^^^
 .. list-table::
@@ -81,6 +83,7 @@ LAN (OCPP)
      - Ground (EVSE)
    * - Shield
      - Ground (EVSE)
+
 
 MCS
 ^^^
@@ -109,6 +112,7 @@ MCS
      - Ground (MCS)
    * - Shield
      - Ground (MCS)
+
 
 IO
 ^^
@@ -143,15 +147,15 @@ Wiring overview
 ---------------
 
 
-Temperature sensors
-^^^^^^^^^^^^^^^^^^^
+PT1000 Temperature Sensors
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: _static/images/wiring_temp_sensors.svg
-    :width: 1000pt
+   :width: 1000pt
 
-    Figure: Wiring overview for the temperature sensors
+   Figure: Wiring overview for the PT1000 Temperature Sensors
 
-This wiring diagram shows an overview of connecting the temperature sensors to the CCY:
+This wiring diagram shows an overview of connecting the temperature sensors to the Charge Control Y:
 
 * Make sure you only connect PT1000 temperature sensors
 * Connect sensor 1 between Pin 3 and Pin 5 of MCS
@@ -160,25 +164,23 @@ This wiring diagram shows an overview of connecting the temperature sensors to t
 * Connect sensor 4 between Pin 4 and Pin 5 of IO
 
 
-
 Emergency Input
 ^^^^^^^^^^^^^^^
-
 
 .. figure:: _static/images/wiring_emergency_in.svg
     :width: 1000pt
 
     Figure: Wiring overview for the emergency input
 
-This wiring diagram shows an overview of connecting the emergeny input to the CCY:
+This wiring diagram shows an overview of connecting the emergeny input to the Charge Control Y:
 
-* Make sure the emergency input stays between 21.6V and 26.4V for normal behavior
-* Any other voltage is treated as safety state
-* The voltage is measured against Ground (EVSE) (Pin 3)
+* make sure the emergency input stays between 21.6V and 26.4V for normal behavior
+* any other voltage is treated as error condition and triggers the safe state
+* the voltage is measured against Ground (EVSE) (Pin 3)
 
 
-HV ready
+HV Ready
 ^^^^^^^^
 
-State C is indicated by internally switching HV Ready In (Pin 4, Power & Safety) to HV Ready Out (Pin 5, Power & Safety). The short between HV Read In to Out is only done while the Vehicle indicates States C AND CCY detects no safety issues.
-
+State C is indicated by internally switching HV Ready In (Pin 4, Power & Safety) to HV Ready Out (Pin 5, Power & Safety).
+The short between HV Read In to Out is only done while the vehicle indicates state C AND Charge Control Y detects no safety issues.

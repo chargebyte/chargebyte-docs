@@ -30,7 +30,7 @@ The following steps describe how to cross-compile a module for the Charge SOM pl
       Alternatively, if the above command does not work, you can use the following command:
 
        .. code-block:: console
-       
+
           unsquashfs -d bundle-staging <shipped_firmware>.image
 
       However, this will not verify the signature of the firmware image.
@@ -42,7 +42,7 @@ The following steps describe how to cross-compile a module for the Charge SOM pl
       sudo mkdir -p /mnt/rootfs
       sudo mount bundle-staging/core-image-minimal-chargesom.ext4 /mnt/rootfs
 
-#. Create a new directory in your `everest-workspace` directory (in parallel to the `everest-core` directory) and  
+#. Create a new directory in your `everest-workspace` directory (in parallel to the `everest-core` directory) and
    create a new file named :code:`toolchain.cmake`:
 
    .. code-block:: console
@@ -113,8 +113,8 @@ The following steps describe how to cross-compile a module for the Charge SOM pl
       dist/libexec/everest/modules/{MyEVerestModule}/{MyEVerestModule}: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV),
       dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=ad2342fdd3b8fb1949fc3e13b77382d3da72f28a, for GNU/Linux 3.7.0, stripped
 
-#. The resulting binary and manifest can be found in the :code:`dist/libexec/everest/modules/{MyEVerestModule}`  
-   directory. If you want to test the module on the target system, you can copy the module directory using  
+#. The resulting binary and manifest can be found in the :code:`dist/libexec/everest/modules/{MyEVerestModule}`
+   directory. If you want to test the module on the target system, you can copy the module directory using
    :code:`scp` or :code:`rsync`:
 
   .. code-block:: console
@@ -139,7 +139,7 @@ The following steps describe how to cross-compile a module for the Charge SOM pl
 
       fsck.ext4 -f bundle-staging/core-image-minimal-chargesom.ext4
 
-#. Follow the steps under the section :ref:`firmware_customization` to install your PKI certificate, repackage  
+#. Follow the steps under the section :ref:`firmware_customization` to install your PKI certificate, repackage
 the modified root filesystem into a firmware update image, and test the new firmware.
 
 .. _creating_fw_images:

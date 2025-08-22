@@ -4,12 +4,15 @@
    contain the root `toctree` directive.
 
 Welcome to Charge Control Y User Guide!
-=======================================================
+=======================================
 
-**Charge Control Y** is an IEC 61851-23-3 and ISO 15118-20 compliant charging controller, for the Megawatt Charging System on charging station side. This user guide explains the possibilities of setting up such a system with the Charge SOM, based on the open source charging stack EVerest.
+**Charge Control Y** is an IEC 61851-23-3 and ISO 15118-20 compliant charging controller,
+for the Megawatt Charging System on charging station side.
+This user guide explains the possibilities of setting up such a system with the Charge Control Y,
+based on the open source charging stack EVerest.
 
 This documentation starts with a short introduction and then goes straight into a hands-on chapter
-:doc:`getting_started` with a simple example of how to set up a simple MCS example appication
+:doc:`getting_started` with a simple example of how to set up a simple MCS example application.
 
 .. toctree::
    :maxdepth: 2

@@ -9,92 +9,27 @@ Frequently Asked Questions
 .. contents::
    :local:
 
-Does the Charge SOM have a CE certification?
+Does the Charge Control Y have a CE certification?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Currently, the Charge Control Y doesn't have any certification yet.
+
+
+Does the Charge Control Y have Wifi support?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently, the Charge SOM doesn't have any certification yet.
+The Charge Control Y doesn't have Wifi support.
 
 
-Does the Charge SOM have Wifi support?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The Charge SOM doesn't have builtin Wifi support, but it provides suitable
-interfaces (SDIO / USB 2.0 ) via its connectors. For instance the Charge SOM
-Single Channel DC Carrier Board provides a mini PCIe connector, which is
-connected to USB.
-
-
-Is it possible to use the Charge SOM as an EV simulator?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The Charge SOM hardware is not designed to be used as an EV simulator. Please refer to our
-`website <https://www.chargebyte.com/>`_ for more suitable products.
-
-
-I want to control EVerest via CAN, how can I achieve this?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Currently, there is no such EVerest module available, you will need to implement it on your own. But
-at least there is a `module <https://github.com/EVerest/everest-core/tree/main/modules/DPM1000>`_
-and a `library <https://github.com/EVerest/everest-core/tree/main/lib/staging/can_dpm1000>`_,
-which uses the CAN interface.
-
-
-What is the difference between CHSTOP_IN and SAFETY_ESTOPx?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The signal CHSTOP_IN is connected to the i.MX93 SoC and could be used to gracefully stop the charging process. So it is not designed
-for timing critical use cases. Currently there is no EVerest module, which is able to handle this signal. This work is pending.
-
-In order to realize realtime emergency stop behavior use the SAFETY_ESTOPx signals, which are connected to the safety processor.
-
-
-Where can I find the device tree sources of the Charge SOM?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The device tree sources of the Charge SOM are divided into multiple layers:
-
-.. list-table::
-   :header-rows: 1
-
-   * - Part
-     - Level
-     - Layer
-     - Filename
-   * - i.MX93
-     - 0
-     - SoC
-     - `imx93.dtsi <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93.dtsi>`_
-   * - phyCORE-i.MX93
-     - 1
-     - SoM
-     - `imx93-phycore-som.dtsi <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi>`_
-   * - Charge SOM
-     - 2
-     - SoM
-     - `imx93-charge-som.dtsi <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som.dtsi>`_
-   * - Charge SOM Single Channel DC Carrier Board
-     - 3
-     - Board
-     - `imx93-charge-som-dc-evb.dts <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som-dc-evb.dts>`_
-
-
-How can I access the EVerest admin panel on Charge SOM?
+How can I access the EVerest admin panel on Charge Control Y?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently, the Charge SOM does not have integrated the `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
+Currently, the Charge Control Y does not have integrated the `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
 Please use your development environment to set up your configuration file. Alternatively, you can use a plain text
 editor.
 
 
-Does EVerest on Charge SOM support ISO 15118-20 yet?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The required module for ISO 15118-20 has been included in the image since the Charge SOM EVerest release 0.2.0.
-Please note that the implementation is still under development.
-
-
-How do I set up OCPP 2.0.1 on Charge SOM with EVerest?
+How do I set up OCPP 2.0.1 on Charge Control Y with EVerest?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To support OCPP 2.0.1, the EVerest OCPP201 module must be integrated into the EVerest configuration.
@@ -107,7 +42,7 @@ and the initial creation of the OCPP 2.0.1 database.
 The most important points are summarised here:
 
 1. The OCPP201 module must be included in your EVerest configuration.
-2. The CbSystem module can be used to fulfill the requirement of the system interface. 
+2. The CbSystem module can be used to fulfill the requirement of the system interface.
 3. While configuring the OCPP 2.0.1 module, ensure that you are using OCPP configuration and database
    paths which are covered by the update mechanism. The following paths are recommended:
 
@@ -133,6 +68,7 @@ The most important points are summarised here:
    For further information about the device model initialization, please refer to the
    `libocpp documentation <https://github.com/EVerest/libocpp/blob/main/doc/v2/ocpp_201_device_model_initialization.md>`_.
 
+
 I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can it fix this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -141,15 +77,8 @@ stable API along the EVerest modules. So after almost every EVerest release,
 chargebyte needs to adapt their modules to the latest API changes.
 
 Please have a look at the `compatibility matrix <https://github.com/chargebyte/everest-chargebyte/blob/main/README.md>`_
-to see which EVerest release works with which chargebyte EVerest Modules release.
+to see which EVerest release works with which chargebyte EVerest modules release.
 
-
-I would like to implement a custom Modbus device in EVerest. Where should I start?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-EVerest already has a module which takes care of Modbus communication. Please have a look at
-`SerialCommHub <https://everest.github.io/nightly/_generated/modules/SerialCommHub.html>`_,
-and let your module interact with this module via the `serial_communication_hub` interface.
 
 .. _contact:
 

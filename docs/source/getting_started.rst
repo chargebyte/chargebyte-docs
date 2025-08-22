@@ -4,8 +4,7 @@ Getting Started
 ===============
 
 This chapter is intended to help you get started as easily as possible with MCS charging together
-with the Charge Control Y and the EVerest charging stack. For this purpose, a basic MCS 
-charger is set up as an example and explained step by step.
+with the Charge Control Y and the EVerest charging stack. For this purpose, a basic MCS charger is set up as an example and explained step by step.
 
 
 Setting Up the Hardware
@@ -32,9 +31,10 @@ Hardware Overview
 The following figure shows the basic setup of the MCS charger with the Charge Control Y Kit:
 
 .. figure:: _static/images/ccy_setup.svg
-    :width: 900pt
+   :width: 900pt
 
-    Figure: Basic Setup of the MCS charger with CCY
+   Figure: Basic Setup of the MCS charger with Charge Control Y
+
 
 First Startup
 -------------
@@ -58,13 +58,13 @@ Here are some key points about the boot process of the Charge controller:
 Understanding LED Status Indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now you can connect the CCY to the power supply. The LED status indicator provides information about the current status of the boot process. The following table
+Now you can connect the Charge Control Y to the power supply. The LED status indicator provides information about the current status of the boot process. The following table
 shows the meaning of the LED status indicators:
 
 .. raw:: html
- 
+
    <div style="text-align: center;">
-     Table: Charge SOM Evaluation Kit LED Status Indicators
+     Table: Charge Control Y LED Status Indicators
    </div>
 
 +--------------------------+---------------------------------+--------------------------------------+
@@ -78,18 +78,20 @@ shows the meaning of the LED status indicators:
 
 .. include:: ../../includes/connecting.inc
 
+.. include:: ../../includes/first_fw_update.inc
+
 
 Initial Configuration
 ---------------------
 
-Now you are connected to the CCY and we can take a deeper look at the initial
+Now you are connected to the Charge Control Y and we can take a deeper look at the initial
 configuration.
 
 The configuration files of the EVerest charging stack are stored in the directory "/etc/everest".
 EVerest uses the YAML format for the configuration files. EVerest runs as a systemd service that
 by default uses "/etc/everest/config.yaml" as a configuration setup. If you take a look at the
 content of the configuration file, you will see that it is only a reference to the
-"bsp-only-dc.yaml" file.
+"bsp-only.yaml" file.
 
 .. note::
    If you create an own configuration file, you can also store it in the "/etc/everest" directory
@@ -97,7 +99,7 @@ content of the configuration file, you will see that it is only a reference to t
 
 .. code-block:: bash
 
-   root@ccy:/etc/everest# ls -l /etc/everest/
+   root@parsley:/etc/everest# ls -l /etc/everest/
    total 28
    -rw-r--r-- 1 root root 1134 Jun 20 07:45 bsp-only.yaml
    lrwxrwxrwx 1 root root   14 Jun 25 19:26 config.yaml ->  my-config.yaml
@@ -118,10 +120,10 @@ other over the interfaces. The following figure illustrates how the EVerest modu
 to each other:
 
 .. figure:: _static/images/admin_panel_bsp_only.png
-    :width: 600pt
-    :name: admin_panel_bsp_only
+   :width: 600pt
+   :name: admin_panel_bsp_only
 
-    Figure: EVerest admin panel view of the bsp-only-dc.yaml configuration
+   Figure: EVerest admin panel view of the bsp-only.yaml configuration
 
 However, not all configuration parameters of the modules are shown here. Only the configuration
 parameters that do not match the default configuration of the respective module need
@@ -145,7 +147,7 @@ will be get lost after a software update.
 Here is an excerpt of an EVerest configuration to change the parameter "evse_id" to
 "MY*CUS*T654321*1" of the CbParsleyDriver module.
 
-.. code-block:: sh
+.. code-block:: yaml
 
   bsp:
     module: CbParsleyDriver
@@ -169,6 +171,7 @@ changes. Just type "systemctl restart everest" to restart the EVerest charging s
    start. Therefore, it is recommended to back up the original configuration file before making
    changes.
 
+
 .. _start_charging_and_monitoring:
 
 Starting and Monitoring the Charging Process
@@ -176,7 +179,7 @@ Starting and Monitoring the Charging Process
 
 Before we start the first charging session, we shall open the EVerest log to monitor the charging
 process. The EVerest log is stored in the systemd journal and can be accessed via the journalctl
-command. The journalctl command provides a lot of options to filter the log messages. 
+command. The journalctl command provides a lot of options to filter the log messages.
 Now just type "journalctl -f -u everest -n 50" to see the last 50 log messages of the EVerest
 charging stack and to follow the charging process in real time. For more information about the
 EVerest log, see the :ref:`logging_and_debugging` chapter.
@@ -265,7 +268,7 @@ The EVerest log should look like this:
    2025-08-15T11:00:09.952422+0200 parsley manager[240427]: [INFO] bsp:CbParsleyDr  :: handle_pwm_off: setting new duty cycle of 100.0% (ignored)
 
 Now you can connect the vehicle or vehicle simulator.
-After connecting, a CE state change from "A" to "B"  and an ID state connected should be visible in the EVerest log.
+After connecting, a CE state change from "A" to "B0"  and an ID state connected should be visible in the EVerest log.
 
 The EVerest log messages should look like this:
 
@@ -275,8 +278,8 @@ The EVerest log messages should look like this:
    2025-08-15T11:00:10.015221+0200 parsley manager[240427]: [INFO] bsp:CbParsleyDr  :: CP state change from A to B
    2025-08-15T11:00:10.084986+0200 parsley manager[240427]: [INFO] bsp:CbParsleyDr  :: handle_pwm_off: setting new duty cycle of 100.0% (ignored)
    2025-08-15T11:00:10.131495+0200 parsley manager[240428]: [INFO] connector:EvseM  :: All errors cleared
-   
-After that, the EV  should establish an ethernet connection to the CCY. The EV simulator discovers the V2G service of the CCY and establishes a TCP connection.
+
+After that, the EV  should establish an ethernet connection to the Charge Control Y. The EV simulator discovers the MCS service of the Charge Control Y and establishes a TCP connection.
 Both hosts negotiate the protocol ISO 15118-20 and start a charging session.
 
 .. code-block:: console
@@ -584,6 +587,6 @@ After the charging session, the vehicle switches it CE state back to B:
   2025-08-15T11:00:22.369569+0200 parsley manager[240427]: [INFO] bsp:CbParsleyDr  :: handle_pwm_off: setting new duty cycle of 100.0% (ignored)
 
 Congratulations! You have successfully established a charging session with the EVerest
-charging stack and the Charge SOM. Now you are prepared to start your own charging project and
+charging stack and the Charge Control Y. Now you are prepared to start your own charging project and
 adjust your setup to your needs. The following chapters will help you understand the EVerest
 charging stack and Charge SOM in more detail and gain deeper insight into the configuration.

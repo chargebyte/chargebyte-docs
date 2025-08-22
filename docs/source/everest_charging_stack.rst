@@ -1,7 +1,7 @@
 .. _everest_charging_stack.rst:
 
 **********************
-EVerest charging stack
+EVerest Charging Stack
 **********************
 
 .. include:: ../../includes/everest_introduction_to_everest.inc
