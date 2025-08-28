@@ -10,14 +10,31 @@ The following figure shows the Charge Control Y from a front view with numbered 
 
 .. figure:: _static/images/ccy_pinout.svg
    :width: 900px
-   :alt: CCY pinout (front view)
+   :alt: Charge Control Y Pinout (Front View)
    :align: center
 
-   Charge Control Y pinout (front view)
+   Charge Control Y Pinout (Front View)
 
+The following table lists the connector types on Charge Control Y side and a matching
+counterpart example cable.
+
++----------------+-----------+---------+--------+----------------------------------------------------------------------------------------------------------------------------------+
+| Connector      | Pin Count |  Coding | Gender | Example Counterpart Part Number/Link                                                                                             |
++================+===========+=========+========+==================================================================================================================================+
+| Power & Safety | 5         | A       | Male   | `Phoenix Contact 1476893 <https://www.phoenixcontact.com/de-de/produkte/sensor-aktor-kabel-sac-5p-15-pur-p12fs-sh-1476893>`__    |
++----------------+-----------+---------+--------+----------------------------------------------------------------------------------------------------------------------------------+
+| Profinet       | 5         | D       | Female |                                                                                                                                  |
++----------------+-----------+---------+--------+ `Phoenix Contact 1476024 <https://www.phoenixcontact.com/en-pc/products/network-cable-nbc-p12msd-20-93e-r4ac-1476024>`__         |
+| LAN (OCPP)     | 5         | D       | Female |                                                                                                                                  |
++----------------+-----------+---------+--------+----------------------------------------------------------------------------------------------------------------------------------+
+| MCS            | 8         | A       | Female |                                                                                                                                  |
++----------------+-----------+---------+--------+ `Phoenix Contact 1522778 <https://www.phoenixcontact.com/en-pc/products/sensor-actuator-cable-sac-8p-m12ms-15-pur-sh-1522778>`__ |
+| IO             | 8         | A       | Female |                                                                                                                                  |
++----------------+-----------+---------+--------+----------------------------------------------------------------------------------------------------------------------------------+
 
 Power & Safety
 ^^^^^^^^^^^^^^
+
 .. list-table::
    :widths: 15 85
    :header-rows: 1
@@ -41,6 +58,7 @@ Power & Safety
 
 Profinet
 ^^^^^^^^
+
 .. list-table::
    :widths: 15 85
    :header-rows: 1
@@ -64,6 +82,7 @@ Profinet
 
 LAN (OCPP)
 ^^^^^^^^^^
+
 .. list-table::
    :widths: 15 85
    :header-rows: 1
@@ -87,6 +106,7 @@ LAN (OCPP)
 
 MCS
 ^^^
+
 .. list-table::
    :widths: 15 85
    :header-rows: 1
@@ -116,6 +136,7 @@ MCS
 
 IO
 ^^
+
 .. list-table::
    :widths: 15 85
    :header-rows: 1
