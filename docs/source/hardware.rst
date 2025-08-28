@@ -74,8 +74,6 @@ Profinet
      - ETH1 TX N
    * - 4
      - ETH1 RX N
-   * - 5
-     - Ground (EVSE)
    * - Shield
      - Ground (EVSE)
 
@@ -98,8 +96,6 @@ LAN (OCPP)
      - ETH2 TX N
    * - 4
      - ETH2 RX N
-   * - 5
-     - Ground (EVSE)
    * - Shield
      - Ground (EVSE)
 
