@@ -1,4 +1,4 @@
-VERSION "0.0.1"
+VERSION "0.0.2"
 
 
 NS_ : 
@@ -246,8 +246,8 @@ VAL_ 255 PacketId 10 "FirmwareVersion" 11 "GitHash" ;
 VAL_ 17 CC_CCSReady 2 "CCS_EmergencyStop" 1 "CCS_Ready" 0 "CCS_NotReady" ;
 VAL_ 16 CS_SafeStateActive 3 "SNA" 1 "SafeState" 0 "NormalState" ;
 VAL_ 16 CS_EStop_Reason 14 "EmergencyInput" 13 "HVReady_Malfunction" 12 "CE_Malfunction" 11 "ID_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "InternalError" 0 "NoStop" ;
-VAL_ 16 CS_ID_State 15 "Invalid" 2 "Connected" 1 "Not Connected" 0 "Unknown" ;
-VAL_ 16 CS_CE_State 15 "Invalid" 6 "EC" 5 "E" 4 "C" 3 "B" 2 "B0" 1 "A" 0 "Unknown" ;
+VAL_ 16 CS_ID_State 3 "Invalid" 2 "Connected" 1 "Not Connected" 0 "Unknown" ;
+VAL_ 16 CS_CE_State 7 "Invalid" 6 "EC" 5 "E" 4 "C" 3 "B" 2 "B0" 1 "A" 0 "Unknown" ;
 VAL_ 7 CS_SafeStateReason 18 "EmergencyInput3" 17 "EmergencyInput2" 16 "EmergencyInput1" 15 "HVSW_Malfunction" 14 "CP_DiodeFault" 13 "CP_ShortCircuit" 12 "CP_Malfunction" 11 "PP_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "InternalError" 0 "NoStop" ;
 VAL_ 7 CS_SafeStateActive 3 "SNA" 1 "SafeState" 0 "NormalState" ;
 VAL_ 7 CS_Estop1ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;

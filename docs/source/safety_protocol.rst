@@ -141,7 +141,7 @@ ChargeState2
   - 0x0 = Unknown
   - 0x1 = Not Connected
   - 0x2 = Connected
-  - 0xF = Invalid
+  - 0x3 = Invalid
 
 - **CS_CE_State**
 
@@ -152,7 +152,7 @@ ChargeState2
   - 0x4 = C
   - 0x5 = E
   - 0x6 = EC
-  - 0xF = Invalid
+  - 0x7 = Invalid
 
 - **CS_EStop_Reason**
 
