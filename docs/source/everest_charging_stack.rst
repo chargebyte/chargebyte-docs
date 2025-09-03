@@ -10,13 +10,11 @@ EVerest Charging Stack
 
 Below is an example configuration file provided by chargebyte in its images:
 
-.. literalinclude:: _static/files/bsp-only-dc.yaml
+.. literalinclude:: _static/files/bsp-only.yaml
 
 The use case described in this configuration file includes the following:
 
-* DC charging mode
-* No TLS (Transport Layer Security) enabled for HLC (High Level Communication)
-* 3 phase, 16A fuse limit
+* MCS DC charging mode
 * Simulation of the IMD (Insulation Monitoring Device)
 * Simulation of the DC Supply Device
 
@@ -28,12 +26,12 @@ An overview of the EVerest modules is shown in the next section.
 
 This module simulates a DC power supply device.
 
-**CbChargeSOMDriver** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbChargeSOMDriver>`__)
+**CbParsleyDriver** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbParsleyDriver>`__)
 
-This is the Hardware Abstraction Layer (HAL) for Charge SOM in EVerest. It implements
+This is the Hardware Abstraction Layer (HAL) for Charge Control Y in EVerest. It implements
 the `evse_board_support <https://github.com/EVerest/everest-core/blob/main/interfaces/evse_board_support.yaml>`_
 interface, enabling communication with the :code:`EvseManager` and control of the board. The EVerest community
 often refers to these HAL modules as BSPs, such as MicroMegaWattBSP and PhyVersoBSP. This module is
-essential for controlling the Charge SOM.
+essential for controlling the Charge Control Y.
 
 .. include:: ../../includes/everest_further_reading.inc
