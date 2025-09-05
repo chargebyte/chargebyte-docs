@@ -1,4 +1,4 @@
-.. _creating_of_custom_firmware_images:
+.. _creating_custom_firmware_images:
 
 Creating Customized Firmware Images with Yocto
 ==============================================
