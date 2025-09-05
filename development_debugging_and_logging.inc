@@ -73,7 +73,7 @@ In general, there are two ways to capture pcap traces:
 
 #. Using the EVerest "PacketSniffer" module
 
-    The `PacketSniffer <https://github.com/EVerest/everest-core/tree/main/modules/PacketSniffer>`_ module
+    The `PacketSniffer <https://github.com/EVerest/everest-core/tree/main/modules/Misc/PacketSniffer>`_ module
     is part of everest-core and can be used to capture pcap traces automatically. Please look into
     the module manifest to see how to configure the PacketSniffer module.
 
@@ -82,7 +82,7 @@ pcap traces with V2G communication can be analyzed using Wireshark with a V2G pl
 .. note::
     TLS encrypted communication cannot be analyzed with Wireshark without the TLS session key. Please
     look in the module manifest which is responsible for the TLS handshake and check if there is an option
-    to export the TLS session key. E.g. the `IsoMux module <https://github.com/EVerest/everest-core/blob/main/modules/IsoMux/manifest.yaml>`_
+    to export the TLS session key. E.g. the `IsoMux module <https://github.com/EVerest/everest-core/blob/main/modules/EVSE/IsoMux/manifest.yaml>`_
     is able to export the TLS session key.
 
 Session Logging of the EVSEManager

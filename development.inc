@@ -52,7 +52,7 @@ faster transfer and flashing times during board updates.
 
 When developing your software component, you need to decide how it will interact with the EVerest stack.
 You can either implement your software as an EVerest module and use the internal interfaces to communicate
-with the stack, or you can use the external MQTT-based EVerest API `API <https://github.com/EVerest/everest-core/tree/main/modules/API>`_
+with the stack, or you can use the external MQTT-based EVerest API `API <https://github.com/EVerest/everest-core/tree/main/modules/API/API>`_
 provided by the API module to access the EVerest stack. For energy management use cases, the second option
 is certainly a valid approach. However, the standard and more flexible path is to create a dedicated EVerest
 module. For energy management use cases, a websocket JSON-RPC-based approach to communicate with the

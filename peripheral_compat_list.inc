@@ -50,8 +50,8 @@ AC
    +---------------------+-----------+----------+-------------+------------------------+-------------------------+----------------------+
 
 .. _EVerest: https://github.com/EVerest/everest-core
-.. _GenericPowermeter: https://github.com/EVerest/everest-core/tree/main/modules/GenericPowermeter
-.. _SerialCommHub: https://github.com/EVerest/everest-core/tree/main/modules/SerialCommHub
+.. _GenericPowermeter: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerMeters/GenericPowermeter
+.. _SerialCommHub: https://github.com/EVerest/everest-core/tree/main/modules/Misc/SerialCommHub
 
 .. note::
    Multiple EIA-485 devices, which all use Modbus as protocol, can share the same EIA-485 bus.
@@ -62,7 +62,7 @@ AC
 
 .. note::
    Most electricity meters which use Modbus as protocol are covered by EVerest's `GenericPowermeter`_ module. See
-   https://github.com/EVerest/everest-core/tree/main/modules/GenericPowermeter/models for latest supported models.
+   https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerMeters/GenericPowermeter/models for latest supported models.
 
 DC
 --
@@ -82,9 +82,9 @@ DC
    +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
 
 .. _LEM DCBM 400/600: https://www.lem.com/en/dcbm-400-600
-.. _LemDCBM400600: https://github.com/EVerest/everest-core/tree/main/modules/LemDCBM400600
+.. _LemDCBM400600: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerMeters/LemDCBM400600
 .. _Isabellenhütte IEM-DCR series: https://www.isabellenhuette.de/iem-dcr
-.. _IsabellenhuetteIemDcr: https://github.com/EVerest/everest-core/tree/main/modules/IsabellenhuetteIemDcr
+.. _IsabellenhuetteIemDcr: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerMeters/IsabellenhuetteIemDcr
 
 
 
@@ -105,7 +105,7 @@ DC Power Modules
    +-------------------------+-----------+-------------+---------------+----------------------+----------------------+
 
 .. _SCU DPM series: https://www.scupower.com/ev-charger/ev-charger-module/
-.. _DPM1000: https://github.com/EVerest/everest-core/tree/main/modules/DPM1000
+.. _DPM1000: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerSupplies/DPM1000
 .. _Infypower BEG series: https://www.infypower.com/bidirectional-acdc-power-converter.html
 .. _InfypowerDCSupply: https://github.com/chargebyte/everest-chargebyte/tree/main/modules/InfypowerDCSupply
 .. _chargebyte: https://github.com/chargebyte/everest-chargebyte
@@ -171,8 +171,8 @@ RFID Readers
    | RFID Readers based on NXP's PN7160 Chip | I²C/SPI   | Proprietary | `EVerest`_  | `PN7160TokenProvider`_   |          ✗           |
    +-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
 
-.. _PN532TokenProvider: https://github.com/EVerest/everest-core/tree/main/modules/PN532TokenProvider
-.. _PN7160TokenProvider: https://github.com/EVerest/everest-core/tree/main/modules/PN7160TokenProvider
+.. _PN532TokenProvider: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/NfcReaders/PN532TokenProvider
+.. _PN7160TokenProvider: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/NfcReaders/PN7160TokenProvider
 
 
 
