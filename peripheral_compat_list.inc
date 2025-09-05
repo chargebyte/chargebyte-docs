@@ -76,11 +76,15 @@ DC
    | Vendor / Product                 | Interface | Protocol | Implementer | EVerest Module Name                   | EVerest Module Supports | Tested by chargebyte |
    |                                  |           |          |             |                                       | German Eichrecht        |                      |
    +==================================+===========+==========+=============+=======================================+=========================+======================+
+   | `Acrel DJSF1352-RN`_             | EIA-485   | Modbus   | `EVerest`_  | `Acrel_DJSF1352_RN`_                  |            ✗            |          ✗           |
+   +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
    | `LEM DCBM 400/600`_              | Ethernet  | HTTP     | `EVerest`_  | `LemDCBM400600`_                      |            ✓            |          ✗           |
    +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
    | `Isabellenhütte IEM-DCR series`_ | Ethernet  | HTTP     | `EVerest`_  | `IsabellenhuetteIemDcr`_              |            ✓            |          ✗           |
    +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+----------------------+
 
+.. _Acrel DJSF1352-RN: https://www.acrel-electric.com/product/djsf1352_rn_rail_mounted_dc_power_meter
+.. _Acrel_DJSF1352_RN: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerMeters/Acrel_DJSF1352_RN
 .. _LEM DCBM 400/600: https://www.lem.com/en/dcbm-400-600
 .. _LemDCBM400600: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerMeters/LemDCBM400600
 .. _Isabellenhütte IEM-DCR series: https://www.isabellenhuette.de/iem-dcr
@@ -96,16 +100,20 @@ DC Power Modules
    :width: 100%
    :widths: 6,1,1,1,2,2
 
-   +-------------------------+-----------+-------------+---------------+----------------------+----------------------+
-   | Vendor / Product        | Interface | Protocol    | Implementer   | EVerest Module Name  | Tested by chargebyte |
-   +=========================+===========+=============+===============+======================+======================+
-   | `SCU DPM series`_       | CAN       | Proprietary | `EVerest`_    | `DPM1000`_           |          ✗           |
-   +-------------------------+-----------+-------------+---------------+----------------------+----------------------+
-   | `Infypower BEG series`_ | CAN       | Proprietary | `chargebyte`_ | `InfypowerDCSupply`_ |          ✓           |
-   +-------------------------+-----------+-------------+---------------+----------------------+----------------------+
+   +---------------------------+-----------+-------------+---------------+--------------------------+----------------------+
+   | Vendor / Product          | Interface | Protocol    | Implementer   | EVerest Module Name      | Tested by chargebyte |
+   +===========================+===========+=============+===============+==========================+======================+
+   | `SCU DPM series`_         | CAN       | Proprietary | `EVerest`_    | `DPM1000`_               |          ✗           |
+   +---------------------------+-----------+-------------+---------------+--------------------------+----------------------+
+   | `UUGreen Power RX1000X0`_ | CAN       | Proprietary | `EVerest`_    | `UUGreenPower_UR1000X0`_ |          ✗           |
+   +---------------------------+-----------+-------------+---------------+--------------------------+----------------------+
+   | `Infypower BEG series`_   | CAN       | Proprietary | `chargebyte`_ | `InfypowerDCSupply`_     |          ✓           |
+   +---------------------------+-----------+-------------+---------------+--------------------------+----------------------+
 
 .. _SCU DPM series: https://www.scupower.com/ev-charger/ev-charger-module/
 .. _DPM1000: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerSupplies/DPM1000
+.. _UUGreen Power RX1000X0: https://www.uugreenpower.com
+.. _UUGreenPower_UR1000X0: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerSupplies/UUGreenPower_UR1000X0
 .. _Infypower BEG series: https://www.infypower.com/bidirectional-acdc-power-converter.html
 .. _InfypowerDCSupply: https://github.com/chargebyte/everest-chargebyte/tree/main/modules/InfypowerDCSupply
 .. _chargebyte: https://github.com/chargebyte/everest-chargebyte
@@ -120,14 +128,14 @@ Insulation Monitoring Devices (IMDs)
    :width: 100%
    :widths: 6,1,1,1,2,2
 
-   +--------------------------------------------------------+-----------+----------+-------------------------+----------------------+----------------------+
-   | Vendor / Product                                       | Interface | Protocol | Implementer             | EVerest Module Name  | Tested by chargebyte |
-   +========================================================+===========+==========+=========================+======================+======================+
-   | `Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1`_ | EIA-485   | Modbus   | `chargebyte`_ (planned) | TBD                  |                      |
-   +--------------------------------------------------------+-----------+----------+-------------------------+----------------------+----------------------+
+   +--------------------------------------------------------+-----------+----------+---------------+-----------------------+----------------------+
+   | Vendor / Product                                       | Interface | Protocol | Implementer   | EVerest Module Name   | Tested by chargebyte |
+   +========================================================+===========+==========+===============+=======================+======================+
+   | `Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1`_ | EIA-485   | Modbus   | `EVerest`_    | `Bender_isoCHA425HV`_ |          ✗           |
+   +--------------------------------------------------------+-----------+----------+---------------+-----------------------+----------------------+
 
 .. _Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1: https://www.bender.de/en/products/insulation-monitoring/isometer-isocha425hv-with-agh420-1/
-
+.. _Bender_isoCHA425HV: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/IsolationMonitors/Bender_isoCHA425HV
 
 
 Residual Current Monitors (RCMs)
