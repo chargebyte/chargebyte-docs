@@ -24,7 +24,7 @@ An overview of the EVerest modules is shown in the next section.
 
 .. include:: ../../includes/everest_overview_of_everest_modules.inc
 
-**DCSupplySimulator** (`view on GitHub <https://github.com/EVerest/everest-core/blob/main/modules/simulation/DCSupplySimulator/manifest.yaml>`__)
+**DCSupplySimulator** (`view on GitHub <https://github.com/EVerest/everest-core/blob/main/modules/Simulation/DCSupplySimulator/manifest.yaml>`__)
 
 This module simulates a DC power supply device.
 
