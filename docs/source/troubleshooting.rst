@@ -35,7 +35,7 @@ How do I set up OCPP 2.0.1 on Charge Control Y with EVerest?
 To support OCPP 2.0.1, the EVerest OCPP201 module must be integrated into the EVerest configuration.
 This module uses the `libocpp library <https://github.com/EVerest/libocpp>`_ to implement the OCPP 2.0.1
 protocol.
-The `OCPP201 module documentation <https://github.com/EVerest/everest-core/blob/main/modules/OCPP201/doc.rst>`_
+The `OCPP201 module documentation <https://github.com/EVerest/everest-core/blob/main/modules/EVSE/OCPP201/doc.rst>`_
 already contains some information about the module parameters, the provided and required interfaces,
 and the initial creation of the OCPP 2.0.1 database.
 
@@ -56,8 +56,8 @@ The most important points are summarised here:
 5. The OCPP 2.0.1 device model initialization is done automatically by the OCPP201 module after the
    first start of EVerest. The database is stored the `DeviceModelDatabasePath`.
 6. The component config files are stored in the `DeviceModelConfigPath`. Component config files are
-   used to initialize or update the device model database. To update a component config file, just the
-   place a `component config file <https://github.com/EVerest/libocpp/tree/v0.16.2/config/v201/component_config>`_
+   used to initialize or update the device model database. To update a component config file, just
+   place a `component config file <https://github.com/EVerest/libocpp/tree/main/config/v2/component_config>`_
    in the same directory structure in the DeviceModelConfigPath and change the values accordingly.
    Important keys of the component config files are:
 
