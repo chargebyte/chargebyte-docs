@@ -199,5 +199,5 @@ This wiring diagram shows an overview of connecting the emergeny input to the Ch
 HV Ready
 ^^^^^^^^
 
-State C is indicated by internally switching HV Ready In (Pin 4, Power & Safety) to HV Ready Out (Pin 5, Power & Safety).
-The short between HV Read In to Out is only done while the vehicle indicates state C AND Charge Control Y detects no safety issues.
+State C is indicated by internally switching `HV Ready In` (Pin 4, Power & Safety) to `HV Ready Out` (Pin 5, Power & Safety).
+The short between `HV Ready In` to `HV Ready Out` is only done while the vehicle indicates state C AND Charge Control Y detects no safety issues.
