@@ -35,7 +35,8 @@ repository. Here you can find the latest firmware images and also older released
   Please read the release notes of the firmware image before downloading and installing it. In the
   release notes you can find information about the changes and new features of the firmware image and
   also the version information which "everest-core" tag the firmware image is based on. This information
-  is especially important if you build up your cross-compile environment in section :ref:`cross_compiling`.
+  is especially important if you build up your cross-compile environment as described in
+  :ref:`development_cross_compiling_everest_modules`.
   Please check that your cross-compile environment is using the same "everest-core" tag as the firmware
   image you want to install.
 
