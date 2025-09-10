@@ -147,7 +147,7 @@ phase-count switching in general:
 The EnergyManager module has also additional configuration options to allow fine-tuning of the behavior, but
 all ship with reasonable default values and thus are not explained in detail here.
 A description of all these parameters can be found in the
-`EnergyManager manifest <https://github.com/EVerest/everest-core/blob/main/modules/EnergyManager/manifest.yaml>`_.
+`EnergyManager manifest <https://github.com/EVerest/everest-core/blob/main/modules/EnergyManagement/EnergyManager/manifest.yaml>`_.
 
 And also the 'EvseManager' module allows fine-tuning the switching process with two configuration parameters:
 
@@ -159,7 +159,7 @@ And also the 'EvseManager' module allows fine-tuning the switching process with 
   of 'X1' should work with all cars and thus it's recommended to leave it on this default value.
 
 The full description of all these parameters can be found in the
-`EvseManager manifest <https://github.com/EVerest/everest-core/blob/main/modules/EvseManager/manifest.yaml>`_.
+`EvseManager manifest <https://github.com/EVerest/everest-core/blob/main/modules/EVSE/EvseManager/manifest.yaml>`_.
 
 .. note::
    Phase count switching is only possible in basic charging mode.
