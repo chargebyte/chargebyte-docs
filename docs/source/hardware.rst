@@ -34,6 +34,13 @@ to build a DC charging station:
   of emergencies.
 * The high-voltage DC contactors for DC plus and minus rails.
 
+*************************************
+Control Pilot / Proximity Pilot (X18)
+*************************************
+
+For ISO 15118 / DIN 70121 compliant communication between EVSE and PEV, Charge SOM supports
+CP (control pilot) and PP (proximity pilot) signaling including Green PHY communication.
+This Green PHY communication is available on network interface ``eth1``.
 
 **********************************
 High-Voltage Connector (HVDC, X19)
@@ -50,6 +57,37 @@ but also for the corresponding feedback signals to detect contactor welding.
 .. note::
    The precharge contactor might not be necessary in your setup.
 
+**************
+Ethernet (X28)
+**************
+
+The X28 socket supports 10/100 Mbit/s Ethernet. In the Linux operating system it
+is available as network interface ``eth0``. This interface is part of a bridge
+interface ``br0``.
+
+*****************************
+EIA-485 Interfaces (X13, X15)
+*****************************
+
+In order to connect the Charge SOM to an internal peripheral (e.g. smart meters, display and RFID readers),
+the board supports up to two EIA-485 interfaces.
+
++-----------------+------------------------------------+------------------------------------+
+| Board Interface | X13                                | X15                                |
++-----------------+------------------------------------+------------------------------------+
+| Linux Interface | /dev/ttyLP4                        | /dev/ttyLP3                        |
++-----------------+------------------------------------+------------------------------------+
+| Termination     | yes, 120 Ohm permanently activated | yes, 120 Ohm permanently activated |
++-----------------+------------------------------------+------------------------------------+
+| Local Echo      | no                                 | no                                 |
++-----------------+------------------------------------+------------------------------------+
+
+*********
+CAN (X16)
+*********
+
+The CAN-FD interface is connected to X16, which is a full implementation of the CAN FD
+protocol specification version 2.0B. It is available on Linux network interface ``can0``.
 
 ********************************************
 Insulation Monitoring Device (IMD, X9 + X15)
