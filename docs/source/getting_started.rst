@@ -62,6 +62,10 @@ Here are some key points about the boot process of the Charge controller:
 - EVerest is automatically started with the default configuration of chargebyte after the boot
   process is completed. The initial configuration is explained in the `Initial Configuration`_ section.
 
+.. warning::
+   The journaling file system on the Charge controller does not completely protect against data loss if the
+   power supply is interrupted. So please try to use the Linux commands ``reboot`` and ``halt`` instead.
+
 
 Understanding LED Status Indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
