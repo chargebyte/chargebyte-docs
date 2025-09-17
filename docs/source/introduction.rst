@@ -29,16 +29,16 @@ application as an EVerest module. For more information about EVerest, please vis
 Product Features
 ----------------
 
-* future-proof technology: ARM Cortex-A7 @ 800 MHz, DDR3, eMMC
+* ARM Cortex-A7 @ 800 MHz, DDR3, eMMC
 * up to 6x digital general-purpose inputs
 * up to 6x digital general-purpose outputs
 * 4-Wire pulse width modulation (PWM) fan interface
 * 10/100 Mbit/s Ethernet
-* USB
+* USB 2.0
 * rotary switch coded maximum charging current (not yet supported)
 * debug LEDs
 * up to 2x EIA-485
-* CAN
+* CAN (assembly option)
 * 2x Motor Driver
 * 1-Wire Interface
 * mains switching relays with sense feedback (only 1 Charging socket supported)
@@ -98,15 +98,15 @@ Here are the currently available order codes for Charge Control C with EVerest:
      Table: Currently available order codes for Charge Control C with EVerest
    </div>
 
-+----------------------+----------------------------------+------------+--------------------+
-| Available Order Code | SW Variant                       | Housing    | HW Variant         |
-+======================+==================================+============+====================+
-| I2CCSC-E00-204       | chargebyte software stack v0.8.0 | no housing | Charge Control 200 |
-|                      | based on EVerest 2024.3.0        |            |                    |
-+----------------------+----------------------------------+------------+--------------------+
-| I2CCSC-E00-303       | chargebyte software stack v0.8.0 | no housing | Charge Control 300 |
-|                      | based on EVerest 2024.3.0        |            |                    |
-+----------------------+----------------------------------+------------+--------------------+
++----------------------+----------------------------------+------------+----------------------+
+| Available Order Code | SW Variant                       | Housing    | HW Variant           |
++======================+==================================+============+======================+
+| I2CCSC-E00-204       | chargebyte software stack v0.8.0 | no housing | Charge Control 200   |
+|                      | based on EVerest 2024.3.0        |            | (1x EIA-485, no CAN) |
++----------------------+----------------------------------+------------+----------------------+
+| I2CCSC-E00-303       | chargebyte software stack v0.8.0 | no housing | Charge Control 300   |
+|                      | based on EVerest 2024.3.0        |            | (2x EIA-485, no CAN) |
++----------------------+----------------------------------+------------+----------------------+
 
 The following figure shows the structure of the "I2CCSC-E00-204" order code:
 
