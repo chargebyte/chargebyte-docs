@@ -67,6 +67,7 @@ Does EVerest on Charge Control C support ISO 15118-20 yet?
 
 The required module for ISO 15118-20 has been included in the image since the chargebyte EVerest 1.0.0 release.
 Please note that the implementation is still under development and integrated into the image only for test purposes.
+ISO 15118-20 AC BPT is not supported yet.
 
 
 How do I set up OCPP 2.0.1 on Charge Control C with EVerest?
