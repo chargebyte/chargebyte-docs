@@ -109,8 +109,8 @@ The most important points are summarised here:
    `libocpp documentation <https://github.com/EVerest/libocpp/blob/main/doc/v2/ocpp_201_device_model_initialization.md>`_.
 
 
-I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can it fix this?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can I fix this?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The EVerest mainline development is very dynamic and doesn't guarantee any
 stable API along the EVerest modules. So after almost every EVerest release,
