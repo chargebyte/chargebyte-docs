@@ -255,52 +255,63 @@ The EVerest log should look like this:
 
 .. code-block:: console
 
-   root@tarragon:~# journalctl -f -u everest -n 50
-   2025-02-26T08:30:29.513458+0100 tarragon systemd[1]: Started EVerest.
-   2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::   ________      __                _
-   2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  |  ____\ \    / /               | |
-   2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  | |__   \ \  / /__ _ __ ___  ___| |_
-   2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  |  __|   \ \/ / _ \ '__/ _ \/ __| __|
-   2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  | |____   \  /  __/ | |  __/\__ \ |_
-   2025-02-26T08:30:29.521984+0100 tarragon manager[11921]: [INFO] manager          ::  |______|   \/ \___|_|  \___||___/\__|
-   2025-02-26T08:30:30.191154+0100 tarragon manager[24855]: [INFO] manager          ::
-   2025-02-26T08:30:30.191154+0100 tarragon manager[24855]: [INFO] manager          :: everest-framework 0.20.2 main@v0.20.2
-   2025-02-26T08:30:30.191154+0100 tarragon manager[24855]: [INFO] manager          :: everest-core 2025.1.0 release/2025.1.0@2025.1.0
-   2025-02-26T08:30:30.191154+0100 tarragon manager[24855]: [INFO] manager          ::
-   2025-02-26T08:30:30.191154+0100 tarragon manager[24855]: [INFO] manager          :: Using MQTT broker localhost:1883
-   2025-02-26T08:30:30.849594+0100 tarragon manager[24856]: [INFO] everest_ctrl     :: Launching controller service on port 8849
-   2025-02-26T08:30:31.174881+0100 tarragon manager[24855]: [INFO] manager          :: Loading config file at: /etc/everest/bsp-only.yaml
-   2025-02-26T08:30:31.174881+0100 tarragon manager[24855]: [INFO] manager          :: Config loading completed in 819ms
-   2025-02-26T08:30:31.174881+0100 tarragon manager[24855]: [INFO] manager          :: Starting 7 modules
-   2025-02-26T08:30:32.461078+0100 tarragon manager[24880]: [INFO] tarragon_dig_in  :: chargebyte's Tarragon driver for configuration of digital input reference PWM (version: 0.18.0)
-   2025-02-26T08:30:32.461078+0100 tarragon manager[24880]: [INFO] tarragon_dig_in  :: Enabled digital input reference PWM 2084000.pwm, channel 0 with period 40000 and duty cycle 20000
-   2025-02-26T08:30:32.461078+0100 tarragon manager[24880]: [INFO] tarragon_dig_in  :: Module tarragon_dig_in_ref initialized [1774ms]
-   2025-02-26T08:30:32.915061+0100 tarragon manager[24884]: [INFO] energy_manager:  :: Module energy_manager initialized [1797ms]
-   2025-02-26T08:30:33.059561+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: chargebyte's Hardware EVerest Modules (version: 0.18.0)
-   2025-02-26T08:30:33.207183+0100 tarragon manager[24883]: [INFO] error_history:E  :: Using database at "/tmp/error_history.db"
-   2025-02-26T08:30:33.207183+0100 tarragon manager[24883]: [INFO] error_history:E  :: Checking database
-   2025-02-26T08:30:33.207183+0100 tarragon manager[24883]: [INFO] error_history:E  :: Module error_history initialized [2033ms]
-   2025-02-26T08:30:33.461684+0100 tarragon manager[24882]: [INFO] grid_connection  :: Module grid_connection_point initialized [2166ms]
-   2025-02-26T08:30:33.554315+0100 tarragon manager[24886]: [INFO] api:API          :: Module api initialized [2071ms]
-   2025-02-26T08:30:33.603804+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Contactor feedback type: 'none'
-   2025-02-26T08:30:33.603804+0100 tarragon manager[24881]: [WARN] tarragon_bsp:Cb CbTarragonContactorControlSimple::CbTarragonContactorControlSimple(std::unique_ptr<CbTarragonRelay>, const string&) :: The contactor has the feedback pin not connected. This is not recommended.
-   2025-02-26T08:30:33.603804+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Control Pilot Observation Thread started
-   2025-02-26T08:30:33.603804+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Module tarragon_bsp initialized [2275ms]
-   2025-02-26T08:30:33.717075+0100 tarragon manager[24885]: [INFO] connector:EvseM  :: Module connector initialized [2089ms]
-   2025-02-26T08:30:33.764538+0100 tarragon manager[24855]: [INFO] manager          :: Clearing retained topics published by manager during startup
-   2025-02-26T08:30:33.764538+0100 tarragon manager[24855]: [INFO] manager          :: 🚙🚙🚙 All modules are initialized. EVerest up and running [3951ms] 🚙🚙🚙
-   2025-02-26T08:30:38.451323+0100 tarragon manager[24885]: [INFO] connector:EvseM  :: Cleaning up any other transaction on start up
-   2025-02-26T08:30:38.554529+0100 tarragon manager[24885]: [INFO] connector:EvseM  :: 🌀🌀🌀 Ready to start charging 🌀🌀🌀
-   2025-02-26T08:30:38.559706+0100 tarragon manager[24885]: [WARN] connector:EvseM void module::EvseManager::ready_to_start_charging() :: No powermeter value received yet!
-   2025-02-26T08:30:38.713275+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: handle_enable: Setting new duty cycle of 100.00%
-   2025-02-26T08:30:38.731043+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: CP state change from PowerOn to A, U_CP+: 11956 mV, U_CP-: 55 mV, PWM: 100.00%)
-   2025-02-26T08:30:38.836962+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: handle_pwm_off: Setting new duty cycle of 100.00%
-   2025-02-26T08:30:39.058836+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: handle_pwm_off: Setting new duty cycle of 100.00%
-   2025-02-26T08:30:39.162116+0100 tarragon manager[24885]: [INFO] connector:EvseM  :: All errors cleared
+   root@tarragon:~# journalctl -fu everest -n 100
+   025-09-23T08:35:01.827061+0200 tarragon systemd[1]: Starting EVerest...
+   2025-09-23T08:35:01.863095+0200 tarragon sh[25535]: Starting to migrate EVerest configurations
+   2025-09-23T08:35:01.926443+0200 tarragon sh[25535]: EVerest configurations migrated successfully
+   2025-09-23T08:35:01.950767+0200 tarragon systemd[1]: Started EVerest.
+   2025-09-23T08:35:02.045566+0200 tarragon manager[25542]: [INFO] manager          ::   ________      __                _
+   2025-09-23T08:35:02.052554+0200 tarragon manager[25542]: [INFO] manager          ::  |  ____\ \    / /               | |
+   2025-09-23T08:35:02.052554+0200 tarragon manager[25542]: [INFO] manager          ::  | |__   \ \  / /__ _ __ ___  ___| |_
+   2025-09-23T08:35:02.052554+0200 tarragon manager[25542]: [INFO] manager          ::  |  __|   \ \/ / _ \ '__/ _ \/ __| __|
+   2025-09-23T08:35:02.052554+0200 tarragon manager[25542]: [INFO] manager          ::  | |____   \  /  __/ | |  __/\__ \ |_
+   2025-09-23T08:35:02.052554+0200 tarragon manager[25542]: [INFO] manager          ::  |______|   \/ \___|_|  \___||___/\__|
+   2025-09-23T08:35:02.052554+0200 tarragon manager[25542]: [INFO] manager          ::
+   2025-09-23T08:35:02.052554+0200 tarragon manager[25542]: [INFO] manager          :: everest-framework 0.23.0 main@v0.23.0
+   2025-09-23T08:35:02.057227+0200 tarragon manager[25542]: [INFO] manager          :: everest-core 2025.8.0 feature/json-rpc-api-2025.8.0@2024.2.0-951-geebf552a-dirty
+   2025-09-23T08:35:02.057227+0200 tarragon manager[25542]: [INFO] manager          ::
+   2025-09-23T08:35:02.057227+0200 tarragon manager[25542]: [INFO] manager          :: Using MQTT broker localhost:1883
+   2025-09-23T08:35:02.150274+0200 tarragon manager[25543]: [INFO] everest_ctrl     :: Launching controller service on port 8849
+   2025-09-23T08:35:02.212596+0200 tarragon manager[25542]: [INFO] manager          :: Boot mode is set to YamlFile, loading module configs from YAML file
+   2025-09-23T08:35:02.214226+0200 tarragon manager[25542]: [INFO] manager          :: Loading config file at: /etc/everest/bsp-only.yaml
+   2025-09-23T08:35:02.436897+0200 tarragon manager[25542]: [INFO] manager          :: Config loading completed in 373ms
+   2025-09-23T08:35:02.448083+0200 tarragon manager[25542]: [INFO] manager          :: Starting 10 modules
+   2025-09-23T08:35:04.691958+0200 tarragon manager[25558]: [INFO] api:API          :: Module api initialized [1910ms]
+   2025-09-23T08:35:04.754081+0200 tarragon manager[25559]: [INFO] bsp:CbTarragonD  :: chargebyte's Hardware EVerest Modules (version: 0.22.2)
+   2025-09-23T08:35:04.806710+0200 tarragon manager[25559]: [INFO] bsp:CbTarragonD  :: Contactor feedback type: 'none'
+   2025-09-23T08:35:04.808383+0200 tarragon manager[25559]: [WARN] bsp:CbTarragonD  :: The contactor has the feedback pin not connected. This is not recommended.
+   2025-09-23T08:35:04.928540+0200 tarragon manager[25560]: [INFO] charger_info:Ch  :: Module charger_info initialized [2005ms]
+   2025-09-23T08:35:04.960456+0200 tarragon manager[25559]: [INFO] bsp:CbTarragonD  :: Module bsp initialized [2025ms]
+   2025-09-23T08:35:04.962735+0200 tarragon manager[25559]: [INFO] bsp:CbTarragonD  :: Control Pilot Observation Thread started
+   2025-09-23T08:35:05.020212+0200 tarragon manager[25562]: [INFO] energy_manager:  :: Module energy_manager initialized [1954ms]
+   2025-09-23T08:35:05.112207+0200 tarragon manager[25563]: [INFO] error_history:E  :: Using database at "/tmp/error_history.db"
+   2025-09-23T08:35:05.119113+0200 tarragon manager[25563]: [INFO] error_history:E  :: Checking database
+   2025-09-23T08:35:05.127978+0200 tarragon manager[25563]: [INFO] error_history:E  :: Module error_history initialized [1952ms]
+   2025-09-23T08:35:05.208447+0200 tarragon manager[25569]: [INFO] tarragon_dig_in  :: chargebyte's Tarragon driver for configuration of digital input reference PWM (version: 0.22.2)
+   2025-09-23T08:35:05.250959+0200 tarragon manager[25569]: [INFO] tarragon_dig_in  :: Enabled digital input reference PWM 2084000.pwm, channel 0 with period 40000 and duty cycle 20000
+   2025-09-23T08:35:05.256215+0200 tarragon manager[25569]: [INFO] tarragon_dig_in  :: Module tarragon_dig_in_ref initialized [1886ms]
+   2025-09-23T08:35:05.332655+0200 tarragon manager[25565]: [INFO] kvs:YamlStore    :: Module kvs initialized [2046ms]
+   2025-09-23T08:35:05.406746+0200 tarragon manager[25564]: [INFO] grid_connection  :: Module grid_connection_point initialized [2193ms]
+   2025-09-23T08:35:05.436614+0200 tarragon manager[25566]: [INFO] rpc_api:RpcApi   :: Module rpc_api initialized [2027ms]
+   2025-09-23T08:35:05.449652+0200 tarragon manager[25542]: [INFO] manager          :: Clearing retained topics published by manager during startup
+   2025-09-23T08:35:05.449652+0200 tarragon manager[25542]: [INFO] manager          :: 🚙🚙🚙 All modules are initialized. EVerest up and running [3407ms] 🚙🚙🚙
+   2025-09-23T08:35:05.462454+0200 tarragon manager[25561]: [INFO] connector:EvseM  :: Module connector initialized [2269ms]
+   2025-09-23T08:35:06.564052+0200 tarragon manager[25566]: [INFO] rpc_api:RpcApi   :: WebSocket Server running on port 8080 (interface "lo" only) without TLS
+   2025-09-23T08:35:06.874644+0200 tarragon manager[25566]: [INFO] rpc_api:RpcApi   :: Client cce29011-60c1-4f80-b577-0a6be68034ba connected from 127.0.0.1
+   2025-09-23T08:35:06.885866+0200 tarragon manager[25566]: [INFO] rpc_api:RpcApi   :: API.Hello request received from client cce29011-60c1-4f80-b577-0a6be68034ba
+   2025-09-23T08:35:10.644986+0200 tarragon manager[25561]: [INFO] connector:EvseM  :: Cleaning up any other transaction on start up
+   2025-09-23T08:35:10.743391+0200 tarragon manager[25561]: [INFO] connector:EvseM  :: 🌀🌀🌀 Ready to start charging 🌀🌀🌀
+   2025-09-23T08:35:10.744999+0200 tarragon manager[25561]: [WARN] connector:EvseM void module::EvseManager::ready_to_start_charging() :: No powermeter value received yet!
+   2025-09-23T08:35:10.905728+0200 tarragon manager[25559]: [INFO] bsp:CbTarragonD  :: handle_enable: Setting new duty cycle of 100.00%
+   2025-09-23T08:35:10.921161+0200 tarragon manager[25559]: [INFO] bsp:CbTarragonD  :: CP state change from PowerOn to A, U_CP+: 11927 mV, U_CP-: -21 mV, PWM: 100.00%)
+   2025-09-23T08:35:11.064008+0200 tarragon manager[25559]: [INFO] bsp:CbTarragonD  :: handle_pwm_off: Setting new duty cycle of 100.00%
+   2025-09-23T08:35:11.111309+0200 tarragon manager[25559]: [INFO] bsp:CbTarragonD  :: Current (unchanged) state: Contactor@R1-S1 (OPEN, UNUSED)
+   2025-09-23T08:35:11.174484+0200 tarragon manager[25559]: [INFO] bsp:CbTarragonD  :: handle_pwm_off: Setting new duty cycle of 100.00%
+   2025-09-23T08:35:11.221568+0200 tarragon manager[25561]: [INFO] connector:EvseM  :: All errors cleared
 
 Before plugging in the IEC 62196 Type 2 EVSE Test Adapter, please make sure that the CP state of the
 EVSE Test Adapter is set to "B" and the current limit (adjustable via the PP state) is configured to
-16A. Now you are ready to start the first charging session with EVerest and you can plug in the IEC
+13A. Now you are ready to start the first charging session with EVerest and you can plug in the IEC
 62196 Type 2 EVSE Test Adapter.
 
 After plugging in the IEC 62196 Type 2 EVSE Test Adapter, a CP state change from "A" to "B" should
@@ -313,10 +324,11 @@ The last EVerest log messages should look like this:
 
 .. code-block:: console
 
-   2025-02-26T08:34:15.237981+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: CP state change from A to B, U_CP+: 8919 mV, U_CP-: 65 mV, PWM: 100.00%)
-   2025-02-26T08:34:15.428037+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Read PP ampacity value: A_16 (U_PP: 3297 mV)
-   2025-02-26T08:34:15.428037+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Proximity Pilot Observation Thread started
-   2025-02-26T08:34:16.127003+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: handle_pwm_on: Setting new duty cycle of 26.67% (16.0 A)
+   2025-09-23T08:45:38.991562+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: CP state change from A to B, U_CP+: 8909 mV, U_CP-: -12 mV, PWM: 100.00%)
+   2025-09-23T08:45:39.072353+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: Current (unchanged) state: Contactor@R1-S1 (OPEN, UNUSED)
+   2025-09-23T08:45:39.267367+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: Read PP ampacity value: A_13 (U_PP: 2085 mV)
+   2025-09-23T08:45:39.281841+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: Proximity Pilot Observation Thread started
+   2025-09-23T08:45:39.521493+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: handle_pwm_on: Setting new duty cycle of 21.67% (13.0 A)
 
 Now the charging process can be started by a CP state change from "B" to "C" via the IEC 62196 Type 2
 EVSE Test Adapter.
@@ -329,9 +341,9 @@ process should start. The last EVerest log messages should look like this:
 
 .. code-block:: console
 
-   2025-02-26T08:34:19.327615+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: CP state change from B to C, U_CP+: 5900 mV, U_CP-: -11625 mV, PWM: 21.67%)
-   2025-02-26T08:34:19.372588+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: handle_allow_power_on: request to CLOSE the contactor
-   2025-02-26T08:34:19.372588+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Current state: Contactor@R1-S1 (CLOSED, UNUSED)
+   2025-09-23T08:46:21.386933+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: CP state change from B to C, U_CP+: 6006 mV, U_CP-: -11845 mV, PWM: 21.67%)
+   2025-09-23T08:46:21.432216+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: handle_allow_power_on: request to CLOSE the contactor
+   2025-09-23T08:46:21.432216+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: Current state: Contactor@R1-S1 (CLOSED, UNUSED)
 
 The charging process can be stopped by a CP state change from "C" to "B" via the IEC 62196 Type 2.
 
@@ -339,9 +351,9 @@ The last EVerest log messages should look like this:
 
 .. code-block:: console
 
-   2025-02-26T08:34:24.733873+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: CP state change from C to B, U_CP+: 8957 mV, U_CP-: -11615 mV, PWM: 21.67%)
-   2025-02-26T08:34:24.848206+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: handle_allow_power_on: request to OPEN the contactor
-   2025-02-26T08:34:24.848206+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: Current state: Contactor@R1-S1 (OPEN, UNUSED)
+   2025-09-23T08:47:17.921085+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: CP state change from C to B, U_CP+: 8880 mV, U_CP-: -11836 mV, PWM: 21.67%)
+   2025-09-23T08:47:17.986228+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: handle_allow_power_on: request to OPEN the contactor
+   2025-09-23T08:47:17.986228+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: Current state: Contactor@R1-S1 (OPEN, UNUSED)
 
 Now the charging process is stopped and the IEC 62196 Type 2 EVSE Test Adapter can be unplugged from
 the socket outlet. Alternatively, the charging process can be started again by a CP state change
@@ -351,8 +363,13 @@ The last EVerest log messages after removing the plug should look like this:
 
 .. code-block:: console
 
-   2025-02-26T08:34:29.933330+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: CP state change from B to A, U_CP+: 11947 mV, U_CP-: -11615 mV, PWM: 21.67%)
-   2025-02-26T08:34:30.279162+0100 tarragon manager[24881]: [INFO] tarragon_bsp:Cb  :: handle_pwm_off: Setting new duty cycle of 100.00%
+   2025-09-23T08:47:53.847329+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: CP state change from B to A, U_CP+: 11908 mV, U_CP-: -11836 mV, PWM: 21.67%)
+   2025-09-23T08:47:53.878577+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: PP noticed plug removal from socket (U_PP: 3295 mV)   
+   2025-09-23T08:47:53.913897+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: handle_pwm_off: Setting new duty cycle of 100.00%
+   2025-09-23T08:47:53.928272+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: Current (unchanged) state: Contactor@R1-S1 (OPEN, UNUSED)
+   2025-09-23T08:47:54.047689+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: handle_pwm_off: Setting new duty cycle of 100.00%
+   2025-09-23T08:47:54.297602+0200 tarragon manager[320]: [INFO] bsp:CbTarragonD  :: handle_pwm_off: Setting new duty cycle of 100.00%
+   2025-09-23T08:47:54.343294+0200 tarragon manager[323]: [INFO] connector:EvseM  :: All errors cleared
 
 Congratulations! You have successfully completed your first charging session with the EVerest
 charging stack and the Charge Control C. Now you are prepared to start your own charging project and
