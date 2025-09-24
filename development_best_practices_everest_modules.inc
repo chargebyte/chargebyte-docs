@@ -51,7 +51,7 @@ The process of creating your own EVerest modules is described in the EVerest doc
    contribute the module to the EVerest core project. In general, it is recommended to create your own module
    in a separate EVerest module repository as described in the EVerest documentation.
 
-Once your own modules works as expected on your local machine, or if this is not possible e.g.
+Once your own modules work as expected on your local machine, or if this is not possible e.g.
 due to hardware dependencies, then it is time to cross-compile it for the target platform and test it
 within the target environment. The cross-compile procedure is describe in
 :ref:`development_cross_compiling_everest_modules`.
