@@ -11,10 +11,43 @@ active_modules:
       error_history:
         - module_id: error_history
           implementation_id: error_history
+      evse_energy_sink:
+        - module_id: grid_connection_point
+          implementation_id: external_limits
+  rpc_api:
+    module: RpcApi
+    connections:
+      evse_manager:
+        - module_id: connector
+          implementation_id: evse
+      energy_listener:
+        - module_id: connector
+          implementation_id: energy_grid
+      evse_energy_sink:
+        - module_id: grid_connection_point
+          implementation_id: external_limits
+      charger_information:
+        - module_id: charger_info
+          implementation_id: main
+  charger_info:
+    module: ChargerInfo
+    config_module:
+      firmware_version_file: /usr/share/secc/VERSION
+    connections:
+      kvs:
+        - module_id: kvs
+          implementation_id: main
+  kvs:
+    module: YamlStore
+    config_module:
+      file: /etc/everest/charger_info.yaml
   bsp:
     module: CbChargeSOMDriver
   connector:
     module: EvseManager
+    mapping:
+      module:
+        evse: 1
     config_module:
       connector_id: 1
       charge_mode: DC
@@ -33,6 +66,9 @@ active_modules:
       powersupply_DC:
         - module_id: powersupply_dc
           implementation_id: main
+      powermeter_car_side:
+        - module_id: powersupply_dc
+          implementation_id: powermeter
       imd:
         - module_id: imd
           implementation_id: main
@@ -47,6 +83,9 @@ active_modules:
           implementation_id: energy_grid
   grid_connection_point:
     module: EnergyNode
+    mapping:
+      module:
+        evse: 1
     config_module:
       fuse_limit_A: 16
       phase_count: 3
@@ -92,6 +131,13 @@ active_modules:
       evse_manager:
         - module_id: connector
           implementation_id: evse
+      kvs:
+        - module_id: persistent_store
+          implementation_id: main
+  persistent_store:
+    module: PersistentStore
+    config_module:
+      sqlite_db_file_path: /var/lib/everest/everest_persistent_store.db
   powersupply_dc:
     module: DCSupplySimulator
   imd:
