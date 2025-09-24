@@ -28,8 +28,8 @@ Please note that this module will be removed in future releases and replaced by 
 
 This module is not mandatory for a simple EVSE setup in EVerest, but it is required by the CB Energy Management System
 :ref:`introduction_nymea` service. This module provides a standardized interface for external applications to interact
-with an EVerest-based charge point. It is designed as a lightweight and transport-independent communication layer that
-enables monitoring, control, and integration into higher-level energy management systems.
+with an EVerest-based charge point. It uses JSON-RPC over WebSocket to allow clients to perform various operations,
+such as starting or stopping a charging session, retrieving status information, and configuring settings.
 
 **ErrorHistory** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/Misc/ErrorHistory>`__)
 
