@@ -22,7 +22,7 @@ This module is the global Energy Manager for all EVSE/Charging stations in a bui
 This module is not mandatory for a simple EVSE setup in EVerest. However, the module
 :code:`API` is responsible for providing a simple MQTT based API to EVerest internals.
 Please note that this module will be removed in future releases and replaced by the
-:code:`RestAPI` module.
+:code:`RpcApi` module.
 
 **RpcApi** (`view on GitHub Pull Request <https://github.com/EVerest/everest-core/pull/1324>`__)
 
