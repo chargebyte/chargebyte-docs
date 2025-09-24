@@ -44,4 +44,9 @@ time to cross-compile it for the target platform and test it within the target e
 The cross-compile procedure is describe in :ref:`development_cross_compiling_everest_modules`.
 
 In a later development stage, all your custom modules need/should be included into your custom
-firmware update image so that it is included during firmware updates.
+
+The following flowchart summarizes the best practices for developing custom EVerest modules:
+
+.. image:: ../../includes/_static/images/everest_development_flow.drawio.svg
+   :alt: Best Practices for Developing Custom EVerest Modules
+   :align: center
