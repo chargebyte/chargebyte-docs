@@ -39,7 +39,8 @@ you usually have to develop your own EVerest module.
 
 .. note::
    In a future release, there will be EVerest API modules for most of the internal EVerest interfaces, which will
-   make it easier to interact with the EVerest stack without the need to implement your own EVerest module.
+   provide a more stable MQTT API for external applications. This will make it easier to develop custom applications
+   without the need to create an EVerest module.
 
 The process of creating your own EVerest modules is described in the EVerest documentation:
 `How to: Develop New Modules <https://everest.github.io/nightly/tutorials/new_modules/>`_.
