@@ -96,6 +96,7 @@ content of the configuration file, you will see that it is only a reference to t
 .. note::
    If you create an own configuration file, you can also store it in the "/etc/everest" directory
    and create a symbolic link to it like "ln -sf /etc/everest/my-config.yaml /etc/everest/config.yaml".
+   The file where the "config.yaml" symbolic link points to is preserved during the update process.
 
 .. code-block:: bash
 
