@@ -39,10 +39,10 @@ via a configuration parameter.
 
 **ChargerInfo** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/Misc/ChargerInfo>`__)
 
- This module provides a charger information interface, backed by simple KVS interface. With the optional dependency to
- another charger information node, it is possible to chain multiple sources of information. The module uses a yaml
- file to read charger information like manufacturer, model, serial number, firmware version, etc..
- This file is located in :code:`/etc/everest/charger_info.yaml` by default.
+This module provides a charger information interface, backed by simple KVS interface. With the optional dependency to
+another charger information node, it is possible to chain multiple sources of information. The module uses a yaml
+file to read charger information like manufacturer, model, serial number, firmware version, etc..
+This file is located in :code:`/etc/everest/charger_info.yaml` by default.
 
 **YamlStore** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/Misc/YamlStore>`__)
 
