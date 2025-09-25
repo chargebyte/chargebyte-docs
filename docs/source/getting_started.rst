@@ -200,57 +200,67 @@ The EVerest log should look like this:
 
 .. code-block:: sh
 
-   root@chargesom:~# journalctl -f -u everest -n 50
-   2024-12-13T15:45:00.514151+0100 chargesom sh[237]: Starting to migrate EVerest configurations
-   2024-12-13T15:45:00.532706+0100 chargesom sh[237]: EVerest configurations migrated successfully
-   2024-12-13T15:45:00.561214+0100 chargesom systemd[1]: Started EVerest.
-   2024-12-13T15:45:00.779573+0100 chargesom manager[241]: [INFO] manager          ::   ________      __                _
-   2024-12-13T15:45:00.779573+0100 chargesom manager[241]: [INFO] manager          ::  |  ____\ \    / /               | |
-   2024-12-13T15:45:00.779573+0100 chargesom manager[241]: [INFO] manager          ::  | |__   \ \  / /__ _ __ ___  ___| |_
-   2024-12-13T15:45:00.779573+0100 chargesom manager[241]: [INFO] manager          ::  |  __|   \ \/ / _ \ '__/ _ \/ __| __|
-   2024-12-13T15:45:00.779573+0100 chargesom manager[241]: [INFO] manager          ::  | |____   \  /  __/ | |  __/\__ \ |_
-   2024-12-13T15:45:00.779573+0100 chargesom manager[241]: [INFO] manager          ::  |______|   \/ \___|_|  \___||___/\__|
-   2024-12-13T15:45:00.779573+0100 chargesom manager[241]: [INFO] manager          ::
-   2024-12-13T15:45:00.781629+0100 chargesom manager[241]: [INFO] manager          :: everest-framework 0.17.2 main@v0.17.2-dirty
-   2024-12-13T15:45:00.781629+0100 chargesom manager[241]: [INFO] manager          :: everest-core 2024.9.0 main@2024.9.0-rc1-40-g1e06aaab-dirty
-   2024-12-13T15:45:00.781629+0100 chargesom manager[241]: [INFO] manager          ::
-   2024-12-13T15:45:00.781629+0100 chargesom manager[241]: [INFO] manager          :: Using MQTT broker localhost:1883
-   2024-12-13T15:45:00.811618+0100 chargesom manager[242]: [INFO] everest_ctrl     :: Launching controller service on port 8849
-   2024-12-13T15:45:00.862280+0100 chargesom manager[241]: [INFO] manager          :: Loading config file at: /etc/everest/config.yaml
-   2024-12-13T15:45:01.239004+0100 chargesom manager[241]: [INFO] manager          :: Config loading completed in 451ms
-   2024-12-13T15:45:03.899562+0100 chargesom manager[260]: [INFO] api:API          :: Module api initialized [2594ms]
-   2024-12-13T15:45:04.376658+0100 chargesom manager[266]: [INFO] evse_security:E  :: Module evse_security initialized [2751ms]
-   2024-12-13T15:45:04.704404+0100 chargesom manager[264]: [INFO] energy_manager:  :: Module energy_manager initialized [3237ms]
-   2024-12-13T15:45:05.093575+0100 chargesom manager[261]: [INFO] auth:Auth        :: Module auth initialized [3776ms]
-   2024-12-13T15:45:05.237957+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Module evse_slac initialized [3623ms]
-   2024-12-13T15:45:05.364804+0100 chargesom manager[269]: [INFO] imd:IMDSimulato  :: Module imd initialized [3755ms]
-   2024-12-13T15:45:05.485234+0100 chargesom manager[262]: [INFO] bsp:CbChargeSOM  :: chargebyte's Charge SOM EVerest module (version: 0.16.0)
-   2024-12-13T15:45:05.486334+0100 chargesom manager[262]: [INFO] bsp:CbChargeSOM  :: Module bsp initialized [4145ms]
-   2024-12-13T15:45:05.569128+0100 chargesom manager[271]: [INFO] powersupply_dc:  :: Module powersupply_dc initialized [3777ms]
-   2024-12-13T15:45:05.578465+0100 chargesom manager[268]: [INFO] grid_connection  :: Module grid_connection_point initialized [4042ms]
-   2024-12-13T15:45:05.643080+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Module iso15118_charger initialized [3811ms]
-   2024-12-13T15:45:05.660663+0100 chargesom manager[265]: [INFO] error_history:E  :: Resetting database
-   2024-12-13T15:45:05.672632+0100 chargesom manager[273]: [INFO] token_validator  :: Module token_validator initialized [3779ms]
-   2024-12-13T15:45:05.684368+0100 chargesom manager[265]: [INFO] error_history:E  :: Module error_history initialized [4205ms]
-   2024-12-13T15:45:05.706916+0100 chargesom manager[272]: [INFO] token_provider:  :: Module token_provider initialized [3957ms]
-   2024-12-13T15:45:05.857535+0100 chargesom manager[263]: [INFO] connector:EvseM  :: Module connector initialized [4295ms]
-   2024-12-13T15:45:05.904734+0100 chargesom manager[241]: [INFO] manager          :: 🚙🚙🚙 All modules are initialized. EVerest up and running [5162ms] 🚙🚙🚙
-   2024-12-13T15:45:05.911103+0100 chargesom manager[270]: [INFO] iso15118_charge  :: TCP server on eth1 is listening on port [fe80::2c04:d5ff:fe18:78a7%3]:61341
-   2024-12-13T15:45:05.911444+0100 chargesom manager[270]: [INFO] iso15118_charge  :: SDP socket setup succeeded
-   2024-12-13T15:45:05.937212+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Starting the SLAC state machine
-   2024-12-13T15:45:06.137657+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Entered Reset state
-   2024-12-13T15:45:06.138098+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: New NMK key: 32:47:36:36:38:36:4F:55:58:34:4A:39:45:4A:46:4A
-   2024-12-13T15:45:06.141405+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Received CM_SET_KEY_CNF
-   2024-12-13T15:45:06.142173+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Entered Idle state
-   2024-12-13T15:45:06.390594+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Ignoring bidirectional SupportedEnergyTransferMode
-   2024-12-13T15:45:11.539400+0100 chargesom manager[263]: [INFO] connector:EvseM  :: Cleaning up any other transaction on start up
-   2024-12-13T15:45:11.672232+0100 chargesom manager[263]: [INFO] connector:EvseM  :: 🌀🌀🌀 Ready to start charging 🌀🌀🌀
-   2024-12-13T15:45:11.672232+0100 chargesom manager[263]: [WARN] connector:EvseM void module::EvseManager::ready_to_start_charging() :: No powermeter value received yet!
-   2024-12-13T15:45:11.805756+0100 chargesom manager[262]: [INFO] bsp:CbChargeSOM  :: handle_enable: Setting new duty cycle of 100.00%
-   2024-12-13T15:45:12.119474+0100 chargesom manager[262]: [INFO] bsp:CbChargeSOM  :: handle_pwm_off: Setting new duty cycle of 100.00%
-   2024-12-13T15:45:12.190889+0100 chargesom manager[263]: [INFO] connector:EvseM  :: All errors cleared
-   2024-12-13T15:45:12.260924+0100 chargesom manager[262]: [INFO] bsp:CbChargeSOM  :: CP state change from PowerOn to A, U_CP+: 12196 mV, U_CP-: -303 mV
-   2024-12-13T15:45:12.305158+0100 chargesom manager[262]: [INFO] bsp:CbChargeSOM  :: handle_pwm_off: Setting new duty cycle of 100.00%
+   root@chargesom:~# journalctl -f -u everest -n 100
+   2025-09-25T14:04:36.340853+0200 chargesomCARE03 sh[2679]: Starting to migrate EVerest configurations
+   2025-09-25T14:04:36.349802+0200 chargesomCARE03 sh[2679]: EVerest configurations migrated successfully
+   2025-09-25T14:04:36.352953+0200 chargesomCARE03 systemd[1]: Started EVerest.
+   2025-09-25T14:04:36.375673+0200 chargesomCARE03 manager[2683]: [INFO] manager          ::   ________      __                _
+   2025-09-25T14:04:36.375673+0200 chargesomCARE03 manager[2683]: [INFO] manager          ::  |  ____\ \    / /               | |
+   2025-09-25T14:04:36.376989+0200 chargesomCARE03 manager[2683]: [INFO] manager          ::  | |__   \ \  / /__ _ __ ___  ___| |_
+   2025-09-25T14:04:36.376989+0200 chargesomCARE03 manager[2683]: [INFO] manager          ::  |  __|   \ \/ / _ \ '__/ _ \/ __| __|
+   2025-09-25T14:04:36.376989+0200 chargesomCARE03 manager[2683]: [INFO] manager          ::  | |____   \  /  __/ | |  __/\__ \ |_
+   2025-09-25T14:04:36.376989+0200 chargesomCARE03 manager[2683]: [INFO] manager          ::  |______|   \/ \___|_|  \___||___/\__|
+   2025-09-25T14:04:36.376989+0200 chargesomCARE03 manager[2683]: [INFO] manager          ::
+   2025-09-25T14:04:36.376989+0200 chargesomCARE03 manager[2683]: [INFO] manager          :: everest-framework 0.23.0 main@v0.23.0
+   2025-09-25T14:04:36.376989+0200 chargesomCARE03 manager[2683]: [INFO] manager          :: everest-core 2025.8.0 feature/json-rpc-api-2025.8.0@2024.2.0-962-gbe8125e6-dirty
+   2025-09-25T14:04:36.376989+0200 chargesomCARE03 manager[2683]: [INFO] manager          ::
+   2025-09-25T14:04:36.376989+0200 chargesomCARE03 manager[2683]: [INFO] manager          :: Using MQTT broker localhost:1883
+   2025-09-25T14:04:36.393364+0200 chargesomCARE03 manager[2684]: [INFO] everest_ctrl     :: Launching controller service on port 8849
+   2025-09-25T14:04:36.407897+0200 chargesomCARE03 manager[2683]: [INFO] manager          :: Boot mode is set to YamlFile, loading module configs from YAML file
+   2025-09-25T14:04:36.408346+0200 chargesomCARE03 manager[2683]: [INFO] manager          :: Loading config file at: /etc/everest/bsp-only-dc.yaml
+   2025-09-25T14:04:36.577875+0200 chargesomCARE03 manager[2683]: [INFO] manager          :: Config loading completed in 199ms
+   2025-09-25T14:04:36.583298+0200 chargesomCARE03 manager[2683]: [INFO] manager          :: Starting 18 modules
+   2025-09-25T14:04:38.687027+0200 chargesomCARE03 manager[2724]: [INFO] error_history:E  :: Resetting database
+   2025-09-25T14:04:38.696192+0200 chargesomCARE03 manager[2724]: [INFO] error_history:E  :: Module error_history initialized [1982ms]
+   2025-09-25T14:04:38.723240+0200 chargesomCARE03 manager[2711]: [INFO] charger_info:Ch  :: Module charger_info initialized [2069ms]
+   2025-09-25T14:04:38.724917+0200 chargesomCARE03 manager[2709]: [INFO] auth:Auth        :: Module auth initialized [2069ms]
+   2025-09-25T14:04:38.773441+0200 chargesomCARE03 manager[2718]: [INFO] energy_manager:  :: Module energy_manager initialized [2075ms]
+   2025-09-25T14:04:38.792282+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: chargebyte's Charge SOM EVerest module (version: 0.22.2)
+   2025-09-25T14:04:38.802494+0200 chargesomCARE03 manager[2742]: [INFO] imd:IMDSimulato  :: Module imd initialized [2016ms]
+   2025-09-25T14:04:38.848429+0200 chargesomCARE03 manager[2708]: [INFO] api:API          :: Module api initialized [2200ms]
+   2025-09-25T14:04:38.856705+0200 chargesomCARE03 manager[2727]: [INFO] evse_security:E  :: Module evse_security initialized [2102ms]
+   2025-09-25T14:04:38.862248+0200 chargesomCARE03 manager[2755]: [INFO] kvs:YamlStore    :: Module kvs initialized [2040ms]
+   2025-09-25T14:04:38.887710+0200 chargesomCARE03 manager[2768]: [INFO] powersupply_dc:  :: Module powersupply_dc initialized [2026ms]
+   2025-09-25T14:04:38.894512+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Module evse_slac initialized [2152ms]
+   2025-09-25T14:04:38.905989+0200 chargesomCARE03 manager[2741]: [INFO] grid_connection  :: Module grid_connection_point initialized [2128ms]
+   2025-09-25T14:04:38.921079+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: Module connector initialized [2198ms]
+   2025-09-25T14:04:38.934256+0200 chargesomCARE03 manager[2763]: [INFO] persistent_stor  :: Module persistent_store initialized [2088ms]
+   2025-09-25T14:04:38.939995+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Module iso15118_charger initialized [2114ms]
+   2025-09-25T14:04:38.962917+0200 chargesomCARE03 manager[2783]: [INFO] token_provider:  :: Module token_provider initialized [2059ms]
+   2025-09-25T14:04:38.983892+0200 chargesomCARE03 manager[2778]: [INFO] rpc_api:RpcApi   :: Module rpc_api initialized [2074ms]
+   2025-09-25T14:04:39.021314+0200 chargesomCARE03 manager[2796]: [INFO] token_validator  :: Module token_validator initialized [2091ms]
+   2025-09-25T14:04:39.179576+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: Safety Controller Firmware: 0.2.3 (ga6981f9f8913ce59, Charge SOM, firmware)
+   2025-09-25T14:04:39.179576+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: Module bsp initialized [2512ms]
+   2025-09-25T14:04:39.180743+0200 chargesomCARE03 manager[2683]: [INFO] manager          :: Clearing retained topics published by manager during startup
+   2025-09-25T14:04:39.182430+0200 chargesomCARE03 manager[2683]: [INFO] manager          :: 🚙🚙🚙 All modules are initialized. EVerest up and running [2807ms] 🚙🚙🚙
+   2025-09-25T14:04:39.194610+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: TCP server on eth1 is listening on port [fe80::201:87ff:fe00:3049%3]:61341
+   2025-09-25T14:04:39.196209+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: SDP socket setup succeeded
+   2025-09-25T14:04:39.204868+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Starting the SLAC state machine
+   2025-09-25T14:04:39.405536+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Entered Reset state
+   2025-09-25T14:04:39.405536+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: New NMK key: 51:33:58:53:33:38:49:4C:4A:37:4A:32:44:37:59:32
+   2025-09-25T14:04:39.408541+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Received CM_SET_KEY_CNF
+   2025-09-25T14:04:39.409554+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Entered Idle state
+   2025-09-25T14:04:39.413225+0200 chargesomCARE03 manager[2709]: [WARN] auth:Auth        :: Can not load reservations: reservations is not a json array.
+   2025-09-25T14:04:39.813607+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Ignoring bidirectional SupportedEnergyTransferMode
+   2025-09-25T14:04:40.015684+0200 chargesomCARE03 manager[2778]: [INFO] rpc_api:RpcApi   :: WebSocket Server running on port 8080 (interface "lo" only) without TLS
+   2025-09-25T14:04:40.443397+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: Cleaning up any other transaction on start up
+   2025-09-25T14:04:40.710550+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: 🌀🌀🌀 Ready to start charging 🌀🌀🌀
+   2025-09-25T14:04:41.141590+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: handle_enable: Setting new duty cycle of 100.0%
+   2025-09-25T14:04:41.270288+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: CP state change from PowerOn to A, PWM: 100.0%
+   2025-09-25T14:04:41.312782+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: handle_pwm_off: Setting new duty cycle of 100.0%
+   2025-09-25T14:04:41.376644+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: Current (unchanged) state: OPEN
+   2025-09-25T14:04:41.420864+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: handle_pwm_off: Setting new duty cycle of 100.0%
+   2025-09-25T14:04:41.461236+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: All errors cleared
 
 Before connecting the CP line between Charge SOM Evaluation Kit and the EV simulator, please make
 sure that the following things are fulfilled:
@@ -268,67 +278,80 @@ The EVerest log messages should look like this:
 
 .. code-block:: sh
 
-   2024-12-13T15:52:01.800939+0100 chargesom manager[262]: [INFO] bsp:CbChargeSOM  :: CP state change from A to B, U_CP+: 9150 mV, U_CP-: -300 mV
-   2024-12-13T15:52:01.843375+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Entered Matching state, waiting for CM_SLAC_PARM_REQ
-   2024-12-13T15:52:01.959010+0100 chargesom manager[263]: [INFO] connector:EvseM  :: SYS  Session logging started.
-   2024-12-13T15:52:01.960014+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC Session Started: EVConnected
-   2024-12-13T15:52:01.962704+0100 chargesom manager[272]: [INFO] token_provider:  :: Publishing new dummy token: {
-   2024-12-13T15:52:01.962704+0100 chargesom manager[272]:     "type": "ISO14443",
-   2024-12-13T15:52:01.962704+0100 chargesom manager[272]:     "value": "DEADBEEF"
-   2024-12-13T15:52:01.962704+0100 chargesom manager[272]: } (RFID)
-   2024-12-13T15:52:01.967069+0100 chargesom manager[261]: [INFO] auth:Auth        :: Received new token: {
-   2024-12-13T15:52:01.967069+0100 chargesom manager[261]:     "authorization_type": "RFID",
-   2024-12-13T15:52:01.967069+0100 chargesom manager[261]:     "id_token": {
-   2024-12-13T15:52:01.967069+0100 chargesom manager[261]:         "type": "ISO14443",
-   2024-12-13T15:52:01.967069+0100 chargesom manager[261]:         "value": "DEADBEEF"
-   2024-12-13T15:52:01.967069+0100 chargesom manager[261]:     }
-   2024-12-13T15:52:01.967069+0100 chargesom manager[261]: }
-   2024-12-13T15:52:01.970206+0100 chargesom manager[273]: [INFO] token_validator  :: Got validation request for token: DEADBEEF
-   2024-12-13T15:52:02.220655+0100 chargesom manager[273]: [INFO] token_validator  :: Returning validation status: Accepted
-   2024-12-13T15:52:02.223254+0100 chargesom manager[261]: [INFO] auth:Auth        :: Providing authorization to connector#1
-   2024-12-13T15:52:02.960278+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC Set PWM On (5.000000074505806%) took 0 ms
-   2024-12-13T15:52:02.962409+0100 chargesom manager[262]: [INFO] bsp:CbChargeSOM  :: handle_pwm_on: Setting new duty cycle of 5.00%
-   2024-12-13T15:52:03.105628+0100 chargesom manager[261]: [INFO] auth:Auth        :: Result for token: DEADBEEF: ACCEPTED
-   2024-12-13T15:52:03.155035+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC EIM Authorization received
-   2024-12-13T15:52:03.155499+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC Transaction Started (0 kWh)
-   2024-12-13T15:52:03.156415+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC DC mode. We are in 5percent mode so we can continue without further action.
-   2024-12-13T15:52:03.156895+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE IEC Charger state: Wait for Auth->PrepareCharging
+   2025-09-25T14:24:30.676991+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: CP state change from A to B, PWM: 100.0%
+   2025-09-25T14:24:30.721100+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Entered Matching state, waiting for CM_SLAC_PARM_REQ
+   2025-09-25T14:24:30.810194+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: Current (unchanged) state: OPEN
+   2025-09-25T14:24:30.941735+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: SYS  Session logging started.
+   2025-09-25T14:24:30.942724+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE IEC Session Started: EVConnected
+   2025-09-25T14:24:30.947959+0200 chargesomCARE03 manager[2709]: [INFO] auth:Auth        :: Plug In event for evse#1, starting auth
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]: [INFO] token_provider:  :: Publishing new dummy token: {
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]:     "authorization_type": "RFID",
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]:     "id_token": {
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]:         "type": "ISO14443",
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]:         "value": "[redacted] hash: 29F2679CA504908"
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]:     },
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]:     "parent_id_token": {
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]:         "type": "ISO14443",
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]:         "value": "[redacted] hash: 29F2679CA504908"
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]:     }
+   2025-09-25T14:24:30.949107+0200 chargesomCARE03 manager[2783]: }
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]: [INFO] auth:Auth        :: Received new token: {
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]:     "authorization_type": "RFID",
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]:     "id_token": {
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]:         "type": "ISO14443",
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]:         "value": "[redacted] hash: 29F2679CA504908"
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]:     },
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]:     "parent_id_token": {
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]:         "type": "ISO14443",
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]:         "value": "[redacted] hash: 29F2679CA504908"
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]:     }
+   2025-09-25T14:24:30.953621+0200 chargesomCARE03 manager[2709]: }
+   2025-09-25T14:24:30.959095+0200 chargesomCARE03 manager[2796]: [INFO] token_validator  :: Got validation request for token: [redacted] hash: 29F2679CA504908
+   2025-09-25T14:24:31.209485+0200 chargesomCARE03 manager[2796]: [INFO] token_validator  :: Returning validation status: Accepted
+   2025-09-25T14:24:31.213119+0200 chargesomCARE03 manager[2709]: [INFO] auth:Auth        :: Providing authorization to evse#1
+   2025-09-25T14:24:31.442613+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE IEC Set PWM On (5.0%) took 0 ms
+   2025-09-25T14:24:31.444344+0200 chargesomCARE03 manager[2710]: [INFO] bsp:CbChargeSOM  :: handle_pwm_on: Setting new duty cycle of 5.0%
+   2025-09-25T14:24:31.596684+0200 chargesomCARE03 manager[2709]: [INFO] auth:Auth        :: Result for token: [redacted] hash: 29F2679CA504908: ACCEPTED
+   2025-09-25T14:24:31.648990+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE IEC EIM Authorization received
+   2025-09-25T14:24:31.711864+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): initialized, waiting for CM_START_ATTEN_CHAR_IND
+   2025-09-25T14:24:31.737341+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE IEC Transaction Started (0 kWh)
+   2025-09-25T14:24:31.737972+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE IEC DC mode. We are in 5percent mode so we can continue without further action.
+   2025-09-25T14:24:31.738394+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE IEC Charger state: Wait for Auth->PrepareCharging
 
 After that, the EV simulator should establish a powerline connection to the Charge SOM via SLAC.
 
 .. code-block:: sh
 
-   2024-12-13T15:52:04.060237+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): initialized, waiting for CM_START_ATTEN_CHAR_IND
-   2024-12-13T15:52:04.076565+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_START_ATTEN_CHAR_IND, going to substate SOUNDING
-   2024-12-13T15:52:04.116823+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): needs to be in state WAIT_FOR_START_ATTEN_CHAR for CM_START_ATTEN_CHAR_IND
-   2024-12-13T15:52:04.153137+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): needs to be in state WAIT_FOR_START_ATTEN_CHAR for CM_START_ATTEN_CHAR_IND
-   2024-12-13T15:52:04.187964+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.195990+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.223092+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.230817+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.259234+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.267262+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.294947+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.302506+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.330610+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.338308+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.365795+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.373390+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.401378+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.409026+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.437202+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.444880+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.473470+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.481479+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.509108+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_MNBC_SOUND_IND
-   2024-12-13T15:52:04.517101+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_PROFILE_IND
-   2024-12-13T15:52:04.517383+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received all sounds, going to substate FINALIZE_SOUNDING
-   2024-12-13T15:52:04.561486+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): Finalize sounding, sending CM_ATTEN_CHAR_IND
-   2024-12-13T15:52:04.577453+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): received CM_ATTEN_CHAR_RSP, going to substate WAIT_FOR_SLAC_MATCH
-   2024-12-13T15:52:04.615447+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Session (run_id=D895B977488179F2, ev_mac=00:01:87:05:A0:84): Received CM_SLAC_MATCH_REQ, sending CM_SLAC_MATCH_CNF -> session complete
-   2024-12-13T15:52:04.616909+0100 chargesom manager[267]: [INFO] evse_slac:EvseS  :: Entered Matched state
-   2024-12-13T15:52:04.637408+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO SLAC MATCHED
-   2024-12-13T15:52:04.661360+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO D-LINK_READY (true)
+   2025-09-25T14:24:31.951845+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_START_ATTEN_CHAR_IND, going to substate SOUNDING
+   2025-09-25T14:24:31.971833+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): needs to be in state WAIT_FOR_START_ATTEN_CHAR for CM_START_ATTEN_CHAR_IND
+   2025-09-25T14:24:31.991809+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): needs to be in state WAIT_FOR_START_ATTEN_CHAR for CM_START_ATTEN_CHAR_IND
+   2025-09-25T14:24:32.014530+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.022430+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.031792+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.040271+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.051785+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.059660+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.071801+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.080279+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.091866+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.099780+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.111745+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.119798+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.131953+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.139962+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.152298+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.160310+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.174327+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.181827+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.192459+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_MNBC_SOUND_IND
+   2025-09-25T14:24:32.199916+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_PROFILE_IND
+   2025-09-25T14:24:32.200284+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received all sounds, going to substate FINALIZE_SOUNDING
+   2025-09-25T14:24:32.244308+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): Finalize sounding, sending CM_ATTEN_CHAR_IND
+   2025-09-25T14:24:32.273559+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): received CM_ATTEN_CHAR_RSP, going to substate WAIT_FOR_SLAC_MATCH
+   2025-09-25T14:24:33.171940+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Session (run_id=662841C53AD4145D, ev_mac=00:01:87:0F:97:8B): Received CM_SLAC_MATCH_REQ, sending CM_SLAC_MATCH_CNF -> session complete
+   2025-09-25T14:24:33.173389+0200 chargesomCARE03 manager[2732]: [INFO] evse_slac:EvseS  :: Entered Matched state
+   2025-09-25T14:24:33.176961+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE ISO SLAC MATCHED
+   2025-09-25T14:24:33.216906+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE ISO D-LINK_READY (true)
 
 Now the EV simulator discovers the V2G service of the Charge SOM and establishes a TCP connection.
 Both hosts negotiate the protocol ISO 15118-2 and start a charging session. Since the setup
@@ -337,39 +360,39 @@ ChargeParameterDiscovery will be reached.
 
 .. code-block:: sh
 
-   2024-12-13T15:52:06.094909+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Received packet from [fe80::201:87ff:fe05:a084]:52403 with security 0x10 and protocol 0x00
-   2024-12-13T15:52:06.094909+0100 chargesom manager[270]: [INFO] iso15118_charge  :: SDP requested NO-TLS, announcing NO-TLS
-   2024-12-13T15:52:06.094909+0100 chargesom manager[270]: [INFO] iso15118_charge  :: sendto([fe80::201:87ff:fe05:a084]:52403) succeeded
-   2024-12-13T15:52:06.136758+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Incoming connection on eth1 from [a00:f192:0:0:fe80::]:61842
-   2024-12-13T15:52:06.137338+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Started new TCP connection thread
-   2024-12-13T15:52:06.413206+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Handling SupportedAppProtocolReq
-   2024-12-13T15:52:06.414011+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Protocol negotiation was successful. Selected protocol is ISO15118
-   2024-12-13T15:52:06.445910+0100 chargesom manager[263]: [INFO] connector:EvseM  ::                                     CAR ISO V2G SupportedAppProtocolReq
-   2024-12-13T15:52:06.457489+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO V2G SupportedAppProtocolRes
-   2024-12-13T15:52:06.735253+0100 chargesom manager[270]: [INFO] iso15118_charge  :: SessionSetupReq.EVCCID: 00:01:87:05:A0:84
-   2024-12-13T15:52:06.735253+0100 chargesom manager[270]: [INFO] iso15118_charge  :: No session_id found or not equal to the id from the preceding v2g session. Generating random session id.
-   2024-12-13T15:52:06.735253+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Created new session with id 0x17000314371076655851
-   2024-12-13T15:52:06.736833+0100 chargesom manager[263]: [INFO] connector:EvseM  ::                                     CAR ISO V2G SessionSetupReq
-   2024-12-13T15:52:06.845708+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO V2G SessionSetupRes
-   2024-12-13T15:52:07.142205+0100 chargesom manager[263]: [INFO] connector:EvseM  ::                                     CAR ISO V2G ServiceDiscoveryReq
-   2024-12-13T15:52:07.240688+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO V2G ServiceDiscoveryRes
-   2024-12-13T15:52:07.567095+0100 chargesom manager[263]: [INFO] connector:EvseM  ::                                     CAR ISO V2G ServiceDetailReq
-   2024-12-13T15:52:07.621170+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO V2G ServiceDetailRes
-   2024-12-13T15:52:07.921406+0100 chargesom manager[270]: [INFO] iso15118_charge  :: SelectedPaymentOption: ExternalPayment
-   2024-12-13T15:52:07.924122+0100 chargesom manager[263]: [INFO] connector:EvseM  ::                                     CAR ISO V2G PaymentServiceSelectionReq
-   2024-12-13T15:52:08.053648+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO V2G PaymentServiceSelectionRes
-   2024-12-13T15:52:08.338864+0100 chargesom manager[263]: [INFO] connector:EvseM  ::                                     CAR ISO V2G AuthorizationReq
-   2024-12-13T15:52:08.391710+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO V2G AuthorizationRes
-   2024-12-13T15:52:08.689864+0100 chargesom manager[263]: [INFO] connector:EvseM  ::                                     CAR ISO V2G AuthorizationReq
-   2024-12-13T15:52:08.764375+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO V2G AuthorizationRes
-   2024-12-13T15:52:09.049641+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Parameter-phase started
-   2024-12-13T15:52:09.049641+0100 chargesom manager[270]: [INFO] iso15118_charge  :: Selected energy transfer mode: DC_extended
-   2024-12-13T15:52:09.057571+0100 chargesom manager[263]: [INFO] connector:EvseM  :: Received EV maximum limits: {
-   2024-12-13T15:52:09.057571+0100 chargesom manager[263]:     "dc_ev_maximum_current_limit": 0.0,
-   2024-12-13T15:52:09.057571+0100 chargesom manager[263]:     "dc_ev_maximum_voltage_limit": 0.0
-   2024-12-13T15:52:09.057571+0100 chargesom manager[263]: }
-   2024-12-13T15:52:09.058568+0100 chargesom manager[263]: [INFO] connector:EvseM  ::                                     CAR ISO V2G ChargeParameterDiscoveryReq
-   2024-12-13T15:52:09.147996+0100 chargesom manager[263]: [INFO] connector:EvseM  :: EVSE ISO V2G ChargeParameterDiscoveryRes
+   2025-09-25T14:24:35.662140+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Received packet from [fe80::201:87ff:fe0f:978b]:58650 with security 0x10 and protocol 0x00
+   2025-09-25T14:24:35.662140+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: SDP requested NO-TLS, announcing NO-TLS
+   2025-09-25T14:24:35.662140+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: sendto([fe80::201:87ff:fe0f:978b]:58650) succeeded
+   2025-09-25T14:24:35.678618+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Incoming connection on eth1 from [a00:c000:0:0:fe80::]:49152
+   2025-09-25T14:24:35.679087+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Started new TCP connection thread
+   2025-09-25T14:24:35.679390+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Handling SupportedAppProtocolReq
+   2025-09-25T14:24:35.679839+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Protocol negotiation was successful. Selected protocol is ISO15118
+   2025-09-25T14:24:35.682040+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  ::                                     CAR ISO V2G SupportedAppProtocolReq
+   2025-09-25T14:24:35.720169+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: SessionSetupReq.EVCCID: 00:01:87:0F:97:8B
+   2025-09-25T14:24:35.720169+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: No session_id found or not equal to the id from the preceding v2g session. Generating random session id.
+   2025-09-25T14:24:35.720169+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Created new session with id 0x9079111121431940848
+   2025-09-25T14:24:35.725579+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE ISO V2G SupportedAppProtocolRes
+   2025-09-25T14:24:35.770725+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  ::                                     CAR ISO V2G SessionSetupReq
+   2025-09-25T14:24:35.856733+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE ISO V2G SessionSetupRes
+   2025-09-25T14:24:35.915128+0200 chargesomCARE03 manager[2750]: [WARN] iso15118_charge  :: PnC is not allowed without TLS-communication. Correcting value to '1' (ExternalPayment)
+   2025-09-25T14:24:35.917660+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  ::                                     CAR ISO V2G ServiceDiscoveryReq
+   2025-09-25T14:24:36.052925+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE ISO V2G ServiceDiscoveryRes
+   2025-09-25T14:24:36.121459+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: SelectedPaymentOption: ExternalPayment
+   2025-09-25T14:24:36.145121+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  ::                                     CAR ISO V2G PaymentServiceSelectionReq
+   2025-09-25T14:24:36.220660+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE ISO V2G PaymentServiceSelectionRes
+   2025-09-25T14:24:36.373414+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  ::                                     CAR ISO V2G AuthorizationReq
+   2025-09-25T14:24:36.425496+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE ISO V2G AuthorizationRes
+   2025-09-25T14:24:36.533923+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  ::                                     CAR ISO V2G AuthorizationReq
+   2025-09-25T14:24:36.633361+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE ISO V2G AuthorizationRes
+   2025-09-25T14:24:36.737969+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Parameter-phase started
+   2025-09-25T14:24:36.737969+0200 chargesomCARE03 manager[2750]: [INFO] iso15118_charge  :: Selected energy transfer mode: DC_extended
+   2025-09-25T14:24:36.765666+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: Received EV maximum limits: {
+   2025-09-25T14:24:36.765666+0200 chargesomCARE03 manager[2712]:     "dc_ev_maximum_current_limit": 5.0,
+   2025-09-25T14:24:36.765666+0200 chargesomCARE03 manager[2712]:     "dc_ev_maximum_power_limit": 1100.0,
+   2025-09-25T14:24:36.765666+0200 chargesomCARE03 manager[2712]:     "dc_ev_maximum_voltage_limit": 228.0
+   2025-09-25T14:24:36.765666+0200 chargesomCARE03 manager[2712]: }
+   2025-09-25T14:24:36.765666+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  ::                                     CAR ISO V2G ChargeParameterDiscoveryReq
+   2025-09-25T14:24:36.835806+0200 chargesomCARE03 manager[2712]: [INFO] connector:EvseM  :: EVSE ISO V2G ChargeParameterDiscoveryRes
 
 Congratulations! You have successfully established a charging session with the EVerest
 charging stack and the Charge SOM. Now you are prepared to start your own charging project and
