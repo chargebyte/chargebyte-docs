@@ -19,6 +19,7 @@ The use case described in this configuration file includes the following:
 * 3 phase, 16A fuse limit
 * Simulation of the IMD (Insulation Monitoring Device)
 * Simulation of the DC Supply Device
+* Energy management via JSON-RPC API
 
 An overview of the EVerest modules is shown in the next section.
 

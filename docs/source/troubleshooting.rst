@@ -92,7 +92,13 @@ Does EVerest on Charge SOM support ISO 15118-20 yet?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The required module for ISO 15118-20 has been included in the image since the Charge SOM EVerest release 0.2.0.
-Please note that the implementation is still under development.
+Please note that the implementation is still under development and integrated into the image only for test purposes.
+
+EVerest integrates the `libiso15118 <https://github.com/EVerest/libiso15118>`_ library to provide support for ISO 15118-20.
+Here you can find more information about the current status of the ISO 15118-20 implementation.
+Please note, however, that the range of functions described in the linked `libiso15118` library documentation may not
+correspond to those already integrated in EVerest, as the library has not yet been fully integrated.
+Implementation gaps may exist, particularly in the case of BPT (bidirectional power transfer) functionality.
 
 
 How do I set up OCPP 2.0.1 on Charge SOM with EVerest?
@@ -135,8 +141,8 @@ The most important points are summarised here:
    `libocpp documentation <https://github.com/EVerest/libocpp/blob/main/doc/v2/ocpp_201_device_model_initialization.md>`_.
 
 
-I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can it fix this?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can I fix this?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The EVerest mainline development is very dynamic and doesn't guarantee any
 stable API along the EVerest modules. So after almost every EVerest release,
