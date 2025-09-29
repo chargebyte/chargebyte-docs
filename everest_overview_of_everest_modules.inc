@@ -19,14 +19,35 @@ This module is the global Energy Manager for all EVSE/Charging stations in a bui
 
 **API** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/API/API>`__)
 
-This module is not mandatory for an EVSE setup in EVerest. However, the module
+This module is not mandatory for a simple EVSE setup in EVerest. However, the module
 :code:`API` is responsible for providing a simple MQTT based API to EVerest internals.
+Please note that this module will be removed in future releases and replaced by the
+:code:`RpcApi` module.
+
+**RpcApi** (`view on GitHub Pull Request <https://github.com/EVerest/everest-core/pull/1324>`__)
+
+This module is not mandatory for a simple EVSE setup in EVerest, but it is required by the CB Energy Management System
+:ref:`introduction_nymea` service. This module provides a standardized interface for external applications to interact
+with an EVerest-based charge point. It uses JSON-RPC over WebSocket to allow clients to perform various operations,
+such as starting or stopping a charging session, retrieving status information, and configuring settings.
 
 **ErrorHistory** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/Misc/ErrorHistory>`__)
 
 This module is not mandatory for an EVSE setup in EVerest. This module is responsible
 for storing EVerest error events in a database file. The location of the database file can be defined
 via a configuration parameter.
+
+**ChargerInfo** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/Misc/ChargerInfo>`__)
+
+This module provides a charger information interface, backed by simple key-value storage interface. With the optional
+dependency to another charger information node, it is possible to chain multiple sources of information. The module uses a
+YAML file to read charger information like manufacturer, model, serial number, firmware version, etc..
+This file is located in :code:`/etc/everest/charger_info.yaml` by default.
+
+**YamlStore** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/Misc/YamlStore>`__)
+
+This module provides a read-only key-value store interface, backed by a simple YAML file. This module is used by
+the :code:`ChargerInfo` module to read charger information from a YAML file.
 
 **DummyTokenProvider** (`view on GitHub <https://github.com/EVerest/everest-core/tree/main/modules/Testing/DummyTokenValidator>`__)
 
