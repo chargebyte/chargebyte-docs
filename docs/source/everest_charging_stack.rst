@@ -19,6 +19,7 @@ The use case described in this configuration file includes the following:
 * CP state D is rejected
 * 1 contactor for 3 phase
 * No phase switching
+* Energy management via JSON-RPC API and CB Energy
 
 An overview of the EVerest modules that are defined within a configuration file is shown in the next section.
 
