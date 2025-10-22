@@ -68,30 +68,21 @@ A phase count switching setup always consists of two contactors which are contro
 stack more or less independently. There exists two different kinds of hardware setups which are
 different in the physical wiring:
 
-* **serial** setup type: In this setup type both contactors are wired in 'series'. This means, that
-  the primary contactor always switches all phases (directly or indirectly) while the secondary contactor
-  only switches the phases 2 and 3. The advantage of such a connection is that all phases appear
-  simultaneously on the car side, not one after another.
-  To achieve this, the primary contactor either switches all phases or, in addition to the neutral line
-  and one phase, also switches the control path from the secondary contactor.
-  From the software perspective, the secondary contactor is switched on first, but switched off last.
-  In contrast to the primary contactor: this one is switched on last, but switched off first.
-  This ensures - in combination with the physical setup - a homogeneous view of the grid to
-  the car. Thus the charger appears to be a single-phase only or a three-phase charger.
+* **serial** setup type: In this setup type both contactors are wired in 'series': while the
+  primary contactor switches all phases, the secondary contactor only switches the phases 2 and 3.
+  However, it is also required that all phases appear simultaneously on the car side, not one after
+  another. To achieve this, from the software perspective, the secondary contactor is switched on first,
+  but switched off last. In contrast to the primary contactor: this one is switched on last,
+  but switched off first.
+  This ensures - in combination with the physical setup - a homogeneous view of the grid from the
+  car side. Thus the charger appears to be a single-phase only or a three-phase charger.
 
-.. _switch-3ph1ph-serial-1:
-.. figure:: _static/images/switch-3ph1ph-serial-4p-contactor.drawio.svg
-    :width: 80%
+.. _switch-3ph1ph-serial:
+.. figure:: _static/images/switch-3ph1ph-serial.drawio.svg
+    :width: 50%
 
     Example wiring with two contactors 'in series', both with auxiliary contacts for feedback generation.
-    Both contactors must be rated for 400 V in this setup.
-
-.. _switch-3ph1ph-serial-2:
-.. figure:: _static/images/switch-3ph1ph-serial-3p-contactor.drawio.svg
-    :width: 80%
-
-    Another example wiring with two contactors 'in series'. Here too, both contactors must be
-    rated for 400 V. In this example, the primary contactor only needs to switch 3 wires.
+    Note, that both contactors must be rated for 400 V in this setup.
 
 * **mutual** setup type: In this setup type, two different contactors are used 'in parallel'. However,
   it is important that only one contactor can be active at a time, i.e. they exclude each other *mutually*.
@@ -101,7 +92,7 @@ different in the physical wiring:
 
 .. _switch-3ph1ph-mutual:
 .. figure:: _static/images/switch-3ph1ph-mutual.drawio.svg
-    :width: 80%
+    :width: 60%
 
     Example wiring with two contactors in 'mutual' setup. The primary contactor must be
     rated for 400 V, the secondary contactor can be rated for 230 V only.
