@@ -7,7 +7,7 @@ ChargeControl1
 
 **Description**: This message shall be sent from the host processor to the safety controller to control the peripherals connected to the safety controller.
 
-**Senders**: Default_HostController
+**Senders**: chargeSOM_HostController
 
 .. list-table:: Signals in ChargeControl1
    :widths: 30 6 6 10 7 7 7 6 30
@@ -58,6 +58,15 @@ ChargeControl1
      - 0
      - 
      - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.
+   * - CC_Contactor3State
+     - 18
+     - 1
+     - 
+     - No
+     - 1
+     - 0
+     - 
+     - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.
 
 **Bitfield Layout**
 
@@ -70,7 +79,7 @@ ChargeControl1
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   1|                    |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-  2|                    |                    |                    |                    |                    |                    | CC_Contactor2State | CC_Contactor1State |
+  2|                    |                    |                    |                    |                    | CC_Contactor3State | CC_Contactor2State | CC_Contactor1State |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   3|                    |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
@@ -92,7 +101,7 @@ ChargeState1
 
 **Description**: This message shall be sent from safety controller to host processor for indicating the state of the charging session as well as the state of connected peripherals.
 
-**Senders**: Safety Controller
+**Senders**: chargeSOM_SafetyController
 
 .. list-table:: Signals in ChargeState1
    :widths: 30 6 6 10 7 7 7 6 30
@@ -116,6 +125,15 @@ ChargeState1
      - 0
      - %
      - The current duty cycle between 0.0% and 100.0%. If the PWM is not aczive this signal is 0
+   * - CS_SafeStateActive
+     - 3
+     - 2
+     - 
+     - No
+     - 1
+     - 0
+     - 
+     - This signal reports, if the controller is in safeState or not.
    * - CS_PWM_Active
      - 7
      - 1
@@ -169,34 +187,25 @@ ChargeState1
      - 1
      - 0
      - 
-     - Is set when the contactor is closed
-   * - CS_Contactor1Error
-     - 34
-     - 1
-     - 
-     - No
-     - 1
-     - 0
-     - 
-     - Is set when an error in the contactor is detected
+     - State of contactor 1
    * - CS_Contactor2State
-     - 36
+     - 35
      - 2
      - 
      - No
      - 1
      - 0
      - 
-     - Is set when the contactor is closed
-   * - CS_Contactor2Error
+     - State of contactor 2
+   * - CS_Contactor3State
      - 37
-     - 1
+     - 2
      - 
      - No
      - 1
      - 0
      - 
-     - Is set when an error in the contactor is detected
+     - State of contactor 3
    * - CS_HV_Ready
      - 38
      - 1
@@ -233,8 +242,23 @@ ChargeState1
      - 0
      - 
      - *No description available*
+   * - CS_SafeStateReason
+     - 55
+     - 8
+     - 
+     - No
+     - 1
+     - 0
+     - 
+     - This signal describes in which module a fault was detected, why the controller went into safeState
 
 **Value Descriptions**
+
+- **CS_SafeStateActive**
+
+  - 0x0 = NormalState
+  - 0x1 = SafeState
+  - 0x3 = SNA
 
 - **CS_CurrentCpState**
 
@@ -260,14 +284,23 @@ ChargeState1
 
 - **CS_Contactor1State**
 
-  - 0x0 = OPEN
-  - 0x1 = CLOSE
+  - 0x0 = UNDEFINED
+  - 0x1 = OPEN
+  - 0x2 = CLOSE
   - 0x3 = NotConfigured
 
 - **CS_Contactor2State**
 
-  - 0x0 = OPEN
-  - 0x1 = CLOSE
+  - 0x0 = UNDEFINED
+  - 0x1 = OPEN
+  - 0x2 = CLOSE
+  - 0x3 = NotConfigured
+
+- **CS_Contactor3State**
+
+  - 0x0 = UNDEFINED
+  - 0x1 = OPEN
+  - 0x2 = CLOSE
   - 0x3 = NotConfigured
 
 - **CS_Estop1ChargingAbort**
@@ -288,6 +321,28 @@ ChargeState1
   - 0x1 = TRUE
   - 0x3 = NotConfigured
 
+- **CS_SafeStateReason**
+
+  - 0x0 = NoStop
+  - 0x1 = InternalError
+  - 0x2 = ComTimeout
+  - 0x3 = Temp1_Malfunction
+  - 0x4 = Temp2_Malfunction
+  - 0x5 = Temp3_Malfunction
+  - 0x6 = Temp4_Malfunction
+  - 0x7 = Temp1_Overtemp
+  - 0x8 = Temp2_Overtemp
+  - 0x9 = Temp3_Overtemp
+  - 0xA = Temp4_Overtemp
+  - 0xB = PP_Malfunction
+  - 0xC = CP_Malfunction
+  - 0xD = CP_ShortCircuit
+  - 0xE = CP_DiodeFault
+  - 0xF = HVSW_Malfunction
+  - 0x10 = EmergencyInput1
+  - 0x11 = EmergencyInput2
+  - 0x12 = EmergencyInput3
+
 **Bitfield Layout**
 
 ::
@@ -295,7 +350,7 @@ ChargeState1
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
    |         7          |         6          |         5          |         4          |         3          |         2          |         1          |         0          |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-  0|   CS_PWM_Active    |                    |                    |                    |                    |                    |CS_CurrentDutyCycle |                    |
+  0|   CS_PWM_Active    |                    |                    |                    | CS_SafeStateActive |                    |CS_CurrentDutyCycle |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   1|                    |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
@@ -303,11 +358,11 @@ ChargeState1
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   3|                    |                    |                    |                    |                    | CS_CurrentPpState  |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-  4|                    |    CS_HV_Ready     | CS_Contactor2Error | CS_Contactor2State |                    | CS_Contactor1Error | CS_Contactor1State |                    |
+  4|                    |    CS_HV_Ready     | CS_Contactor3State |                    | CS_Contactor2State |                    | CS_Contactor1State |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   5|                    |                    |CS_Estop3ChargingAbo|                    |CS_Estop2ChargingAbo|                    |CS_Estop1ChargingAbo|                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-  6|                    |                    |                    |                    |                    |                    |                    |                    |
+  6| CS_SafeStateReason |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   7|                    |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
@@ -321,7 +376,7 @@ PT1000State
 
 **Description**: This message shall be sent from safety controller to host processor for indicating the state of the connected temperature sensors
 
-**Senders**: Safety Controller
+**Senders**: chargeSOM_SafetyController
 
 .. list-table:: Signals in PT1000State
    :widths: 30 6 6 10 7 7 7 6 30
@@ -496,7 +551,7 @@ FirmwareVersion
 
 **Description**: This message provides information about the type and version of the flashed firmware
 
-**Senders**: Safety Controller
+**Senders**: chargeSOM_SafetyController
 
 .. list-table:: Signals in FirmwareVersion
    :widths: 30 6 6 10 7 7 7 6 30
@@ -556,6 +611,15 @@ FirmwareVersion
      - 0
      - 
      - The type of firmware. See possible values below
+   * - ParameterVersion
+     - 47
+     - 16
+     - Big Endian
+     - No
+     - 1
+     - 0
+     - 
+     - Version of the parameter file
 
 **Value Descriptions**
 
@@ -585,9 +649,9 @@ FirmwareVersion
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   3|    PlatformType    |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-  4|  ApplicationType   |                    |                    |                    |                    |                    |                    |                    |
+  4|  ParameterVersion  |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-  5|                    |                    |                    |                    |                    |                    |                    |                    |
+  5|  ParameterVersion  |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
   6|                    |                    |                    |                    |                    |                    |                    |                    |
    +--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
@@ -603,7 +667,7 @@ GitHash
 
 **Description**: This message provides information about the GIT hash, written in the firmware
 
-**Senders**: Safety Controller
+**Senders**: chargeSOM_SafetyController
 
 .. list-table:: Signals in GitHash
    :widths: 30 6 6 10 7 7 7 6 30
@@ -661,7 +725,7 @@ InquiryPacket
 
 **Description**: This packet is used to request a special message from the safety controller
 
-**Senders**: Default_HostController, CCY_HostController
+**Senders**: chargeSOM_HostController, CCY_HostController
 
 .. list-table:: Signals in InquiryPacket
    :widths: 30 6 6 10 7 7 7 6 30
