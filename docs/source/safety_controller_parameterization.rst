@@ -96,6 +96,12 @@ Contactor and Contactor Feedback Configuration
 The safety controller allows to control up to 3 high-voltage contactors and can monitor corresponding mirror contacts.
 The mirror contacts support `Normally Closed` and `Normally Open` semantic, but customer must follow chargebyte's
 Charge SOM's EVB reference design otherwise the logic might be inverted.
+
+.. figure:: _static/images/charge_som_contactor_feedback_evb-circuit.drawio.svg
+   :width: 800px
+
+   Simplified Reference Circuit used on Charge SOM's EVB for Contactor Feedback Signal
+
 In the YAML parameterization, it is possible to specify whether the safety controller should actually switch the
 corresponding output pin and whether to monitor the feedback input pins. When using the feedback, it is usually also
 required to specify the open and closing times of the used contactor. These times are expected in milliseconds and
@@ -112,10 +118,11 @@ Possible values for the `type` are:
 
 Since the open/close timings make no sense in case of `disabled` or `without-feedback`, it is possible to use these
 tokens directly as array item (actually, it is also possible to use the `with-feedback...` ones, but then the timings
-are considered zero).
+are considered zero which will result in an error due to the latency in the contactor).
 
 Both `close-time` and `open-time` accept integer values in the range 0 to 2550 ms, however the given value is
 divided by 10 before it is actually stored internally.
+(This division by 10 is necessary because the safety controller operates with internal time slots of 10 ms.)
 
 
 Emergency Input Configuration
