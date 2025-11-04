@@ -93,8 +93,8 @@ The range for `resistance-offset` is -32.0 Ω ... 32.0 Ω and these values are s
 Contactor and Contactor Feedback Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The safety controller allows to control up to 3 high-voltage contactors and can monitor corresponding mirror contacts.
-The mirror contacts support `Normally Closed` and `Normally Open` semantic, but customer must follow chargebyte's
+The safety controller allows to control up to 3 high-voltage contactors and can monitor corresponding feedback contacts.
+The feedback contacts support `Normally Closed` and `Normally Open` semantic, but customer must follow chargebyte's
 Charge SOM's EVB reference design otherwise the logic might be inverted.
 
 .. figure:: _static/images/charge_som_contactor_feedback_evb-circuit.drawio.svg
@@ -103,10 +103,10 @@ Charge SOM's EVB reference design otherwise the logic might be inverted.
    Simplified Reference Circuit used on Charge SOM's EVB for Contactor Feedback Signal
 
 In the YAML parameterization, it is possible to specify whether the safety controller should actually switch the
-corresponding output pin and whether to monitor the feedback input pins. When using the feedback, it is usually also
-required to specify the open and closing times of the used contactor. These times are expected in milliseconds and
-used by the Safety Firmware to check after the given time whether the feedback pin has expected level. If the level
-differs from the expectation, then Safety Firmware assumes a malfunction and thus enters safe state.
+corresponding output pin and whether to monitor the feedback input pins. When using the feedback, it is also
+required to specify the opening and closing times of the used contactor. These times are expected in milliseconds and
+used by the safety firmware to check after the given time whether the feedback pin has the expected level. If the level
+differs from the expectation, then the safety firmware assumes a malfunction and thus enters safe state.
 
 The example YAML file above shows all allowed variants how to parameterize a contactor.
 Possible values for the `type` are:
@@ -118,11 +118,11 @@ Possible values for the `type` are:
 
 Since the open/close timings make no sense in case of `disabled` or `without-feedback`, it is possible to use these
 tokens directly as array item (actually, it is also possible to use the `with-feedback...` ones, but then the timings
-are considered zero which will result in an error due to the latency in the contactor).
+are considered zero which will result in an error due to the physical latency in the contactor).
 
-Both `close-time` and `open-time` accept integer values in the range 0 to 2550 ms, however the given value is
-divided by 10 before it is actually stored internally.
-(This division by 10 is necessary because the safety controller operates with internal time slots of 10 ms.)
+Both `close-time` and `open-time` accept integer values in the range 10 to 2550 ms. Internally, the
+safety controller operates with time slots of 10 ms, so the last digit of the given integer is just discarded.
+(In other words, the given integer is integer-divided by 10 before it is stored in the parameter block.)
 
 
 Emergency Input Configuration
