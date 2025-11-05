@@ -1,20 +1,9 @@
 import cantools
 from cantools.subparsers.dump import formatting
+from dbc_to_rst_config import *
 
 # Load the DBC file
 db = cantools.database.load_file("uart_com.dbc")
-
-# Messages you want to document
-target_msgs = ["ChargeControl1", "ChargeState1", "PT1000State", "FirmwareVersion", "GitHash", "InquiryPacket"]
-
-# Sender name mapping
-sender_name_map = {
-    "Default_SafetyController": "Safety Controller",
-    "Default_Linux": "Linux Processor"
-}
-
-# Senders to exclude from display
-excluded_senders = {"CCY_SafetyController"}
 
 # Extract a signal row as a list of strings
 def signal_row(signal):
