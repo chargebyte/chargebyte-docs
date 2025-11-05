@@ -1,4 +1,4 @@
-VERSION "0.0.2"
+VERSION "0.0.3"
 
 
 NS_ : 
@@ -65,9 +65,9 @@ BO_ 5 AnalogInput04: 8 chargeSOM_SafetyController
  SG_ AI_PT1000_CFB3_4 : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
 
 BO_ 4 AnalogInput03: 8 chargeSOM_SafetyController
- SG_ AI_SAFETY_HS2_CFB : 39|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
- SG_ AI_SAFETY_HS1_CFB : 23|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
- SG_ AI_SAFETY_PRECHARGE_CFB : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_SAFETY_HVSW2_FB : 39|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_SAFETY_HVSW1_FB : 23|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_SAFETY_HVSW3_FB : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
  SG_ AI_PT1000_CFB1_2 : 55|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
 
 BO_ 3 AnalogInput02: 8 chargeSOM_SafetyController
@@ -104,9 +104,8 @@ BO_ 7 ChargeState1: 8 chargeSOM_SafetyController
  SG_ CS_Estop2ChargingAbort : 43|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_Estop3ChargingAbort : 45|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_Contactor1State : 33|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
- SG_ CS_Contactor2State : 36|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
- SG_ CS_Contactor1Error : 34|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
- SG_ CS_Contactor2Error : 37|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Contactor2State : 35|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Contactor3State : 37|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_HV_Ready : 38|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_CurrentPpState : 26|3@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_CurrentCpState : 18|3@0+ (1,0) [0|0] ""  chargeSOM_HostController
@@ -118,6 +117,7 @@ BO_ 7 ChargeState1: 8 chargeSOM_SafetyController
 BO_ 6 ChargeControl1: 8 chargeSOM_HostController
  SG_ CC_Contactor1State : 16|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
  SG_ CC_Contactor2State : 17|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
+ SG_ CC_Contactor3State : 18|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
  SG_ CC_TargetDutyCycle : 1|10@0+ (0.1,0) [0|0] "%"  chargeSOM_SafetyController
  SG_ CC_PWM_Active : 7|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
 
@@ -127,6 +127,7 @@ BO_ 10 FirmwareVersion: 8 chargeSOM_SafetyController
  SG_ BuildVersion : 23|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
  SG_ PlatformType : 31|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
  SG_ ApplicationType : 39|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ SG_ ParameterVersion : 47|16@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
 
 BO_ 11 GitHash: 8 chargeSOM_SafetyController
  SG_ HashSignal : 7|64@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
@@ -200,10 +201,9 @@ CM_ SG_ 16 CS_SafeStateActive "This signal reports, if the controller is in safe
 CM_ BO_ 7 "This message shall be sent from safety controller to host processor for indicating the state of the charging session as well as the state of connected peripherals.";
 CM_ SG_ 7 CS_SafeStateReason "This signal describes in which module a fault was detected, why the controller went into safeState";
 CM_ SG_ 7 CS_SafeStateActive "This signal reports, if the controller is in safeState or not.";
-CM_ SG_ 7 CS_Contactor1State "Is set when the contactor is closed";
-CM_ SG_ 7 CS_Contactor2State "Is set when the contactor is closed";
-CM_ SG_ 7 CS_Contactor1Error "Is set when an error in the contactor is detected";
-CM_ SG_ 7 CS_Contactor2Error "Is set when an error in the contactor is detected";
+CM_ SG_ 7 CS_Contactor1State "State of contactor 1";
+CM_ SG_ 7 CS_Contactor2State "State of contactor 2";
+CM_ SG_ 7 CS_Contactor3State "State of contactor 3";
 CM_ SG_ 7 CS_HV_Ready "This is the state of the HV ready or State C output. This output is high, if the chargeSOM dont see any errors and CP is at state C. Otherwise it is low.";
 CM_ SG_ 7 CS_CurrentPpState "State of the proximity pin. For fixed cables at CCS2, this value is 0x0: No Cable detected";
 CM_ SG_ 7 CS_CurrentCpState "Current state of the control pilot. See value mappings below";
@@ -214,6 +214,7 @@ CM_ SG_ 7 CS_PWM_Active "Feedback if PWM is active. 0 means not active, 1 means 
 CM_ BO_ 6 "This message shall be sent from the host processor to the safety controller to control the peripherals connected to the safety controller.";
 CM_ SG_ 6 CC_Contactor1State "Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.";
 CM_ SG_ 6 CC_Contactor2State "Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.";
+CM_ SG_ 6 CC_Contactor3State "Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.";
 CM_ SG_ 6 CC_TargetDutyCycle "Duty cycle between 0.0 and 100.0%. Values above 100.0% are set as 100%. Only valid if the signal CC_PWM_Active is 1";
 CM_ SG_ 6 CC_PWM_Active "This flag indicates if the PWM should be activated. At a value of 0, the CP level is also 0V. At a value of 1, the CP level is dependant of the duty cycle";
 CM_ BO_ 10 "This message provides information about the type and version of the flashed firmware";
@@ -222,6 +223,7 @@ CM_ SG_ 10 MinorVersion "Minor version of the firmware";
 CM_ SG_ 10 BuildVersion "Build or patch version of the firmware";
 CM_ SG_ 10 PlatformType "This firmware can be used for several products with minor changes in the build process. The platform type describes the used platform";
 CM_ SG_ 10 ApplicationType "The type of firmware. See possible values below";
+CM_ SG_ 10 ParameterVersion "Version of the parameter file";
 CM_ BO_ 11 "This message provides information about the GIT hash, written in the firmware";
 CM_ SG_ 11 HashSignal "First 8 byte of the 160 bit (SHA-1) GIT hash";
 CM_ BO_ 8 "This message shall be sent from safety controller to host processor for indicating the state of the connected temperature sensors";
@@ -253,8 +255,9 @@ VAL_ 7 CS_SafeStateActive 3 "SNA" 1 "SafeState" 0 "NormalState" ;
 VAL_ 7 CS_Estop1ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
 VAL_ 7 CS_Estop2ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
 VAL_ 7 CS_Estop3ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
-VAL_ 7 CS_Contactor1State 0 "OPEN" 1 "CLOSE" 3 "NotConfigured" ;
-VAL_ 7 CS_Contactor2State 0 "OPEN" 1 "CLOSE" 3 "NotConfigured" ;
+VAL_ 7 CS_Contactor1State 0 "UNDEFINED" 1 "OPEN" 2 "CLOSE" 3 "NotConfigured" ;
+VAL_ 7 CS_Contactor2State 0 "UNDEFINED" 1 "OPEN" 2 "CLOSE" 3 "NotConfigured" ;
+VAL_ 7 CS_Contactor3State 0 "UNDEFINED" 1 "OPEN" 2 "CLOSE" 3 "NotConfigured" ;
 VAL_ 7 CS_CurrentPpState 7 "Error" 6 "Type1_ConnectedButtonPressed" 5 "Type1_Connected" 4 "63/70A" 3 "32A" 2 "20A" 1 "13A" 0 "NoCableDetected" ;
 VAL_ 7 CS_CurrentCpState 0 "Unknown" 7 "Invalid" 6 "F" 5 "E" 4 "D" 3 "C" 2 "B" 1 "A" ;
 VAL_ 10 PlatformType 129 "chargeSOM" 130 "CCY" ;
