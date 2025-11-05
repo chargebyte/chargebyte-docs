@@ -1,19 +1,9 @@
 import cantools
+from cantools.subparsers.dump import formatting
+from dbc_to_rst_config import *
 
 # Load the DBC file
 db = cantools.database.load_file("uart_com.dbc")
-
-# Messages you want to document
-target_msgs = ["ChargeControl1", "ChargeState1", "PT1000State", "FirmwareVersion", "GitHash", "InquiryPacket"]
-
-# Sender name mapping
-sender_name_map = {
-    "Default_SafetyController": "Safety Controller",
-    "Default_Linux": "Linux Processor"
-}
-
-# Senders to exclude from display
-excluded_senders = {"CCY_SafetyController"}
 
 # Extract a signal row as a list of strings
 def signal_row(signal):
@@ -42,49 +32,13 @@ def signal_row(signal):
     ]
 
 def format_bit_matrix(msg):
-    bit_width = 20
-    byte_label_width = 3
-    bitfield = [None] * (msg.length * 8)
-
-    for signal in msg.signals:
-        if signal.byte_order == "little_endian":
-            bit_indices = list(range(signal.start, signal.start + signal.length))
-        else:
-            bit_indices = list(range(signal.start, signal.start - signal.length, -1))
-
-        for idx in bit_indices:
-            if 0 <= idx < len(bitfield):
-                bitfield[idx] = signal.name
-
-    total_bits = msg.length * 8
-    num_rows = total_bits // 8
-    lines = []
-
-    # Header with byte index
-    border = "   +" + "+".join(["-" * bit_width] * 8) + "+"
-    header = "   |" + "|".join([f"{7 - i:^{bit_width}}" for i in range(8)]) + "|"
-    lines.extend([border, header, border])
-
-    for row in range(num_rows):
-        base = row * 8
-        seen = set()
-        row_cells = []
-        for i in range(8):
-            bit_index = base + (7 - i)
-            label = bitfield[bit_index]
-            if label and label not in seen:
-                cell = label[:bit_width].center(bit_width)
-                seen.add(label)
-            else:
-                cell = " " * bit_width
-            row_cells.append(cell)
-        lines.append(f"{row:>3}|" + "|".join(row_cells) + "|")
-        lines.append(border)
-
     rst = "\n**Bitfield Layout**\n\n::\n\n"
-    rst += "\n".join(lines) + "\n"
+    rst += '\n'.join([
+                   ('   ' + line).rstrip()
+                   for line in formatting.layout_string(msg).splitlines()
+                ])
+    rst += "\n\n\n"
     return rst
-
 
 # Format one message block as RST
 def format_message_rst(msg):
