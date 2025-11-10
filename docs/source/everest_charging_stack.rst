@@ -65,7 +65,7 @@ Also the BSP driver `CbTarragonDriver <https://github.com/chargebyte/everest-cha
 (aka HAL) for this platform gained support for this.
 
 A phase count switching setup always consists of two contactors which are controlled by the charging
-stack more or less independently. There exists three different kinds of hardware setups which are
+stack more or less independently. There exist three different kinds of hardware setups which are
 different in the physical wiring:
 
 * **serial** setup type: In this setup type both contactors are wired in 'series': while the
