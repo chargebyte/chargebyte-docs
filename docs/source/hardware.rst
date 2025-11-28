@@ -261,14 +261,14 @@ The push button pairing method is the most famous method. Charge Control C has n
 this method, but the push button can be simulated with on-board tools.
 
     1. Press the powerline security button on the companion (e.g. wallplug adapter) to start the pairing process.
-    2. Run the following command on Charge Control C - this emulates pressing the pairing button of the \
+    2. Run the following commands on Charge Control C - this emulates pressing the pairing button of the \
        evaluation board:
 
         .. code-block:: sh
 
-         root@tarragon:˜ $ plctool −B join −i eth2
-         eth2 00:B0:52:00:00:01 Join Network
-         eth2 00:01:87:FF:FF:2B Joining ...
+         root@tarragon:˜ $ gpioset -t 0,1000,0 QCA700X_MAINS_BOOTLOADER_N=1
+         root@tarragon:˜ $ gpioget QCA700X_MAINS_BOOTLOADER_N
+         "QCA700X_MAINS_BOOTLOADER_N"=active
          root@tarragon:˜ $
 
     3. You should see the remote powerline adapter after a short while:
@@ -276,7 +276,7 @@ this method, but the push button can be simulated with on-board tools.
 
          root@tarragon:˜ $ plcstat −t −i eth2
          P/L NET TEI −−−−−− MAC −−−−−− −−−−−− BDA −−−−−−  TX  RX CHIPSET FIRMWARE
-         LOC STA 002 00:01:87:FF:FF:2B 00:01:87:FF:FF:FE n/a n/a QCA7000 MAC−QCA7000−1.1.3.1531−00−20150204−CS
+         LOC STA 002 00:01:87:FF:FF:2B 00:01:87:FF:FF:FE n/a n/a QCA7000 MAC-QCA7000-3.4.0.36-00-20241008-CS
          REM CCO 001 00:0B:3B:AA:86:55 E0:CB:4E:ED:1F:53 009 009 INT6400 INT6000−MAC−4−1−4102−00−3679−20090724−FINAL−B
          root@tarragon:˜ $
 
