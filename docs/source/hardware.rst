@@ -154,8 +154,8 @@ The baudrate of each EIA-485 interface is configurable up to 115200 bps.
     :widths: auto
 
     * - Board Interface
-      - EIA-485 #1 isolated (X7)
-      - EIA-485 #2 (X8)
+      - `X7 - EIA-485 1`_ isolated
+      - `X8 - EIA-485 2 <#tX8 - EIA-485 2 / CAN>`_ optional
     * - Linux Interface
       - /dev/ttymxc0
       - /dev/ttymxc4
