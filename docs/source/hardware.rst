@@ -652,7 +652,7 @@ Following table shows the related configuration:
 1-Wire
 ======
 
-This is a generic 1-Wire interface. It is realised with an I2C to 1-wire bridge.
+Some product variants provide an `X4 - 1-Wire`_ interface. It is realised with an I2C to 1-wire bridge.
 The bridge is handled by the DS2484 1-Wire Linux driver and provides the interface /sys/bus/w1/.
 
 ’Application Note 7 - Charge Control C - Thermal Management’ shows an example of how to use the 1-Wire bridge.
@@ -840,7 +840,7 @@ The automatic RCD test, required by standard *IEC62955*, is part of coming imple
 Charge Control C uses common tools like the hwmon/ thermal framework of the Linux Kernel.
 
 As per default, Charge Control C only uses the thermal sensor on the i.MX6ULL SoC and tries to regulate the
-temperature via the X3 fan connector. The responsible program is the shell script "fancontrol" (taken from lmsensors)
+temperature via the `X3 - Fan`_ connector. The responsible program is the shell script "fancontrol" (taken from lmsensors)
 which is started automatically during boot on Charge Control C 300.
 
 
@@ -919,7 +919,7 @@ This product needs DC supply voltage input.
 X3 - Fan
 ========
 
-Charge Control C provides an output for 4-Wire pulse width modulation (PWM) controlled fans.
+Charge Control C provides an optional output for 4-Wire pulse width modulation (PWM) controlled fans.
 
 .. flat-table:: X3 - Fan
     :header-rows: 1
@@ -943,8 +943,8 @@ absolute maximum rating of the fan interface. This could potentially destroy the
 X4 - 1-Wire
 ===========
 
-This product provides a 1-Wire master interface where 1-Wire downstream slave devices
-(such as temperature sensors) can be connected.
+Depending on the product variant the board provides a 1-Wire master interface where 1-Wire downstream
+slave devices (such as temperature sensors) can be connected.
 
 .. flat-table:: X4 - 1-Wire
     :header-rows: 1
@@ -1131,8 +1131,8 @@ This port supports digital inputs with digital adjustable reference level of up 
 X12 - Digital In And Out
 ========================
 
-This port supports two digital inputs with digital adjustable reference level of up to +12 V and two digital outputs.
-The outputs are real push-pull drivers. Up to 100 mA can be drawn from a single output.
+This optional port supports two digital inputs with digital adjustable reference level of up to +12 V and
+two digital outputs. The outputs are real push-pull drivers. Up to 100 mA can be drawn from a single output.
 
 .. flat-table:: X12 - Digital In And Out
     :header-rows: 1
