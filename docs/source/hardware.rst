@@ -154,8 +154,8 @@ The baudrate of each EIA-485 interface is configurable up to 115200 bps.
     :widths: auto
 
     * - Board Interface
-      - EIA-485 #1 isolated (X7)
-      - EIA-485 #2 (X8)
+      - `X7 - EIA-485 1`_ isolated
+      - `X8 - EIA-485 2 <#tX8 - EIA-485 2 / CAN>`_ optional
     * - Linux Interface
       - /dev/ttymxc0
       - /dev/ttymxc4
@@ -261,14 +261,14 @@ The push button pairing method is the most famous method. Charge Control C has n
 this method, but the push button can be simulated with on-board tools.
 
     1. Press the powerline security button on the companion (e.g. wallplug adapter) to start the pairing process.
-    2. Run the following command on Charge Control C - this emulates pressing the pairing button of the \
+    2. Run the following commands on Charge Control C - this emulates pressing the pairing button of the \
        evaluation board:
 
         .. code-block:: sh
 
-         root@tarragon:˜ $ plctool −B join −i eth2
-         eth2 00:B0:52:00:00:01 Join Network
-         eth2 00:01:87:FF:FF:2B Joining ...
+         root@tarragon:˜ $ gpioset -t 0,1000,0 QCA700X_MAINS_BOOTLOADER_N=1
+         root@tarragon:˜ $ gpioget QCA700X_MAINS_BOOTLOADER_N
+         "QCA700X_MAINS_BOOTLOADER_N"=active
          root@tarragon:˜ $
 
     3. You should see the remote powerline adapter after a short while:
@@ -276,7 +276,7 @@ this method, but the push button can be simulated with on-board tools.
 
          root@tarragon:˜ $ plcstat −t −i eth2
          P/L NET TEI −−−−−− MAC −−−−−− −−−−−− BDA −−−−−−  TX  RX CHIPSET FIRMWARE
-         LOC STA 002 00:01:87:FF:FF:2B 00:01:87:FF:FF:FE n/a n/a QCA7000 MAC−QCA7000−1.1.3.1531−00−20150204−CS
+         LOC STA 002 00:01:87:FF:FF:2B 00:01:87:FF:FF:FE n/a n/a QCA7000 MAC-QCA7000-3.4.0.36-00-20241008-CS
          REM CCO 001 00:0B:3B:AA:86:55 E0:CB:4E:ED:1F:53 009 009 INT6400 INT6000−MAC−4−1−4102−00−3679−20090724−FINAL−B
          root@tarragon:˜ $
 
@@ -652,7 +652,7 @@ Following table shows the related configuration:
 1-Wire
 ======
 
-This is a generic 1-Wire interface. It is realised with an I2C to 1-wire bridge.
+Some product variants provide an `X4 - 1-Wire`_ interface. It is realised with an I2C to 1-wire bridge.
 The bridge is handled by the DS2484 1-Wire Linux driver and provides the interface /sys/bus/w1/.
 
 ’Application Note 7 - Charge Control C - Thermal Management’ shows an example of how to use the 1-Wire bridge.
@@ -840,7 +840,7 @@ The automatic RCD test, required by standard *IEC62955*, is part of coming imple
 Charge Control C uses common tools like the hwmon/ thermal framework of the Linux Kernel.
 
 As per default, Charge Control C only uses the thermal sensor on the i.MX6ULL SoC and tries to regulate the
-temperature via the X3 fan connector. The responsible program is the shell script "fancontrol" (taken from lmsensors)
+temperature via the `X3 - Fan`_ connector. The responsible program is the shell script "fancontrol" (taken from lmsensors)
 which is started automatically during boot on Charge Control C 300.
 
 
@@ -919,7 +919,7 @@ This product needs DC supply voltage input.
 X3 - Fan
 ========
 
-Charge Control C provides an output for 4-Wire pulse width modulation (PWM) controlled fans.
+Charge Control C provides an optional output for 4-Wire pulse width modulation (PWM) controlled fans.
 
 .. flat-table:: X3 - Fan
     :header-rows: 1
@@ -943,8 +943,8 @@ absolute maximum rating of the fan interface. This could potentially destroy the
 X4 - 1-Wire
 ===========
 
-This product provides a 1-Wire master interface where 1-Wire downstream slave devices
-(such as temperature sensors) can be connected.
+Depending on the product variant the board provides a 1-Wire master interface where 1-Wire downstream
+slave devices (such as temperature sensors) can be connected.
 
 .. flat-table:: X4 - 1-Wire
     :header-rows: 1
@@ -1131,8 +1131,8 @@ This port supports digital inputs with digital adjustable reference level of up 
 X12 - Digital In And Out
 ========================
 
-This port supports two digital inputs with digital adjustable reference level of up to +12 V and two digital outputs.
-The outputs are real push-pull drivers. Up to 100 mA can be drawn from a single output.
+This optional port supports two digital inputs with digital adjustable reference level of up to +12 V and
+two digital outputs. The outputs are real push-pull drivers. Up to 100 mA can be drawn from a single output.
 
 .. flat-table:: X12 - Digital In And Out
     :header-rows: 1
