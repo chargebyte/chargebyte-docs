@@ -105,6 +105,62 @@ by EVerest's IMD interface.
 
    Wiring for Bender's IMD to Charge SOM EVB
 
+***************
+Expansion (X11)
+***************
+
+The i.MX93 expansion header provides access to several hardware interfaces:
+
+* SPI (max 1x)
+* I²C (max 3x)
+* UART with hardware flow control (max 1x)
+* SDIO (max 1x)
+* SPDIF (max 1x)
+* CAN (max 1x)
+* PWM (max 6x)
+* FlexIO (max 11x)
+* Configurable clock output (max 2x)
+* GPIO (max 16x)
+
+But the actual possible combination depends on the pinmuxing of these 16 pins!
+As per Charge SOM EVB device tree all of the muxable pins are configured as GPIO,
+here is a list of them:
+
++-------------------------+-----------+------------------+
+| Signal                  | Pad       | Linux GPIO line  |
++=========================+===========+==================+
+| CAN2_RX                 | GPIO_IO27 | X11_CAN2_RX      |
++-------------------------+-----------+------------------+
+| CAN2_TX                 | GPIO_IO25 | X11_CAN2_TX      |
++-------------------------+-----------+------------------+
+| PWM5_3                  | GPIO_IO26 | X11_PWM5_3       |
++-------------------------+-----------+------------------+
+| GPIO_IO23/I2C5_SCL      | GPIO_IO23 | X11_I2C5_SCL     |
++-------------------------+-----------+------------------+
+| GPIO3_26                | CCM_CLKO1 | X11_GPIO3_26     |
++-------------------------+-----------+------------------+
+| SD3_CLK/I2C5_SDA        | GPIO_IO22 | X11_I2C5_SDA     |
++-------------------------+-----------+------------------+
+| GPIO3_27                | CCM_CLKO2 | X11_GPIO3_27     |
++-------------------------+-----------+------------------+
+| SD3_CMD                 | SD3_CMD   | X11_SD3_CMD      |
++-------------------------+-----------+------------------+
+| SPI_EXT_CLK             | GPIO_IO11 | X11_SPI_EXT_CLK  |
++-------------------------+-----------+------------------+
+| SD3_D0                  | SD3_DATA0 | X11_SD3_D0       |
++-------------------------+-----------+------------------+
+| SPI_EXT_MISO/LPUART7_RX | GPIO_IO09 | X11_SPI_EXT_MOSI |
++-------------------------+-----------+------------------+
+| SD3_D1                  | SD3_DATA1 | X11_SD3_D1       |
++-------------------------+-----------+------------------+
+| SPI_EXT_MOSI            | GPIO_IO10 | X11_SPI_EXT_MISO |
++-------------------------+-----------+------------------+
+| SD3_D2                  | SD3_DATA2 | X11_SD3_D2       |
++-------------------------+-----------+------------------+
+| SPI_EXT_CS0/LPUART7_TX  | GPIO_IO08 | X11_SPI_EXT_CS0  |
++-------------------------+-----------+------------------+
+| SD3_D3                  | SD3_DATA3 | X11_SD3_D3       |
++-------------------------+-----------+------------------+
 
 **************
 I²C Interfaces
@@ -126,6 +182,10 @@ The i.MX93 on the Charge SOM provides several I²C interfaces:
 |          |            | PMIC (0x25) + EEPROM (0x50, 0x58)   |                 |
 +----------+------------+-------------------------------------+-----------------+
 | I2C5     | disabled   |                                     | disabled        |
++----------+------------+-------------------------------------+-----------------+
+| I2C7     | disabled   |                                     | disabled        |
++----------+------------+-------------------------------------+-----------------+
+| I2C8     | disabled   |                                     | disabled        |
 +----------+------------+-------------------------------------+-----------------+
 
 .. [#] This interface is only enabled in case of a Charge SOM Single Channel DC Carrier Board.
