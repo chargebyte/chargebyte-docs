@@ -122,7 +122,7 @@ However, it only considers common ones, not all possible ones, to maintain clari
 
 The following table summarizes the same common interfaces and list the available DT overlays.
 These overlays make the interfaces configuration very easy. But the actual possible combinations
-still depends on the pinmuxing of these 16 pins!
+still depend on the pinmuxing of these 16 pins!
 
 +---------------+------------------+-----------------------------------+-------------------------------------------+
 | Interface     | Maximum possible | Available DT Overlay              | Notes                                     |
@@ -142,9 +142,9 @@ still depends on the pinmuxing of these 16 pins!
 | GPIO          | 16               | - imx93-charge-som-clko-gpio.dtso | Warning: short clock after power-up/reset |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
 
-.. [#] The UART7 have RTS/CTS signals available.
+.. [#] The UART7 has RTS/CTS signals available.
 
-The following table indicates the whole possible muxing options for these signals.
+The following table indicates all possible muxing options for these signals.
 By default, the factory shipped configuration for the Charge SOM EVB is that the signals GPIO3_26 and GPIO3_27
 are configured as GPIO via imx93-charge-som-clko-gpio.dtso . All other pins are left untouched by default.
 
