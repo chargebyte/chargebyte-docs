@@ -111,21 +111,42 @@ Expansion (X11)
 
 The i.MX93 expansion header provides access to several hardware interfaces which are not used by the evaluation board
 by default. These pins are routed directly to the NXP i.MX93, so several functions can be used on them.
-Often required interfaces are for example:
+The following graphic attempts to visualize the possible multiplexing options.
+However, it only considers common ones, not all possible ones, to maintain clarity.
 
-* SPI (max 1x)
-* I²C (max 3x)
-* UART with hardware flow control (max 1x)
-* SDIO (max 1x)
-* CAN (max 1x)
-* PWM (max 6x)
-* FlexIO (max 11x)
-* GPIO (max 16x)
+.. figure:: _static/images/charge_som_evb_x11_pinout.svg
+   :alt: Pin Mux Options for the Signals of Expansion Connector (X11)
+   :width: 100%
 
-But the actual possible combination depends on the pinmuxing of these 16 pins!
-The following table indicates the possible muxing options for these signals.
+   Pin Mux Options for the Signals of Expansion Connector (X11)
+
+The following table summarizes the same common interfaces and list the available DT overlays.
+These overlays make the interfaces configuration very easy. But the actual possible combinations
+still depends on the pinmuxing of these 16 pins!
+
++---------------+------------------+-----------------------------------+-------------------------------------------+
+| Interface     | Maximum possible | Available DT Overlay              | Notes                                     |
++===============+==================+===================================+===========================================+
+| SPI           | 1                |                                   |                                           |
++---------------+------------------+-----------------------------------+-------------------------------------------+
+| I²C           | 3                |                                   |                                           |
++---------------+------------------+-----------------------------------+-------------------------------------------+
+| UART [#]_     | 1                | - imx93-charge-som-uart7.dtso     | without RTS/CTS                           |
++---------------+------------------+-----------------------------------+-------------------------------------------+
+| SDIO          | 1                |                                   |                                           |
++---------------+------------------+-----------------------------------+-------------------------------------------+
+| CAN           | 1                |                                   |                                           |
++---------------+------------------+-----------------------------------+-------------------------------------------+
+| PWM           | 6                |                                   |                                           |
++---------------+------------------+-----------------------------------+-------------------------------------------+
+| GPIO          | 16               | - imx93-charge-som-clko-gpio.dtso | Warning: short clock after power-up/reset |
++---------------+------------------+-----------------------------------+-------------------------------------------+
+
+.. [#] The UART7 have RTS/CTS signals available.
+
+The following table indicates the whole possible muxing options for these signals.
 By default, the factory shipped configuration for the Charge SOM EVB is that the signals GPIO3_26 and GPIO3_27
-are configured as GPIO with a device tree overlay. All other pins are left untouched by default.
+are configured as GPIO via imx93-charge-som-clko-gpio.dtso . All other pins are left untouched by default.
 
 +---------------------------+---------------------------+------------------------------------------------------+----------------------+
 | Signal                    | Linux GPIO Line Name      | Pad Mux Options                                      | Notes                |
@@ -243,16 +264,6 @@ are configured as GPIO with a device tree overlay. All other pins are left untou
 |                           |                           | - MX93_PAD_SD3_DATA3__FLEXIO1_FLEXIO25               |                      |
 |                           |                           | - MX93_PAD_SD3_DATA3__GPIO3_IO25                     |                      |
 +---------------------------+---------------------------+------------------------------------------------------+----------------------+
-
-The following graphic attempts to visualize the possible multiplexing options.
-However, it only considers common ones, not all possible ones, to maintain clarity.
-
-.. figure:: _static/images/charge_som_evb_x11_pinout.svg
-   :alt: Pin Mux Options for the Signals of Expansion Connector (X11)
-   :width: 100%
-
-   Pin Mux Options for the Signals of Expansion Connector (X11)
-
 
 
 **************
