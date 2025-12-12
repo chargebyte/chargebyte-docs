@@ -58,6 +58,16 @@ for timing critical use cases. Currently there is no EVerest module, which is ab
 In order to realize realtime emergency stop behavior use the SAFETY_ESTOPx signals, which are connected to the safety processor.
 
 
+Is there a Linux command to check for connection related CAN issues?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Yes
+
+.. code-block:: console
+
+   root@chargesom:/# ip -details -statistic link show can0
+
+
 How can I list the available UARTs?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
