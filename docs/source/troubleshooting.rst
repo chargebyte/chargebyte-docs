@@ -65,7 +65,7 @@ All UARTs of the i.MX93 are handled by the fsl-lpuart driver, so the following
 command should list all available UARTs. Please keep in mind that Linux starts
 counting from zero (ttyLP0 = UART1, ...).
 
-.. code-block::
+.. code-block:: console
 
    root@chargesom:/# cat /proc/tty/driver/fsl-lpuart
    serinfo:1.0 driver revision:
@@ -81,12 +81,13 @@ How can I print the current pin/pad control settings (e.g. bias, drive strength)
 The current PAD control settings are available under Linux only via debugfs,
 but this requires an equivalent pinctrl setting within the device tree:
 
-.. code-block::
+.. code-block:: console
 
-   cat /sys/kernel/debug/pinctrl/443c0000.pinctrl/pinconf-pins
+   root@chargesom:/# cat /sys/kernel/debug/pinctrl/443c0000.pinctrl/pinconf-pins
    Pin config settings per pin
    Format: pin (name): configs
-   pin 0 (IMX93_IOMUXC_DAP_TDI): . .
+   pin 0 (IMX93_IOMUXC_DAP_TDI): 0x31e
+   ...
 
 
 Which LVDS displays have been tested with the Charge SOM EVB?
