@@ -1,8 +1,8 @@
 .. _hardware.rst:
 
-########
-Hardware
-########
+###################
+Hardware Interfaces
+###################
 
 Since the Charge SOM itself is a module which cannot be used without a carrier board,
 the following sections refer to the Charge SOM Evaluation Board as an example.
@@ -86,8 +86,31 @@ the board supports up to two EIA-485 interfaces.
 CAN (X16)
 *********
 
-The CAN-FD interface is connected to X16, which is a full implementation of the CAN FD
-protocol specification version 2.0B. It is available on Linux network interface ``can0``.
+The CAN-FD interface is connected to X16, which is a full implementation of the CAN FD protocol
+specification version 2.0B. It is available on Linux network interface ``can0``, which has a
+default bitrate of 1 Mbit/s.
+
+CAN Configuration
+=================
+
+In order to change the default CAN bitrate of can0 interface, please adapt ``BitRate`` value and
+run the following commands:
+
+.. code-block:: console
+
+   mkdir /etc/systemd/network/can0.network.d
+   cat <<EOF > /etc/systemd/network/can0.network.d/bitrate.conf
+   [CAN]
+   BitRate=125000
+   EOF
+
+   networkctl reload
+   networkctl reconfigure can0
+   systemctl restart everest
+
+The change takes effect immediately, but also persists across reboots and
+firmware updates.
+
 
 ********************************************
 Insulation Monitoring Device (IMD, X9 + X15)
@@ -135,7 +158,7 @@ still depend on the pinmuxing of these 16 pins!
 +---------------+------------------+-----------------------------------+-------------------------------------------+
 | SDIO          | 1                |                                   |                                           |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
-| CAN           | 1                |                                   |                                           |
+| CAN [#]_      | 1                |                                   |                                           |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
 | PWM           | 6                |                                   |                                           |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
@@ -143,6 +166,7 @@ still depend on the pinmuxing of these 16 pins!
 +---------------+------------------+-----------------------------------+-------------------------------------------+
 
 .. [#] The UART7 has RTS/CTS signals available.
+.. [#] Keep in mind that these signals must be connected to a CAN transceiver.
 
 The following table indicates all possible muxing options for these signals.
 By default, the factory shipped configuration for the Charge SOM EVB is that the signals GPIO3_26 and GPIO3_27

@@ -41,6 +41,14 @@ and a `library <https://github.com/EVerest/everest-core/tree/main/lib/everest/ca
 which uses the CAN interface. This might help as a starting point.
 
 
+How can I access the GPIOs under Linux?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since the GPIO sysfs interface /sys/class/gpio has been deprecated since Linux 4.8,
+we recommend the usage of chardev GPIO and libgpiod. The modification of the bias
+settings via libgpiod is not yet implemented, so it needs to be done via device tree.
+
+
 What is the difference between CHSTOP_IN and SAFETY_ESTOPx?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -48,6 +56,61 @@ The signal CHSTOP_IN is connected to the i.MX93 SoC and could be used to gracefu
 for timing critical use cases. Currently there is no EVerest module, which is able to handle this signal. This work is pending.
 
 In order to realize realtime emergency stop behavior use the SAFETY_ESTOPx signals, which are connected to the safety processor.
+
+
+Is there a Linux command to check for connection related CAN issues?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Yes
+
+.. code-block:: console
+
+   root@chargesom:/# ip -details -statistic link show can0
+
+
+How can I list the available UARTs?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+All UARTs of the i.MX93 are handled by the fsl-lpuart driver, so the following
+command should list all available UARTs. Please keep in mind that Linux starts
+counting from zero (ttyLP0 = UART1, ...).
+
+.. code-block:: console
+
+   root@chargesom:/# cat /proc/tty/driver/fsl-lpuart
+   serinfo:1.0 driver revision:
+   0: uart:FSL_LPUART mmio:0x44380010 irq:17 tx:9932 rx:0 RTS|CTS|DTR|DSR|CD
+   2: uart:FSL_LPUART mmio:0x42570010 irq:18 tx:12966 rx:26572 RTS|CTS|DTR|DSR|CD
+   3: uart:FSL_LPUART mmio:0x42580010 irq:19 tx:936 rx:617 RTS|CTS|DTR|DSR|CD
+   4: uart:FSL_LPUART mmio:0x42590010 irq:20 tx:0 rx:0 CTS|DSR|CD
+
+
+How can I print the current pin/pad control settings (e.g. bias, drive strength)?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The current PAD control settings are available under Linux only via debugfs,
+but this requires an equivalent pinctrl setting within the device tree:
+
+.. code-block:: console
+
+   root@chargesom:/# cat /sys/kernel/debug/pinctrl/443c0000.pinctrl/pinconf-pins
+   Pin config settings per pin
+   Format: pin (name): configs
+   pin 0 (IMX93_IOMUXC_DAP_TDI): 0x31e
+   ...
+
+
+Which LVDS displays have been tested with the Charge SOM EVB?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The `Distec DD-0700-MC01 <https://www.fortec-integrated.de/en/products/tft-components/tft-displays/detail/fortec-integrated/dd-0700-mc01/>`_
+(7 inch, 800x480 resolution) has been tested with the Charge SOM EVB.
+
+
+I like to create my own DT overlay. Is there an example?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Yes, please have a look at this `commit <https://github.com/chargebyte/linux/commit/125a587a0cf7e8d9db1fdddf9383a67c2b46d107>`_ .
 
 
 Where can I find the device tree sources of the Charge SOM?
