@@ -94,6 +94,19 @@ from `dSPACE <https://www.dspace.com/en/pub/home/news/wireshark-charging-plug-in
    to export the TLS session key. E.g. the `IsoMux module <https://github.com/EVerest/everest-core/blob/main/modules/EVSE/IsoMux/manifest.yaml>`_
    is able to export the TLS session key.
 
+CAN Traces
+----------
+
+CAN traces can be used to debug and analyze the communication between the charge controller and external
+peripheral like power supply. The following command starts a CAN trace with absolute timestamps:
+
+.. code-block:: console
+
+   candump -tA -l can0
+
+It captures all CAN packets on the can0 interface and writes them to an ASCII file in the current working directory.
+Stop the capture by pressing :code:`Ctrl+C`.
+
 
 Session Logging of the EVSEManager
 ----------------------------------
