@@ -1,7 +1,7 @@
 .. _hardware.rst:
 
 ###################
-Hardware interfaces
+Hardware Interfaces
 ###################
 
 Since the Charge SOM itself is a module which cannot be used without a carrier board,
@@ -90,28 +90,26 @@ The CAN-FD interface is connected to X16, which is a full implementation of the 
 specification version 2.0B. It is available on Linux network interface ``can0``, which has a
 default bitrate of 1 Mbit/s.
 
-CAN configuration
+CAN Configuration
 =================
 
-In order to change the default CAN bitrate permanent, please adapt BitRate value and run the following commands:
+In order to change the default CAN bitrate of can0 interface, please adapt ``BitRate`` value and
+run the following commands:
 
 .. code-block:: console
 
-   cat <<EOF > /etc/systemd/network/can0.network
-   [Match]
-   Name=can0
-
-   [Link]
-   RequiredForOnline=no
-
+   mkdir /etc/systemd/network/can0.network.d
+   cat <<EOF > /etc/systemd/network/can0.network.d/bitrate.conf
    [CAN]
    BitRate=125000
-   TripleSampling=yes
    EOF
 
    networkctl reload
    networkctl reconfigure can0
    systemctl restart everest
+
+The change takes effect immediately, but also persists across reboots and
+firmware updates.
 
 
 ********************************************
