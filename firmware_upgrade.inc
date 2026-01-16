@@ -83,6 +83,12 @@ Device Access
 
 There are different possibilities to access the device for configuration or update purposes. Please look at section :ref:`connecting-via-ssh-or-serial-interface` for further details.
 
+Determine current Firmware Version
+----------------------------------
+
+#. Connect to the board via SSH or Debug UART
+#. Run the following command via console: :code:`cat /usr/share/secc/VERSION`
+
 Update via USB
 --------------
 
