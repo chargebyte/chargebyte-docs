@@ -49,6 +49,28 @@ we recommend the usage of chardev GPIO and libgpiod. The modification of the bia
 settings via libgpiod is not yet implemented, so it needs to be done via device tree.
 
 
+My application depends on libgpiod but requires GPIO chip and line, how can I figure them out?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For such applications which doesn't support GPIO line names, you can use the following:
+
+.. code-block:: console
+
+   root@chargesom:/# cat /sys/kernel/debug/gpio
+   gpiochip0: GPIOs 512-541, parent: platform/43810000.gpio, 43810000.gpio:
+   gpio-512 (SPI_PLC_nCS0        |spi1 CS0            ) out hi ACTIVE LOW
+   gpio-519 (                    |int                 ) in  lo IRQ
+   ...
+
+The GPIO line is calculated as following:
+
+.. code-block::
+
+   Line = GPIO number - GPIO chip offset
+   Line = 519         - 512
+   Line = 7
+
+
 What is the difference between CHSTOP_IN and SAFETY_ESTOPx?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -83,6 +105,20 @@ counting from zero (ttyLP0 = UART1, ...).
    2: uart:FSL_LPUART mmio:0x42570010 irq:18 tx:12966 rx:26572 RTS|CTS|DTR|DSR|CD
    3: uart:FSL_LPUART mmio:0x42580010 irq:19 tx:936 rx:617 RTS|CTS|DTR|DSR|CD
    4: uart:FSL_LPUART mmio:0x42590010 irq:20 tx:0 rx:0 CTS|DSR|CD
+
+
+How can I list the available I²C interfaces?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+All I²C interfaces are available via I²C device driver. Please keep in mind that
+Linux starts counting from zero (i2c-0 = I2C1, ...).
+
+.. code-block:: console
+
+   root@chargesom:/# i2cdetect -l
+   i2c-0   i2c             44340000.i2c                            I2C adapter
+   i2c-1   i2c             44350000.i2c                            I2C adapter
+   i2c-2   i2c             42530000.i2c                            I2C adapter
 
 
 How can I print the current pin/pad control settings (e.g. bias, drive strength)?
