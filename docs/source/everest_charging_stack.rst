@@ -65,7 +65,7 @@ Also the BSP driver `CbTarragonDriver <https://github.com/chargebyte/everest-cha
 (aka HAL) for this platform gained support for this.
 
 A phase count switching setup always consists of two contactors which are controlled by the charging
-stack more or less independently. There exists two different kinds of hardware setups which are
+stack more or less independently. There exist three different kinds of hardware setups which are
 different in the physical wiring:
 
 * **serial** setup type: In this setup type both contactors are wired in 'series': while the
@@ -77,12 +77,31 @@ different in the physical wiring:
   This ensures - in combination with the physical setup - a homogeneous view of the grid from the
   car side. Thus the charger appears to be a single-phase only or a three-phase charger.
 
-.. _switch-3ph1ph-serial:
-.. figure:: _static/images/switch-3ph1ph-serial.drawio.svg
-    :width: 50%
+  .. _switch-3ph1ph-serial:
+  .. figure:: _static/images/switch-3ph1ph-serial.drawio.svg
+     :width: 50%
 
-    Example wiring with two contactors 'in series', both with auxiliary contacts for feedback generation.
-    Note, that both contactors must be rated for 400 V in this setup.
+     Example wiring with two contactors 'in series', both with auxiliary contacts for feedback generation.
+     Note, that both contactors must be rated for 400 V in this setup.
+
+* **simultaneous** setup type: In this setup type both contactors are wired 'in parallel': while the
+  primary contactor switches neutral and one phase, the secondary contactor switches the phases 2 and 3.
+  As mentioned above, it is required that all phases appear simultaneously on the car side, not one after
+  another. To achieve this, from the software perspective, this mode ensures this by using the
+  Linux kernel's GPIO features. However, it also requires that the underlying GPIOs are located in the
+  same GPIO bank of the CPU. Fortunately, this is the case for the Charge Control C platform.
+
+  .. _switch-3ph1ph-simultaneous:
+  .. figure:: _static/images/switch-3ph1ph-simultaneous.drawio.svg
+     :width: 50%
+
+     Example wiring with two contactors in a 'simultaneous' setup, both with auxiliary contacts for
+     feedback generation. Note, that both contactors must be rated for 400 V in this setup.
+
+  .. note::
+
+     The IEC standard requires a physical/mechanical all-pole disconnect in emergency situations. So
+     using this wiring mode is only permitted when this requirement is satisfied, e.g. with RCD type B or EV.
 
 * **mutual** setup type: In this setup type, two different contactors are used 'in parallel'. However,
   it is important that only one contactor can be active at a time, i.e. they exclude each other *mutually*.
@@ -90,12 +109,12 @@ different in the physical wiring:
   e.g. by using the auxiliary contacts as shown in :numref:`switch-3ph1ph-mutual`.
   This setup allow to use a single 400 V-rated contactor in combination with a (cheaper) 230 V-rated one.
 
-.. _switch-3ph1ph-mutual:
-.. figure:: _static/images/switch-3ph1ph-mutual.drawio.svg
-    :width: 60%
+  .. _switch-3ph1ph-mutual:
+  .. figure:: _static/images/switch-3ph1ph-mutual.drawio.svg
+     :width: 60%
 
-    Example wiring with two contactors in 'mutual' setup. The primary contactor must be
-    rated for 400 V, the secondary contactor can be rated for 230 V only.
+     Example wiring with two contactors in 'mutual' setup. The primary contactor must be
+     rated for 400 V, the secondary contactor can be rated for 230 V only.
 
 As mentioned, the **CbTarragonDriver** module is the relevant hardware abstraction layer for EVerest
 for the Charge Control C platform. The module must know which wiring type is used in the charger
@@ -103,9 +122,11 @@ and offers the configuration parameter **switch_3ph1ph_wiring** for this which c
 
 *  **none** (default): No phase-count switching is supported - only R1/S1 is used to switch on/off a single contactor.
 * **serial**: Phase-count switching support is enabled using the serial wiring as described above: R1/S1 switches
-  the primary contactor, R2/S2 is attached to the secondary contactor.
+  the primary contactor (for N + L1-3), R2/S2 is attached to the secondary contactor (for L2 + L3).
+* **simultaneous**: Phase-count switching support is enabled using the simultaneous wiring as described above: R1/S1 switches
+  the primary contactor (for N + L1), R2/S2 is attached to the secondary contactor (for L2 + L3).
 * **mutual**: Phase-count switching support is enabled using the mutual wiring as described above. R1/S1 is wired to
-  the three-phase contactor, R2/S2 is wired to the single-phase contactor.
+  the three-phase contactor (for N + L1-3), R2/S2 is wired to the single-phase contactor (for N + Lx).
 
 Snippet of an EVerest configuration file which fits the configuration for :numref:`switch-3ph1ph-mutual`:
 
@@ -122,6 +143,7 @@ Snippet of an EVerest configuration file which fits the configuration for :numre
    ...
 
 .. note::
+
    Older chargebyte configurations shipped with a `CbTarragonDriver` module parameter `relay_2_name` set to value `none`.
    This was part of an older approach and should not be used that way. Remove it when it is still present,
    so that the default value is applied automatically.
