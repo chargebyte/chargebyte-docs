@@ -391,8 +391,8 @@ and https://everest.github.io/nightly/_generated/modules/EvseSlac.html.
 Locking Motors
 ==============
 
-Charge Control C provides connectors for 2 locking motors. Currently only the connector *X9* is supported by the
-Charging stack.
+Some product variants of Charge Control C provides the `X9 / X10 - Locking Motor`_ connectors.
+Currently only the connector *X9* is supported by the Charging stack.
 
 To use locking motors the EVerest module *CbTarragonPlugLock* is needed. The CbTarragonPluglock module is a
 generic module and can be used for different pluglock motors.
