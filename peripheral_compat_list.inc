@@ -176,11 +176,13 @@ RFID Readers
    +-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
    | RFID Readers based on NXP's PN532 Chip  | UART      | Proprietary | `EVerest`_  | `PN532TokenProvider`_    |          ✗           |
    +-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
-   | RFID Readers based on NXP's PN7160 Chip | I²C/SPI   | Proprietary | `EVerest`_  | `PN7160TokenProvider`_   |          ✗           |
-   +-----------------------------------------+-----------+-------------+-------------+--------------------------+----------------------+
 
 .. _PN532TokenProvider: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/NfcReaders/PN532TokenProvider
 .. _PN7160TokenProvider: https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/NfcReaders/PN7160TokenProvider
+
+.. note::
+   All EVerest modules which depend on libnfc, such as the `PN7160TokenProvider`_, are not officially supported. This library depends on the
+   deprecated GPIO sysfs interface.
 
 
 
