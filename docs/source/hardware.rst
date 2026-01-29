@@ -40,7 +40,8 @@ Control Pilot / Proximity Pilot (X18)
 
 For ISO 15118 / DIN 70121 compliant communication between EVSE and PEV, Charge SOM supports
 CP (control pilot) and PP (proximity pilot) signaling including Green PHY communication.
-This Green PHY communication is available on network interface ``eth1``.
+This Green PHY communication is available on network interface ``eth1``. The MAC address of
+this host interface is stored within the EEPROM on the Charge SOM.
 
 **********************************
 High-Voltage Connector (HVDC, X19)
@@ -63,7 +64,8 @@ Ethernet (X28)
 
 The X28 socket supports 10/100 Mbit/s Ethernet. In the Linux operating system it
 is available as network interface ``eth0``. This interface is part of a bridge
-interface ``br0``.
+interface ``br0``. The MAC address of this interface is stored within the OTP
+of the System on Chip.
 
 *****************************
 EIA-485 Interfaces (X13, X15)
