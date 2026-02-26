@@ -39,9 +39,12 @@ Control Pilot / Proximity Pilot (X18)
 *************************************
 
 For ISO 15118 / DIN 70121 compliant communication between EVSE and PEV, Charge SOM supports
-CP (control pilot) and PP (proximity pilot) signaling including Green PHY communication.
+CP (control pilot) signaling including Green PHY communication.
 This Green PHY communication is available on network interface ``eth1``. The MAC address of
 this host interface is stored within the EEPROM on the Charge SOM.
+
+The PP (proximity pilot) monitoring from EVSE side is currently not implemented for DC setups yet.
+So please leave this pin unconnected.
 
 **********************************
 High-Voltage Connector (HVDC, X19)
