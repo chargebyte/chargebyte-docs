@@ -24,7 +24,7 @@ The Charge SOM is provided with a Linux-Yocto operating system. The installed so
 Product Features
 ----------------
 
-* Works with CCS1 / CCS2 and NACS according to IEC 61851, SAE J1772, and ISO 15118, ensuring smooth communication with all types of EVs.
+* Works with CCS1 / CCS2 and NACS according to IEC 61851, SAE J1772 [#]_, and ISO 15118, ensuring smooth communication with all types of EVs.
 * A dedicated co-processor monitors and controls safety-critical components like CP and PP signals, DC circuit breakers, E-Stops and other vital components in real-time according to functional safety standard IEC 61508
 * PT1000 plug temperature monitoring
 * Plug-and-Play with the popular `EVerest charging stack <https://github.com/EVerest/EVerest>`_
@@ -34,6 +34,8 @@ Product Features
 * HomePlug Green PHY Standard & ISO 15118 Support utilizing the Vertexcom MSE1021 chipset
 * TPM 2.0 standard compliant module for secure hardware-based key storage
 * RTC support via I2C for precise timekeeping (IC/battery on carrier board)
+
+.. [#] This feature isn't fully implemented yet.
 
 Host Controller
 
