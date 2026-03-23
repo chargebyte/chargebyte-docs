@@ -21,6 +21,16 @@ Does the Charge Control Y have Wifi support?
 The Charge Control Y doesn't have Wifi support.
 
 
+Is there a Linux command to check for connection related CAN issues?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Yes
+
+.. code-block:: console
+
+   root@ccy:/# ip -details -statistic link show can0
+
+
 How can I access the EVerest admin panel on Charge Control Y?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
