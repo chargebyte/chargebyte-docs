@@ -59,6 +59,10 @@ Power & Safety
 Profinet
 ^^^^^^^^
 
+The Profinet interface supports 10/100 Mbit/s Ethernet. In the Linux operating
+system it is available as network interface ``eth2``. The MAC address of this
+interface is stored within the OTP of the System on Chip.
+
 .. list-table::
    :widths: 15 85
    :header-rows: 1
@@ -81,6 +85,10 @@ Profinet
 LAN (OCPP)
 ^^^^^^^^^^
 
+The LAN interface supports 10/100 Mbit/s Ethernet. In the Linux operating
+system it is available as network interface ``eth0``. The MAC address of this
+interface is stored within the OTP of the System on Chip.
+
 .. list-table::
    :widths: 15 85
    :header-rows: 1
@@ -102,6 +110,10 @@ LAN (OCPP)
 
 MCS
 ^^^
+
+The MCS interface supports 10 Mbit/s Ethernet. In the Linux operating
+system it is available as network interface ``eth1``. The MAC address of
+this host interface is stored within the EEPROM on the SOM.
 
 .. list-table::
    :widths: 15 85
@@ -132,6 +144,10 @@ MCS
 
 IO
 ^^
+
+The CAN interface is a full implementation of the CAN FD protocol specification
+version 2.0B. It is available on Linux network interface ``can0``, which has a
+default bitrate of 500 kBit/s.
 
 .. list-table::
    :widths: 15 85
