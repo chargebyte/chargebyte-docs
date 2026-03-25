@@ -147,7 +147,7 @@ IO
 
 The CAN interface is a full implementation of the CAN FD protocol specification
 version 2.0B. It is available on Linux network interface ``can0``, which has a
-default bitrate of 500 kBit/s.
+default bitrate of 1 MBit/s.
 
 .. list-table::
    :widths: 15 85
