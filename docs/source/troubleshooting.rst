@@ -133,11 +133,6 @@ EVerest already has a module which takes care of Modbus communication. Please ha
 `SerialCommHub <https://everest.github.io/nightly/_generated/modules/SerialCommHub.html>`_,
 and let your module interact with this module via the `serial_communication_hub` interface.
 
-.. note::
-   On Charge Control C's i.MX6, you need to suppress the echo on the RS-485 port. So, when
-   using the `SerialCommHub` module, its configuration option `ignore_echo` needs to be set
-   to `true`.
-
 .. _contact:
 
 .. include:: ../../includes/troubleshooting_contact.inc
