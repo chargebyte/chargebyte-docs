@@ -1324,7 +1324,7 @@ Each device is marked with a label containing the following data:
     c. MAC address CP QCA7000 [4]_ (only present for variant 200 and 300)
     d. MAC address CP QCA7000 Linux interface [4]_ (only present for variant 200 and 300)
     e. MAC address mains QCA7000 [4]_ (only present for variant 300)
-    f. MAC address mains QCA700 Linux interface [4]_ (only present for variant 300)
+    f. MAC address mains QCA7000 Linux interface [4]_ (only present for variant 300)
     g. DAK mains QCA7000 (only present for variant 300)
     h. Serial Number [5]_
     i. Production Data Code
