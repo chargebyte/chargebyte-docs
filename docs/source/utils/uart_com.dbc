@@ -1,4 +1,4 @@
-VERSION "0.0.3"
+VERSION "0.0.4" 
 
 
 NS_ : 
@@ -77,7 +77,8 @@ BO_ 3 AnalogInput02: 8 chargeSOM_SafetyController
  SG_ AI_CP_BUFFERED_NEG_ADC : 7|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
 
 BO_ 19 AnalogInput05: 8 CCY_SafetyController
- SG_ AI_HV_READY : 39|16@0+ (1,0) [0|0] ""  CCY_HostController
+ SG_ AI_HV_READY_SW11_SC : 55|16@0+ (1,0) [0|0] ""  CCY_HostController
+ SG_ AI_HV_READY_SW10_SC : 39|16@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ AI_CE_ADC : 23|16@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ AI_ID_ADC : 7|16@0+ (1,0) [0|0] ""  CCY_HostController
 
@@ -131,6 +132,15 @@ BO_ 10 FirmwareVersion: 8 chargeSOM_SafetyController
 
 BO_ 11 GitHash: 8 chargeSOM_SafetyController
  SG_ HashSignal : 7|64@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ 
+BO_ 20 PartNumber1: 8 chargeSOM_SafetyController
+ SG_ PartNumber1Signal : 7|64@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ 
+BO_ 21 PartNumber2: 8 chargeSOM_SafetyController
+ SG_ PartNumber2Signal : 7|64@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+ 
+BO_ 22 ChipInfo: 8 chargeSOM_SafetyController
+ SG_ MCUVersion : 7|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
 
 BO_ 14 ErrorMessage: 8 chargeSOM_SafetyController
  SG_ ErrorAddData2 : 55|16@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
@@ -190,6 +200,9 @@ BO_TX_BU_ 4 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 2 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 10 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 11 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 20 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 21 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 22 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 14 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 8 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 1 : chargeSOM_SafetyController,CCY_SafetyController;
@@ -244,7 +257,7 @@ BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";
 BA_DEF_DEF_  "BusType" "";
 BA_ "BusType" "J1708";
-VAL_ 255 PacketId 10 "FirmwareVersion" 11 "GitHash" ;
+VAL_ 255 PacketId 10 "FirmwareVersion" 11 "GitHash" 20 "PartNumber1" 21 "PartNumber2" 22 "ChipInfo" ;
 VAL_ 17 CC_CCSReady 2 "CCS_EmergencyStop" 1 "CCS_Ready" 0 "CCS_NotReady" ;
 VAL_ 16 CS_SafeStateActive 3 "SNA" 1 "SafeState" 0 "NormalState" ;
 VAL_ 16 CS_EStop_Reason 14 "EmergencyInput" 13 "HVReady_Malfunction" 12 "CE_Malfunction" 11 "ID_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "InternalError" 0 "NoStop" ;

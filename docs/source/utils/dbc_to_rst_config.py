@@ -1,5 +1,5 @@
 # Messages you want to document
-target_msgs = ["ChargeControl1", "ChargeState1", "PT1000State", "FirmwareVersion", "GitHash", "InquiryPacket"]
+target_msgs = ["ChargeControl1", "ChargeState1", "PT1000State", "FirmwareVersion", "GitHash", "InquiryPacket", "PartNumber1", "PartNumber2", "ChipInfo"]
 
 # Sender name mapping
 sender_name_map = {
