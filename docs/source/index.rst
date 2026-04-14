@@ -27,4 +27,5 @@ Charge SOM Evaluation Kit.
    everest_charging_stack
    cb_energy
    development
+   carrierboard_development
    troubleshooting
