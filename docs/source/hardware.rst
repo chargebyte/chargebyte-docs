@@ -162,13 +162,19 @@ The baudrate of each EIA-485 interface is configurable up to 115200 bps.
     * - Termination
       - yes, 120 Ohm enableable via SW1 (factory default: not activated)
       - yes, 120 Ohm permanently activated
-    * - :rspan:`1` Failsafe Biasing [1]_
-      - PCB board revision ≤ V0R32 [2]_ :no
+    * - Local Echo
+      - yes [1]_
+      - yes [1]_
+    * - :rspan:`1` Failsafe Biasing [2]_
+      - PCB board revision ≤ V0R32 [3]_ :no
       - :rspan:`1` yes
-    * - PCB board revision > V0R32 [2]_ :yes
+    * - PCB board revision > V0R32 [3]_ :yes
 
-.. [1] 390 Ohm Pull-up & 390 Ohm Pull-down resistors permanently activated
-.. [2] PCB board revision string can be found on the left side of the board near the relays
+.. [1] You need to suppress the echo when reading from the interface. When using
+       EVerest's ``SerialCommHub`` module, its configuration option ``ignore_echo``
+       needs to be set to ``true``.
+.. [2] 390 Ohm Pull-up & 390 Ohm Pull-down resistors permanently activated
+.. [3] PCB board revision string can be found on the left side of the board near the relays
 
 
 Supported Electricity Meter Measurands
@@ -1314,18 +1320,18 @@ Each device is marked with a label containing the following data:
 3. Production Data Code: WWYY
 4. 2D DataMatrix code containing the following information as a list of space separated values:
     a. Order Code
-    b. MAC address Ethernet [3]_ (only present for variant 200 and 300)
-    c. MAC address CP QCA7000 [3]_ (only present for variant 200 and 300)
-    d. MAC address CP QCA7000 Linux interface [3]_ (only present for variant 200 and 300)
-    e. MAC address mains QCA7000 [3]_ (only present for variant 300)
-    f. MAC address mains QCA700 Linux interface [3]_ (only present for variant 300)
+    b. MAC address Ethernet [4]_ (only present for variant 200 and 300)
+    c. MAC address CP QCA7000 [4]_ (only present for variant 200 and 300)
+    d. MAC address CP QCA7000 Linux interface [4]_ (only present for variant 200 and 300)
+    e. MAC address mains QCA7000 [4]_ (only present for variant 300)
+    f. MAC address mains QCA7000 Linux interface [4]_ (only present for variant 300)
     g. DAK mains QCA7000 (only present for variant 300)
-    h. Serial Number [4]_
+    h. Serial Number [5]_
     i. Production Data Code
 
-.. [3] without colons or other delimiters
+.. [4] without colons or other delimiters
 
-.. [4] 10 digits, with leading zeros
+.. [5] 10 digits, with leading zeros
 
 An example is shown in figure Example Label for Charge Control C.
 
