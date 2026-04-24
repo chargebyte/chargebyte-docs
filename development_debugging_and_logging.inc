@@ -84,6 +84,11 @@ In general, there are two ways to capture pcap traces:
    is part of the main EVerest repository and can be used to capture pcap traces automatically. Please look into
    the module manifest to see how to configure the `PacketSniffer` module.
 
+   .. note::
+
+      The `PacketSniffer` module should not be part of a production configuration. Depending on the configured
+      capture behavior, it can continuously write trace data and fill up the available storage.
+
 pcap traces with V2G communication can be analyzed using Wireshark with a V2G plugin like the one
 from `dSPACE <https://www.dspace.com/en/pub/home/news/wireshark-charging-plug-in.cfm>`_.
 
@@ -118,6 +123,8 @@ Please look into the module manifest to see how to configure the EVSEManager mod
 .. note::
 
    The session logging is pretty performance intensive and should only be used for debugging purposes.
+   It should not be enabled in production configurations, because the generated log files can grow quickly and
+   fill up the available storage.
 
 
 MQTT Logs

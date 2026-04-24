@@ -39,6 +39,8 @@ firmware update:
      - Hostapd configuration
    * - file: :code:`/etc/shadow`
      - Copies only the root password
+   * - file: :directory: :code:`/etc/mosquitto/conf.d`
+     - Mosquitto configuration files
 
 A complete list of copied files and directories during a firmware update can be found in the
 "meta-chargebyte-everest" github repository in the `bundles/core-bundle/post-install.d

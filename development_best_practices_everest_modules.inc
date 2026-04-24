@@ -38,9 +38,16 @@ the signals and parameters of the external interface. If you want to access addi
 you usually have to develop your own EVerest module.
 
 .. note::
-   In a future release, there will be EVerest API modules for most of the internal EVerest interfaces, which will
-   provide a more stable MQTT API for external applications. This will make it easier to develop custom applications
-   without the need to create an EVerest module.
+   EVerest now includes `BringUp modules <https://github.com/EVerest/EVerest/tree/main/modules/BringUp>`_ and a
+   dedicated `Bring-up guide <https://everest.github.io/nightly/how-to-guides/bringup/>`_ for a minimal
+   setup that can be used to start and test custom EVerest modules without requiring the full target system. These
+   modules provide mockup implementations for selected interfaces and can be configured via the GUI. This makes it
+   possible to execute interface commands against your own module and verify its behavior during development.
+
+   To use this approach, create a minimal EVerest configuration that includes your module together with the required
+   BringUp modules.
+   To test this setup on the target device, both the BringUp modules and the custom module under test need to be
+   cross-compiled for the target platform.
 
 The process of creating your own EVerest modules is described in the EVerest documentation:
 `How to: Develop New Modules <https://everest.github.io/nightly/tutorials/develop-new-module.html>`_.

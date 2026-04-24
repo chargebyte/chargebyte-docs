@@ -28,8 +28,9 @@ Features like generating charging session report and the energy management are c
 from chargebyte GmbH. For more information have a look `on our website <https://chargebyte.com/software/energy-manager>`_.
 
 Both parts have to be in the same network. In order to monitor and control the wallboxes, the EVerest charging stack is
-needed. The EVerest stack provides an API module, that is used by CB Energy either on localhost (on the same hardware)
-or to access other instances in the same local network.
+needed. The EVerest stack provides external API modules that are used by CB Energy either on localhost (on the same hardware)
+or to access other instances in the same local network. CB Energy uses the :code:`RpcApi` module for this purpose.
+Current chargebyte firmware images ship with :code:`RpcApi` enabled by default.
 
 Note: This documentation is a quick start to get the nymea ecosystem running as fast as possible with the
 EVerest charging stack. If you are testing CB Energy on one of chargebyte's Linux controllers, both EVerest and
