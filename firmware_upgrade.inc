@@ -107,7 +107,7 @@ Please note that you should not place multiple :code:`*.image` files onto the ro
 #. Wait until the board is booted.
 #. Connect to the board via SSH or Debug UART to backup all your own implementation, configuration and databases files.
 #. Plug in the USB flash drive with the Firmware Update Image file in the USB port of the board.
-#. Observe the LED update indications and wait until the whole firmware update and reboot process is finished - it takes up to 5 minutes.
+#. Observe the LED update indications and wait until the whole firmware update and reboot process is finished. It takes up to 5 minutes.
 #. When the firmware update process is finished and the USB flash drive can be unplugged.
 
 Update via SSH and SFTP

@@ -13,7 +13,7 @@ are placed in the directory :code:`"/usr/libexec/everest/migration.d/"`. These s
 the launch of the EVerest stack. Please see the initial scripts in that location for how to ensure
 that they only get executed once.
 
-Since the EVerest configuration allows to configure paths to many configuration files freely, customers
+Since the EVerest configuration allows customers to configure paths to many configuration files freely,
 should keep in mind that only the following files and directories are handled automatically during a
 firmware update:
 

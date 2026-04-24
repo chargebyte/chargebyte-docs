@@ -3,12 +3,12 @@
 First Firmware Update
 ---------------------
 
-When the Charge controller is manufactured, a stable software version is flashed onto it.
+When the charge controller is manufactured, a stable software version is flashed onto it.
 
 However, due to organizational processes and the continuous nature of software development,
 this version may already be outdated.
 
-We therefore recommend checking first, whether a software update for the Charge controller
+We therefore recommend checking first whether a software update for the charge controller
 is already available for download. If so, it should be installed immediately, as it likely
 includes bug fixes and possibly new features.
 

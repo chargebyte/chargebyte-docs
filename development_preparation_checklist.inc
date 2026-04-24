@@ -19,7 +19,7 @@ module:
   system.
 
 * Keep in mind that if you want to cross-compile an EVerest module, it must be compatible with the EVerest
-  release used in the running firmware on the charge controller.
+  release used in the firmware running on the charge controller.
   Please have a look at the official `EVerest documentation`_ to learn how to check out a dedicated
   EVerest release.
   The EVerest release used by the firmware can be found in the release notes of the `firmware images`_.
@@ -32,7 +32,7 @@ module:
 .. note::
 
    All charge controllers shipped by chargebyte and the provided `firmware images`_ by chargebyte
-   are currently based on Yocto kirkstone which includes Python 3.10. Since there exist some tooling
+   are currently based on Yocto kirkstone, which includes Python 3.10. Since there are some tooling
    dependencies during cross-compiling for the target platform, please use a Linux distribution on
    your host system which includes the very same Python version.
    This could be for example Ubuntu 22.04 LTS for Python 3.10.

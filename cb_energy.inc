@@ -164,7 +164,7 @@ stack. The developer guide can be found `here <https://nymea.io/documentation/de
 Manual Connection Option
 ========================
 
-If discovery between CB Energy App (client) and nymea:core (server) fails for some reason (e.g. blocked UPnP/ZeroConf
+If discovery between the CB Energy App (client) and nymea:core (server) fails for some reason (e.g. blocked UPnP/ZeroConf
 in company network), you can still enter the endpoints manually.
 There are three options for the connection protocol:
 

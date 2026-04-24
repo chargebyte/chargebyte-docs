@@ -61,7 +61,7 @@ The process of creating your own EVerest modules is described in the EVerest doc
 
 Once your own modules work as expected on your local machine, or if this is not possible e.g.
 due to hardware dependencies, then it is time to cross-compile it for the target platform and test it
-within the target environment. The cross-compile procedure is describe in
+within the target environment. The cross-compile procedure is described in
 :ref:`development_cross_compiling_everest_modules`.
 
 In a later development stage, all your custom modules need/should be included into your custom

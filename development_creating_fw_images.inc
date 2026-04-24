@@ -38,7 +38,7 @@ to our Board Support Package documentation in our public GitHub repository: http
    This requires a manifest file that contains information about the repositories for the necessary Yocto
    layers and the specific branches to be checked out. The manifest file can be found in a repository
    called "`chargebyte-bsp <https://github.com/chargebyte/chargebyte-bsp/tree/kirkstone-everest>`_".
-   (**Note**: chargebyte's Yocto build environment is currently based on 'Kirkstone' – an LTS release
+   (**Note**: chargebyte's Yocto build environment is currently based on 'kirkstone' – an LTS release
    of the Yocto Project, which ensures long-term support and stability for embedded Linux systems.)
 
    .. code-block:: console
