@@ -103,6 +103,10 @@ DC
 .. _Isabellenhütte IEM-DCR series: https://www.isabellenhuette.de/iem-dcr
 .. _IsabellenhuetteIemDcr: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerMeters/IsabellenhuetteIemDcr
 
+.. warning::
+   When using SLIP over EIA-485, the interface can only be used for a point-to-point connection between two
+   devices. In contrast to Modbus, multiple devices cannot be addressed on the same bus.
+
 
 
 DC Power Modules
@@ -208,8 +212,8 @@ RFID Readers
 .. _PN7160TokenProvider: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/NfcReaders/PN7160TokenProvider
 
 .. note::
-   All EVerest modules which depend on libnfc are not officially supported. This library depends on the
-   deprecated GPIO sysfs interface.
+   All EVerest modules which depend on libnfc, such as the `PN7160TokenProvider`_, are not officially supported.
+   This library depends on the deprecated GPIO sysfs interface.
 
 
 
