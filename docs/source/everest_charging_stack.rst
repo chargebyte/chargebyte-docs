@@ -107,7 +107,7 @@ different in the physical wiring:
   it is important that only one contactor can be active at a time, i.e. they exclude each other *mutually*.
   This is ensured by the software implementation, but should already be enforced in hardware,
   e.g. by using the auxiliary contacts as shown in :numref:`switch-3ph1ph-mutual`.
-  This setup allow to use a single 400 V-rated contactor in combination with a (cheaper) 230 V-rated one.
+  This setup allows the use of a single 400 V-rated contactor in combination with a (cheaper) 230 V-rated one.
 
   .. _switch-3ph1ph-mutual:
   .. figure:: _static/images/switch-3ph1ph-mutual.drawio.svg

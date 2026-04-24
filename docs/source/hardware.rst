@@ -255,7 +255,7 @@ Pairing
 
 When your HomePlug compatible companion is already setup and working, you are ready to join the powerline network.
 
-For this you need to pair the Charge Control C with your HomePlug compatible companion.
+For this, you need to pair the Charge Control C with your HomePlug-compatible companion.
 
 There are currently two different ways of pairing PLC devices with Charge Control C.
 

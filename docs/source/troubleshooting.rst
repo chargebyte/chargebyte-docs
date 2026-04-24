@@ -20,8 +20,9 @@ our `website <https://www.chargebyte.com/>`_ for more suitable products.
 Is it possible to use the Charge Control C as a DC charge controller?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Yes, for prototypes it’s possible to use the Charge Control C as DC SECC for DIN 70121 or ISO 15118.
-But the Charge Control C was designed with the AC use case in mind.
+For prototype use cases, it is possible to use the Charge Control C as DC SECC for DIN 70121 or ISO 15118.
+However, due to the strict timing requirements, the Charge Control C is not intended for production use in
+DC applications for safety reasons. The Charge Control C was designed with the AC use case in mind.
 
 
 How can I use CAN with Charge Control C?
@@ -57,7 +58,7 @@ For more information, please refer to the :ref:`update_from_chargebyte_to_everes
 How can I access the EVerest admin panel on Charge Control C?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Charge Control C doesn't have an `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
+The Charge Control C does not have an `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
 because of its limited resources. Please use your development environment to set up your configuration
 file or just use a plain text editor.
 
@@ -100,7 +101,7 @@ The most important points are summarised here:
    RAUC image.
 4. The `CoreDatabasePath` is used, among other things, to store OCPP transaction data.
 5. The OCPP 2.0.1 device model initialization is done automatically by the OCPP201 module after the
-   first start of EVerest. The database is stored the `DeviceModelDatabasePath`.
+   first start of EVerest. The database is stored at the `DeviceModelDatabasePath`.
 6. The component config files are stored in the `DeviceModelConfigPath`. Component config files are
    used to initialize or update the device model database. To update a component config file, just
    place a `component config file <https://github.com/EVerest/libocpp/tree/main/config/v2/component_config>`_
@@ -118,7 +119,7 @@ The most important points are summarised here:
 I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can I fix this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The EVerest mainline development is very dynamic and doesn't guarantee any
+The EVerest mainline development is very dynamic and does not guarantee any
 stable API along the EVerest modules. So after almost every EVerest release,
 chargebyte needs to adapt their modules to the latest API changes.
 

@@ -21,7 +21,7 @@ The following hardware components are required to set up the basic AC PWM charge
 - 12 V DC Power Supply
 - Power Contactor
 - IEC 62196 Type 2 three-phase EV charging socket outlet
-- Ethernet cable for SSH connection or USB to serial adapter for serial connection
+- Ethernet cable for SSH connection or a USB-to-serial adapter for serial connection
 - IEC 62196 Type 2 EVSE Test Adapter (e.g. Metrel or Benning) to simulate the EV
 - Wiring material
 
@@ -163,7 +163,7 @@ content of the configuration file, you will see that it is only a reference to t
 Let's take a look at the content of the bsp-only.yaml configuration file. This file is already
 prepared for the basic AC PWM charger setup.
 
-Just type "less /etc/everest/bsp-only.conf" to see the content of the configuration file:
+Just type "less /etc/everest/bsp-only.yaml" to see the content of the configuration file:
 
 .. literalinclude:: _static/files/bsp-only.yaml
    :language: yaml
@@ -209,7 +209,7 @@ it in your EVerest configuration.
 Here is an example of how to change the "connector_type" parameter of the CbTarragonDriver module to
 "IEC62196Type2Cable" in the EVerest configuration file.
 
-Snippet of a EVerest configuration file:
+Snippet of an EVerest configuration file:
 
 .. code-block:: yaml
 
