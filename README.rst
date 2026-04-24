@@ -52,7 +52,8 @@ The generated HTML files are written to `docs/_build/html`.
 Contributing
 ------------
 
-Please keep changes aligned with the existing repository structure and writing style:
+If you would like to contribute to the documentation, please fork the repository and create a pull
+request with your changes. Please keep changes aligned with the existing repository structure and writing style:
 
 - Documentation sources belong in `docs/source`.
 - Images belong in `docs/source/_static/images`.
@@ -65,9 +66,6 @@ Please keep changes aligned with the existing repository structure and writing s
 - Sections and chapters should be separated by one blank line after the title and two blank lines before the title.
 - Sections with a chapter title before them should have only one blank line before the title.
 - Capitalize section and chapter titles consistently.
-
-If you are contributing via a pull request, please also make sure that the branch naming and review workflow
-used by your team are followed.
 
 
 License
