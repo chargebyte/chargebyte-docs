@@ -66,9 +66,8 @@ The next step is to integrate a new EVerest module and build a custom image that
 Integrating a Custom EVerest Module
 -----------------------------------
 
-The EVerest documentation explains the `module concept in detail <https://everest.github.io/nightly/general/04_detail_module_concept.html>`_,
-their `configuration <https://everest.github.io/nightly/general/05_existing_modules.html>`_,
-and provides a guide on `how to develop a new EVerest module <https://everest.github.io/nightly/tutorials/new_modules>`_.
+The EVerest documentation explains the `module concept in detail <https://everest.github.io/nightly/explanation/detail-module-concept.html>`_
+and provides a guide on `how to develop a new EVerest module <https://everest.github.io/nightly/tutorials/develop-new-module.html>`_.
 
 This section focuses on integrating the module into the Yocto build system.
 

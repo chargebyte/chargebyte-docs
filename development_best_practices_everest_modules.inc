@@ -11,8 +11,8 @@ A native installation of EVerest on your host system is also recommended, as it 
 that allow you to start and test EVerest locally on your machine. If the software you developed does
 not depend on specific hardware components, it is also possible to test your EVerest module natively
 on the local machine before it is executed on the target hardware platform.
-Please refer to `Simulating EVerest <https://everest.github.io/nightly/tutorials/run_sil/>`_ for more information
-on how to start your EVerest module in the SiL environment.
+Please refer to `Simulating EVerest <https://everest.github.io/nightly/how-to-guides/getting-started/get-started-sw.html#simulating-everest>`_
+for more information on how to start your EVerest module in the SiL environment.
 
 If you are starting your program from scratch and considering additional libraries to support specific
 functionality, first review the libraries already required by EVerest or included in the firmware’s Linux
@@ -29,8 +29,8 @@ available:
 * Using the `API module`_ to connect an energy management system via MQTT. Please note that this module
   is deprecated and will be removed in one of the next releases.
 
-.. _RpcApi module: https://github.com/EVerest/everest-core/pull/1377
-.. _API module: https://github.com/EVerest/everest-core/tree/main/modules/API/API
+.. _RpcApi module: https://github.com/EVerest/EVerest/tree/main/modules/API/RpcApi
+.. _API module: https://github.com/EVerest/EVerest/tree/main/modules/API/API
 
 The advantage of not having to deal with the internal structures of EVerest (e.g. setting up an EVerest
 development environment) and using a more stable API comes with the disadvantage of being limited to
@@ -43,13 +43,13 @@ you usually have to develop your own EVerest module.
    without the need to create an EVerest module.
 
 The process of creating your own EVerest modules is described in the EVerest documentation:
-`How to: Develop New Modules <https://everest.github.io/nightly/tutorials/new_modules/>`_.
+`How to: Develop New Modules <https://everest.github.io/nightly/tutorials/develop-new-module.html>`_.
 
 .. note::
 
-   It is also possible to create your module directly in the everest-core project in the modules directory.
-   This is only recommended if you either want to work on a fork of everest-core or if you want to
-   contribute the module to the EVerest core project. In general, it is recommended to create your own module
+   It is also possible to create your module directly in the EVerest repository in the modules directory.
+   This is only recommended if you either want to work on a fork of the EVerest repository or if you want to
+   contribute the module to the main EVerest project. In general, it is recommended to create your own module
    in a separate EVerest module repository as described in the EVerest documentation.
 
 Once your own modules work as expected on your local machine, or if this is not possible e.g.

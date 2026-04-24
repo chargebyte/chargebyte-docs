@@ -49,9 +49,9 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
    .. note::
 
       Keep in mind, that such a firmware image is specific for a dedicated target platform, the used Yocto version and
-      the EVerest core version. Adapt these instructions accordingly, if you have to develop for different versions in parallel.
+      the EVerest release. Adapt these instructions accordingly, if you have to develop for different versions in parallel.
 
-#. Create a new directory in your `everest-workspace` directory (in parallel to the `everest-core` directory) and
+#. Create a new directory in your `everest-workspace` directory (in parallel to the `everest` directory) and
    create a new file named :code:`toolchain.cmake`:
 
    .. code-block:: console
@@ -71,13 +71,13 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
 
       everest-workspace/
       |── {MyEVerestModuleRepo}
-      ├── everest-core
+      ├── everest
       └── toolchain
           └── toolchain.cmake
 
 #. Create a new :code:`build-{{ MACHINE }}` directory in `MyEVerestModuleRepo` directory (i.e. within your own EVerest
-   module project directory or in `everest-core` if you want to build `everest-core` modules or your module is part
-   of `everest-core`):
+   module project directory or in `everest` if you want to build EVerest modules or your module is part
+   of the EVerest repository):
 
    .. code-block:: console
 

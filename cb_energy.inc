@@ -37,8 +37,9 @@ CB Energy are preinstalled in the latest firmware images. A more detailed docume
 `on the nymea website <https://nymea.io>`_.
 
 .. important::
-  The `API module <https://github.com/EVerest/everest-core/tree/main/modules/API>`_ must be installed and active in
-  the EVerest configuration.
+  The `RpcApi module <https://github.com/EVerest/EVerest/tree/main/modules/API/RpcApi>`_ should be installed and active in
+  the EVerest configuration when using CB Energy. The `API module <https://github.com/EVerest/EVerest/tree/main/modules/API/API>`_
+  can also be used as an alternative, but for CB Energy the :code:`RpcApi` module is recommended.
 
 .. _cb_energy_app:
 
