@@ -28,7 +28,7 @@ An overview of the EVerest modules that are defined within a configuration file 
 **CbTarragonDriver** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbTarragonDriver>`__)
 
 This is the Hardware Abstraction Layer (HAL) for Charge Control C in EVerest. It implements
-the `evse_board_support <https://github.com/EVerest/everest-core/blob/main/interfaces/evse_board_support.yaml>`_
+the `evse_board_support <https://github.com/EVerest/EVerest/blob/main/interfaces/evse_board_support.yaml>`_
 interface, enabling communication with the :code:`EvseManager` and control of the board. The EVerest community
 often refers to these HAL modules as BSPs, such as MicroMegaWattBSP and PhyVersoBSP. This module is
 essential for controlling the Charge Control C. The term "Tarragon" in :code:`CbTarragonDriver` refers to
@@ -39,7 +39,7 @@ the Charge Control C hardware platform.
 This module is not mandatory for an EVSE setup using Charge Control C in EVerest. However, if EVerest
 is configured for an AC supply equipment with a socket connector, the module :code:`CbTarragonPlugLock`
 can be utilized. This module is a driver for plug lock control and implements
-`connector_lock <https://github.com/EVerest/everest-core/blob/main/interfaces/connector_lock.yaml>`_ interface.
+`connector_lock <https://github.com/EVerest/EVerest/blob/main/interfaces/connector_lock.yaml>`_ interface.
 It is designed to support all types of plug locks on connector X9 of the Charge Control C. Check
 section :ref:`locking_motor` to understand how to connect the locking motor to the Charge Control C.
 
@@ -161,7 +161,7 @@ phase-count switching in general:
 The EnergyManager module has also additional configuration options to allow fine-tuning of the behavior, but
 all ship with reasonable default values and thus are not explained in detail here.
 A description of all these parameters can be found in the
-`EnergyManager manifest <https://github.com/EVerest/everest-core/blob/main/modules/EnergyManagement/EnergyManager/manifest.yaml>`_.
+`EnergyManager manifest <https://github.com/EVerest/EVerest/blob/main/modules/EnergyManagement/EnergyManager/manifest.yaml>`_.
 
 And also the 'EvseManager' module allows fine-tuning the switching process with two configuration parameters:
 
@@ -173,7 +173,7 @@ And also the 'EvseManager' module allows fine-tuning the switching process with 
   of 'X1' should work with all cars and thus it's recommended to leave it on this default value.
 
 The full description of all these parameters can be found in the
-`EvseManager manifest <https://github.com/EVerest/everest-core/blob/main/modules/EVSE/EvseManager/manifest.yaml>`_.
+`EvseManager manifest <https://github.com/EVerest/EVerest/blob/main/modules/EVSE/EvseManager/manifest.yaml>`_.
 
 .. note::
    Phase count switching is only possible in basic charging mode.
