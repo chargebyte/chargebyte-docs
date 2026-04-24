@@ -67,13 +67,12 @@ Does EVerest on Charge Control C support ISO 15118-20 yet?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The required module for ISO 15118-20 has been included in the image since the chargebyte EVerest 1.0.0 release.
-Please note that the implementation is still under development and integrated into the image only for test purposes.
+Support for ISO 15118-20 is available in EVerest on Charge Control C and has significantly matured compared to
+earlier releases. Among other things, BPT (bidirectional power transfer) is implemented for Dynamic and Scheduled
+Charging Mode. The main remaining implementation gap is currently Plug & Charge related functionality.
 
-EVerest integrates the `libiso15118 <https://github.com/EVerest/libiso15118>`_ library to provide support for ISO 15118-20.
-Here you can find more information about the current status of the ISO 15118-20 implementation.
-Please note, however, that the range of functions described in the linked `libiso15118` library documentation may not
-correspond to those already integrated in EVerest, as the library has not yet been fully integrated.
-Implementation gaps may exist, particularly in the case of BPT (bidirectional power transfer) functionality.
+For Plug & Charge related setup details, please also refer to the
+`EVerest Plug & Charge tutorial <https://everest.github.io/nightly/tutorials/plug-and-charge.html>`_.
 
 
 How do I set up OCPP 2.0.1 on Charge Control C with EVerest?
