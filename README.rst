@@ -1,20 +1,52 @@
-chargebyte GmbH Product Documentation
-=====================================
+chargebyte Shared Documentation Includes
+========================================
 
-Welcome to the documentation for products of chargebyte GmbH.
+This repository contains shared documentation building blocks used by chargebyte product documentation
+projects.
 
-This documentation contains all necessary information and guides for the use and understanding of our products.
+The content in this repository is intended to be consumed as a git submodule by product-specific
+documentation repositories. It contains reusable reStructuredText include files, Sphinx templates,
+and shared static assets.
+
 
 Contents
 --------
 
-- Product specific User Guides and Manuals (In Progress)
-- Developer Documentation (In Progress)
-- FAQs and Troubleshooting (In Progress)
+Typical content in this repository includes:
+
+- shared `.inc` files for user guides and developer documentation
+- shared Sphinx templates in `_templates`
+- shared static assets referenced by documentation projects
+
+
+Usage
+-----
+
+Product documentation repositories include files from this repository via standard Sphinx
+`.. include::` directives and shared template/static paths.
+
+Changes in this repository may affect multiple documentation projects. Please keep shared content
+generic where possible and product-specific where necessary.
+
+
+Contributing
+------------
+
+When updating shared content:
+
+- keep wording and structure reusable across documentation projects where possible
+- avoid introducing assumptions that only apply to one product unless the file is explicitly product-specific
+- keep reStructuredText formatting consistent with the consuming repositories
+
+
+License
+-------
+
+See `LICENSE` for license rights and limitations.
+
 
 Contact
 -------
 
-If you have any questions or inquiries, please contact our support team at https://chargebyte.com/support.
-
-Thank you for using products from chargebyte GmbH!
+For support and product-related questions, please visit:
+https://chargebyte.com/support
