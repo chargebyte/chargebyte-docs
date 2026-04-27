@@ -29,7 +29,7 @@ available:
 * Using the `API module`_ to connect an energy management system via MQTT. Please note that this module
   is deprecated and will be removed in one of the next releases.
 
-.. _RpcApi module: https://github.com/EVerest/everest-core/pull/1377
+.. _RpcApi module: https://github.com/EVerest/EVerest/tree/main/modules/API/RpcApi
 .. _API module: https://github.com/EVerest/everest-core/tree/main/modules/API/API
 
 The advantage of not having to deal with the internal structures of EVerest (e.g. setting up an EVerest

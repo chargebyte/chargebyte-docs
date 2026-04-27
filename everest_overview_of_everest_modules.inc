@@ -24,7 +24,7 @@ This module is not mandatory for a simple EVSE setup in EVerest. However, the mo
 Please note that this module will be removed in future releases and replaced by the
 :code:`RpcApi` module.
 
-**RpcApi** (`view on GitHub Pull Request <https://github.com/EVerest/everest-core/pull/1324>`__)
+**RpcApi** (`view on GitHub Pull Request <https://github.com/EVerest/EVerest/tree/main/modules/API/RpcApi>`__)
 
 This module is not mandatory for a simple EVSE setup in EVerest, but it is required by the CB Energy Management System
 :ref:`introduction_nymea` service. This module provides a standardized interface for external applications to interact
