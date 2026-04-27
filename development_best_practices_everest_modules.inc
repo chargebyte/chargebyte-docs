@@ -11,8 +11,8 @@ A native installation of EVerest on your host system is also recommended, as it 
 that allow you to start and test EVerest locally on your machine. If the software you developed does
 not depend on specific hardware components, it is also possible to test your EVerest module natively
 on the local machine before it is executed on the target hardware platform.
-Please refer to `Simulating EVerest <https://everest.github.io/nightly/tutorials/run_sil/>`_ for more information
-on how to start your EVerest module in the SiL environment.
+Please refer to `Simulating EVerest <https://everest.github.io/nightly/how-to-guides/getting-started/get-started-sw.html#simulating-everest>`_
+for more information on how to start your EVerest module in the SiL environment.
 
 If you are starting your program from scratch and considering additional libraries to support specific
 functionality, first review the libraries already required by EVerest or included in the firmware’s Linux
@@ -29,8 +29,8 @@ available:
 * Using the `API module`_ to connect an energy management system via MQTT. Please note that this module
   is deprecated and will be removed in one of the next releases.
 
-.. _RpcApi module: https://github.com/EVerest/everest-core/pull/1377
-.. _API module: https://github.com/EVerest/everest-core/tree/main/modules/API/API
+.. _RpcApi module: https://github.com/EVerest/EVerest/tree/main/modules/API/RpcApi
+.. _API module: https://github.com/EVerest/EVerest/tree/main/modules/API/API
 
 The advantage of not having to deal with the internal structures of EVerest (e.g. setting up an EVerest
 development environment) and using a more stable API comes with the disadvantage of being limited to
@@ -38,23 +38,30 @@ the signals and parameters of the external interface. If you want to access addi
 you usually have to develop your own EVerest module.
 
 .. note::
-   In a future release, there will be EVerest API modules for most of the internal EVerest interfaces, which will
-   provide a more stable MQTT API for external applications. This will make it easier to develop custom applications
-   without the need to create an EVerest module.
+   EVerest now includes `BringUp modules <https://github.com/EVerest/EVerest/tree/main/modules/BringUp>`_ and a
+   dedicated `Bring-up guide <https://everest.github.io/nightly/how-to-guides/bringup/>`_ for a minimal
+   setup that can be used to start and test custom EVerest modules without requiring the full target system. These
+   modules provide mockup implementations for selected interfaces and can be configured via the GUI. This makes it
+   possible to execute interface commands against your own module and verify its behavior during development.
+
+   To use this approach, create a minimal EVerest configuration that includes your module together with the required
+   BringUp modules.
+   To test this setup on the target device, both the BringUp modules and the custom module under test need to be
+   cross-compiled for the target platform.
 
 The process of creating your own EVerest modules is described in the EVerest documentation:
-`How to: Develop New Modules <https://everest.github.io/nightly/tutorials/new_modules/>`_.
+`How to: Develop New Modules <https://everest.github.io/nightly/tutorials/develop-new-module.html>`_.
 
 .. note::
 
-   It is also possible to create your module directly in the everest-core project in the modules directory.
-   This is only recommended if you either want to work on a fork of everest-core or if you want to
-   contribute the module to the EVerest core project. In general, it is recommended to create your own module
+   It is also possible to create your module directly in the EVerest repository in the modules directory.
+   This is only recommended if you either want to work on a fork of the EVerest repository or if you want to
+   contribute the module to the main EVerest project. In general, it is recommended to create your own module
    in a separate EVerest module repository as described in the EVerest documentation.
 
 Once your own modules work as expected on your local machine, or if this is not possible e.g.
 due to hardware dependencies, then it is time to cross-compile it for the target platform and test it
-within the target environment. The cross-compile procedure is describe in
+within the target environment. The cross-compile procedure is described in
 :ref:`development_cross_compiling_everest_modules`.
 
 In a later development stage, all your custom modules need/should be included into your custom

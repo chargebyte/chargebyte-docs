@@ -5,7 +5,7 @@ Logging and Debugging
 
 There are different ways to analyze the EVerest charging software. In the following, different
 ways are described. In preparation for starting this chapter, it is necessary to be connected to the board
-via Ethernet. This is also necessary to copy logs and traces from the board to the local PC via a SFTP
+via Ethernet. This is also necessary to copy logs and traces from the board to the local PC via SFTP
 tool like `WinSCP <https://winscp.net/eng/download.php>`_ or `FileZilla <https://filezilla-project.org/>`_.
 
 
@@ -23,7 +23,7 @@ To view the logs, connect to the charge controller via SSH and run the following
 The `-f` flag is used to follow the logs live, and the `-n` flag is used to view the last 100 lines only.
 The `-u` flag is used to filter the logs for the EVerest service. To stop following the logs, press :code:`Ctrl+C`.
 
-The logs are stored by the systemd journal service in a binary format in below `/var/log/journal`.
+The logs are stored by the systemd journal service in binary format under `/var/log/journal`.
 Accessing these files on the charge controller itself should only be done using the `journalctl` tool.
 
 But in case, you transferred the files to your host system, you can also use `journalctl` on your
@@ -80,9 +80,14 @@ In general, there are two ways to capture pcap traces:
 
 #. Using the EVerest `PacketSniffer` module
 
-   The `PacketSniffer <https://github.com/EVerest/everest-core/tree/main/modules/Misc/PacketSniffer>`_ module
-   is part of `everest-core` and can be used to capture pcap traces automatically. Please look into
+   The `PacketSniffer <https://github.com/EVerest/EVerest/tree/main/modules/Misc/PacketSniffer>`_ module
+   is part of the main EVerest repository and can be used to capture pcap traces automatically. Please refer to
    the module manifest to see how to configure the `PacketSniffer` module.
+
+   .. note::
+
+      The `PacketSniffer` module should not be part of a production configuration. Depending on the configured
+      capture behavior, it can continuously write trace data and fill up the available storage.
 
 pcap traces with V2G communication can be analyzed using Wireshark with a V2G plugin like the one
 from `dSPACE <https://www.dspace.com/en/pub/home/news/wireshark-charging-plug-in.cfm>`_.
@@ -91,7 +96,7 @@ from `dSPACE <https://www.dspace.com/en/pub/home/news/wireshark-charging-plug-in
 
    TLS encrypted communication cannot be analyzed with Wireshark without the TLS session key. Please
    look in the module manifest which is responsible for the TLS handshake and check if there is an option
-   to export the TLS session key. E.g. the `IsoMux module <https://github.com/EVerest/everest-core/blob/main/modules/EVSE/IsoMux/manifest.yaml>`_
+   to export the TLS session key. E.g. the `IsoMux module <https://github.com/EVerest/EVerest/blob/main/modules/EVSE/IsoMux/manifest.yaml>`_
    is able to export the TLS session key.
 
 CAN Traces
@@ -113,11 +118,13 @@ Session Logging of the EVSEManager
 
 The EVerest `EVSEManager` can generate session log files with information about the current session state,
 configured CP state and duty cycle. It can also decode and log the content of the V2G messages.
-Please look into the module manifest to see how to configure the EVSEManager module to activate session logging.
+Please refer to the module manifest to see how to configure the EVSEManager module to activate session logging.
 
 .. note::
 
    The session logging is pretty performance intensive and should only be used for debugging purposes.
+   It should not be enabled in production configurations, because the generated log files can grow quickly and
+   fill up the available storage.
 
 
 MQTT Logs
@@ -127,7 +134,7 @@ It is also possible to observe the internal MQTT communication between the EVere
 When developing new modules, this can be helpful to better understand the internal processes regarding
 the use of the interfaces.
 We recommend using the `MQTT Explorer <https://mqtt-explorer.com/>`_ tool to monitor and analyze the MQTT communication.
-It is also possible to use the following command to monitor the MQTT communication, but this is not so easy to read:
+It is also possible to use the following command to monitor the MQTT communication, but it is not easy to read:
 
 .. code-block:: console
 

@@ -28,8 +28,9 @@ Features like generating charging session report and the energy management are c
 from chargebyte GmbH. For more information have a look `on our website <https://chargebyte.com/software/energy-manager>`_.
 
 Both parts have to be in the same network. In order to monitor and control the wallboxes, the EVerest charging stack is
-needed. The EVerest stack provides an API module, that is used by CB Energy either on localhost (on the same hardware)
-or to access other instances in the same local network.
+needed. The EVerest stack provides external API modules that are used by CB Energy either on localhost (on the same hardware)
+or to access other instances in the same local network. CB Energy uses the :code:`RpcApi` module for this purpose.
+Current chargebyte firmware images ship with :code:`RpcApi` enabled by default.
 
 Note: This documentation is a quick start to get the nymea ecosystem running as fast as possible with the
 EVerest charging stack. If you are testing CB Energy on one of chargebyte's Linux controllers, both EVerest and
@@ -37,8 +38,9 @@ CB Energy are preinstalled in the latest firmware images. A more detailed docume
 `on the nymea website <https://nymea.io>`_.
 
 .. important::
-  The `API module <https://github.com/EVerest/everest-core/tree/main/modules/API>`_ must be installed and active in
-  the EVerest configuration.
+  The `RpcApi module <https://github.com/EVerest/EVerest/tree/main/modules/API/RpcApi>`_ should be installed and active in
+  the EVerest configuration when using CB Energy. The `API module <https://github.com/EVerest/EVerest/tree/main/modules/API/API>`_
+  can also be used as an alternative, but for CB Energy the :code:`RpcApi` module is recommended.
 
 .. _cb_energy_app:
 
@@ -162,7 +164,7 @@ stack. The developer guide can be found `here <https://nymea.io/documentation/de
 Manual Connection Option
 ========================
 
-If discovery between CB Energy App (client) and nymea:core (server) fails for some reason (e.g. blocked UPnP/ZeroConf
+If discovery between the CB Energy App (client) and nymea:core (server) fails for some reason (e.g. blocked UPnP/ZeroConf
 in company network), you can still enter the endpoints manually.
 There are three options for the connection protocol:
 

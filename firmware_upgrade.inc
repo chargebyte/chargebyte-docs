@@ -34,10 +34,10 @@ repository. Here you can find the latest firmware images and also older released
 
   Please read the release notes of the firmware image before downloading and installing it. In the
   release notes you can find information about the changes and new features of the firmware image and
-  also the version information which "everest-core" tag the firmware image is based on. This information
+  also the version information which EVerest release the firmware image is based on. This information
   is especially important if you build up your cross-compile environment as described in
   :ref:`development_cross_compiling_everest_modules`.
-  Please check that your cross-compile environment is using the same "everest-core" tag as the firmware
+  Please check that your cross-compile environment is using the same EVerest release as the firmware
   image you want to install.
 
 .. _release_vs_development_images:
@@ -107,7 +107,7 @@ Please note that you should not place multiple :code:`*.image` files onto the ro
 #. Wait until the board is booted.
 #. Connect to the board via SSH or Debug UART to backup all your own implementation, configuration and databases files.
 #. Plug in the USB flash drive with the Firmware Update Image file in the USB port of the board.
-#. Observe the LED update indications and wait until the whole firmware update and reboot process is finished - it takes up to 5 minutes.
+#. Observe the LED update indications and wait until the whole firmware update and reboot process is finished. It takes up to 5 minutes.
 #. When the firmware update process is finished and the USB flash drive can be unplugged.
 
 Update via SSH and SFTP

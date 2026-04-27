@@ -12,29 +12,27 @@ module:
   and the charge controller.
 
 * The EVerest development environment should be set up on the local Linux machine. Please follow the
-  instructions in the EVerest documentation, in particular the chapter `Prepare Your Development Environment`_
-  and the chapter `A Kind Of Quick Guide To EVerest`_.
+  instructions in the `EVerest documentation`_, in particular the chapter `Get started in Software`_.
   If you have problems setting up EVerest, please check the `Zulip chat`_
   to see whether this problem is already known and whether solutions have already been found.
   To verify that everything is installed correctly, EVerest should be compiled once natively on your
   system.
 
 * Keep in mind that if you want to cross-compile an EVerest module, it must be compatible with the EVerest
-  release used in the running firmware on the charge controller.
+  release used in the firmware running on the charge controller.
   Please have a look at the official `EVerest documentation`_ to learn how to check out a dedicated
   EVerest release.
-  The everest-core version used by the firmware can be found in the release notes of the `firmware images`_.
+  The EVerest release used by the firmware can be found in the release notes of the `firmware images`_.
 
-.. _Prepare Your Development Environment: https://everest.github.io/nightly/general/02_detail_pre_setup.html
-.. _A Kind Of Quick Guide To EVerest: https://everest.github.io/nightly/general/03_quick_start_guide.html
+.. _Get started in Software: https://everest.github.io/nightly/how-to-guides/getting-started/get-started-sw.html
 .. _Zulip chat: https://lfenergy.zulipchat.com/
-.. _EVerest documentation: https://everest.github.io/nightly/dev_tools/edm.html#setting-up-and-updating-a-workspace
+.. _EVerest documentation: https://everest.github.io/nightly/index.html
 .. _firmware images: https://github.com/chargebyte/meta-chargebyte-everest/releases
 
 .. note::
 
    All charge controllers shipped by chargebyte and the provided `firmware images`_ by chargebyte
-   are currently based on Yocto kirkstone which includes Python 3.10. Since there exist some tooling
+   are currently based on Yocto kirkstone, which includes Python 3.10. Since there are some tooling
    dependencies during cross-compiling for the target platform, please use a Linux distribution on
    your host system which includes the very same Python version.
    This could be for example Ubuntu 22.04 LTS for Python 3.10.
