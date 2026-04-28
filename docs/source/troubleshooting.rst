@@ -88,9 +88,8 @@ For Plug & Charge related setup details, please also refer to the
 How do I set up OCPP 2.0.1 on Charge Control C with EVerest?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To support OCPP 2.0.1, the EVerest OCPP201 module must be integrated into the EVerest configuration.
-This module uses the `libocpp library <https://github.com/EVerest/libocpp>`_ to implement the OCPP 2.0.1
-protocol.
+To support OCPP 2.0.1, the EVerest :ref:`OCPP201 <everest_module_ocpp201>` module must be integrated into
+the EVerest configuration.
 The `OCPP 2.0.1 and 2.1 tutorial <https://everest.github.io/nightly/tutorials/ocpp2.html>`_
 already contains information about the module parameters, the provided and required interfaces,
 and the initial creation of the OCPP database.
