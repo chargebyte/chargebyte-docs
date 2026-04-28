@@ -63,6 +63,16 @@ because of its limited resources. Please use your development environment to set
 file or just use a plain text editor.
 
 
+How should TLS or Plug & Charge private keys be protected?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For TLS and especially Plug & Charge, private keys should be protected according to the requirements of the
+certificate authority or certificate management system. In many production environments, this means using
+hardware-backed key storage such as a TPM, HSM, or comparable technology.
+
+If software-based key protection is not sufficient for your project, plan the hardware-backed approach early.
+Please contact chargebyte support to discuss the available integration options for Charge Control C.
+
 Does EVerest on Charge Control C support ISO 15118-20 yet?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
