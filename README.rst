@@ -1,72 +1,81 @@
 Charge Control C Product Documentation
 ======================================
 
-This is the product documentation project for Charge Control C, a product of chargebyte GmbH.
-This documentation is intended for users, developers, and administrators of Charge Control C.
-This documentation is hosted on Read the Docs and can be accessed at
-https://chargebyte-docs.readthedocs.io/en/latest/.
+This repository contains the source files for the Charge Control C user documentation.
+The documentation is written in reStructuredText and built with Sphinx.
+
+The published documentation is available on Read the Docs:
+https://chargebyte-docs.readthedocs.io/projects/everest-charge-control-c/en/
 
 
-Contents
---------
+Repository Structure
+--------------------
 
-- Charge Control C User Guide
+The main documentation sources are located in:
+
+- `docs/source`
+
+Shared content is maintained in the git submodule:
+
+- `includes`
 
 
-Repo Initialization
--------------------
+Repository Initialization
+-------------------------
 
-This repository is using git submodules to share documents between the user guides.
-After cloning of the project please execute the following commands:
+This repository uses git submodules. After cloning, initialize and update them with:
 
-git checkout everest/charge_control_c
+.. code-block:: bash
 
-git submodule update --init --force --remote
+   git submodule update --init --recursive
 
 
 Building the Documentation Locally
 ----------------------------------
 
-To build the documentation locally, you need to have Python and pip installed on your system.
-You can install the required dependencies by running the following command:
+Install the Python dependencies first:
 
-pip install -r docs/requirements.txt
+.. code-block:: bash
 
-After installing the dependencies, you can build the documentation by running the following command:
+   pip install -r docs/requirements.txt
 
-sphinx-build -a docs/source {output_directory}
+Then build the HTML documentation from the `docs` directory:
 
-The output directory is the directory where the generated HTML files will be stored.
+.. code-block:: bash
+
+   cd docs
+   sphinx-build -b html source _build/html
+
+The generated HTML files are written to `docs/_build/html`.
 
 
 Contributing
 ------------
 
 If you would like to contribute to the documentation, please fork the repository and create a pull
-request with your changes. Please make sure to follow the guidelines for contributing to the
-documentation:
+request with your changes. Please keep changes aligned with the existing repository structure and writing style:
 
-- The branch name for the pull request should be `everest/ccc_{your_branch_name}`.
-- Maximum line length should be 120 characters (Preferably 100 characters).
-- Images should be stored in the `docs/source/_static/images` directory
-- CSS files should be stored in the `docs/source/_static/css` directory
-- Source and config files should be stored in the `docs/source/_static/files` directory
-- A documentation file should be written in reStructuredText format
-- A documentation file should start with referenceable label of the file name (e.g. ".. _hardware.rst:")
-- Sections and chapters should be separated by one blank line after the title and two blank lines before the title
-- Sections with a chapter title before, need to have only one blank line before the title
-- First letters of section and chapter titles should be capitalized (e.g. "Charge Control C User Guide")
+- Documentation sources belong in `docs/source`.
+- Images belong in `docs/source/_static/images`.
+- CSS files belong in `docs/source/_static/css`.
+- Static files such as example configurations belong in `docs/source/_static/files`.
+- Shared include files belong in the `includes` submodule.
+- Documentation files should be written in reStructuredText.
+- Documentation files should start with a referenceable label, for example `.. _hardware.rst:`.
+- Keep line length at 120 characters maximum, preferably around 100 characters.
+- Sections and chapters should be separated by one blank line after the title and two blank lines before the title.
+- Sections with a chapter title before them should have only one blank line before the title.
+- Capitalize section and chapter titles consistently.
 
 
 License
 -------
 
-See the LICENSE file for license rights and limitations (Apache 2.0).
+See `LICENSE` for license rights and limitations (Apache 2.0).
 
 
 Contact
 -------
 
-If you have any questions or inquiries, please contact our support team at https://chargebyte.com/support.
-
-Thank you for using products from chargebyte GmbH!
+For support and product-related questions, please visit:
+https://chargebyte.com/support

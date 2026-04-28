@@ -20,8 +20,9 @@ our `website <https://www.chargebyte.com/>`_ for more suitable products.
 Is it possible to use the Charge Control C as a DC charge controller?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Yes, for prototypes it’s possible to use the Charge Control C as DC SECC for DIN 70121 or ISO 15118.
-But the Charge Control C was designed with the AC use case in mind.
+For prototype use cases, it is possible to use the Charge Control C as DC SECC for DIN 70121 or ISO 15118.
+However, due to the strict timing requirements, the Charge Control C is not intended for production use in
+DC applications for safety reasons. The Charge Control C was designed with the AC use case in mind.
 
 
 How can I use CAN with Charge Control C?
@@ -36,8 +37,8 @@ I want to control EVerest via CAN, how can I achieve this?
 
 Currently there is no such EVerest module available, you will need to implement it on your own.
 
-But at least there is are `DC power supply modules <https://github.com/EVerest/everest-core/tree/main/modules/HardwareDrivers/PowerSupplies>`_
-and a `library <https://github.com/EVerest/everest-core/tree/main/lib/everest/can_dpm1000>`_,
+But at least there are `DC power supply modules <https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerSupplies>`_
+and a `library <https://github.com/EVerest/EVerest/tree/main/lib/everest/can_dpm1000>`_,
 which uses the CAN interface. This might help as a starting point.
 
 
@@ -57,33 +58,41 @@ For more information, please refer to the :ref:`update_from_chargebyte_to_everes
 How can I access the EVerest admin panel on Charge Control C?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Charge Control C doesn't have an `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
+The Charge Control C does not have an `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
 because of its limited resources. Please use your development environment to set up your configuration
 file or just use a plain text editor.
 
+
+How should TLS or Plug & Charge private keys be protected?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For TLS and especially Plug & Charge, private keys should be protected according to the requirements of the
+certificate authority or certificate management system. In many production environments, this means using
+hardware-backed key storage such as a TPM, HSM, or comparable technology.
+
+If software-based key protection is not sufficient for your project, plan the hardware-backed approach early.
+Please contact chargebyte support to discuss the available integration options for Charge Control C.
 
 Does EVerest on Charge Control C support ISO 15118-20 yet?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The required module for ISO 15118-20 has been included in the image since the chargebyte EVerest 1.0.0 release.
-Please note that the implementation is still under development and integrated into the image only for test purposes.
+Support for ISO 15118-20 is available in EVerest on Charge Control C and has significantly matured compared to
+earlier releases. Among other things, BPT (bidirectional power transfer) is implemented for Dynamic and Scheduled
+Charging Mode. The main remaining implementation gap is currently Plug & Charge related functionality.
 
-EVerest integrates the `libiso15118 <https://github.com/EVerest/libiso15118>`_ library to provide support for ISO 15118-20.
-Here you can find more information about the current status of the ISO 15118-20 implementation.
-Please note, however, that the range of functions described in the linked `libiso15118` library documentation may not
-correspond to those already integrated in EVerest, as the library has not yet been fully integrated.
-Implementation gaps may exist, particularly in the case of BPT (bidirectional power transfer) functionality.
+For Plug & Charge related setup details, please also refer to the
+`EVerest Plug & Charge tutorial <https://everest.github.io/nightly/tutorials/plug-and-charge.html>`_.
 
 
 How do I set up OCPP 2.0.1 on Charge Control C with EVerest?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To support OCPP 2.0.1, the EVerest OCPP201 module must be integrated into the EVerest configuration.
-This module uses the `libocpp library <https://github.com/EVerest/libocpp>`_ to implement the OCPP 2.0.1
-protocol.
-The `OCPP201 module documentation <https://github.com/EVerest/everest-core/blob/main/modules/EVSE/OCPP201/doc.rst>`_
-already contains some information about the module parameters, the provided and required interfaces,
-and the initial creation of the OCPP 2.0.1 database.
+To support OCPP 2.0.1, the EVerest :ref:`OCPP201 <everest_module_ocpp201>` module must be integrated into
+the EVerest configuration.
+The `OCPP 2.0.1 and 2.1 tutorial <https://everest.github.io/nightly/tutorials/ocpp2.html>`_
+already contains information about the module parameters, the provided and required interfaces,
+and the initial creation of the OCPP database.
 
 The most important points are summarised here:
 
@@ -100,10 +109,10 @@ The most important points are summarised here:
    RAUC image.
 4. The `CoreDatabasePath` is used, among other things, to store OCPP transaction data.
 5. The OCPP 2.0.1 device model initialization is done automatically by the OCPP201 module after the
-   first start of EVerest. The database is stored the `DeviceModelDatabasePath`.
+   first start of EVerest. The database is stored at the `DeviceModelDatabasePath`.
 6. The component config files are stored in the `DeviceModelConfigPath`. Component config files are
    used to initialize or update the device model database. To update a component config file, just
-   place a `component config file <https://github.com/EVerest/libocpp/tree/main/config/v2/component_config>`_
+   place a `component config file <https://github.com/EVerest/EVerest/tree/main/lib/everest/ocpp/config/v2/component_config>`_
    in the same directory structure in the DeviceModelConfigPath and change the values accordingly.
    Important keys of the component config files are:
 
@@ -112,13 +121,13 @@ The most important points are summarised here:
    - `standardized/SecurityCtrlr.json: SecurityCtrlrIdentity`: In "attributes" adapt the "value" key to configure the SecurityCtrlrIdentity. It is the Charging Station identity.
 
    For further information about the device model initialization, please refer to the
-   `libocpp documentation <https://github.com/EVerest/libocpp/blob/main/doc/v2/ocpp_201_device_model_initialization.md>`_.
+   `libocpp documentation <https://github.com/EVerest/EVerest/blob/main/lib/everest/ocpp/doc/v2/ocpp_201_device_model_initialization.md>`_.
 
 
 I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can I fix this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The EVerest mainline development is very dynamic and doesn't guarantee any
+The EVerest mainline development is very dynamic and does not guarantee any
 stable API along the EVerest modules. So after almost every EVerest release,
 chargebyte needs to adapt their modules to the latest API changes.
 
@@ -130,7 +139,7 @@ I would like to implement a custom Modbus device in EVerest. Where should I star
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 EVerest already has a module which takes care of Modbus communication. Please have a look at
-`SerialCommHub <https://everest.github.io/nightly/_generated/modules/SerialCommHub.html>`_,
+`SerialCommHub <https://everest.github.io/nightly/reference/modules/Misc/SerialCommHub/autogenerated.html>`_,
 and let your module interact with this module via the `serial_communication_hub` interface.
 
 .. _contact:
