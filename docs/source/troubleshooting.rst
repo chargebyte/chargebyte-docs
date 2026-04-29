@@ -187,6 +187,15 @@ Please use your development environment to set up your configuration file. Alter
 editor.
 
 
+How should TLS or Plug & Charge private keys be protected?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For TLS and especially Plug & Charge, private keys should be protected according to the requirements of the
+certificate authority or certificate management system. In many production environments, this means using
+hardware-backed key storage such as a TPM, HSM, or comparable technology.
+Charge SOM already includes a TPM and is therefore suitable for the secure storage of private keys.
+
+
 Does EVerest on Charge SOM support ISO 15118-20 yet?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
