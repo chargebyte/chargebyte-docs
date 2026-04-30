@@ -25,14 +25,14 @@ An overview of the EVerest modules is shown in the next section.
 
 .. include:: ../../includes/everest_overview_of_everest_modules.inc
 
-**DCSupplySimulator** (`view on GitHub <https://github.com/EVerest/everest-core/blob/main/modules/Simulation/DCSupplySimulator/manifest.yaml>`__)
+**DCSupplySimulator** (`view on GitHub <https://github.com/EVerest/EVerest/blob/main/modules/Simulation/DCSupplySimulator/manifest.yaml>`__)
 
 This module simulates a DC power supply device.
 
 **CbChargeSOMDriver** (`view on GitHub <https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbChargeSOMDriver>`__)
 
-This is the Hardware Abstraction Layer (HAL) for Charge SOM in EVerest. It implements
-the `evse_board_support <https://github.com/EVerest/everest-core/blob/main/interfaces/evse_board_support.yaml>`_
+This is the Hardware Abstraction Layer (HAL) for the Charge SOM in EVerest. It implements
+the `evse_board_support <https://github.com/EVerest/everest/blob/main/interfaces/evse_board_support.yaml>`_
 interface, enabling communication with the :code:`EvseManager` and control of the board. The EVerest community
 often refers to these HAL modules as BSPs, such as MicroMegaWattBSP and PhyVersoBSP. This module is
 essential for controlling the Charge SOM.
