@@ -12,14 +12,14 @@ Frequently Asked Questions
 Does the Charge SOM have a CE certification?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently, the Charge SOM doesn't have any certification yet.
+Currently, the Charge SOM does not have CE certification yet.
 
 
-Does the Charge SOM have Wifi support?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Does the Charge SOM have Wi-Fi support?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Charge SOM doesn't have builtin Wifi support, but it provides suitable
-interfaces (SDIO / USB 2.0 ) via its connectors. For instance the Charge SOM
+The Charge SOM does not have built-in Wi-Fi support, but it provides suitable
+interfaces (SDIO / USB 2.0) via its connectors. For instance, the Charge SOM
 Single Channel DC Carrier Board provides a mini PCIe connector, which is
 connected to USB.
 
@@ -34,11 +34,11 @@ The Charge SOM hardware is not designed to be used as an EV simulator. Please re
 I want to control EVerest via CAN, how can I achieve this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently there is no such EVerest module available, you will need to implement it on your own.
+Currently, no such EVerest module is available, so you will need to implement it yourself.
 
-But at least there is are `DC power supply modules <https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerSupplies>`_
+However, there are at least `DC power supply modules <https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerSupplies>`_
 and a `library <https://github.com/EVerest/EVerest/tree/main/lib/everest/can_dpm1000>`_,
-which uses the CAN interface. This might help as a starting point.
+both of which use the CAN interface. This might help as a starting point.
 
 
 How can I access the GPIOs under Linux?
@@ -52,7 +52,7 @@ settings via libgpiod is not yet implemented, so it needs to be done via device 
 My application depends on libgpiod but requires GPIO chip and line, how can I figure them out?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For such applications which doesn't support GPIO line names, you can use the following:
+For applications that do not support GPIO line names, you can use the following:
 
 .. code-block:: console
 
@@ -62,7 +62,7 @@ For such applications which doesn't support GPIO line names, you can use the fol
    gpio-519 (                    |int                 ) in  lo IRQ
    ...
 
-The GPIO line is calculated as following:
+The GPIO line is calculated as follows:
 
 .. code-block::
 
@@ -74,10 +74,10 @@ The GPIO line is calculated as following:
 What is the difference between CHSTOP_IN and SAFETY_ESTOPx?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The signal CHSTOP_IN is connected to the i.MX93 SoC and could be used to gracefully stop the charging process. So it is not designed
-for timing critical use cases. Currently there is no EVerest module, which is able to handle this signal. This work is pending.
+The signal CHSTOP_IN is connected to the i.MX93 SoC and can be used to gracefully stop the charging process. It is not designed
+for time-critical use cases. Currently, there is no EVerest module that can handle this signal. This work is pending.
 
-In order to realize realtime emergency stop behavior use the SAFETY_ESTOPx signals, which are connected to the safety processor.
+To implement real-time emergency stop behavior, use the SAFETY_ESTOPx signals, which are connected to the safety processor.
 
 
 Is there a Linux command to check for connection related CAN issues?
@@ -182,7 +182,8 @@ The device tree sources of the Charge SOM are divided into multiple layers:
 How can I access the EVerest admin panel on Charge SOM?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently, the Charge SOM does not have integrated the `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
+Currently, the Charge SOM does not have the `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
+integrated.
 Please use your development environment to set up your configuration file. Alternatively, you can use a plain text
 editor.
 
@@ -232,7 +233,7 @@ The most important points are summarised here:
    RAUC image.
 4. The `CoreDatabasePath` is used, among other things, to store OCPP transaction data.
 5. The OCPP 2.0.1 device model initialization is done automatically by the OCPP201 module after the
-   first start of EVerest. The database is stored the `DeviceModelDatabasePath`.
+   first start of EVerest. The database is stored at the `DeviceModelDatabasePath`.
 6. The component config files are stored in the `DeviceModelConfigPath`. Component config files are
    used to initialize or update the device model database. To update a component config file, just
    place a `component config file <https://github.com/EVerest/EVerest/tree/main/lib/everest/ocpp/config/v2/component_config>`_
@@ -250,19 +251,19 @@ The most important points are summarised here:
 I tried to compile chargebyte's Hardware EVerest Modules, but it fails to build. How can I fix this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The EVerest mainline development is very dynamic and doesn't guarantee any
-stable API along the EVerest modules. So after almost every EVerest release,
-chargebyte needs to adapt their modules to the latest API changes.
+The EVerest mainline development is very dynamic and does not guarantee
+stable APIs across EVerest modules. Therefore, after almost every EVerest release,
+chargebyte needs to adapt its modules to the latest API changes.
 
 Please have a look at the `compatibility matrix <https://github.com/chargebyte/everest-chargebyte/blob/main/README.md>`_
-to see which EVerest release works with which chargebyte EVerest Modules release.
+to see which EVerest release works with which chargebyte EVerest modules release.
 
 
 I would like to implement a custom Modbus device in EVerest. Where should I start?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-EVerest already has a module which takes care of Modbus communication. Please have a look at
-`SerialCommHub <https://everest.github.io/nightly/reference/modules/Misc/SerialCommHub/autogenerated.html>`_,
+EVerest already has a module that takes care of Modbus communication. Please have a look at
+`SerialCommHub <https://everest.github.io/nightly/reference/modules/Misc/SerialCommHub/autogenerated.html>`_
 and let your module interact with this module via the `serial_communication_hub` interface.
 
 .. _contact:

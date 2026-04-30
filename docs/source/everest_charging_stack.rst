@@ -16,7 +16,7 @@ The use case described in this configuration file includes the following:
 
 * DC charging mode
 * No TLS (Transport Layer Security) enabled for HLC (High Level Communication)
-* 3 phase, 16A fuse limit
+* 3-phase, 16 A fuse limit
 * Simulation of the IMD (Insulation Monitoring Device)
 * Simulation of the DC Supply Device
 * Energy management via JSON-RPC API
