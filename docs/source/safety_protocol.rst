@@ -5,7 +5,8 @@ ChargeControl1
 
 **Length**: 8 bytes
 
-**Description**: This message shall be sent from the host processor to the safety controller to control the peripherals connected to the safety controller.
+**Description**: This message shall be sent from the host processor to the safety controller to
+control the peripherals connected to the safety controller.
 
 **Senders**: chargeSOM_HostController
 
@@ -30,7 +31,8 @@ ChargeControl1
      - 0.1
      - 0
      - %
-     - Duty cycle between 0.0 and 100.0%. Values above 100.0% are set as 100%. Only valid if the signal CC_PWM_Active is 1
+     - Duty cycle between 0.0 and 100.0%. Values above 100.0% are set as 100%. Only valid if the
+       signal CC_PWM_Active is 1
    * - CC_PWM_Active
      - 7
      - 1
@@ -39,7 +41,8 @@ ChargeControl1
      - 1
      - 0
      - 
-     - This flag indicates if the PWM should be activated. At a value of 0, the CP level is also 0V. At a value of 1, the CP level is dependant of the duty cycle
+     - This flag indicates if the PWM should be activated. At a value of 0, the CP level is also
+       0V. At a value of 1, the CP level is dependant of the duty cycle
    * - CC_Contactor1State
      - 16
      - 1
@@ -48,7 +51,8 @@ ChargeControl1
      - 1
      - 0
      - 
-     - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.
+     - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed
+       contactor. The contactors are only closed if the system has no errors and is in state C.
    * - CC_Contactor2State
      - 17
      - 1
@@ -57,7 +61,8 @@ ChargeControl1
      - 1
      - 0
      - 
-     - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.
+     - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed
+       contactor. The contactors are only closed if the system has no errors and is in state C.
    * - CC_Contactor3State
      - 18
      - 1
@@ -66,7 +71,8 @@ ChargeControl1
      - 1
      - 0
      - 
-     - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed contactor. The contactors are only closed if the system has no errors and is in state C.
+     - Request to close the contactor state. A value of 0 means open contactor, a value of 1 means closed
+       contactor. The contactors are only closed if the system has no errors and is in state C.
 
 **Bitfield Layout**
 
@@ -110,7 +116,8 @@ ChargeState1
 
 **Length**: 8 bytes
 
-**Description**: This message shall be sent from safety controller to host processor for indicating the state of the charging session as well as the state of connected peripherals.
+**Description**: This message shall be sent from safety controller to host processor for indicating
+the state of the charging session as well as the state of connected peripherals.
 
 **Senders**: chargeSOM_SafetyController
 
@@ -225,7 +232,8 @@ ChargeState1
      - 1
      - 0
      - 
-     - This is the state of the HV ready or State C output. This output is high, if the chargeSOM dont see any errors and CP is at state C. Otherwise it is low.
+     - This is the state of the HV ready or State C output. This output is high, if the chargeSOM
+       dont see any errors and CP is at state C. Otherwise it is low.
    * - CS_Estop1ChargingAbort
      - 41
      - 2
@@ -410,7 +418,8 @@ PT1000State
 
 **Length**: 8 bytes
 
-**Description**: This message shall be sent from safety controller to host processor for indicating the state of the connected temperature sensors
+**Description**: This message shall be sent from safety controller to host processor for indicating
+the state of the connected temperature sensors
 
 **Senders**: chargeSOM_SafetyController
 
@@ -655,7 +664,8 @@ FirmwareVersion
      - 1
      - 0
      - 
-     - This firmware can be used for several products with minor changes in the build process. The platform type describes the used platform
+     - This firmware can be used for several products with minor changes in the build process. The platform
+       type describes the used platform
    * - ApplicationType
      - 39
      - 8
@@ -1046,6 +1056,4 @@ ChipInfo
           +---+---+---+---+---+---+---+---+
         7 |   |   |   |   |   |   |   |   |
           +---+---+---+---+---+---+---+---+
-
-
 

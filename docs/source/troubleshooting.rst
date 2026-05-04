@@ -74,10 +74,12 @@ The GPIO line is calculated as follows:
 What is the difference between CHSTOP_IN and SAFETY_ESTOPx?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The signal CHSTOP_IN is connected to the i.MX93 SoC and can be used to gracefully stop the charging process. It is not designed
-for time-critical use cases. Currently, there is no EVerest module that can handle this signal. This work is pending.
+The signal CHSTOP_IN is connected to the i.MX93 SoC and can be used to gracefully stop the charging process.
+It is not designed for time-critical use cases. Currently, there is no EVerest module that can handle this
+signal. This work is pending.
 
-To implement real-time emergency stop behavior, use the SAFETY_ESTOPx signals, which are connected to the safety processor.
+To implement real-time emergency stop behavior, use the SAFETY_ESTOPx signals, which are connected to the safety
+processor.
 
 
 Is there a Linux command to check for connection related CAN issues?
@@ -213,7 +215,8 @@ Implementation gaps may exist, particularly in the case of BPT (bidirectional po
 How do I set up OCPP 2.0.1 on Charge SOM with EVerest?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To support OCPP 2.0.1, the EVerest OCPP201 module must be integrated into the EVerest configuration.
+To support OCPP 2.0.1, the EVerest :ref:`OCPP201 <everest_module_ocpp201>` module must be integrated into
+the EVerest configuration.
 The `OCPP 2.0.1 and 2.1 tutorial <https://everest.github.io/nightly/tutorials/ocpp2.html>`_
 already contains information about the module parameters, the provided and required interfaces,
 and the initial creation of the OCPP database.

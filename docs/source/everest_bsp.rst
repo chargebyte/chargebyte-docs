@@ -3,9 +3,9 @@
 EVerest Board Support Package Module
 ------------------------------------
 
-chargebyte developed a comprehensive hardware abstraction module (HAL, or also called BSP module - board support package)
-for EVerest charging stack to support the Charge SOM platform. The module is called ``CbChargeSOMDriver`` and is
-available in chargebyte's public EVerest repository as open-source code:
+chargebyte developed a comprehensive hardware abstraction module (HAL, or also called BSP module - board
+support package) for EVerest charging stack to support the Charge SOM platform. The module is called
+``CbChargeSOMDriver`` and is available in chargebyte's public EVerest repository as open-source code:
 https://github.com/chargebyte/everest-chargebyte/tree/main/modules/CbChargeSOMDriver
 
 This module already implements the required communication protocol to interact with the safety controller.

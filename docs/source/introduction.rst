@@ -4,28 +4,41 @@ Introduction
 ============
 
 Thank you very much for your trust. We are happy that you have chosen our Charge SOM platform to
-operate your eMobility charging solution. This User Guide will help you to understand all features and will help to configure them properly to fit your requirements best.
+operate your eMobility charging solution. This User Guide will help you to understand all features
+and will help to configure them properly to fit your requirements best.
 
 
 Product Description
 -------------------
 
-The Charge SOM is an IEC 61851 and ISO 15118 compliant charging controller for Electric Vehicle Supply Equipment (EVSE). For communication between EVSE and PEV it supports Control Pilot, Proximity Pilot as well as PWM signaling including Green PHY communication.
+The Charge SOM is an IEC 61851 and ISO 15118 compliant charging controller for Electric Vehicle
+Supply Equipment (EVSE). For communication between EVSE and PEV it supports Control Pilot,
+Proximity Pilot as well as PWM signaling including Green PHY communication.
 
-The Charge SOM is a future-proof powerhouse based on i.MX93 with universal compatibility, advanced safety features and lots of options for customization.
-It is intended to be used as the core component of stationary Electric Vehicle Supply Equipment like HPCs or any DC or Bi-directional charging unit.
+The Charge SOM is a future-proof powerhouse based on i.MX93 with universal compatibility, advanced
+safety features and lots of options for customization.
+It is intended to be used as the core component of stationary Electric Vehicle Supply Equipment like
+HPCs or any DC or Bi-directional charging unit.
 
-The board is also capable of controlling and sensing different kind of actuators and sensors like power modules, high-voltage contactors, isolation monitoring equipment, temperature sensors and much more through its rich digital I/Os.
+The board is also capable of controlling and sensing different kind of actuators and sensors like
+power modules, high-voltage contactors, isolation monitoring equipment, temperature sensors and much
+more through its rich digital I/Os.
 
-The Charge SOM is provided with a Linux-Yocto operating system. The installed software is based on EVerest, an open source software stack for EV charging infrastructure. EVerest represents a modular architecture that allows scalability according to your needs e.g., adding your own application as an EVerest module. For more information about EVerest, please visit the
+The Charge SOM is provided with a Linux-Yocto operating system. The installed software is based on
+EVerest, an open source software stack for EV charging infrastructure. EVerest represents a modular
+architecture that allows scalability according to your needs e.g., adding your own application as an
+EVerest module. For more information about EVerest, please visit the
 `EVerest GitHub project <https://github.com/EVerest/EVerest>`_.
 
 
 Product Features
 ----------------
 
-* Works with CCS1 / CCS2 and NACS according to IEC 61851, SAE J1772 [#]_, and ISO 15118, ensuring smooth communication with all types of EVs.
-* A dedicated co-processor monitors and controls safety-critical components like CP and PP signals, DC circuit breakers, E-Stops and other vital components in real-time according to functional safety standard IEC 61508
+* Works with CCS1 / CCS2 and NACS according to IEC 61851, SAE J1772 [#]_, and ISO 15118, ensuring
+  smooth communication with all types of EVs.
+* A dedicated co-processor monitors and controls safety-critical components like CP and PP signals,
+  DC circuit breakers, E-Stops and other vital components in real-time according to functional safety
+  standard IEC 61508
 * PT1000 plug temperature monitoring
 * Plug-and-Play with the popular `EVerest charging stack <https://github.com/EVerest/EVerest>`_
 * Well maintained, open Yocto BSP

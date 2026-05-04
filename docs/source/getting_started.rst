@@ -20,8 +20,10 @@ The following hardware components are required to set up the basic DC charger:
 - Charge SOM Evaluation Kit
 - 12 V DC Power Supply
 - Ethernet cable for SSH connection or USB to serial adapter for serial connection
-- DIN70121 or ISO15118-2 EV simulator (e.g. `Charge Module S Evaluation board <https://chargebyte.com/controllers-and-modules/evaluation-tools/charge-module-s-evaluation-board>`_. )
+- DIN70121 or ISO15118-2 EV simulator, for example the `Charge Module S Evaluation board`_
 - Wiring material
+
+.. _Charge Module S Evaluation board: https://chargebyte.com/controllers-and-modules/evaluation-tools/charge-module-s-evaluation-board
 
 
 Hardware Overview
