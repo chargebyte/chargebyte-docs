@@ -3,12 +3,12 @@ Cross-compiling EVerest Modules
 
 Cross-compilation is the fastest and most convenient way to test your own modules directly on the target
 system during development. The cross-compiled project is transferred directly via SFTP to the charge
-controller and then runtime tested in the target environment.
+controller and then tested in the target environment.
 
 The following steps describe how to cross-compile a module for the {{ PLATFORM_NAME }} platform.
 
-#. On an Ubuntu or Debian-based Linux distribution, install some development tools and the cross-compilers
-   for {{ PLATFORM_NAME }} platform:
+#. On an Ubuntu or Debian-based Linux distribution, install the required development tools and cross-compilers
+   for the {{ PLATFORM_NAME }} platform:
 
    .. code-block:: console
 
@@ -17,7 +17,7 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
 
 #. Download chargebyte's `digital certificate keyring <_static/files/chargebyte-keyring.pem>`_
    and use it to extract the root filesystem from the firmware image. The latest firmware images
-   can be found in the `"Release" section <https://github.com/chargebyte/meta-chargebyte-everest/releases>`_
+   can be found in the `"Releases" section <https://github.com/chargebyte/meta-chargebyte-everest/releases>`_
    of chargebyte's Yocto EVerest meta-layer.
 
    .. code-block:: console
@@ -26,7 +26,7 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
 
    .. note::
 
-      Alternatively, if the above command does not work (e.g. rauc not available on your host system),
+      Alternatively, if the above command does not work (e.g. RAUC is not available on your host system),
       you can use the following command:
 
        .. code-block:: console
@@ -35,24 +35,24 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
 
       However, this will not verify the signature of the firmware image.
 
-#. The extracted update image file includes an ext4 root filesystem image tailored for the {{ PLATFORM_NAME }} platform.
-   This must be mounted as loop device. A read-only mount is recommended and sufficient here:
+#. The extracted update image file contains an ext4 root filesystem image tailored for the {{ PLATFORM_NAME }} platform.
+   This must be mounted as a loop device. A read-only mount is recommended and sufficient here:
 
    .. code-block:: console
 
       sudo mkdir -p /srv/chargebyte/everest/everest-devel-image-mount-{{ MACHINE }}
       sudo mount bundle-staging/core-image-minimal-{{ MACHINE }}.ext4 /srv/chargebyte/everest/everest-devel-image-mount-{{ MACHINE }} -o ro
 
-   It is recommended to make this mount persistent using your host system's `/etc/fstab` or similar tools, but this is out-of-scope
+   We recommend making this mount persistent using your host system's `/etc/fstab` or similar tools, but this is out of scope
    for this documentation.
 
    .. note::
 
-      Keep in mind, that such a firmware image is specific for a dedicated target platform, the used Yocto version and
-      the EVerest release. Adapt these instructions accordingly, if you have to develop for different versions in parallel.
+      Keep in mind that such a firmware image is specific to a target platform, the Yocto version used, and
+      the EVerest release. Adapt these instructions accordingly if you need to develop for different versions in parallel.
 
-#. Create a new directory in your `everest-workspace` directory (in parallel to the `everest` directory) and
-   create a new file named :code:`toolchain.cmake`:
+#. Create a new `toolchain` directory in your `everest-workspace` directory (next to the `everest` directory) and
+   create a file named :code:`toolchain.cmake`:
 
    .. code-block:: console
 
@@ -75,7 +75,7 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
       └── toolchain
           └── toolchain.cmake
 
-#. Create a new :code:`build-{{ MACHINE }}` directory in `MyEVerestModuleRepo` directory (i.e. within your own EVerest
+#. Create a new :code:`build-{{ MACHINE }}` directory in the `MyEVerestModuleRepo` directory (i.e. within your own EVerest
    module project directory or in `everest` if you want to build EVerest modules or your module is part
    of the EVerest repository):
 
@@ -107,27 +107,27 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
           -DCMAKE_SYSROOT=/srv/chargebyte/everest/everest-devel-image-mount-{{ MACHINE }} \
           ..
 
-#. When this completes successfully, start cross-compiling using :code:`make`:
+#. After the configuration completes successfully, cross-compile the module using :code:`make`:
 
    .. code-block:: console
 
       make {MyEVerestModule} -j$(nproc)
 
-   This builds only your own module including all dependencies. If you encounter build problems,
-   reduce the number of used CPUs to a single one using `-j1`. This makes it easier to locate
+   This builds only your own module and all dependencies. If you encounter build problems,
+   reduce the number of CPUs used to a single one using `-j1`. This makes it easier to locate
    the problem in the output log.
-   Iterate this command if you want to build multiple modules.
+   Repeat this command if you want to build multiple modules.
 
-#. Once completed the previous step, you can build the remaining/all other
+#. After completing the previous step, you can build and install the remaining
    EVerest modules:
 
    .. code-block:: console
 
       make install DESTDIR=target -j$(nproc)
 
-#. If the build was successful, a `target` sub-directory was created within `build-{{ MACHINE }}`
-   with the cross-compiled binaries and the manifest files of the modules.
-   Please check if the following directory structure was created:
+#. If the build was successful, a `target` subdirectory is created within `build-{{ MACHINE }}`
+   with the cross-compiled binaries and the module manifest files.
+   Check whether the following directory structure exists:
 
    .. code-block:: console
 
@@ -146,17 +146,17 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
 
       file target/usr/libexec/everest/modules/{MyEVerestModule}/{MyEVerestModule}
 
-   The output should be something like:
+   The output should look similar to this:
 
    .. code-block:: console
 
       usr/libexec/everest/modules/{MyEVerestModule}/{MyEVerestModule}: {{ MACHINE_FILE_SIGNATURE }}
 
-#. As mentioned, the resulting binary and manifest can be found in the :code:`target/usr/libexec/everest/modules/{MyEVerestModule}`
+#. The resulting binary and manifest can be found in the :code:`target/usr/libexec/everest/modules/{MyEVerestModule}`
    directory. If you want to test the module on the target system, you can copy the module directory using
    :code:`scp` or :code:`rsync`.
 
-   You cannot replace the binary on the target system when it is running. You have to stop the EVerest system first on the target:
+   You cannot replace the binary on the target system while it is running. First, stop the EVerest system on the target:
 
    .. code-block:: console
 
@@ -168,7 +168,7 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
 
       scp -r target/usr/libexec/everest/modules/{MyEVerestModule} root@<ip_address>:/usr/libexec/everest/modules/
 
-   After this, you can re-start EVerest system on the target system:
+   Then restart the EVerest system on the target system:
 
    .. code-block:: console
 
@@ -176,6 +176,6 @@ The following steps describe how to cross-compile a module for the {{ PLATFORM_N
 
 .. note::
 
-   Using this approach, is is also possible to not only transfer your own module(s), but you can also transfer the complete
-   content of the `target` directory to the target system. This is helpful, if you want to test changes that also affect EVerest's
-   libraries, or you want to test a newer EVerest version.
+   Using this approach, it is also possible to transfer not only your own module(s), but also the complete
+   content of the `target` directory to the target system. This is helpful if you want to test changes that also affect EVerest
+   libraries or if you want to test a newer EVerest version.
