@@ -184,7 +184,7 @@ The device tree sources of the Charge SOM are divided into multiple layers:
 How can I access the EVerest admin panel on Charge SOM?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently, the Charge SOM does not have the `EVerest admin panel <https://github.com/EVerest/everest-admin-panel>`_
+Currently, the Charge SOM does not have the `EVerest admin panel <https://github.com/EVerest/EVerest-admin-panel>`_
 integrated.
 Please use your development environment to set up your configuration file. Alternatively, you can use a plain text
 editor.
