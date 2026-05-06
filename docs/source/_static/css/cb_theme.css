@@ -202,6 +202,11 @@ dl.field-list>dt {
   background-color: #1c354f !important;
 }
 
+.document .bodywrapper table.docutils th p,
+.document .bodywrapper table.docutils td p {
+  text-align: left !important;
+}
+
 .document .bodywrapper .note {
   background-color: #1c354f !important;
 }
