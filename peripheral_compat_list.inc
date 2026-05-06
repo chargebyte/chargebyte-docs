@@ -33,8 +33,8 @@ AC
    :widths: 3,1,1,1,2,2,1,2
 
    +---------------------+-----------+----------+-------------+------------------------+-------------------------+---------------+----------------------+
-   | Vendor / Product    | Interface | Protocol | Implementer | EVerest Module Name    | German Eichrecht        | MID Supported | Tested by chargebyte |
-   |                     |           |          |             |                        | Supported               |               |                      |
+   | Vendor / Product    | Interface | Protocol | Implementer | EVerest Module Name    | German Eichrecht        | MID Compliant | Tested by chargebyte |
+   |                     |           |          |             |                        | Supported [#ac-mod]_    | [#ac-dev]_    |                      |
    +=====================+===========+==========+=============+========================+=========================+===============+======================+
    | Eastron SDM230      | EIA-485   | Modbus   | `EVerest`_  | `GenericPowermeter`_   |            ✗            |       ✓       |          ✗           |
    +---------------------+-----------+----------+-------------+------------------------+-------------------------+---------------+----------------------+
@@ -51,6 +51,9 @@ AC
    +---------------------+-----------+----------+-------------+------------------------+-------------------------+---------------+----------------------+
    | Iskra WM3M4/WM3M4C  | EIA-485   | Modbus   | chargebyte  | PowermeterIskra_WM3M4C |            ✗            |       ✓       |          ✓           |
    +---------------------+-----------+----------+-------------+------------------------+-------------------------+---------------+----------------------+
+
+.. [#ac-mod] Support in the listed EVerest module implementation.
+.. [#ac-dev] Compliance of the device itself.
 
 .. _EVerest: https://github.com/EVerest/EVerest
 .. _GenericPowermeter: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerMeters/GenericPowermeter
@@ -78,8 +81,8 @@ DC
    :widths: 3,1,1,1,2,2,1,2
 
    +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+---------------+----------------------+
-   | Vendor / Product                 | Interface | Protocol | Implementer | EVerest Module Name                   | German Eichrecht        | MID Supported | Tested by chargebyte |
-   |                                  |           |          |             |                                       | Supported               |               |                      |
+   | Vendor / Product                 | Interface | Protocol | Implementer | EVerest Module Name                   | German Eichrecht        | MID Compliant | Tested by chargebyte |
+   |                                  |           |          |             |                                       | Supported [#dc-mod]_    | [#dc-dev]_    |                      |
    +==================================+===========+==========+=============+=======================================+=========================+===============+======================+
    | `AST DC650`_                     | EIA-485   | SLIP     | `EVerest`_  | `AST_DC650`_                          |            ✓            |       ✓       |          ✗           |
    +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+---------------+----------------------+
@@ -91,6 +94,9 @@ DC
    +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+---------------+----------------------+
    | `Isabellenhütte IEM-DCR series`_ | Ethernet  | HTTP     | `EVerest`_  | `IsabellenhuetteIemDcr`_              |            ✓            |       ✓       |          ✗           |
    +----------------------------------+-----------+----------+-------------+---------------------------------------+-------------------------+---------------+----------------------+
+
+.. [#dc-mod] Support in the listed EVerest module implementation.
+.. [#dc-dev] Compliance of the device itself.
 
 .. _AST DC650: https://www.ast-international.com/en.products.dc-meter-overview.dc-meter.html
 .. _AST_DC650: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerMeters/AST_DC650
@@ -119,6 +125,7 @@ DC Power Modules
 
    +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
    | Vendor / Product          | Interface | Protocol    | Implementer   | EVerest Module Name      | BPT Supported | Tested by chargebyte |
+   |                           |           |             |               |                          | [#bpt-mod]_   |                      |
    +===========================+===========+=============+===============+==========================+===============+======================+
    | `SCU DPM series`_         | CAN       | Proprietary | `EVerest`_    | `DPM1000`_               |       ✗       |          ✗           |
    +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
@@ -134,6 +141,8 @@ DC Power Modules
    +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
    | `Huawei_R100040Gx`_       | CAN       | Proprietary | `EVerest`_    | `Huawei_R100040Gx`_      |       ✗       |          ✗           |
    +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+
+.. [#bpt-mod] Support in the listed EVerest module implementation.
 
 
 .. _SCU DPM series: https://www.scupower.com/ev-charger/ev-charger-module/
