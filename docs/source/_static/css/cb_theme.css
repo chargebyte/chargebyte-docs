@@ -205,14 +205,17 @@ body {
 }
 
 .related ul li.right a {
+  display: inline-block;
   text-transform: capitalize;
   padding: 10px 15px;
   background-color: #ff8200;
   border-radius: 5px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
 .related ul li.right a:hover {
-  padding: 11px 17px;
+  background-color: #ff9a26;
+  transform: scale(1.05);
   text-decoration: none;
 }
 
