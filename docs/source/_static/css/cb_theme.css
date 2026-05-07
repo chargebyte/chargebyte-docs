@@ -83,14 +83,32 @@ body {
 }
 
 .document .sphinxsidebar .sphinxsidebarwrapper h4 {
-  font-size: 18px !important;
+  color: #fff !important;
+  font-size: 16px !important;
   font-family: "Open Sans", sans-serif !important;
+  font-weight: 700 !important;
+  margin: 16px 0 2px !important;
+  text-transform: capitalize !important;
+}
+
+.document .sphinxsidebar .sphinxsidebarwrapper h4::after {
+  content: ":" !important;
 }
 
 .document .sphinxsidebar .sphinxsidebarwrapper .topless a {
+  display: inline !important;
   font-size: 18px !important;
   font-family: "Open Sans", sans-serif !important;
   color: #fff !important;
+  line-height: 1.25 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease !important;
+}
+
+.document .sphinxsidebar .sphinxsidebarwrapper .topless a:hover {
+  color: #ff8200 !important;
 }
 
 .document .sphinxsidebar .sphinxsidebarwrapper p {
