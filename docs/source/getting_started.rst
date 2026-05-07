@@ -76,19 +76,15 @@ Now you can connect the Charge SOM Evaluation Kit (X24) to the power supply. The
 carrier board provide information about the current status of the boot process. The following table
 shows the meaning of the LED status indicators:
 
-.. raw:: html
+.. table:: Charge SOM Evaluation Kit LED Status Indicators
 
-   <div style="text-align: center;">
-     Table: Charge SOM Evaluation Kit LED Status Indicators
-   </div>
-
-+--------------------------+---------------------------------+--------------------------------------+
-| State                    | LED indication                  | Behavior                             |
-+==========================+=================================+======================================+
-| Boot process running     | LED (red)                       | periodic blinking for approx. 4 sec. |
-+--------------------------+---------------------------------+--------------------------------------+
-| Operating system running | LED (red)                       | rhythmic blinking                    |
-+--------------------------+---------------------------------+--------------------------------------+
+   +--------------------------+---------------------------------+--------------------------------------+
+   | State                    | LED indication                  | Behavior                             |
+   +==========================+=================================+======================================+
+   | Boot process running     | LED (red)                       | periodic blinking for approx. 4 sec. |
+   +--------------------------+---------------------------------+--------------------------------------+
+   | Operating system running | LED (red)                       | rhythmic blinking                    |
+   +--------------------------+---------------------------------+--------------------------------------+
 
 
 .. include:: ../../includes/connecting.inc

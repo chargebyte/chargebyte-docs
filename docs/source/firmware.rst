@@ -39,15 +39,10 @@ leaving the other partition available for rollback if needed.
      - 256 MB
      - Logging file system B (/var/log)
 
-.. image:: ../../includes/_static/images/mountpoints.svg
+.. figure:: ../../includes/_static/images/mountpoints.svg
    :alt: Filesystem-Mountpoints
    :align: center
 
-.. adding a center-aligned caption for the image
-.. raw:: html
-
-   <div style="text-align: center;">
-     Filesystem Mountpoints
-   </div>
+   Filesystem Mountpoints
 
 .. include:: ../../includes/firmware_programming.inc
