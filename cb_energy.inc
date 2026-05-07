@@ -86,6 +86,8 @@ sure to allow the smartphone app to have access to your local network devices af
 .. figure:: ../../includes/_static/images/cbenergy/discover.png
    :height: 600px
 
+   Client discovery of available CB Energy instances
+
 If the discovery has not found any wallbox in the local network you can try to set up a manual connection as
 described in :ref:`connection_option`.
 
@@ -98,6 +100,8 @@ Once you are connected to the nymea:core, you can start to set up your system.
 
 .. figure:: ../../includes/_static/images/cbenergy/user.png
    :height: 600px
+
+   User setup in the CB Energy App
 
 It is time to create login credentials to keep the CB Energy setup protected. When connecting to the system for the
 first time, it will prompt for a username and a password. Optionally, you can also provide your name and e-mail address.
@@ -113,6 +117,8 @@ other supported charger in the local network.
 
 .. figure:: ../../includes/_static/images/cbenergy/setup.png
 
+   Discovered EVerest connector during setup
+
 If you are trying CB Energy on a chargebyte controller an EVerest connector will be discovered.
 
 After discovering and setting up the wallbox, CB Energy tries to discover other assets like solar inverters and meters.
@@ -120,6 +126,8 @@ If there aren't any of these devices around, you can skip this step.
 
 .. figure:: ../../includes/_static/images/cbenergy/setup-skip.png
    :height: 600px
+
+   Optional asset discovery during setup
 
 Basically, you don't need solar inverters or meters for controlling the wallbox. If you want to make use of the
 ``Eco mode``, you need to add at least one meter measuring the overall consumption of the house.
@@ -131,6 +139,8 @@ The final steps of the wizard are
   phase count of the on-board-charger
 
 .. figure:: ../../includes/_static/images/cbenergy/setup-final.png
+
+   Final CB Energy setup parameters
 
 You can change this option later in the settings as well.
 
@@ -145,6 +155,8 @@ root meter is registered in the system. With ``Quick mode`` however, you should 
 features like starting and stopping a charging session as well as adjusting the charging power. Give it a try!
 
 .. figure:: ../../includes/_static/images/cbenergy/home.png
+
+   CB Energy home screen
 
 .. _supported_devices:
 
@@ -177,3 +189,5 @@ For the first time you can keep the port at 2222.
 
 .. figure:: ../../includes/_static/images/cbenergy/manual.png
    :height: 600px
+
+   Manual connection setup in the CB Energy App
