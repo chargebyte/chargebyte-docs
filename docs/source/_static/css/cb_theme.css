@@ -30,8 +30,18 @@ body {
   line-height: 1.5 !important;
 }
 
-.document .bodywrapper .body p span.caption-text {
-  font-size: 30px !important;
+.document .bodywrapper .body p.caption,
+.document .bodywrapper .body caption,
+.document .bodywrapper .body span.caption-number,
+.document .bodywrapper .body span.caption-text {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+.document .bodywrapper .body figure figcaption,
+.document .bodywrapper .body figure figcaption p,
+.document .bodywrapper .body div.figure p.caption {
+  text-align: center !important;
 }
 
 .document .bodywrapper .body p strong,
@@ -284,8 +294,11 @@ dl.field-list>dt {
     font-size: 17px !important;
   }
 
-  .document .bodywrapper .body p span.caption-text {
-    font-size: 22px !important;
+  .document .bodywrapper .body p.caption,
+  .document .bodywrapper .body caption,
+  .document .bodywrapper .body span.caption-number,
+  .document .bodywrapper .body span.caption-text {
+    font-size: 14px !important;
   }
 
   .document .bodywrapper .body .toctree-wrapper.compound ul li.toctree-l1 a {
