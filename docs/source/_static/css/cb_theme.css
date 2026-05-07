@@ -44,6 +44,16 @@ body {
   text-align: center !important;
 }
 
+.document .bodywrapper .body figure figcaption,
+.document .bodywrapper .body div.figure p.caption {
+  padding-top: 0.1em !important;
+}
+
+.document .bodywrapper .body figure figcaption p,
+.document .bodywrapper .body div.figure p.caption {
+  margin-top: 0.1em !important;
+}
+
 .document .bodywrapper .body p strong,
 .document .bodywrapper .body p a span {
   color: #ff8200 !important;
