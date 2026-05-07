@@ -30,8 +30,28 @@ body {
   line-height: 1.5 !important;
 }
 
-.document .bodywrapper .body p span.caption-text {
-  font-size: 30px !important;
+.document .bodywrapper .body p.caption,
+.document .bodywrapper .body caption,
+.document .bodywrapper .body span.caption-number,
+.document .bodywrapper .body span.caption-text {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+.document .bodywrapper .body figure figcaption,
+.document .bodywrapper .body figure figcaption p,
+.document .bodywrapper .body div.figure p.caption {
+  text-align: center !important;
+}
+
+.document .bodywrapper .body figure figcaption,
+.document .bodywrapper .body div.figure p.caption {
+  padding-top: 0.1em !important;
+}
+
+.document .bodywrapper .body figure figcaption p,
+.document .bodywrapper .body div.figure p.caption {
+  margin-top: 0.1em !important;
 }
 
 .document .bodywrapper .body p strong,
@@ -63,14 +83,32 @@ body {
 }
 
 .document .sphinxsidebar .sphinxsidebarwrapper h4 {
-  font-size: 18px !important;
+  color: #fff !important;
+  font-size: 16px !important;
   font-family: "Open Sans", sans-serif !important;
+  font-weight: 700 !important;
+  margin: 16px 0 2px !important;
+  text-transform: capitalize !important;
+}
+
+.document .sphinxsidebar .sphinxsidebarwrapper h4::after {
+  content: ":" !important;
 }
 
 .document .sphinxsidebar .sphinxsidebarwrapper .topless a {
+  display: inline !important;
   font-size: 18px !important;
   font-family: "Open Sans", sans-serif !important;
   color: #fff !important;
+  line-height: 1.25 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease !important;
+}
+
+.document .sphinxsidebar .sphinxsidebarwrapper .topless a:hover {
+  color: #ff8200 !important;
 }
 
 .document .sphinxsidebar .sphinxsidebarwrapper p {
@@ -102,7 +140,7 @@ body {
   font-size: 36px !important;
   font-family: "Open Sans", sans-serif !important;
   font-weight: 600 !important;
-  margin: 0 !important;
+  margin: 1.5em 0 0.5em !important;
   padding: 0 !important;
   border-bottom: none !important;
   background-color: #111827 !important;
@@ -113,7 +151,7 @@ body {
   font-size: 30px !important;
   font-family: "Open Sans", sans-serif !important;
   font-weight: 600 !important;
-  margin: 0 !important;
+  margin: 1.25em 0 0.45em !important;
   padding: 0 !important;
   background-color: #111827 !important;
   color: #fff !important;
@@ -124,11 +162,19 @@ body {
   font-size: 26px !important;
   font-family: "Open Sans", sans-serif !important;
   font-weight: 600 !important;
-  margin: 0 !important;
+  margin: 1em 0 0.4em !important;
   padding: 0 !important;
   background-color: #ff8200 !important;
   border-bottom: none !important;
   color: #fff !important;
+}
+
+.document .bodywrapper section>h2+section>h3 {
+  margin-top: 0.2em !important;
+}
+
+.document .bodywrapper section>h3+section>h4 {
+  margin-top: 0.2em !important;
 }
 
 .document .bodywrapper .highlight {
@@ -177,14 +223,17 @@ body {
 }
 
 .related ul li.right a {
+  display: inline-block;
   text-transform: capitalize;
   padding: 10px 15px;
   background-color: #ff8200;
   border-radius: 5px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
 .related ul li.right a:hover {
-  padding: 11px 17px;
+  background-color: #ff9a26;
+  transform: scale(1.05);
   text-decoration: none;
 }
 
@@ -205,6 +254,31 @@ dl.field-list>dt {
 .document .bodywrapper table.docutils th p,
 .document .bodywrapper table.docutils td p {
   text-align: left !important;
+}
+
+.document .bodywrapper .footnote:target {
+  background-color: transparent !important;
+}
+
+.document .bodywrapper .footnote-reference,
+.document .bodywrapper .footnote .label,
+.document .bodywrapper .footnote .label a,
+.document .bodywrapper .footnote .fn-bracket {
+  color: #ff8200 !important;
+}
+
+.document .bodywrapper .footnote,
+.document .bodywrapper .footnote p {
+  line-height: 1.2 !important;
+}
+
+.document .bodywrapper .footnote {
+  margin: 0.2em 0 !important;
+}
+
+.document .bodywrapper .footnote p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .document .bodywrapper .note {
@@ -259,8 +333,11 @@ dl.field-list>dt {
     font-size: 17px !important;
   }
 
-  .document .bodywrapper .body p span.caption-text {
-    font-size: 22px !important;
+  .document .bodywrapper .body p.caption,
+  .document .bodywrapper .body caption,
+  .document .bodywrapper .body span.caption-number,
+  .document .bodywrapper .body span.caption-text {
+    font-size: 14px !important;
   }
 
   .document .bodywrapper .body .toctree-wrapper.compound ul li.toctree-l1 a {
