@@ -207,6 +207,31 @@ dl.field-list>dt {
   text-align: left !important;
 }
 
+.document .bodywrapper .footnote:target {
+  background-color: transparent !important;
+}
+
+.document .bodywrapper .footnote-reference,
+.document .bodywrapper .footnote .label,
+.document .bodywrapper .footnote .label a,
+.document .bodywrapper .footnote .fn-bracket {
+  color: #ff8200 !important;
+}
+
+.document .bodywrapper .footnote,
+.document .bodywrapper .footnote p {
+  line-height: 1.2 !important;
+}
+
+.document .bodywrapper .footnote {
+  margin: 0.2em 0 !important;
+}
+
+.document .bodywrapper .footnote p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 .document .bodywrapper .note {
   background-color: #1c354f !important;
 }
