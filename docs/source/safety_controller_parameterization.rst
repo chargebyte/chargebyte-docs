@@ -55,9 +55,10 @@ To make the handling of parameters human-friendly, all parameters can be put tog
 
 .. important::
 
-   The YAML file is required to be encoded in UTF-8. While most parameters are ASCII only, temperature thresholds require
-   trailing `°C` suffix which has a special UTF-8 encoding sequence. This might be displayed incorrectly in the editor
-   when editing on the device itself and/or finally stored wrong in the YAML file.
+   The YAML file is required to be encoded in UTF-8. While most parameters are ASCII only, temperature
+   thresholds require trailing `°C` suffix which has a special UTF-8 encoding sequence. This might be
+   displayed incorrectly in the editor when editing on the device itself and/or finally stored wrong
+   in the YAML file.
    The same applies to the resistance offsets in Ohm.
    When unsure, adapt/create the YAML file on your Linux host system with your preferred editor and transfer it
    to the board via Ethernet network (e.g. SCP/SFTP).
@@ -87,7 +88,7 @@ be a single temperature threshold, the special token `disabled` or it is a key-v
 
 The accepted value range for `abort-temperature` is -80.0 °C to 200.0 °C and it is stored with one decimal digit.
 
-The range for `resistance-offset` is -32.0 Ω ... 32.0 Ω and these values are stored with three decimal digits internally.
+The range for `resistance-offset` is -32.0 Ω ... 32.0 Ω, stored with three decimal digits internally.
 
 
 Contactor and Contactor Feedback Configuration
@@ -139,8 +140,9 @@ Possible configuration values are:
 Installing a Parameter Block
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once the YAML file is created and fits your charger setup, it is required to convert it to a binary parameter block file.
-In the mentioned repository, there exists a tool `ra-pb-create` to generate such a binary file from the YAML file.
+Once the YAML file is created and fits your charger setup, it is required to convert it to a binary parameter
+block file. In the mentioned repository, there exists a tool `ra-pb-create` to generate such a binary file from
+the YAML file.
 The following session transcript shows how the install procedure works:
 
 .. code-block:: sh
@@ -183,7 +185,8 @@ The following session transcript shows how the install procedure works:
 Checking the Installed Parameter Block
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To check which settings are currently used by the safety controller firmware, it is possible to read back the parameter block.
+To check which settings are currently used by the safety controller firmware, it is possible to read back the
+parameter block.
 
 .. code-block:: sh
 

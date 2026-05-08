@@ -20,9 +20,6 @@ active_modules:
       evse_manager:
         - module_id: connector
           implementation_id: evse
-      energy_listener:
-        - module_id: connector
-          implementation_id: energy_grid
       evse_energy_sink:
         - module_id: grid_connection_point
           implementation_id: external_limits
@@ -61,7 +58,7 @@ active_modules:
         - module_id: bsp
           implementation_id: evse_board_support
       slac:
-        - module_id: evse_slac
+        - module_id: slac
           implementation_id: main
       powersupply_DC:
         - module_id: powersupply_dc
@@ -110,7 +107,7 @@ active_modules:
     module: EvseSecurity
     config_module:
       private_key_password: "123456"
-  evse_slac:
+  slac:
     module: EvseSlac
     config_implementation:
       main:

@@ -19,6 +19,12 @@ templates_path = ['_templates', '../../includes/_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 numfig = True
+numfig_format = {
+    'figure': 'Fig. %s:',
+    'table': 'Table %s:',
+    'code-block': 'Listing %s',
+    'section': 'Section %s',
+}
 
 jinja2_contexts = {
   'target-info': {

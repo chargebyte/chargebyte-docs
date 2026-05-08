@@ -116,9 +116,9 @@ thus can be loaded and used without damaging the system. The signature can be cr
 using e.g. ``openssl cms …`` and thus creating a *detached* signature of the binary DT overlay file.
 
 To keep the DT overlay signature small, the certificate could be *not* included in this signature (and thus not stored
-inside the EEPROM), but to verify this signature, accessing the signing certificate must then be possible (e.g. placed in
-and loaded from the root filesystem). This raises other topics, so chargebyte's start point is to include it as
-a complete X.509 signature in the EEPROM even if this requires a larger EEPROM type.
+inside the EEPROM), but to verify this signature, accessing the signing certificate must then be possible
+(e.g. placed in and loaded from the root filesystem). This raises other topics, so chargebyte's start point is
+to include it as a complete X.509 signature in the EEPROM even if this requires a larger EEPROM type.
 
 Such a signature can be created for example using the following command line:
 
@@ -129,12 +129,12 @@ Such a signature can be created for example using the following command line:
 It is possible to re-use an existing Public-Key Infrastructure which is already used for signing the firmware
 update files.
 
-Once a matching Device Tree overlay and the corresponding signature are available, the EEPROM content needs to be created
-using the helper tool ``cb-dt-eeprom`` which is included in
-chargebyte's Github space: https://github.com/chargebyte/cb-eeprom-utils
+Once a matching Device Tree overlay and the corresponding signature are available, the EEPROM content needs
+to be created using the helper tool ``cb-dt-eeprom`` which is included in chargebyte's Github space:
+https://github.com/chargebyte/cb-eeprom-utils
 
-An example invocation for the carrier board which is the base for chargebyte's Charge Control V looks for example like follows.
-The example uses the typical chargebyte board revision number and a chargebyte order code which was assigned to this carrier board type.
+An example invocation for the carrier board used as the base for chargebyte's Charge Control V is shown below.
+It uses the typical chargebyte board revision number and an order code assigned to this carrier board type.
 
 .. code-block:: shell
 
@@ -149,10 +149,10 @@ For a random customer, this might look like this (here with a randomly chosen ve
 During carrier board manufacturing, it is assumed that writing the EEPROM is done via an external programmer
 which is out-of-scope for this documentation.
 
-But during the development phase, it might be necessary to exchange the EEPROM content and/or rewrite it for testing purpose.
-Then using an external programmer is cumbersome. Better and simpler is to write the created binary EEPROM image file
-into the EEPROM directly from the Charge SOM hooked up to such a carrier board. The following command can be used
-via SSH and/or Debug UART:
+But during the development phase, it might be necessary to exchange the EEPROM content and/or rewrite it for
+testing purpose. Then using an external programmer is cumbersome. Better and simpler is to write the
+created binary EEPROM image file into the EEPROM directly from the Charge SOM hooked up to such a carrier
+board. The following command can be used via SSH and/or Debug UART:
 
 .. code-block:: shell
 
@@ -160,9 +160,9 @@ via SSH and/or Debug UART:
 
 Even so, it's still a complex process and long round trip. So it is possible to directly place such Device Tree overlay
 files in the root filesystem of the firmware in the ``/boot`` directory.
-Loading of such files can be controlled with the U-Boot environment variable ``overlays``. This variable can hold a whitespace
-separated list of filenames (basename of the file, i.e. without ``/boot`` prefix) which are loaded and merged
-in order *after* the base Device Tree file (given via ``fdtfile`` environment variable) is loaded.
+Loading of such files can be controlled with the U-Boot environment variable ``overlays``. This variable can
+hold a whitespace separated list of filenames (basename of the file, i.e. without ``/boot`` prefix) which are
+loaded and merged in order *after* the base Device Tree file (given via ``fdtfile`` environment variable) is loaded.
 This approach can also be used for a custom carrier board when the EEPROM approach does not fit.
 
 Here is a summary of related U-Boot environment variables:
