@@ -157,7 +157,7 @@ still depend on the pinmuxing of these 16 pins!
 +===============+==================+===================================+===========================================+
 | SPI           | 1                |                                   |                                           |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
-| I²C           | 3                |                                   |                                           |
+| I²C           | 3                | - imx93-charge-som-i2c5.dtso      |                                           |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
 | UART [#]_     | 1                | - imx93-charge-som-uart7.dtso     | without RTS/CTS                           |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
@@ -323,6 +323,7 @@ The i.MX93 on the Charge SOM provides several I²C interfaces:
 
 .. [#] This interface is only enabled in case of a Charge SOM Single Channel DC Carrier Board.
 
+In to use the other I²C interfaces configure the matching DT overlays in the bootloader.
 
 ***
 RTC
