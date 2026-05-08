@@ -92,21 +92,17 @@ Order Information
 
 Here are the currently available order codes for Charge Control C with EVerest:
 
-.. raw:: html
+.. table:: Currently available order codes for Charge Control C with EVerest
 
-   <div style="text-align: center;">
-     Table: Currently available order codes for Charge Control C with EVerest
-   </div>
-
-+----------------------+----------------------------------+------------+----------------------+
-| Available Order Code | SW Variant                       | Housing    | HW Variant           |
-+======================+==================================+============+======================+
-| I2CCSC-E00-204       | chargebyte software stack v0.8.0 | no housing | Charge Control 200   |
-|                      | based on EVerest 2024.3.0        |            | (1x EIA-485, no CAN) |
-+----------------------+----------------------------------+------------+----------------------+
-| I2CCSC-E00-303       | chargebyte software stack v0.8.0 | no housing | Charge Control 300   |
-|                      | based on EVerest 2024.3.0        |            | (2x EIA-485, no CAN) |
-+----------------------+----------------------------------+------------+----------------------+
+   +----------------------+----------------------------------+------------+----------------------+
+   | Available Order Code | SW Variant                       | Housing    | HW Variant           |
+   +======================+==================================+============+======================+
+   | I2CCSC-E00-204       | chargebyte software stack v0.8.0 | no housing | Charge Control 200   |
+   |                      | based on EVerest 2024.3.0        |            | (1x EIA-485, no CAN) |
+   +----------------------+----------------------------------+------------+----------------------+
+   | I2CCSC-E00-303       | chargebyte software stack v0.8.0 | no housing | Charge Control 300   |
+   |                      | based on EVerest 2024.3.0        |            | (2x EIA-485, no CAN) |
+   +----------------------+----------------------------------+------------+----------------------+
 
 The following figure shows the structure of the "I2CCSC-E00-204" order code:
 

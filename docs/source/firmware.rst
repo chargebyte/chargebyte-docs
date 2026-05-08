@@ -39,16 +39,11 @@ versa, leaving the other as the rollback system.
      - 128 MB
      - Logging file system B (/var/log)
 
-.. image:: ../../includes/_static/images/mountpoints.svg
+.. figure:: ../../includes/_static/images/mountpoints.svg
    :alt: Filesystem-Mountpoints
    :align: center
 
-.. adding a center-aligned caption for the image
-.. raw:: html
-
-   <div style="text-align: center;">
-     Filesystem Mountpoints
-   </div>
+   Filesystem Mountpoints
 
 .. _update_from_chargebyte_to_everest:
 
