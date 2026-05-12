@@ -157,7 +157,7 @@ still depend on the pinmuxing of these 16 pins!
 +===============+==================+===================================+===========================================+
 | SPI           | 1                |                                   |                                           |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
-| I²C           | 3                |                                   |                                           |
+| I²C           | 3                | - imx93-charge-som-i2c5.dtso      |                                           |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
 | UART [#]_     | 1                | - imx93-charge-som-uart7.dtso     | without RTS/CTS                           |
 +---------------+------------------+-----------------------------------+-------------------------------------------+
@@ -322,3 +322,31 @@ The i.MX93 on the Charge SOM provides several I²C interfaces:
 +----------+------------+-------------------------------------+-----------------+
 
 .. [#] This interface is only enabled in case of a Charge SOM Single Channel DC Carrier Board.
+
+In to use the other I²C interfaces configure the matching DT overlays in the bootloader.
+
+***
+RTC
+***
+
+The Single Channel DC Carrier Board is equipped with a super cap buffered RTC.
+This RTC is available via Linux device ``/dev/rtc0``. By default, the EVerest
+firmware tries to synchronize the RTC via NTP and ensures that
+Backup Switch-Over Mode is configured correctly.
+
+In case the Single Channel DC Carrier Board doesn't have NTP access, the RTC
+must be configured manually:
+
+.. code-block:: console
+
+   timedatectl set-ntp false
+   timedatectl set-time "YYYY-MM-DD hh:mm:ss"
+   hwclock --param-set bsm=0x2
+
+
+***
+TPM
+***
+
+The Charge SOM includes a TPM 2.0 compliant chip.
+This TPM is available via Linux device ``/dev/tpm0``.

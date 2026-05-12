@@ -148,7 +148,7 @@ The `Distec DD-0700-MC01 <https://www.fortec-integrated.de/en/products/tft-compo
 I like to create my own DT overlay. Is there an example?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Yes, please have a look at this `commit <https://github.com/chargebyte/linux/commit/125a587a0cf7e8d9db1fdddf9383a67c2b46d107>`_ .
+Yes, please have a look at this `commit <https://github.com/chargebyte/linux/commit/f078308d85a0820e19aed387e8f1e01b8eafe041>`_ .
 
 
 Where can I find the device tree sources of the Charge SOM?
@@ -166,19 +166,23 @@ The device tree sources of the Charge SOM are divided into multiple layers:
    * - i.MX93
      - 0
      - SoC
-     - `imx93.dtsi <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93.dtsi>`_
+     - `imx93.dtsi <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93.dtsi>`_
    * - phyCORE-i.MX93
      - 1
      - SoM
-     - `imx93-phycore-som.dtsi <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi>`_
+     - `imx93-phycore-som.dtsi <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi>`_
    * - Charge SOM
      - 2
      - SoM
-     - `imx93-charge-som.dtsi <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som.dtsi>`_
+     - `imx93-charge-som.dtsi <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som.dtsi>`_
    * - Charge SOM Single Channel DC Carrier Board
      - 3
      - Board
-     - `imx93-charge-som-dc-evb.dts <https://github.com/chargebyte/linux/blob/v6.6.23-2.0.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som-dc-evb.dts>`_
+     - `imx93-charge-som-dc-evb.dts <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som-dc-evb.dts>`_
+   * - UART7 overlay
+     - 4
+     - Overlay
+     - `imx93-charge-som-uart7.dtso <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som-uart7.dtso>`_
 
 
 How can I access the EVerest admin panel on Charge SOM?
