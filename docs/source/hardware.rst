@@ -177,122 +177,122 @@ The following table indicates all possible muxing options for these signals.
 By default, the factory shipped configuration for the Charge SOM EVB is that the signals GPIO3_26 and GPIO3_27
 are configured as GPIO via imx93-charge-som-clko-gpio.dtso . All other pins are left untouched by default.
 
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| Signal                    | Linux GPIO Line Name      | Pad Mux Options                                      | Notes                |
-+===========================+===========================+======================================================+======================+
-| CAN2_RX                   | X11_CAN2_RX               | - MX93_PAD_GPIO_IO27__GPIO2_IO27                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO27__USDHC3_DATA3                   |                      |
-|                           |                           | - MX93_PAD_GPIO_IO27__CAN2_RX                        |                      |
-|                           |                           | - MX93_PAD_GPIO_IO27__MEDIAMIX_DISP_DATA23           |                      |
-|                           |                           | - MX93_PAD_GPIO_IO27__TPM6_CH3                       |                      |
-|                           |                           | - MX93_PAD_GPIO_IO27__JTAG_MUX_TMS                   |                      |
-|                           |                           | - MX93_PAD_GPIO_IO27__LPSPI5_PCS1                    |                      |
-|                           |                           | - MX93_PAD_GPIO_IO27__FLEXIO1_FLEXIO27               |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| CAN2_TX                   | X11_CAN2_TX               | - MX93_PAD_GPIO_IO25__GPIO2_IO25                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO25__USDHC3_DATA1                   |                      |
-|                           |                           | - MX93_PAD_GPIO_IO25__CAN2_TX                        |                      |
-|                           |                           | - MX93_PAD_GPIO_IO25__MEDIAMIX_DISP_DATA21           |                      |
-|                           |                           | - MX93_PAD_GPIO_IO25__TPM4_CH3                       |                      |
-|                           |                           | - MX93_PAD_GPIO_IO25__JTAG_MUX_TCK                   |                      |
-|                           |                           | - MX93_PAD_GPIO_IO25__LPSPI7_PCS1                    |                      |
-|                           |                           | - MX93_PAD_GPIO_IO25__FLEXIO1_FLEXIO25               |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| PWM5_3                    | X11_PWM5_3                | - MX93_PAD_GPIO_IO26__GPIO2_IO26                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO26__USDHC3_DATA2                   |                      |
-|                           |                           | - MX93_PAD_GPIO_IO26__PDM_BIT_STREAM01               |                      |
-|                           |                           | - MX93_PAD_GPIO_IO26__MEDIAMIX_DISP_DATA22           |                      |
-|                           |                           | - MX93_PAD_GPIO_IO26__TPM5_CH3                       |                      |
-|                           |                           | - MX93_PAD_GPIO_IO26__JTAG_MUX_TDI                   |                      |
-|                           |                           | - MX93_PAD_GPIO_IO26__LPSPI8_PCS1                    |                      |
-|                           |                           | - MX93_PAD_GPIO_IO26__SAI3_TX_SYNC                   |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| GPIO_IO23/I2C5_SCL        | X11_I2C5_SCL              | - MX93_PAD_GPIO_IO23__GPIO2_IO23                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO23__USDHC3_CMD                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO23__SPDIF_OUT                      |                      |
-|                           |                           | - MX93_PAD_GPIO_IO23__MEDIAMIX_DISP_DATA19           |                      |
-|                           |                           | - MX93_PAD_GPIO_IO23__TPM6_CH1                       |                      |
-|                           |                           | - MX93_PAD_GPIO_IO23__LPI2C5_SCL                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO23__FLEXIO1_FLEXIO23               |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| GPIO3_26                  | X11_GPIO3_26              | - MX93_PAD_CCM_CLKO1__CCMSRCGPCMIX_CLKO1             | Warning: clock       |
-|                           |                           | - MX93_PAD_CCM_CLKO1__FLEXIO1_FLEXIO26               | output after         |
-|                           |                           | - MX93_PAD_CCM_CLKO1__GPIO3_IO26                     | power-up/reset       |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SD3_CLK/I2C5_SDA          | X11_I2C5_SDA              | - MX93_PAD_GPIO_IO22__GPIO2_IO22                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO22__USDHC3_CLK                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO22__SPDIF_IN                       |                      |
-|                           |                           | - MX93_PAD_GPIO_IO22__MEDIAMIX_DISP_DATA18           |                      |
-|                           |                           | - MX93_PAD_GPIO_IO22__TPM5_CH1                       |                      |
-|                           |                           | - MX93_PAD_GPIO_IO22__TPM6_EXTCLK                    |                      |
-|                           |                           | - MX93_PAD_GPIO_IO22__LPI2C5_SDA                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO22__FLEXIO1_FLEXIO22               |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| GPIO3_27                  | X11_GPIO3_27              | - MX93_PAD_CCM_CLKO2__GPIO3_IO27                     | Warning: clock       |
-|                           |                           | - MX93_PAD_CCM_CLKO2__CCMSRCGPCMIX_CLKO2             | output after         |
-|                           |                           | - MX93_PAD_CCM_CLKO2__FLEXIO1_FLEXIO27               | power-up/reset       |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SD3_CMD                   | X11_SD3_CMD               | - MX93_PAD_SD3_CMD__USDHC3_CMD                       |                      |
-|                           |                           | - MX93_PAD_SD3_CMD__FLEXSPI1_A_SS0_B                 |                      |
-|                           |                           | - MX93_PAD_SD3_CMD__FLEXIO1_FLEXIO21                 |                      |
-|                           |                           | - MX93_PAD_SD3_CMD__GPIO3_IO21                       |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SPI_EXT_CLK               | X11_SPI_EXT_CLK           | - MX93_PAD_GPIO_IO11__GPIO2_IO11                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO11__LPSPI3_SCK                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO11__MEDIAMIX_CAM_DATA05            |                      |
-|                           |                           | - MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07           |                      |
-|                           |                           | - MX93_PAD_GPIO_IO11__TPM5_EXTCLK                    |                      |
-|                           |                           | - MX93_PAD_GPIO_IO11__LPUART7_RTS_B                  |                      |
-|                           |                           | - MX93_PAD_GPIO_IO11__LPI2C8_SCL                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO11__FLEXIO1_FLEXIO11               |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SD3_D0                    | X11_SD3_D0                | - MX93_PAD_SD3_DATA0__USDHC3_DATA0                   |                      |
-|                           |                           | - MX93_PAD_SD3_DATA0__FLEXSPI1_A_DATA00              |                      |
-|                           |                           | - MX93_PAD_SD3_DATA0__FLEXIO1_FLEXIO22               |                      |
-|                           |                           | - MX93_PAD_SD3_DATA0__GPIO3_IO22                     |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SPI_EXT_MISO/LPUART7_RX   | X11_SPI_EXT_MISO          | - MX93_PAD_GPIO_IO09__GPIO2_IO09                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO09__LPSPI3_SIN                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO09__MEDIAMIX_CAM_DATA03            |                      |
-|                           |                           | - MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05           |                      |
-|                           |                           | - MX93_PAD_GPIO_IO09__TPM3_EXTCLK                    |                      |
-|                           |                           | - MX93_PAD_GPIO_IO09__LPUART7_RX                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO09__LPI2C7_SCL                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO09__FLEXIO1_FLEXIO09               |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SD3_D1                    | X11_SD3_D1                | - MX93_PAD_SD3_DATA1__USDHC3_DATA1                   |                      |
-|                           |                           | - MX93_PAD_SD3_DATA1__FLEXSPI1_A_DATA01              |                      |
-|                           |                           | - MX93_PAD_SD3_DATA1__FLEXIO1_FLEXIO23               |                      |
-|                           |                           | - MX93_PAD_SD3_DATA1__GPIO3_IO23                     |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SPI_EXT_MOSI              | X11_SPI_EXT_MOSI          | - MX93_PAD_GPIO_IO10__GPIO2_IO10                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO10__LPSPI3_SOUT                    |                      |
-|                           |                           | - MX93_PAD_GPIO_IO10__MEDIAMIX_CAM_DATA04            |                      |
-|                           |                           | - MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06           |                      |
-|                           |                           | - MX93_PAD_GPIO_IO10__TPM4_EXTCLK                    |                      |
-|                           |                           | - MX93_PAD_GPIO_IO10__LPUART7_CTS_B                  |                      |
-|                           |                           | - MX93_PAD_GPIO_IO10__LPI2C8_SDA                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO10__FLEXIO1_FLEXIO10               |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SD3_D2                    | X11_SD3_D2                | - MX93_PAD_SD3_DATA2__USDHC3_DATA2                   |                      |
-|                           |                           | - MX93_PAD_SD3_DATA2__FLEXSPI1_A_DATA02              |                      |
-|                           |                           | - MX93_PAD_SD3_DATA2__FLEXIO1_FLEXIO24               |                      |
-|                           |                           | - MX93_PAD_SD3_DATA2__GPIO3_IO24                     |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SPI_EXT_CS0/LPUART7_TX    | X11_SPI_EXT_CS0           | - MX93_PAD_GPIO_IO08__GPIO2_IO08                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO08__LPSPI3_PCS0                    |                      |
-|                           |                           | - MX93_PAD_GPIO_IO08__MEDIAMIX_CAM_DATA02            |                      |
-|                           |                           | - MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04           |                      |
-|                           |                           | - MX93_PAD_GPIO_IO08__TPM6_CH0                       |                      |
-|                           |                           | - MX93_PAD_GPIO_IO08__LPUART7_TX                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO08__LPI2C7_SDA                     |                      |
-|                           |                           | - MX93_PAD_GPIO_IO08__FLEXIO1_FLEXIO08               |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SD3_D3                    | X11_SD3_D3                | - MX93_PAD_SD3_DATA3__USDHC3_DATA3                   |                      |
-|                           |                           | - MX93_PAD_SD3_DATA3__FLEXSPI1_A_DATA03              |                      |
-|                           |                           | - MX93_PAD_SD3_DATA3__FLEXIO1_FLEXIO25               |                      |
-|                           |                           | - MX93_PAD_SD3_DATA3__GPIO3_IO25                     |                      |
-+---------------------------+---------------------------+------------------------------------------------------+----------------------+
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+| X11 Pin Number | Signal                    | Linux GPIO Line Name      | Pad Mux Options                                      | Notes                |
++================+===========================+===========================+======================================================+======================+
+|       5        | CAN2_RX                   | X11_CAN2_RX               | - MX93_PAD_GPIO_IO27__GPIO2_IO27                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO27__USDHC3_DATA3                   |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO27__CAN2_RX                        |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO27__MEDIAMIX_DISP_DATA23           |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO27__TPM6_CH3                       |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO27__JTAG_MUX_TMS                   |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO27__LPSPI5_PCS1                    |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO27__FLEXIO1_FLEXIO27               |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       6        | CAN2_TX                   | X11_CAN2_TX               | - MX93_PAD_GPIO_IO25__GPIO2_IO25                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO25__USDHC3_DATA1                   |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO25__CAN2_TX                        |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO25__MEDIAMIX_DISP_DATA21           |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO25__TPM4_CH3                       |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO25__JTAG_MUX_TCK                   |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO25__LPSPI7_PCS1                    |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO25__FLEXIO1_FLEXIO25               |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       7        | PWM5_3                    | X11_PWM5_3                | - MX93_PAD_GPIO_IO26__GPIO2_IO26                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO26__USDHC3_DATA2                   |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO26__PDM_BIT_STREAM01               |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO26__MEDIAMIX_DISP_DATA22           |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO26__TPM5_CH3                       |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO26__JTAG_MUX_TDI                   |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO26__LPSPI8_PCS1                    |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO26__SAI3_TX_SYNC                   |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       8        | GPIO_IO23/I2C5_SCL        | X11_I2C5_SCL              | - MX93_PAD_GPIO_IO23__GPIO2_IO23                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO23__USDHC3_CMD                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO23__SPDIF_OUT                      |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO23__MEDIAMIX_DISP_DATA19           |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO23__TPM6_CH1                       |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO23__LPI2C5_SCL                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO23__FLEXIO1_FLEXIO23               |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       9        | GPIO3_26                  | X11_GPIO3_26              | - MX93_PAD_CCM_CLKO1__CCMSRCGPCMIX_CLKO1             | Warning: clock       |
+|                |                           |                           | - MX93_PAD_CCM_CLKO1__FLEXIO1_FLEXIO26               | output after         |
+|                |                           |                           | - MX93_PAD_CCM_CLKO1__GPIO3_IO26                     | power-up/reset       |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       10       | SD3_CLK/I2C5_SDA          | X11_I2C5_SDA              | - MX93_PAD_GPIO_IO22__GPIO2_IO22                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO22__USDHC3_CLK                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO22__SPDIF_IN                       |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO22__MEDIAMIX_DISP_DATA18           |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO22__TPM5_CH1                       |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO22__TPM6_EXTCLK                    |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO22__LPI2C5_SDA                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO22__FLEXIO1_FLEXIO22               |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       11       | GPIO3_27                  | X11_GPIO3_27              | - MX93_PAD_CCM_CLKO2__GPIO3_IO27                     | Warning: clock       |
+|                |                           |                           | - MX93_PAD_CCM_CLKO2__CCMSRCGPCMIX_CLKO2             | output after         |
+|                |                           |                           | - MX93_PAD_CCM_CLKO2__FLEXIO1_FLEXIO27               | power-up/reset       |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       12       | SD3_CMD                   | X11_SD3_CMD               | - MX93_PAD_SD3_CMD__USDHC3_CMD                       |                      |
+|                |                           |                           | - MX93_PAD_SD3_CMD__FLEXSPI1_A_SS0_B                 |                      |
+|                |                           |                           | - MX93_PAD_SD3_CMD__FLEXIO1_FLEXIO21                 |                      |
+|                |                           |                           | - MX93_PAD_SD3_CMD__GPIO3_IO21                       |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       13       | SPI_EXT_CLK               | X11_SPI_EXT_CLK           | - MX93_PAD_GPIO_IO11__GPIO2_IO11                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO11__LPSPI3_SCK                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO11__MEDIAMIX_CAM_DATA05            |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07           |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO11__TPM5_EXTCLK                    |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO11__LPUART7_RTS_B                  |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO11__LPI2C8_SCL                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO11__FLEXIO1_FLEXIO11               |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       14       | SD3_D0                    | X11_SD3_D0                | - MX93_PAD_SD3_DATA0__USDHC3_DATA0                   |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA0__FLEXSPI1_A_DATA00              |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA0__FLEXIO1_FLEXIO22               |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA0__GPIO3_IO22                     |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       15       | SPI_EXT_MISO/LPUART7_RX   | X11_SPI_EXT_MISO          | - MX93_PAD_GPIO_IO09__GPIO2_IO09                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO09__LPSPI3_SIN                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO09__MEDIAMIX_CAM_DATA03            |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05           |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO09__TPM3_EXTCLK                    |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO09__LPUART7_RX                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO09__LPI2C7_SCL                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO09__FLEXIO1_FLEXIO09               |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       16       | SD3_D1                    | X11_SD3_D1                | - MX93_PAD_SD3_DATA1__USDHC3_DATA1                   |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA1__FLEXSPI1_A_DATA01              |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA1__FLEXIO1_FLEXIO23               |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA1__GPIO3_IO23                     |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       17       | SPI_EXT_MOSI              | X11_SPI_EXT_MOSI          | - MX93_PAD_GPIO_IO10__GPIO2_IO10                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO10__LPSPI3_SOUT                    |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO10__MEDIAMIX_CAM_DATA04            |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06           |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO10__TPM4_EXTCLK                    |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO10__LPUART7_CTS_B                  |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO10__LPI2C8_SDA                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO10__FLEXIO1_FLEXIO10               |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       18       | SD3_D2                    | X11_SD3_D2                | - MX93_PAD_SD3_DATA2__USDHC3_DATA2                   |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA2__FLEXSPI1_A_DATA02              |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA2__FLEXIO1_FLEXIO24               |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA2__GPIO3_IO24                     |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       19       | SPI_EXT_CS0/LPUART7_TX    | X11_SPI_EXT_CS0           | - MX93_PAD_GPIO_IO08__GPIO2_IO08                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO08__LPSPI3_PCS0                    |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO08__MEDIAMIX_CAM_DATA02            |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04           |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO08__TPM6_CH0                       |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO08__LPUART7_TX                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO08__LPI2C7_SDA                     |                      |
+|                |                           |                           | - MX93_PAD_GPIO_IO08__FLEXIO1_FLEXIO08               |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
+|       20       | SD3_D3                    | X11_SD3_D3                | - MX93_PAD_SD3_DATA3__USDHC3_DATA3                   |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA3__FLEXSPI1_A_DATA03              |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA3__FLEXIO1_FLEXIO25               |                      |
+|                |                           |                           | - MX93_PAD_SD3_DATA3__GPIO3_IO25                     |                      |
++----------------+---------------------------+---------------------------+------------------------------------------------------+----------------------+
 
 
 **************
