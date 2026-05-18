@@ -141,6 +141,8 @@ DC Power Modules
    +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
    | Huawei FusionCharge R100040Gx   | CAN       | Proprietary | `EVerest`_    | `Huawei_R100040Gx`_      |       ✗       |          ✗           |
    +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   | Huawei FusionCharge V100R023C10 | Ethernet  | Modbus      | `EVerest`_    | `Huawei_V100R023C10`_    |       ✗       |          ✗           |
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
 
 .. [#bpt-mod] Support in the listed EVerest module implementation.
 
@@ -156,6 +158,7 @@ DC Power Modules
 .. _Infypower BEG series: https://www.infypower.com/bidirectional-acdc-power-converter.html
 .. _InfypowerDCSupply: https://github.com/chargebyte/everest-chargebyte/tree/main/modules/InfypowerDCSupply
 .. _Huawei_R100040Gx: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerSupplies/Huawei_R100040Gx
+.. _Huawei_V100R023C10: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerSupplies/Huawei_V100R023C10
 .. _chargebyte: https://github.com/chargebyte/everest-chargebyte
 
 
