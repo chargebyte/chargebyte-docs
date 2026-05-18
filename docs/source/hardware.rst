@@ -251,7 +251,7 @@ are configured as GPIO via imx93-charge-som-clko-gpio.dtso . All other pins are 
 |                           |                           | - MX93_PAD_SD3_DATA0__FLEXIO1_FLEXIO22               |                      |
 |                           |                           | - MX93_PAD_SD3_DATA0__GPIO3_IO22                     |                      |
 +---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SPI_EXT_MISO/LPUART7_RX   | X11_SPI_EXT_MOSI          | - MX93_PAD_GPIO_IO09__GPIO2_IO09                     |                      |
+| SPI_EXT_MISO/LPUART7_RX   | X11_SPI_EXT_MISO          | - MX93_PAD_GPIO_IO09__GPIO2_IO09                     |                      |
 |                           |                           | - MX93_PAD_GPIO_IO09__LPSPI3_SIN                     |                      |
 |                           |                           | - MX93_PAD_GPIO_IO09__MEDIAMIX_CAM_DATA03            |                      |
 |                           |                           | - MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05           |                      |
@@ -265,7 +265,7 @@ are configured as GPIO via imx93-charge-som-clko-gpio.dtso . All other pins are 
 |                           |                           | - MX93_PAD_SD3_DATA1__FLEXIO1_FLEXIO23               |                      |
 |                           |                           | - MX93_PAD_SD3_DATA1__GPIO3_IO23                     |                      |
 +---------------------------+---------------------------+------------------------------------------------------+----------------------+
-| SPI_EXT_MOSI              | X11_SPI_EXT_MISO          | - MX93_PAD_GPIO_IO10__GPIO2_IO10                     |                      |
+| SPI_EXT_MOSI              | X11_SPI_EXT_MOSI          | - MX93_PAD_GPIO_IO10__GPIO2_IO10                     |                      |
 |                           |                           | - MX93_PAD_GPIO_IO10__LPSPI3_SOUT                    |                      |
 |                           |                           | - MX93_PAD_GPIO_IO10__MEDIAMIX_CAM_DATA04            |                      |
 |                           |                           | - MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06           |                      |
