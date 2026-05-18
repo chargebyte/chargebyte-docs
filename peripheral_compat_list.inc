@@ -176,9 +176,13 @@ Insulation Monitoring Devices (IMDs)
    +========================================================+===========+==========+===============+=======================+======================+
    | `Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1`_ | EIA-485   | Modbus   | `EVerest`_    | `Bender_isoCHA425HV`_ |          ✗           |
    +--------------------------------------------------------+-----------+----------+---------------+-----------------------+----------------------+
+   | `Dold RN 5893`_                                        | EIA-485   | Modbus   | `EVerest`_    | `DoldRN5893`_         |          ✗           |
+   +--------------------------------------------------------+-----------+----------+---------------+-----------------------+----------------------+
 
 .. _Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1: https://www.bender.de/en/products/insulation-monitoring/isometer-isocha425hv-with-agh420-1/
 .. _Bender_isoCHA425HV: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/IsolationMonitors/Bender_isoCHA425HV
+.. _Dold RN 5893: https://www.dold.com/en/products/relay-modules/monitoring-devices/insulation-monitors/rn-5893
+.. _DoldRN5893: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/IsolationMonitors/DoldRN5893
 
 
 Residual Current Monitors (RCMs)
