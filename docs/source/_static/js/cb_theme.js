@@ -46,8 +46,15 @@
 
     var theme = currentTheme();
     var targetTheme = nextTheme(theme);
-    button.textContent = targetTheme === "dark" ? "Switch to dark mode" : "Switch to light mode";
-    button.setAttribute("aria-label", button.textContent);
+    var label = targetTheme === "dark" ? "Switch to dark mode" : "Switch to light mode";
+    var hiddenText = button.querySelector(".cb-visually-hidden");
+
+    if (hiddenText) {
+      hiddenText.textContent = label;
+    }
+
+    button.setAttribute("aria-label", label);
+    button.setAttribute("title", label);
     button.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
     button.setAttribute("data-theme-target", targetTheme);
   }
@@ -57,32 +64,26 @@
   }
 
   function mountToggle() {
-    var sidebar = document.querySelector(".sphinxsidebarwrapper");
-    if (!sidebar || sidebar.querySelector(".cb-theme-toggle-wrap")) {
+    var relatedNav = document.querySelector(".related ul");
+    if (!relatedNav || relatedNav.querySelector(".cb-theme-toggle-item")) {
       syncToggleButton();
       return;
     }
 
-    var section = document.createElement("div");
-    section.className = "cb-theme-toggle-wrap";
-
-    var heading = document.createElement("h4");
-    heading.textContent = "Theme";
+    var item = document.createElement("li");
+    item.className = "cb-theme-toggle-item";
 
     var button = document.createElement("button");
     button.type = "button";
     button.className = "cb-theme-toggle";
     button.addEventListener("click", handleToggleClick);
 
-    section.appendChild(heading);
-    section.appendChild(button);
+    var hiddenText = document.createElement("span");
+    hiddenText.className = "cb-visually-hidden";
+    button.appendChild(hiddenText);
 
-    var logoBlock = sidebar.querySelector("p.logo");
-    if (logoBlock && logoBlock.parentNode) {
-      logoBlock.insertAdjacentElement("afterend", section);
-    } else {
-      sidebar.insertBefore(section, sidebar.firstChild);
-    }
+    item.appendChild(button);
+    relatedNav.appendChild(item);
 
     syncToggleButton();
   }
