@@ -123,24 +123,26 @@ DC Power Modules
    :width: 100%
    :widths: 5,1,1,1,2,2,1
 
-   +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
-   | Vendor / Product          | Interface | Protocol    | Implementer   | EVerest Module Name      | BPT Supported | Tested by chargebyte |
-   |                           |           |             |               |                          | [#bpt-mod]_   |                      |
-   +===========================+===========+=============+===============+==========================+===============+======================+
-   | `SCU DPM series`_         | CAN       | Proprietary | `EVerest`_    | `DPM1000`_               |       ✗       |          ✗           |
-   +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
-   | `UUGreen Power RX1000X0`_ | CAN       | Proprietary | `EVerest`_    | `UUGreenPower_UR1000X0`_ |       ✗       |          ✗           |
-   +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
-   | `InfyPower`_              | CAN       | Proprietary | `EVerest`_    | `InfyPower`_             |       ✗       |          ✓           |
-   +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
-   | `InfyPower BEG1K075G`_    | CAN       | Proprietary | `EVerest`_    | `InfyPower_BEG1K075G`_   |       ✓       |          ✓           |
-   +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
-   | `Winline`_                | CAN       | Proprietary | `EVerest`_    | `Winline`_               |       ✗       |          ✗           |
-   +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
-   | `Infypower BEG series`_   | CAN       | Proprietary | `chargebyte`_ | `InfypowerDCSupply`_     |       ✓       |          ✓           |
-   +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
-   | `Huawei_R100040Gx`_       | CAN       | Proprietary | `EVerest`_    | `Huawei_R100040Gx`_      |       ✗       |          ✗           |
-   +---------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   | Vendor / Product                | Interface | Protocol    | Implementer   | EVerest Module Name      | BPT Supported | Tested by chargebyte |
+   |                                 |           |             |               |                          | [#bpt-mod]_   |                      |
+   +=================================+===========+=============+===============+==========================+===============+======================+
+   | `SCU DPM series`_               | CAN       | Proprietary | `EVerest`_    | `DPM1000`_               |       ✗       |          ✗           |
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   | `UUGreen Power RX1000X0`_       | CAN       | Proprietary | `EVerest`_    | `UUGreenPower_UR1000X0`_ |       ✗       |          ✗           |
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   | `InfyPower`_                    | CAN       | Proprietary | `EVerest`_    | `InfyPower`_             |       ✗       |          ✓           |
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   | `InfyPower BEG1K075G`_          | CAN       | Proprietary | `EVerest`_    | `InfyPower_BEG1K075G`_   |       ✓       |          ✓           |
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   | `Winline`_                      | CAN       | Proprietary | `EVerest`_    | `Winline`_               |       ✗       |          ✗           |
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   | `Infypower BEG series`_         | CAN       | Proprietary | `chargebyte`_ | `InfypowerDCSupply`_     |       ✓       |          ✓           |
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   | Huawei FusionCharge R100040Gx   | CAN       | Proprietary | `EVerest`_    | `Huawei_R100040Gx`_      |       ✗       |          ✗           |
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
+   | Huawei FusionCharge V100R023C10 | Ethernet  | Modbus      | `EVerest`_    | `Huawei_V100R023C10`_    |       ✗       |          ✗           |
+   +---------------------------------+-----------+-------------+---------------+--------------------------+---------------+----------------------+
 
 .. [#bpt-mod] Support in the listed EVerest module implementation.
 
@@ -156,6 +158,7 @@ DC Power Modules
 .. _Infypower BEG series: https://www.infypower.com/bidirectional-acdc-power-converter.html
 .. _InfypowerDCSupply: https://github.com/chargebyte/everest-chargebyte/tree/main/modules/InfypowerDCSupply
 .. _Huawei_R100040Gx: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerSupplies/Huawei_R100040Gx
+.. _Huawei_V100R023C10: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerSupplies/Huawei_V100R023C10
 .. _chargebyte: https://github.com/chargebyte/everest-chargebyte
 
 
@@ -173,9 +176,13 @@ Insulation Monitoring Devices (IMDs)
    +========================================================+===========+==========+===============+=======================+======================+
    | `Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1`_ | EIA-485   | Modbus   | `EVerest`_    | `Bender_isoCHA425HV`_ |          ✗           |
    +--------------------------------------------------------+-----------+----------+---------------+-----------------------+----------------------+
+   | `Dold RN 5893`_                                        | EIA-485   | Modbus   | `EVerest`_    | `DoldRN5893`_         |          ✗           |
+   +--------------------------------------------------------+-----------+----------+---------------+-----------------------+----------------------+
 
 .. _Bender ISOMETER® isoCHA425HV with AGH420-1/AGH421-1: https://www.bender.de/en/products/insulation-monitoring/isometer-isocha425hv-with-agh420-1/
 .. _Bender_isoCHA425HV: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/IsolationMonitors/Bender_isoCHA425HV
+.. _Dold RN 5893: https://www.dold.com/en/products/relay-modules/monitoring-devices/insulation-monitors/rn-5893
+.. _DoldRN5893: https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/IsolationMonitors/DoldRN5893
 
 
 Residual Current Monitors (RCMs)
