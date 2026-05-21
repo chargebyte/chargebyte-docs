@@ -112,7 +112,7 @@ The most important points are summarised here:
    first start of EVerest. The database is stored at the `DeviceModelDatabasePath`.
 6. The component config files are stored in the `DeviceModelConfigPath`. Component config files are
    used to initialize or update the device model database. To update a component config file, just
-   place a `component config file <https://github.com/EVerest/EVerest/tree/main/lib/everest/ocpp/config/v2/component_config>`_
+   place a `component config file <https://github.com/EVerest/EVerest/tree/main/lib/everest/ocpp/config/common/component_config>`_
    in the same directory structure in the DeviceModelConfigPath and change the values accordingly.
    Important keys of the component config files are:
 
