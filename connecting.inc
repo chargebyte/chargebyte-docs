@@ -22,6 +22,7 @@ Here are the steps to connect to the Charge controller via SSH using PuTTY:
 #. Click on "Save" to save the configuration and then click on "Open" to start the connection.
 #. A PuTTY Security Alert window will appear. Click on "Accept" to continue.
 #. Enter the username "root" and the password "zebematado" to log in to the Charge controller.
+#. After the first login, you will be prompted to define a new password.
 
 .. note::
    The username can also be stored under "Connection -> Data -> Auto-login username" in the
@@ -57,6 +58,7 @@ Here are the steps to connect to the Charge controller via serial interface usin
 #. Click on "Open" to start the connection.
 #. Now a black window will appear. Press enter to get the login prompt.
 #. Enter the username "root" and the password "zebematado" to log in to the Charge controller.
+#. After the first login, you will be prompted to define a new password.
 
 .. figure:: _static/images/putty_config_serial_1.png
    :width: 300pt
