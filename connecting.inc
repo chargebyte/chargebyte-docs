@@ -8,6 +8,14 @@ or via serial interface. The following sections explain how to connect to the ch
 PuTTY. You can also use other terminal programs (like e.g. MobaXTerm) to connect to the
 the charge controller.
 
+.. important::
+   On the very first boot, SSH access is disabled and no password is set for the ``root`` user.
+   A factory reset also deletes the root password, so a new root password must be set afterward.
+   Before connecting via SSH, enable SSH access in the WebUI under "SSH Configuration". You must
+   also set a root password either on the same WebUI page or through the serial console. When
+   logging in as ``root`` through the serial console for the first time, you will be prompted to
+   set a password.
+
 
 SSH Connection with PuTTY
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -21,7 +29,8 @@ Here are the steps to connect to the charge controller via SSH using PuTTY:
    the "Host Name (or IP address)" field (See figure :ref:`PuTTY SSH Configuration <PuTTY_Serial_Configuration_2>`).
 #. Click on "Save" to save the configuration and then click on "Open" to start the connection.
 #. A PuTTY Security Alert window will appear. Click on "Accept" to continue.
-#. Enter the username "root" and the password "zebematado" to log in to the charge controller.
+#. Enter the username "root" and the password previously set through the serial console or the
+   WebUI to log in to the charge controller.
 
 .. note::
    The username can also be stored under "Connection -> Data -> Auto-login username" in the
@@ -56,7 +65,9 @@ Here are the steps to connect to the charge controller via serial interface usin
    (See figure :ref:`PuTTY Save Serial Connection <PuTTY_Serial_Configuration_2>`).
 #. Click on "Open" to start the connection.
 #. Now a black window will appear. Press enter to get the login prompt.
-#. Enter the username "root" and the password "zebematado" to log in to the charge controller.
+#. Enter the username "root" to log in to the charge controller. On the very first boot, no root
+   password is set and you will be prompted to define one. For subsequent logins, enter the
+   password you have set.
 
 .. figure:: _static/images/putty_config_serial_1.png
    :width: 300pt
