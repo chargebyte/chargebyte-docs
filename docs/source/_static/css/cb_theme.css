@@ -538,6 +538,24 @@ div.bodywrapper .body span.caption-text {
   font-size: 0.96rem;
 }
 
+div.bodywrapper .body aside.footnote {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+div.bodywrapper .body aside.footnote > span.label {
+  flex: 0 0 auto;
+  float: none;
+  padding-right: 0;
+  line-height: 1.3;
+}
+
+div.bodywrapper .body aside.footnote > p {
+  flex: 1 1 auto;
+  margin: 0;
+}
+
 div.bodywrapper .body table.docutils,
 div.bodywrapper .body table {
   width: 100%;
