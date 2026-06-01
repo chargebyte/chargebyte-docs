@@ -521,7 +521,7 @@ div.bodywrapper .body .highlight .go {
 
 div.bodywrapper .body img {
   max-width: 100%;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--cb-surface-muted);
 }
 
