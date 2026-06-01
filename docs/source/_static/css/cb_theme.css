@@ -529,6 +529,21 @@ div.bodywrapper .body figure,
 div.bodywrapper .body div.figure,
 div.bodywrapper .body .figure {
   margin: 2rem 0;
+  text-align: center;
+}
+
+div.bodywrapper .body figure > a.image-reference,
+div.bodywrapper .body div.figure > a.image-reference,
+div.bodywrapper .body .figure > a.image-reference {
+  display: inline-block;
+}
+
+div.bodywrapper .body figure img,
+div.bodywrapper .body div.figure img,
+div.bodywrapper .body .figure img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 div.bodywrapper .body .caption,
@@ -536,6 +551,13 @@ div.bodywrapper .body p.caption,
 div.bodywrapper .body span.caption-text {
   color: var(--cb-text-muted);
   font-size: 0.96rem;
+}
+
+div.bodywrapper .body figure figcaption,
+div.bodywrapper .body figure figcaption p,
+div.bodywrapper .body div.figure p.caption,
+div.bodywrapper .body .figure p.caption {
+  text-align: center;
 }
 
 div.bodywrapper .body aside.footnote {
