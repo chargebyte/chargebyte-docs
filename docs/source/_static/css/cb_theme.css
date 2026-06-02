@@ -580,26 +580,37 @@ div.bodywrapper .body aside.footnote > p {
 
 div.bodywrapper .body table.docutils,
 div.bodywrapper .body table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   table-layout: fixed;
-  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--cb-border);
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 18px;
   background: var(--cb-surface);
+  font-size: 0.9rem;
 }
 
 div.bodywrapper .body table.docutils caption,
 div.bodywrapper .body table caption {
   caption-side: bottom;
+  position: sticky;
+  left: 0;
+  display: block;
+  width: 100%;
   padding-top: 0.75rem;
+  white-space: normal;
+  text-align: center;
 }
 
 div.bodywrapper .body table.docutils th,
 div.bodywrapper .body table th,
 div.bodywrapper .body dl.field-list > dt {
-  padding: 0.95rem 1rem;
+  padding: 0.7rem 0.75rem;
   border-bottom: 1px solid var(--cb-border);
   background: var(--cb-table-head-bg);
   background-clip: padding-box;
@@ -624,7 +635,7 @@ div.bodywrapper .body table tr:first-child td:last-child {
 div.bodywrapper .body table.docutils td,
 div.bodywrapper .body table td,
 div.bodywrapper .body dl.field-list > dd {
-  padding: 0.9rem 1rem;
+  padding: 0.65rem 0.75rem;
   border-bottom: 1px solid var(--cb-border);
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -633,8 +644,16 @@ div.bodywrapper .body dl.field-list > dd {
 
 div.bodywrapper .body table.docutils th,
 div.bodywrapper .body table th {
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+div.bodywrapper .body table.docutils td,
+div.bodywrapper .body table td {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 div.bodywrapper .body table.docutils td a,
