@@ -468,7 +468,7 @@ div.bodywrapper .body code {
 div.bodywrapper .body pre,
 div.bodywrapper .body div.highlight {
   border: 1px solid var(--cb-code-block-border);
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--cb-code-bg);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
@@ -581,16 +581,16 @@ div.bodywrapper .body aside.footnote > p {
 div.bodywrapper .body table.docutils,
 div.bodywrapper .body table {
   display: block;
-  width: 100%;
+  width: fit-content;
   max-width: 100%;
-  table-layout: fixed;
+  table-layout: auto;
   overflow-x: auto;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   border: 1px solid var(--cb-border);
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--cb-surface);
   font-size: 0.9rem;
 }
@@ -602,6 +602,7 @@ div.bodywrapper .body table caption {
   left: 0;
   display: block;
   width: 100%;
+  box-sizing: border-box;
   padding-top: 0.75rem;
   white-space: normal;
   text-align: center;
@@ -622,14 +623,14 @@ div.bodywrapper .body table.docutils tr:first-child th:first-child,
 div.bodywrapper .body table.docutils tr:first-child td:first-child,
 div.bodywrapper .body table tr:first-child th:first-child,
 div.bodywrapper .body table tr:first-child td:first-child {
-  border-top-left-radius: 18px;
+  border-top-left-radius: 8px;
 }
 
 div.bodywrapper .body table.docutils tr:first-child th:last-child,
 div.bodywrapper .body table.docutils tr:first-child td:last-child,
 div.bodywrapper .body table tr:first-child th:last-child,
 div.bodywrapper .body table tr:first-child td:last-child {
-  border-top-right-radius: 18px;
+  border-top-right-radius: 8px;
 }
 
 div.bodywrapper .body table.docutils td,
