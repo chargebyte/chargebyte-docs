@@ -47,13 +47,17 @@ Release Images vs Development Images
 
 There are two types of firmware images available for chargebyte devices:
 
-- Release images: These images are tested and verified by chargebyte and are recommended for
-  production use. The image size is optimized for production use and contains only the necessary
-  components.
-- Development images: These images are used for development purposes and are not tested or verified
-  by chargebyte. They are intended for developers who want to implement and test new features or
-  applications before they are released. The image size is larger than the release image and
-  contains additional development tools and libraries that are not necessary for production use.
+- **Release images** are optimized for deployment and contain only the components required to run
+  the system. Their smaller size reduces download and installation times and leaves more storage
+  space available on the target device for customer-specific applications, services, and data.
+  These images are tested and verified by chargebyte and are recommended as the basis for deployed
+  systems.
+
+- **Development images** contain the same runtime environment as release images, but additionally
+  include development packages such as libraries and header files. They are intended primarily for
+  development workflows that use the target filesystem as a sysroot for cross-compilation and for
+  building customized software components. Because of the additional development content, these
+  images are significantly larger than release images.
 
 .. note::
    Before installation of a chargebyte EVerest image, please check whether you are installing a
