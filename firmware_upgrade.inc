@@ -59,29 +59,6 @@ There are two types of firmware images available for chargebyte devices:
   building customized software components. Because of the additional development content, these
   images are significantly larger than release images.
 
-.. note::
-   Before installation of a chargebyte EVerest image, please check whether you are installing a
-   developer or release image. In order to update the firmware with a chargebyte EVerest developer
-   image, the developer key must be set in the :code:`"/etc/rauc"` directory to pass the internal
-   validation process of the RAUC firmware update mechanism. The image type can be identified by the
-   file name.
-
-   Depending on the image type, the key must be adapted as follows:
-
-   Change to developer key:
-
-   .. code-block:: bash
-
-      cd /etc/rauc
-      ln -sf i2se-devel.crt keyring.pem
-
-   Change to release key:
-
-   .. code-block:: bash
-
-      cd /etc/rauc
-      ln -sf i2se-release.crt keyring.pem
-
 Device Access
 -------------
 
