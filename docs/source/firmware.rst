@@ -57,6 +57,32 @@ to EVerest-based charging stack:
   before switching your board to EVerest and that this firmware booted once before the update.
   Latest firmware can be found here:
   `Legacy software stack "Truffle" <https://chargebyte.atlassian.net/servicedesk/customer/portal/13>`_.
+
+- Before updating to EVerest, ensure that you have the correct signing key configured.
+  In order to pass the internal validation process of the RAUC firmware
+  update mechanism, the developer key must be set in the :code:`"/etc/rauc"`
+  directory.
+
+  Check the key:
+
+  .. code-block:: bash
+
+     ls -l /etc/rauc
+
+  The symbolic link :code:`"keyring.pem"` should point to :code:`"i2se-devel.crt"`:
+
+  .. code-block::
+
+     lrwxr-xr-x 1 root root   14 May 13 15:21 keyring.pem -> i2se-devel.crt
+
+  If it doesn't point to the correct file, update the link to the developer key:
+
+  .. code-block:: bash
+
+     cd /etc/rauc
+     ln -sf i2se-devel.crt keyring.pem
+
+
 - A note about configuration files:
   When updating from chargebyte's proprietary charging stack to this EVerest-based charging stack,
   the configuration files (e.g. the :code:`"/etc/secc/customer.json"`) are not preserved and you
@@ -70,8 +96,6 @@ to EVerest-based charging stack:
   (like the root password and the network configuration) from the current file system to the new system.
   These are listed in the section :ref:`firmware_update_considerations`.
 - Files that are stored under :code:`"/srv"` are retained during the update process.
-- **Attention!** Before updating to EVerest, please check if you are installing a developer image or
-  a release image. For more information, see the section :ref:`release_vs_development_images`.
 - After the update has been completed, you can use the command
   :code:`"rauc status mark-active other && reboot"` to switch back to the chargebyte proprietary
   software. However, this only works as long as the partition with chargebyte's proprietary
