@@ -45,6 +45,9 @@ html_logo = '_static/cb_logo.png'
 html_css_files = [
     'css/cb_theme.css',
 ]
+html_js_files = [
+    'js/cb_theme.js',
+]
 
 # Disable link "index"
 html_use_index = False
