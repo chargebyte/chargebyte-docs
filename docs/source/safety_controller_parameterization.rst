@@ -156,7 +156,7 @@ To check which settings are currently used by the safety controller firmware, it
 
 .. code-block:: sh
 
-   systemctrl stop everest
+    systemctl stop everest
    ra-update -a data dump | ra-pb-dump
 
 This will print the current settings in YAML format on stdout.

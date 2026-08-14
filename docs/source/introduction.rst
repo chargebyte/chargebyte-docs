@@ -25,7 +25,7 @@ The Charge Control Y is an MCS compliant charging controller for Electric Vehicl
 communication between EVSE and PEV it supports Charge Enable, Insertion Detection as well as 10-Base T1S Ethernet communication.
 
 The Charge Control Y is a future-proof powerhouse based on NXP's i.MX93 with universal compatibility, advanced safety
-features and lots of options for customization. It is intended to be used as the core communication coponent for MCS
+features and lots of options for customization. It is intended to be used as the core communication component for MCS
 communication, therefore it is capable of controlling and sensing temperature sensors, HV ready signals and emergency inputs.
 
 The Charge Control Y is provided with a Linux-Yocto operating system. The installed software is based on EVerest,

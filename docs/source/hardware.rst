@@ -205,7 +205,7 @@ Emergency Input
 
    Wiring overview for the Emergency Input
 
-This wiring diagram shows an overview of connecting the emergeny input to the Charge Control Y:
+This wiring diagram shows an overview of connecting the emergency input to the Charge Control Y:
 
 * make sure the emergency input stays between 21.6V and 26.4V for normal behavior
 * any other voltage is treated as error condition and triggers the safe state

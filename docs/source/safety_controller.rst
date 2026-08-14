@@ -8,7 +8,7 @@ Overview
 
 The Charge Control Y is equipped with an additional MCU (aka Safety Controller) which is responsible for
 managing all low-level aspects which are critical for electrical safety. The firmware for this MCU is
-developed by chargebyte and is not open-source. The Charge Control Y is shiped with the safety controller firmware
+developed by chargebyte and is not open-source. The Charge Control Y is shipped with the safety controller firmware
 preinstalled.
 
 The host controller firmware, e.g. the Linux system, communicates with the safety controller using an UART.
@@ -72,7 +72,7 @@ Temperature Monitoring
 
 The simplified system architecture shows only one temperature input. In the real system, there are 4 independent
 temperature measurement circuits for PT1000 sensors. The safety software monitors the temperature circuit for
-hardware errors and for overtemperaure. The temperature threshold can be parameterized.
+hardware errors and for overtemperature. The temperature threshold can be parameterized.
 
 
 Reset Behaviour and Controller States
