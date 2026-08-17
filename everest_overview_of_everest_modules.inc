@@ -44,10 +44,12 @@ This module is not mandatory for a simple EVSE setup in EVerest. However, the mo
 Please note that this module is deprecated. For new integrations, the :code:`RpcApi` module
 and the EVerest interface-specific stable-API modules are recommended.
 
+.. _cb_energy_nymea_service:
+
 **RpcApi** (`view on GitHub <https://github.com/EVerest/EVerest/tree/main/modules/API/RpcApi>`__)
 
-This module is not mandatory for a simple EVSE setup in EVerest, but it is required by the CB Energy Management System
-:ref:`introduction_nymea` service. This module provides a standardized interface for external applications to interact
+This module is not mandatory for a simple EVSE setup in EVerest, but it is required by the
+:ref:`CB Energy Management System (nymea) <cb_energy_nymea_service>` service. This module provides a standardized interface for external applications to interact
 with an EVerest-based charge point. It uses JSON-RPC over WebSocket to allow clients to perform various operations,
 such as starting or stopping a charging session, retrieving status information, and configuring settings.
 
