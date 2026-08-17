@@ -41,7 +41,7 @@ To make the handling of parameters human-friendly, all parameters can be put tog
 
    contactors:
      - with-feedback-normally-open
-     - disabled
+     - with-feedback-normally-open
      - disabled
 
    estops:
@@ -127,7 +127,7 @@ The following session transcript shows how the install procedure works:
 
    contactors:
      - with-feedback-normally-open
-     - disabled
+     - with-feedback-normally-open
      - disabled
 
    estops:
