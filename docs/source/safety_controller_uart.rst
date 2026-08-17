@@ -1,5 +1,3 @@
-.. _safety_controller_uart.rst:
-
 Safety Controller Communication Protocol
 ----------------------------------------
 

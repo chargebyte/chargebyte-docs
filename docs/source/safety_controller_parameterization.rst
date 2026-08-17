@@ -1,5 +1,3 @@
-.. _safety_controller_parameterization.rst:
-
 Safety Controller Parameterization
 ----------------------------------
 

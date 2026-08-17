@@ -88,8 +88,14 @@ This state can only be left by a reset.
 .. figure:: _static/images/safety_controller_states.svg
    :width: 1000pt
 
+.. _safety_controller_parameterization:
+
 .. include:: safety_controller_parameterization.rst
 
+.. _safety_controller_uart:
+
 .. include:: safety_controller_uart.rst
+
+.. _safety_controller_everest_bsp:
 
 .. include:: everest_bsp.rst

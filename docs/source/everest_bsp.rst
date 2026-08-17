@@ -1,5 +1,3 @@
-.. _everest_bsp.rst:
-
 EVerest Board Support Package Module
 ------------------------------------
 
