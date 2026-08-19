@@ -53,3 +53,8 @@ html_show_sourcelink = False
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder
 
 linkcheck_anchors = False
+# workaround for https://github.com/sphinx-doc/sphinx/issues/9383, unfixed in sphinx <= 9.1.0
+# "Linkcheck marks local links broken when they reference files produced later, during in HTML building"
+linkcheck_ignore = [
+    r'.*/chargebyte-keyring\.pem$',
+]
