@@ -4,7 +4,7 @@ Getting Started
 ===============
 
 This chapter is intended to help you get started as easily as possible with EV charging together
-with the Charge SOM Evaluation Kit and the EVerest charging stack. For this purpose, a basic DC
+with the Charge Control V and the EVerest charging stack. For this purpose, a basic DC
 charger is set up as an example and explained step by step.
 
 
@@ -17,10 +17,11 @@ Hardware Components
 
 The following hardware components are required to set up the basic DC charger:
 
-- Charge SOM Evaluation Kit
-- 12 V DC Power Supply
-- Ethernet cable for SSH connection or USB to serial adapter for serial connection
+- Charge Control V
+- 24 V DC Power Supply
+- Ethernet cable for network connection or USB C cable for network and console connection
 - DIN70121 or ISO15118-2 EV simulator, for example the `Charge Module S Evaluation board`_
+- Mating Connectors (chargebyte only ships evaluation boards with a matching set of mating connectors)
 - Wiring material
 
 .. _Charge Module S Evaluation board: https://chargebyte.com/controllers-and-modules/evaluation-tools/charge-module-s-evaluation-board
@@ -29,7 +30,7 @@ The following hardware components are required to set up the basic DC charger:
 Hardware Overview
 ^^^^^^^^^^^^^^^^^
 
-The following figure shows the basic setup of the DC charger with the Charge SOM Evaluation Kit:
+The following figure shows the basic setup of the DC charger with the Charge Control V:
 
 .. figure:: _static/images/dc_charger_charge_som_setup.svg
    :width: 900pt
@@ -189,7 +190,7 @@ Starting and Monitoring the Charging Process
 
 Before we start the first charging session, we shall open the EVerest log to monitor the charging
 process. The EVerest log is stored in the systemd journal and can be accessed via the journalctl
-command. The journalctl command provides a lot of options to filter the log messages. 
+command. The journalctl command provides a lot of options to filter the log messages.
 Now just type "journalctl -f -u everest -n 50" to see the last 50 log messages of the EVerest
 charging stack and to follow the charging process in real time. For more information about the
 EVerest log, see the :ref:`logging_and_debugging` chapter.

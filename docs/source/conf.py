@@ -6,8 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Charge SOM User Guide'
-copyright = '2025, chargebyte GmbH'
+project = 'Charge Control V User Guide'
+copyright = '2026, chargebyte GmbH'
 author = 'chargebyte GmbH'
 
 # -- General configuration ---------------------------------------------------
@@ -28,7 +28,7 @@ numfig_format = {
 
 jinja2_contexts = {
   'target-info': {
-    'PLATFORM_NAME': 'Charge SOM',
+    'PLATFORM_NAME': 'Charge Control V',
     'MACHINE': 'chargesom',
     'APT_CROSS_MACHINE_SPECIFIC': 'gcc-aarch64-linux-gnu g++-aarch64-linux-gnu binutils-aarch64-linux-gnu',
     'MACHINE_FILE_SIGNATURE': 'ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=af8cd65df0ac1e3e6f0ed3adafcd5aec60ca8f15, for GNU/Linux 3.7.0, stripped'

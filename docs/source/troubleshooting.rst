@@ -9,66 +9,32 @@ Frequently Asked Questions
 .. contents::
    :local:
 
-Does the Charge SOM have a CE certification?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Does the Charge Control V have a CE certification?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently, the Charge SOM does not have CE certification yet.
-
-
-Does the Charge SOM have Wi-Fi support?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The Charge SOM does not have built-in Wi-Fi support, but it provides suitable
-interfaces (SDIO / USB 2.0) via its connectors. For instance, the Charge SOM
-Single Channel DC Carrier Board provides a mini PCIe connector, which is
-connected to USB.
+Currently, the Charge Control V does not have CE certification yet,
+but chargebyte is working on this topic already.
 
 
-Is it possible to use the Charge SOM as an EV simulator?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Does the Charge Control V have Wi-Fi support?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Charge SOM hardware is not designed to be used as an EV simulator. Please refer to our
+No, the Charge Control V does not have built-in Wi-Fi support, but it
+would be possible to use the USB connector of the device to attach a
+USB Wifi Dongle.
+
+
+Is it possible to use the Charge Control V as an EV simulator?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Charge Control V is designed to be used on the EVSE side. Please refer to our
 `website <https://www.chargebyte.com/>`_ for more suitable products.
 
 
 I want to control EVerest via CAN, how can I achieve this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently, no such EVerest module is available, so you will need to implement it yourself.
-
-However, there are at least `DC power supply modules <https://github.com/EVerest/EVerest/tree/main/modules/HardwareDrivers/PowerSupplies>`_
-and a `library <https://github.com/EVerest/EVerest/tree/main/lib/everest/can_dpm1000>`_,
-both of which use the CAN interface. This might help as a starting point.
-
-
-How can I access the GPIOs under Linux?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Since the GPIO sysfs interface /sys/class/gpio has been deprecated since Linux 4.8,
-we recommend the usage of chardev GPIO and libgpiod. The modification of the bias
-settings via libgpiod is not yet implemented, so it needs to be done via device tree.
-
-
-My application depends on libgpiod but requires GPIO chip and line, how can I figure them out?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-For applications that do not support GPIO line names, you can use the following:
-
-.. code-block:: console
-
-   root@chargesom:/# cat /sys/kernel/debug/gpio
-   gpiochip0: GPIOs 512-541, parent: platform/43810000.gpio, 43810000.gpio:
-   gpio-512 (SPI_PLC_nCS0        |spi1 CS0            ) out hi ACTIVE LOW
-   gpio-519 (                    |int                 ) in  lo IRQ
-   ...
-
-The GPIO line is calculated as follows:
-
-.. code-block::
-
-   Line = GPIO number - GPIO chip offset
-   Line = 519         - 512
-   Line = 7
+Currently, this is not possible. Please contact our sales team to discuss your options.
 
 
 What is the difference between CHSTOP_IN and SAFETY_ESTOPx?
@@ -92,103 +58,10 @@ Yes
    root@chargesom:/# ip -details -statistic link show can0
 
 
-How can I list the available UARTs?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How can I access the EVerest admin panel on a Charge Control V?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-All UARTs of the i.MX93 are handled by the fsl-lpuart driver, so the following
-command should list all available UARTs. Please keep in mind that Linux starts
-counting from zero (ttyLP0 = UART1, ...).
-
-.. code-block:: console
-
-   root@chargesom:/# cat /proc/tty/driver/fsl-lpuart
-   serinfo:1.0 driver revision:
-   0: uart:FSL_LPUART mmio:0x44380010 irq:17 tx:9932 rx:0 RTS|CTS|DTR|DSR|CD
-   2: uart:FSL_LPUART mmio:0x42570010 irq:18 tx:12966 rx:26572 RTS|CTS|DTR|DSR|CD
-   3: uart:FSL_LPUART mmio:0x42580010 irq:19 tx:936 rx:617 RTS|CTS|DTR|DSR|CD
-   4: uart:FSL_LPUART mmio:0x42590010 irq:20 tx:0 rx:0 CTS|DSR|CD
-
-
-How can I list the available I²C interfaces?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-All I²C interfaces are available via I²C device driver. Please keep in mind that
-Linux starts counting from zero (i2c-0 = I2C1, ...).
-
-.. code-block:: console
-
-   root@chargesom:/# i2cdetect -l
-   i2c-0   i2c             44340000.i2c                            I2C adapter
-   i2c-1   i2c             44350000.i2c                            I2C adapter
-   i2c-2   i2c             42530000.i2c                            I2C adapter
-
-
-How can I print the current pin/pad control settings (e.g. bias, drive strength)?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The current PAD control settings are available under Linux only via debugfs,
-but this requires an equivalent pinctrl setting within the device tree:
-
-.. code-block:: console
-
-   root@chargesom:/# cat /sys/kernel/debug/pinctrl/443c0000.pinctrl/pinconf-pins
-   Pin config settings per pin
-   Format: pin (name): configs
-   pin 0 (IMX93_IOMUXC_DAP_TDI): 0x31e
-   ...
-
-
-Which LVDS displays have been tested with the Charge SOM EVB?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The `Distec DD-0700-MC01 <https://www.fortec-integrated.de/en/products/tft-components/tft-displays/detail/fortec-integrated/dd-0700-mc01/>`_
-(7 inch, 800x480 resolution) has been tested with the Charge SOM EVB.
-
-
-I like to create my own DT overlay. Is there an example?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Yes, please have a look at this `commit <https://github.com/chargebyte/linux/commit/f078308d85a0820e19aed387e8f1e01b8eafe041>`_ .
-
-
-Where can I find the device tree sources of the Charge SOM?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The device tree sources of the Charge SOM are divided into multiple layers:
-
-.. list-table::
-   :header-rows: 1
-
-   * - Part
-     - Level
-     - Layer
-     - Filename
-   * - i.MX93
-     - 0
-     - SoC
-     - `imx93.dtsi <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93.dtsi>`_
-   * - phyCORE-i.MX93
-     - 1
-     - SoM
-     - `imx93-phycore-som.dtsi <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi>`_
-   * - Charge SOM
-     - 2
-     - SoM
-     - `imx93-charge-som.dtsi <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som.dtsi>`_
-   * - Charge SOM Single Channel DC Carrier Board
-     - 3
-     - Board
-     - `imx93-charge-som-dc-evb.dts <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som-dc-evb.dts>`_
-   * - UART7 overlay
-     - 4
-     - Overlay
-     - `imx93-charge-som-uart7.dtso <https://github.com/chargebyte/linux/blob/v6.12.34-2.1.0-phy-cb/arch/arm64/boot/dts/freescale/imx93-charge-som-uart7.dtso>`_
-
-
-How can I access the EVerest admin panel on Charge SOM?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Currently, the Charge SOM does not have the `EVerest admin panel <https://github.com/EVerest/EVerest-admin-panel>`_
+Currently, the Charge Control V does not have the `EVerest admin panel <https://github.com/EVerest/EVerest-admin-panel>`_
 integrated.
 Please use your development environment to set up your configuration file. Alternatively, you can use a plain text
 editor.
@@ -201,14 +74,15 @@ For TLS and especially Plug & Charge, private keys should be protected according
 certificate authority or certificate management system. In many production environments, this means using
 hardware-backed key storage such as a TPM, HSM, or comparable technology.
 
-Charge SOM includes an integrated TPM to support secure storage of TLS and Plug & Charge private keys.
+Charge Control V includes an integrated TPM to support secure storage of TLS and Plug & Charge private keys.
 For more information about using the TPM and implementing a production Plug & Charge scenario, please
 contact chargebyte support so that key storage and certificate handling can be aligned with your requirements.
 
-Does EVerest on Charge SOM support ISO 15118-20 yet?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The required module for ISO 15118-20 has been included in the image since the Charge SOM EVerest release 0.2.0.
+Does EVerest on Charge Control V support ISO 15118-20 yet?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The required module for ISO 15118-20 is included in our firmware builds.
 Please note that the implementation is still under development and integrated into the image only for test purposes.
 
 EVerest integrates the `libiso15118 <https://github.com/EVerest/libiso15118>`_ library to provide support for ISO 15118-20.
@@ -218,8 +92,8 @@ correspond to those already integrated in EVerest, as the library has not yet be
 Implementation gaps may exist, particularly in the case of BPT (bidirectional power transfer) functionality.
 
 
-How do I set up OCPP 2.0.1 on Charge SOM with EVerest?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How do I set up OCPP 2.0.1 on Charge Control V with EVerest?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To support OCPP 2.0.1, the EVerest :ref:`OCPP201 <everest_module_ocpp201>` module must be integrated into
 the EVerest configuration.
