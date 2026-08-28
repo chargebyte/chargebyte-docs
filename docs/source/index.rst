@@ -25,9 +25,3 @@ on the Charge Control V.
    getting_started
    peripheral_compat_list
    hardware
-   safety_controller
-   firmware
-   everest_charging_stack
-   cb_energy
-   development
-   troubleshooting
