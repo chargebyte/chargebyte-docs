@@ -64,6 +64,30 @@ while the vehicle indicates CP state C AND the Charge Control V detects no safet
 
 
 
+****************************************************
+Serial Communication (X3) and DIP Switches (S2 / S3)
+****************************************************
+
+Connector X3 provides the pins for serial connectivity:
+
+* CAN 1
+* CAN 2
+* RS-485 1
+* RS-485 2
+* RS-232
+
+The DIP Switches allow to enable / disable onboard termination resistors for the interfaces.
+
+Note: Either RS-485 2 or RS-232 can be used, but not both simultaneously - this can be selected
+with Switch 3 on DIP Switch S3.
+
+.. figure:: _static/images/ccv_connector_x3.drawio.svg
+   :width: 1000pt
+
+   Serial Communication Connector and DIP Switches
+
+
+
 ***************
 Ethernet 1 (X8)
 ***************
@@ -125,3 +149,37 @@ When attached to a PC/notebook, then the port operates as USB device:
   the Ethernet link which is available on X8 and/or X9.
   For this, the virtual Ethernet provides a DHCPv4 server to the connected PC/notebook
   and routes the incoming traffic accordingly (NAT enabled).
+
+
+
+**************************************
+Insulation Monitoring Device (IMD, X5)
+**************************************
+
+The X5 connector allows to connect the IMD feedback contacts for both charging ports.
+
+The following figure shows the wiring for the first charging port only with a
+Bender ISOMETER® isoCHA425HV as example device.
+The setup for the second port is analogous.
+
+.. figure:: _static/images/ccv_connector_x5.drawio.svg
+   :width: 1000pt
+
+The test pin and K2 feedback pins are not used in this example.
+The IMD test is triggered via RS-485 interface of the device, not shown here for simplicity.
+The IMD K1 relais configuration must match the electrical wiring scheme.
+
+
+
+*******************************
+PT1000 Temperature Sensors (X6)
+*******************************
+
+The X6 connector allows to connect up to four PT1000 sensors for each charging port.
+The following figure shows the wiring for one charging port only to keep the figure readable,
+but the setup for the second port is analogous.
+
+.. figure:: _static/images/ccv_connector_x6.drawio.svg
+   :width: 1000pt
+
+   PT1000 Wiring Overview
