@@ -88,6 +88,26 @@ with Switch 3 on DIP Switch S3.
 
 
 
+*********
+HVDC (X4)
+*********
+
+Connector X4 provides outputs and inputs to control and monitor the high-voltage DC contactors.
+
+.. figure:: _static/images/ccv_connector_x4.drawio.svg
+   :width: 1000pt
+
+   Example Contactor Wiring
+
+It is possible to control and monitor up to three contactors with their feedbacks
+for each charge port. The actual usage and the type of feedback (none, normally closed, normally open)
+must be configured for each charge port individually.
+
+In series devices, the controlling of the contactor will be PWM based to safe energy
+and reduce heating. It will be possible to configure the PWM's duty cycle for contactor's holding state.
+
+
+
 ***************
 Ethernet 1 (X8)
 ***************
@@ -165,6 +185,8 @@ The setup for the second port is analogous.
 .. figure:: _static/images/ccv_connector_x5.drawio.svg
    :width: 1000pt
 
+   Emergency Feedback Wiring of IMD
+
 The test pin and K2 feedback pins are not used in this example.
 The IMD test is triggered via RS-485 interface of the device, not shown here for simplicity.
 The IMD K1 relais configuration must match the electrical wiring scheme.
@@ -183,3 +205,29 @@ but the setup for the second port is analogous.
    :width: 1000pt
 
    PT1000 Wiring Overview
+
+
+
+********************************
+Digital Inputs and Outputs (X29)
+********************************
+
+The X29 connector provides:
+
+* 8 Digital Inputs
+* 16 Digital Outputs
+* 2 Emergency Stop Inputs (one for each charging port)
+
+.. figure:: _static/images/ccv_connector_x29.drawio.svg
+   :width: 1000pt
+
+   Pinout of the X29 GPIO Connector
+
+The direction of the inputs and outputs is fixed and cannot be configured by software.
+
+The usage of the digital outputs requires an external power supply which provides
+the voltage and power used by the outputs.
+
+The assignment of the two ESTOP emergency inputs is also fixed to their corresponding
+charging port. Both pins are referenced to the device's ground and accept 12 V or 24 V
+voltages. For both pins, the polarity can be configured `active-low` or `active-high`.
