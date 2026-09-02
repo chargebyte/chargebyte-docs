@@ -10,7 +10,7 @@ Hardware Interfaces
 Wiring Overview
 ***************
 
-.. figure:: _static/images/FIXME.svg
+.. figure:: _static/images/ccv_hw_wiring_diagram.svg
    :width: 1000pt
 
    Wiring Overview Diagram for Charge Control V
