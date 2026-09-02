@@ -15,20 +15,20 @@ Wiring Overview
 
    Wiring Overview Diagram for Charge Control V
 
-This wiring diagram shows an overview of all components which are required at minimum
+This wiring diagram shows an overview of all components required, at a minimum,
 to build a dual-gun DC charging station:
 
-* A PSU as 24V DC supply for the Charge Control V
+* A PSU as a 24 V DC supply for the Charge Control V
 * Controllable power modules (rectifiers) for converting AC grid power into DC power to the EV.
-  In this example, this power modules are connected via CAN to the Charge Control V which
+  In this example, these power modules are connected via CAN to the Charge Control V, which
   is a typical interface type for such devices.
-* DC power meters for measuring the transferred energy. In this example, these electricity meter
+* DC power meters for measuring the transferred energy. In this example, these electricity meters
   are connected via RS-485 bus and it is assumed that the meter supports the Modbus protocol.
-  However, there exists also meters which use Ethernet and other protocols.
-* Insulation monitoring devices (IMDs). In the drawing, only the safety related connection is
+  However, there are also meters that use Ethernet and other protocols.
+* Insulation monitoring devices (IMDs). In the drawing, only the safety-related connection is
   shown, that means that the output pin of the IMD (which switches on insulation faults) is wired
   to dedicated input pins of the Charge Control V. The state of these input pins is observed by the onboard
-  safety controllers of the Charge Control V which ensures a safe state of the whole system in case
+  safety controllers of the Charge Control V, which ensure a safe state of the whole system in case
   of emergencies.
 * The high-voltage DC contactors for DC plus and minus rails.
 
@@ -45,20 +45,20 @@ The PP (proximity pilot) monitoring from EVSE side is currently not implemented 
 So please leave this pin unconnected.
 
 For a graceful termination of the charging process, you can use the CHSTOP input.
-For an emergeny stop, you can use the ESTOPx pins. Both pins are referenced to the device's ground
-and accept 12 V or 24 V voltages. For both pins, the polarity can be configured `active-low` or
-`active-high`.
+For an emergency stop, you can use the ESTOPx pins. Both pins are referenced to the device's ground
+and accept 12 V or 24 V voltages. For both pins, the polarity can be configured ``active-low`` or
+``active-high``.
 
-The following figure illustrates the physical wiring with the X1 connector as example for
+The following figure illustrates the physical wiring with the X1 connector as an example for
 the first charging port. The connector X2 has the same pinout, so the same drawing applies
-also for charging port 2.
+also to charging port 2.
 
 .. figure:: _static/images/ccv_connector_x1.drawio.svg
    :width: 1000pt
 
    Example Wiring of CP/PP, Emergency Stop and Charging Stop Signals
 
-The `HV Ready` can be used in setups when the Charge Control V should not switch the contactors
+The ``HV Ready`` signal can be used in setups where the Charge Control V should not switch the contactors
 directly but an upper-layer controller is responsible for this. This output is switched on
 while the vehicle indicates CP state C AND the Charge Control V detects no safety issues.
 
@@ -76,9 +76,9 @@ Connector X3 provides the pins for serial connectivity:
 * RS-485 2
 * RS-232
 
-The DIP Switches allow to enable / disable onboard termination resistors for the interfaces.
+The DIP switches allow enabling or disabling onboard termination resistors for the interfaces.
 
-Note: Either RS-485 2 or RS-232 can be used, but not both simultaneously - this can be selected
+Note: Either RS-485 2 or RS-232 can be used, but not both simultaneously; this can be selected
 with Switch 3 on DIP Switch S3.
 
 .. figure:: _static/images/ccv_connector_x3.drawio.svg
@@ -99,12 +99,17 @@ Connector X4 provides outputs and inputs to control and monitor the high-voltage
 
    Example Contactor Wiring
 
-It is possible to control and monitor up to three contactors with their feedbacks
+It is possible to control and monitor up to three contactors, including their feedback signals,
 for each charge port. The actual usage and the type of feedback (none, normally closed, normally open)
 must be configured for each charge port individually.
 
-In series devices, the controlling of the contactor will be PWM based to safe energy
-and reduce heating. It will be possible to configure the PWM's duty cycle for contactor's holding state.
+In series devices, contactor control is PWM-based to save energy
+and reduce heating. The PWM duty cycle for the contactor holding state can be configured.
+
+When a specific contactor shall be closed, then the Charge Control V switches the incoming voltage/power
+from HVDC_SUPx through to the respective HVSWx_OUTx signal.
+
+The mirror signals are internally connected to 5 V with a 10 k pull-up resistor.
 
 
 
@@ -116,7 +121,7 @@ The X8 socket supports 10/100 Mbit/s Ethernet. In the Linux operating system it
 is available as network interface ``eth0``. This interface is part of a bridge
 interface ``br0``.
 
-Per default, this interface is configured as DHCP client.
+By default, this interface is configured as a DHCP client.
 
 This interface is intended to be the primary network connection to the
 installation site's network, e.g. with internet and/or OCPP access, but
@@ -131,9 +136,9 @@ Ethernet 2 (X9)
 The X9 socket supports 10/100 Mbit/s Ethernet. In the Linux operating system it
 is available as network interface ``eth3``.
 
-Per default, this interface is configured as DHCP client.
+By default, this interface is configured as a DHCP client.
 
-This interface can be used for various connectivity, including but not limited to:
+This interface can be used for various connectivity use cases, including but not limited to:
 
 * connection to local electricity meters
 
@@ -141,17 +146,17 @@ This interface can be used for various connectivity, including but not limited t
 
 * additional charging port extension devices (e.g. CPX)
 
-* forward the local network (daisy-chaining of X8 connector, i.e. software bridge to X8 connector)
+* forwarding the local network (daisy-chaining from the X8 connector, i.e. a software bridge to the X8 connector)
 
 
 
 ***********
-USB C (X13)
+USB-C (X13)
 ***********
 
-The X13 connector is a USB C port with OTG functionality.
+The X13 connector is a USB-C port with OTG functionality.
 
-When using as USB host, the following use-cases are supported:
+When used as a USB host, the following use cases are supported:
 
 * firmware update with a USB pen drive
 * additional communication interface, e.g. USB to CAN, RS-485, RS-232 and similar
@@ -161,10 +166,10 @@ When using as USB host, the following use-cases are supported:
 When attached to a PC/notebook, then the port operates as USB device:
 
 * It provides a virtual serial console port to the Charge Control V which can
-  be used to login to the Linux operating system for configuration and diagnostics purposes.
+  be used to log in to the Linux operating system for configuration and diagnostics purposes.
 
 * It also provides a virtual Ethernet connection, so that the web-frontend of the
-  device can be accessed for configuration, diagnostics, firmware updates etc.
+  device can be accessed for configuration, diagnostics, firmware updates, etc.
   It is also possible to access the Charge Control V upstream network connections, e.g.
   the Ethernet link which is available on X8 and/or X9.
   For this, the virtual Ethernet provides a DHCPv4 server to the connected PC/notebook
@@ -189,7 +194,9 @@ The setup for the second port is analogous.
 
 The test pin and K2 feedback pins are not used in this example.
 The IMD test is triggered via RS-485 interface of the device, not shown here for simplicity.
-The IMD K1 relais configuration must match the electrical wiring scheme.
+The IMD K1 relay configuration must match the electrical wiring scheme.
+
+K1 and K2 signals have internal pull-down resistors and accept 3.3 V or 5 V signals.
 
 
 
@@ -230,4 +237,4 @@ the voltage and power used by the outputs.
 
 The assignment of the two ESTOP emergency inputs is also fixed to their corresponding
 charging port. Both pins are referenced to the device's ground and accept 12 V or 24 V
-voltages. For both pins, the polarity can be configured `active-low` or `active-high`.
+voltages. For both pins, the polarity can be configured ``active-low`` or ``active-high``.
