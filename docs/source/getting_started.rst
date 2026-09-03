@@ -32,13 +32,14 @@ Hardware Overview
 
 The following figure shows the basic setup of the DC charger with the Charge Control V:
 
-.. figure:: _static/images/dc_charger_charge_som_setup.svg
+.. figure:: _static/images/ccv_hw_basic_setup.svg
    :width: 900pt
 
-   Basic Setup of the DC charger with the Charge SOM
+   Basic Setup of the DC charger with the Charge Control V
 
 .. note::
-   The pin assignment of the Charge SOM Evaluation Kit can be found in the datasheet.
+   The pin assignments of the Charge Control V can be found in the datasheet and there are
+   simplified schematics in the following sections.
 
 .. note::
    Before you start setting up the hardware, please check whether the HW components used are also
@@ -73,18 +74,24 @@ Here are some key points about the boot process of the Charge controller:
 Understanding LED Status Indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now you can connect the Charge SOM Evaluation Kit (X24) to the power supply. The LED status indicator on the
-carrier board provide information about the current status of the boot process. The following table
-shows the meaning of the LED status indicators:
+Now you can connect the Charge Control V to the power supply using X10 connector.
 
-.. table:: Charge SOM Evaluation Kit LED Status Indicators
+The LED status indicators on the front of the device provide some information about the current status
+of the boot process. The following table shows the meaning of the LED status indicators:
+
+.. table:: Charge Control V LED Status Indicators
 
    +--------------------------+---------------------------------+--------------------------------------+
    | State                    | LED indication                  | Behavior                             |
    +==========================+=================================+======================================+
-   | Boot process running     | LED (red)                       | periodic blinking for approx. 4 sec. |
+   | Device is powered        | Blue LED                        | steady on                            |
    +--------------------------+---------------------------------+--------------------------------------+
-   | Operating system running | LED (red)                       | rhythmic blinking                    |
+   | Boot process running     | Green LED                       | periodic blinking for approx. 4 sec. |
+   +--------------------------+---------------------------------+--------------------------------------+
+   | Operating system running | Green LED                       | rhythmic blinking                    |
+   +--------------------------+---------------------------------+--------------------------------------+
+   | USB activity / Firmware  | Orange LED                      | periodic blinking (approx. 1 Hz)     |
+   | Update running           |                                 |                                      |
    +--------------------------+---------------------------------+--------------------------------------+
 
 
@@ -95,8 +102,7 @@ shows the meaning of the LED status indicators:
 Initial Configuration
 ---------------------
 
-Now you are connected to the Charge SOM and we can take a deeper look at the initial
-configuration.
+Now you are connected to the Charge Control V and we can take a deeper look at the initial configuration.
 
 The configuration files of the EVerest charging stack are stored in the directory "/etc/everest".
 EVerest uses the YAML format for the configuration files. EVerest runs as a systemd service that
