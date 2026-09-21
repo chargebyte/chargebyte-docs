@@ -192,11 +192,22 @@ The setup for the second port is analogous.
 
    Emergency Feedback Wiring of IMD
 
-The test pin and K2 feedback pins are not used in this example.
+The test pin and K1 feedback pins (on the Charge Control V side) are not used in this example.
 The IMD test is triggered via RS-485 interface of the device, not shown here for simplicity.
-The IMD K1 relay configuration must match the electrical wiring scheme.
+The IMD K1 relay configuration on the Bender device must match the electrical wiring scheme.
 
-K1 and K2 signals have internal pull-down resistors and accept 3.3 V or 5 V signals.
+K1 and K2 signals on the Charge Control V side have internal pull-down resistors and
+accept 3.3 V or 5 V signals.
+
+.. note::
+   The current Charge Control V sample devices have both K1 and K2 inputs.
+   However, since only a single feedback signal is needed for an IMD, upcoming device revisions
+   will only have the K2 input left which will be dedicated for IMD usage.
+   Technically, this input signal behaves the same as the other emergency stop inputs, but
+   the software will "know" that the emergency stop was triggered by an IMD device.
+   The K1 and the test pin will be removed on future device revisions, so this drawing
+   already shows the connection between K2 on Charge Control V side and K1 (not K2!) on
+   the Bender device side.
 
 
 
