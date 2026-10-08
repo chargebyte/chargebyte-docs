@@ -104,7 +104,7 @@ run the following commands:
 .. code-block:: console
 
    mkdir /etc/systemd/network/can0.network.d
-   cat <<EOF > /etc/systemd/network/can0.network.d/bitrate.conf
+   cat <<EOF > /etc/systemd/network/can0.network.d/50-everest-ui.conf
    [CAN]
    BitRate=125000
    EOF
@@ -121,17 +121,32 @@ firmware updates.
 Insulation Monitoring Device (IMD, X9 + X15)
 ********************************************
 
-The X9 connector and its pinout is designed to match the signals used by
-Bender's ISOMETER® isoCHA425HV with AGH420-1/AGH421-1.
+The X9 connector is used to connect the emergency/feedback signal of an Insulation Monitoring Device (IMD).
 
-In addition to the direct electrical wiring, the device has to be connected
-via RS-485 bus to provide the insulation resistance values which are required
-by EVerest's IMD interface.
+K1 and K2 signals on the Charge SOM DC EVB have internal pull-down resistors and accept 3.3 V or 5 V signals.
+
+The following figure shows the wiring for a Bender ISOMETER® isoCHA425HV as example device.
+
+In addition to the direct electrical wiring, the device has to be connected via RS-485 bus to provide the
+insulation resistance values which are required by EVerest's IMD interface.
 
 .. figure:: _static/images/charge_som_wiring_bender_imd.drawio.svg
    :width: 1000pt
 
    Wiring for Bender's IMD to Charge SOM EVB
+
+The test pin and K1 feedback pins (on the Charge SOM DC EVB side) are not used in this example.
+The IMD test is triggered via RS-485 interface of the device, not shown here for simplicity.
+The IMD's K1 relay configuration (on the Bender device) must match the electrical wiring scheme
+and can be configured via the EVerest module parameters.
+
+.. note::
+   The current Charge SOM DC EVBs have both K1 and K2 inputs.
+   However, since only a single feedback signal is needed for an IMD,
+   only the K2 input is dedicated for IMD usage.
+   Technically, this input signal behaves the same as the other emergency stop inputs, but
+   the software will "know" that the emergency stop was triggered by an IMD device.
+
 
 ***************
 Expansion (X11)
