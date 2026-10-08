@@ -183,21 +183,25 @@ Insulation Monitoring Device (IMD, X5)
 
 The X5 connector allows to connect the IMD feedback contacts for both charging ports.
 
-The following figure shows the wiring for the first charging port only with a
+K1 and K2 signals on the Charge Control V side have internal pull-down resistors and
+accept 3.3 V or 5 V signals.
+
+The following figure shows only the wiring for the first charging port with a
 Bender ISOMETER® isoCHA425HV as example device.
 The setup for the second port is analogous.
+
+In addition to the direct electrical wiring, the device has to be connected via RS-485 bus to provide the
+insulation resistance values which are required by EVerest's IMD interface.
 
 .. figure:: _static/images/ccv_connector_x5.drawio.svg
    :width: 1000pt
 
-   Emergency Feedback Wiring of IMD
+   Wiring for Bender's IMD to Charge Control V
 
 The test pin and K1 feedback pins (on the Charge Control V side) are not used in this example.
 The IMD test is triggered via RS-485 interface of the device, not shown here for simplicity.
-The IMD K1 relay configuration on the Bender device must match the electrical wiring scheme.
-
-K1 and K2 signals on the Charge Control V side have internal pull-down resistors and
-accept 3.3 V or 5 V signals.
+The IMD's K1 relay configuration (on the Bender device) must match the electrical wiring scheme
+and can be configured via the EVerest module parameters.
 
 .. note::
    The current Charge Control V sample devices have both K1 and K2 inputs.
