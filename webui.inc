@@ -25,15 +25,13 @@ Apply** checks and installs a selected YAML configuration and then restarts
 EVerest. Keep a known-good backup: an invalid or incomplete configuration can
 prevent EVerest from starting.
 
-..
-   Screenshot: add ``_static/images/webui/everest-config.png``, then replace
-   this comment with the following directive:
+.. figure:: ../../includes/_static/images/webui/everest-config.png
+   :alt: EVerest Config page
+   :align: center
+   :width: 100%
+   :target: ../../includes/_static/images/webui/everest-config.png
 
-   .. figure:: ../../includes/_static/images/webui/everest-config.png
-      :alt: EVerest Config page
-      :align: center
-
-      Editing and transferring the EVerest configuration.
+   Editing and transferring the EVerest configuration.
 
 Safety Controller
 -----------------
@@ -49,14 +47,13 @@ settings temporarily stops EVerest and writes the safety controller. Do not
 disconnect power or operate the charging point until verification has
 finished.
 
-..
-   Screenshot: ``_static/images/webui/safety-controller.png``
+.. figure:: ../../includes/_static/images/webui/safety-controller.png
+   :alt: Safety Controller page
+   :align: center
+   :width: 100%
+   :target: ../../includes/_static/images/webui/safety-controller.png
 
-   .. figure:: ../../includes/_static/images/webui/safety-controller.png
-      :alt: Safety Controller page
-      :align: center
-
-      Safety settings for a detected controller.
+   Safety settings for a detected controller.
 
 OCPP Config
 -----------
@@ -67,14 +64,13 @@ Fields that are not supported by the active EVerest configuration are marked
 as unavailable. Select **Save Configuration** after checking the endpoint and
 credentials with the CSMS operator.
 
-..
-   Screenshot: ``_static/images/webui/ocpp-config.png``
+.. figure:: ../../includes/_static/images/webui/ocpp-config.png
+   :alt: OCPP Config page
+   :align: center
+   :width: 100%
+   :target: ../../includes/_static/images/webui/ocpp-config.png
 
-   .. figure:: ../../includes/_static/images/webui/ocpp-config.png
-      :alt: OCPP Config page
-      :align: center
-
-      OCPP connection and security settings.
+   OCPP connection and security settings.
 
 PCAP Trace
 ----------
@@ -85,14 +81,13 @@ IPv6 and SLAC traffic. Start the recording, reproduce the problem, then stop
 and download the ``.pcap`` file. Captures can contain addresses, identifiers,
 and protocol data; share them only through approved support channels.
 
-..
-   Screenshot: ``_static/images/webui/pcap-trace.png``
+.. figure:: ../../includes/_static/images/webui/pcap-trace.png
+   :alt: PCAP Trace page
+   :align: center
+   :width: 100%
+   :target: ../../includes/_static/images/webui/pcap-trace.png
 
-   .. figure:: ../../includes/_static/images/webui/pcap-trace.png
-      :alt: PCAP Trace page
-      :align: center
-
-      Selecting an interface and recording a network trace.
+   Selecting an interface and recording a network trace.
 
 Firmware Update
 ---------------
@@ -106,14 +101,13 @@ This page also contains **Factory Reset**. A factory reset removes local
 settings and requires confirmation; use it only when the resulting data loss
 is intended.
 
-..
-   Screenshot: ``_static/images/webui/firmware-update.png``
+.. figure:: ../../includes/_static/images/webui/firmware-update.png
+   :alt: Firmware Update page
+   :align: center
+   :width: 100%
+   :target: ../../includes/_static/images/webui/firmware-update.png
 
-   .. figure:: ../../includes/_static/images/webui/firmware-update.png
-      :alt: Firmware Update page
-      :align: center
-
-      Firmware upload, reboot, and factory-reset controls.
+   Firmware upload, reboot, and factory-reset controls.
 
 System Logs
 -----------
@@ -124,14 +118,13 @@ Selected**. For a journal extract, choose the boot range, optionally limit the
 output to ``everest.service``, and display or download the generated text.
 Review logs for sensitive information before forwarding them.
 
-..
-   Screenshot: ``_static/images/webui/system-logs.png``
+.. figure:: ../../includes/_static/images/webui/system-logs.png
+   :alt: System Logs page
+   :align: center
+   :width: 100%
+   :target: ../../includes/_static/images/webui/system-logs.png
 
-   .. figure:: ../../includes/_static/images/webui/system-logs.png
-      :alt: System Logs page
-      :align: center
-
-      Downloadable files and system-journal extraction.
+   Downloadable files and system-journal extraction.
 
 Network Configuration
 ---------------------
@@ -146,14 +139,13 @@ Applying network changes can immediately disconnect the browser. Verify the
 new address and ensure that an alternative access method is available before
 changing the management interface.
 
-..
-   Screenshot: ``_static/images/webui/network-configuration.png``
+.. figure:: ../../includes/_static/images/webui/network-configuration.png
+   :alt: Network Configuration page
+   :align: center
+   :width: 100%
+   :target: ../../includes/_static/images/webui/network-configuration.png
 
-   .. figure:: ../../includes/_static/images/webui/network-configuration.png
-      :alt: Network Configuration page
-      :align: center
-
-      IPv4 and CAN interface configuration.
+   IPv4 and CAN interface configuration.
 
 SSH Configuration
 -----------------
@@ -164,11 +156,10 @@ repeat a new root password, then select **Set Password**. Use a unique, strong
 password and disable SSH when maintenance is complete. Disabling the service
 does not terminate sessions that are already connected.
 
-..
-   Screenshot: ``_static/images/webui/ssh-configuration.png``
+.. figure:: ../../includes/_static/images/webui/ssh-configuration.png
+   :alt: SSH Configuration page
+   :align: center
+   :width: 100%
+   :target: ../../includes/_static/images/webui/ssh-configuration.png
 
-   .. figure:: ../../includes/_static/images/webui/ssh-configuration.png
-      :alt: SSH Configuration page
-      :align: center
-
-      SSH service status and root-password controls.
+   SSH service status and root-password controls.
