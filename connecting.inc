@@ -11,10 +11,16 @@ the charge controller.
 .. important::
    On the very first boot, SSH access is disabled and no password is set for the ``root`` user.
    A factory reset also deletes the root password, so a new root password must be set afterward.
-   Before connecting via SSH, enable SSH access in the WebUI under "SSH Configuration". You must
-   also set a root password either on the same WebUI page or through the serial console. When
-   logging in as ``root`` through the serial console for the first time, you will be prompted to
-   set a password.
+
+   The WebUI is enabled by default only on Charge Control Y devices.
+
+   If the WebUI is available, enable or disable SSH access under "SSH Configuration" and set the
+   initial root password on the same page.
+
+   On devices without the WebUI, use the serial console to configure SSH access.
+   On first boot, set the initial root password when prompted, log in as ``root``,
+   and run :code:`/usr/sbin/ssh-autostart --enable` to enable SSH access.
+   To disable SSH access, run :code:`/usr/sbin/ssh-autostart --disable`.
 
 
 SSH Connection with PuTTY
