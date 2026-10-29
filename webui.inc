@@ -6,6 +6,11 @@ maintenance, and diagnostic functions of the charging controller. The pages
 shown in the navigation depend on the device configuration and the available
 EVerest modules.
 
+.. note::
+   The WebUI is currently enabled by default only on Charge Control Y
+   platforms. On other platforms, HTTP access on port 80 is blocked by default
+   and the WebUI is not available unless it has been enabled separately.
+
 Open the WebUI using the address supplied for the device. On first use, define
 the initial password; afterwards, sign in with the configured credentials. Use
 **Logout** when leaving a shared service computer. Configuration changes can
