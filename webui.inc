@@ -102,9 +102,9 @@ firmware image. Choose the image, select **Start Update**, and wait until the
 upload and installation finish. If requested, use **Reboot** and wait for the
 login page to return. Never interrupt power during an update.
 
-This page also contains **Factory Reset**. A factory reset removes local
-settings and requires confirmation; use it only when the resulting data loss
-is intended.
+This page also provides access to **Factory Reset**. The operation requires
+confirmation. See :ref:`Factory Reset <factory_reset>` for its purpose,
+prerequisites, data scope, and the setup required after the reset.
 
 .. figure:: ../../includes/_static/images/webui/firmware-update.png
    :alt: Firmware Update page
