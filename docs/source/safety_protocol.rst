@@ -139,6 +139,15 @@ ChargeState2
      - 0
      - 
      - This signal reports, if the controller is in safeState or not.
+   * - CS_Estop1ChargingAbort
+     - 41
+     - 2
+     - 
+     - No
+     - 1
+     - 0
+     - 
+     - *No description available*
 
 **Value Descriptions**
 
@@ -176,13 +185,20 @@ ChargeState2
   - 0xB = ID_Malfunction
   - 0xC = CE_Malfunction
   - 0xD = HVReady_Malfunction
-  - 0xE = EmergencyInput
+  - 0x10 = EmergencyInput
+  - 0x16 = ParameterFailure
 
 - **CS_SafeStateActive**
 
   - 0x0 = NormalState
   - 0x1 = SafeState
   - 0x3 = SNA
+
+- **CS_Estop1ChargingAbort**
+
+  - 0x0 = FALSE
+  - 0x1 = TRUE
+  - 0x3 = NotConfigured
 
 **Bitfield Layout**
 
@@ -201,15 +217,17 @@ ChargeState2
           +---+---+---+---+---+---+---+---+
                                         +-- CS_EStop_Reason
           +---+---+---+---+---+---+---+---+
-    B   2 |<-----x|   |   |   |   |   |   |
-    y     +---+---+---+---+---+---+---+---+
-    t           +-- CS_SafeStateActive
-    e     +---+---+---+---+---+---+---+---+
-        3 |   |   |   |   |   |   |   |   |
+        2 |<-----x|   |   |   |   |   |   |
+    B     +---+---+---+---+---+---+---+---+
+    y           +-- CS_SafeStateActive
+    t     +---+---+---+---+---+---+---+---+
+    e   3 |   |   |   |   |   |   |   |   |
           +---+---+---+---+---+---+---+---+
         4 |   |   |   |   |   |   |   |   |
           +---+---+---+---+---+---+---+---+
-        5 |   |   |   |   |   |   |   |   |
+        5 |   |   |   |   |   |   |<-----x|
+          +---+---+---+---+---+---+---+---+
+                                        +-- CS_Estop1ChargingAbort
           +---+---+---+---+---+---+---+---+
         6 |   |   |   |   |   |   |   |   |
           +---+---+---+---+---+---+---+---+
@@ -637,6 +655,15 @@ InquiryPacket
      - 0
      - 
      - The ID, which message shall be requested. Supported values are described below.
+   * - ActionId
+     - 15
+     - 8
+     - 
+     - No
+     - 1
+     - 0
+     - 
+     - *No description available*
 
 **Value Descriptions**
 
@@ -644,6 +671,16 @@ InquiryPacket
 
   - 0xA = FirmwareVersion
   - 0xB = GitHash
+  - 0x14 = PartNumber1
+  - 0x15 = PartNumber2
+  - 0x16 = ChipInfo
+
+- **ActionId**
+
+  - 0x0 = No Action requested
+  - 0x1 = Start RCM Selftest
+  - 0x2 = Request Inlet Closing
+  - 0x3 = Request Inlet Opening
 
 **Bitfield Layout**
 
@@ -657,12 +694,14 @@ InquiryPacket
           +---+---+---+---+---+---+---+---+
                                         +-- PacketId
           +---+---+---+---+---+---+---+---+
-        1 |   |   |   |   |   |   |   |   |
+        1 |<-----------------------------x|
           +---+---+---+---+---+---+---+---+
-    B   2 |   |   |   |   |   |   |   |   |
-    y     +---+---+---+---+---+---+---+---+
-    t   3 |   |   |   |   |   |   |   |   |
-    e     +---+---+---+---+---+---+---+---+
+                                        +-- ActionId
+    B     +---+---+---+---+---+---+---+---+
+    y   2 |   |   |   |   |   |   |   |   |
+    t     +---+---+---+---+---+---+---+---+
+    e   3 |   |   |   |   |   |   |   |   |
+          +---+---+---+---+---+---+---+---+
         4 |   |   |   |   |   |   |   |   |
           +---+---+---+---+---+---+---+---+
         5 |   |   |   |   |   |   |   |   |
