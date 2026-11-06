@@ -28,7 +28,7 @@ To make the handling of parameters human-friendly, all parameters can be put tog
 
 .. code-block:: yaml
 
-   version: 1
+   version: 3
    pt1000s:
      - abort-temperature: 75.0 °C
        resistance-offset: 0.85 Ω
@@ -95,12 +95,22 @@ Emergency Input Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The safety controller can monitor up to 3 emergency inputs, however on Charge Control Y only one physical
-emergency input is available. So the second and third inputs must kept disabled.
+emergency input is available. So the second and third inputs must be kept disabled.
 
 Possible configuration values for the first one are:
 
 - `disabled`
 - `active-low`
+- `active-high`
+
+When this emergency input is used, the selected setting should usually be `active-low` due to the
+internal circuit of the Charge Control Y: it checks the voltage of the emergeny input pin for 24 V
+and raises an internal 3.3 V signal when the voltage is lower or higher than 24 V.
+
+.. important::
+
+   While the setting `active-high` is possible, it should be used with care since in this case,
+   it would not be possible to detect a broken wiring in such a setup.
 
 
 Installing a Parameter Block
@@ -114,7 +124,7 @@ The following session transcript shows how the install procedure works:
 
    # create a YAML file on-the-fly
    $ cat <<EOL > /tmp/my-parameters.yaml
-   version: 1
+   version: 3
    pt1000s:
      - abort-temperature: 75.0 °C
        resistance-offset: 0.85 Ω
@@ -125,7 +135,7 @@ The following session transcript shows how the install procedure works:
 
    contactors:
      - with-feedback-normally-open
-     - disabled
+     - with-feedback-normally-open
      - disabled
 
    estops:
@@ -135,7 +145,7 @@ The following session transcript shows how the install procedure works:
    EOL
 
    # convert YAML to binary
-   ra-pb-create -i /tmp/my-parameters.yaml -o /tmp/my-parameters.bin
+   ra-pb-create --version-from-yaml -i /tmp/my-parameters.yaml -o /tmp/my-parameters.bin
 
    # stop EVerest - to have exclusive access to safety controller
    systemctl stop everest
@@ -154,7 +164,7 @@ To check which settings are currently used by the safety controller firmware, it
 
 .. code-block:: sh
 
-    systemctl stop everest
-   ra-update -a data dump | ra-pb-dump
+   systemctl stop everest
+   ra-update dump-pb | ra-pb-dump
 
 This will print the current settings in YAML format on stdout.
