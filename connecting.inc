@@ -21,6 +21,7 @@ the charge controller.
    On first boot, set the initial root password when prompted, log in as ``root``,
    and run :code:`/usr/sbin/ssh-autostart --enable` to enable SSH access.
    To disable SSH access, run :code:`/usr/sbin/ssh-autostart --disable`.
+   The configured SSH access state persists across reboots.
 
 
 SSH Connection with PuTTY
