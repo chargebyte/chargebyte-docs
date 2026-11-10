@@ -1,4 +1,4 @@
-VERSION "0.0.3"
+VERSION "0.5.1"
 
 
 NS_ : 
@@ -38,19 +38,23 @@ BU_: chargeSOM_HostController chargeSOM_SafetyController CCY_HostController CCY_
 
 BO_ 255 InquiryPacket: 8 chargeSOM_HostController
  SG_ PacketId : 7|8@0+ (1,0) [0|0] ""  CCY_SafetyController,chargeSOM_SafetyController
+ SG_ ActionId : 15|8@0+ (1,0) [0|0] ""  CCY_SafetyController,chargeSOM_SafetyController
+
+BO_ 254 ActionAck: 8 chargeSOM_SafetyController
+ SG_ ActionId : 7|8@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
 
 BO_ 0 DigitalOutput: 8 chargeSOM_HostController
- SG_ DO_SAFETY_HVSW3_PRECHARGE : 9|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
  SG_ DO_CP_INVERT : 3|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
  SG_ DO_CP_Dutycycle : 31|8@0+ (1,0) [0|0] "%"  chargeSOM_SafetyController
+ SG_ DO_HV_SW1_Dutycycle : 39|8@0+ (1,0) [0|0] "%"  chargeSOM_SafetyController
+ SG_ DO_HV_SW2_Dutycycle : 47|8@0+ (1,0) [0|0] "%"  chargeSOM_SafetyController
+ SG_ DO_HV_SW3_Dutycycle : 55|8@0+ (1,0) [0|0] "%"  chargeSOM_SafetyController
  SG_ DO_PP_SAE_IEC : 15|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
  SG_ DO_SAFETY_CP_STATE_C : 18|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController,CCY_SafetyController
  SG_ DO_SAFETY_GPIO_EXP : 12|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
  SG_ DO_SAFETY_IMD_OD_EN : 11|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
  SG_ DO_SAFETY_MOTOR_OUT2 : 5|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
  SG_ DO_SAFETY_MOTOR_OUT1 : 6|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
- SG_ DO_SAFETY_HVSW2_HS : 13|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
- SG_ DO_SAFETY_HVSW1_HS : 14|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController
  SG_ DO_PT1000_CTRLEN4 : 10|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController,CCY_SafetyController
  SG_ DO_PT1000_CTRLEN3 : 19|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController,CCY_SafetyController
  SG_ DO_PT1000_CTRLEN2 : 20|1@0+ (1,0) [0|0] ""  chargeSOM_SafetyController,CCY_SafetyController
@@ -65,19 +69,20 @@ BO_ 5 AnalogInput04: 8 chargeSOM_SafetyController
  SG_ AI_PT1000_CFB3_4 : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
 
 BO_ 4 AnalogInput03: 8 chargeSOM_SafetyController
- SG_ AI_SAFETY_HVSW2_FB : 39|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
- SG_ AI_SAFETY_HVSW1_FB : 23|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
- SG_ AI_SAFETY_HVSW3_FB : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_SAFETY_INLET_FB : 39|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_SAFETY_DEV1_ADC : 23|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
+ SG_ AI_SAFETY_DEV2_ADC : 7|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
  SG_ AI_PT1000_CFB1_2 : 55|16@0+ (1,0) [0|0] ""  CCY_HostController,chargeSOM_HostController
 
 BO_ 3 AnalogInput02: 8 chargeSOM_SafetyController
- SG_ AI_SAFETY_U_IN_ADC : 55|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ AI_SAFETY_MOTOR_CAPS_SENSE : 55|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ AI_PP_VALUE_ADC : 39|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ AI_CP_BUFFERED_POS_ADC : 23|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ AI_CP_BUFFERED_NEG_ADC : 7|16@0+ (1,0) [0|0] ""  chargeSOM_HostController
 
 BO_ 19 AnalogInput05: 8 CCY_SafetyController
- SG_ AI_HV_READY : 39|16@0+ (1,0) [0|0] ""  CCY_HostController
+ SG_ AI_HV_READY_SW11_SC : 55|16@0+ (1,0) [0|0] ""  CCY_HostController
+ SG_ AI_HV_READY_SW10_SC : 39|16@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ AI_CE_ADC : 23|16@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ AI_ID_ADC : 7|16@0+ (1,0) [0|0] ""  CCY_HostController
 
@@ -93,6 +98,7 @@ BO_ 17 ChargeControl2: 8 CCY_HostController
 
 BO_ 16 ChargeState2: 8 CCY_SafetyController
  SG_ CS_SafeStateActive : 23|2@0+ (1,0) [0|0] ""  CCY_HostController
+ SG_ CS_Estop1ChargingAbort : 41|2@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ CS_EStop_Reason : 15|8@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ CS_ID_State : 3|4@0+ (1,0) [0|0] ""  CCY_HostController
  SG_ CS_CE_State : 7|4@0+ (1,0) [0|0] ""  CCY_HostController
@@ -103,6 +109,9 @@ BO_ 7 ChargeState1: 8 chargeSOM_SafetyController
  SG_ CS_Estop1ChargingAbort : 41|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_Estop2ChargingAbort : 43|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_Estop3ChargingAbort : 45|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_RcmStatus : 47|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_Estop4IMDChargingAbort : 57|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
+ SG_ CS_InletState : 23|3@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_Contactor1State : 33|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_Contactor2State : 35|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ CS_Contactor3State : 37|2@0+ (1,0) [0|0] ""  chargeSOM_HostController
@@ -131,6 +140,15 @@ BO_ 10 FirmwareVersion: 8 chargeSOM_SafetyController
 
 BO_ 11 GitHash: 8 chargeSOM_SafetyController
  SG_ HashSignal : 7|64@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+
+BO_ 20 PartNumber1: 8 chargeSOM_SafetyController
+ SG_ PartNumber1Signal : 7|64@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+
+BO_ 21 PartNumber2: 8 chargeSOM_SafetyController
+ SG_ PartNumber2Signal : 7|64@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
+
+BO_ 22 ChipInfo: 8 chargeSOM_SafetyController
+ SG_ MCUVersion : 7|8@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
 
 BO_ 14 ErrorMessage: 8 chargeSOM_SafetyController
  SG_ ErrorAddData2 : 55|16@0+ (1,0) [0|0] ""  chargeSOM_HostController,CCY_HostController
@@ -163,12 +181,7 @@ BO_ 1 DigitalInput: 8 CCY_SafetyController
  SG_ DI_SAFETY_MOTOR_OUT1 : 6|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ DI_SAFETY_MOTOR_OUT2 : 5|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ DI_SAFETY_MOTOR_FAULT : 4|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
- SG_ DI_SAFETY_HVSW2_HS : 13|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
- SG_ DI_SAFETY_HVSW1_HS : 14|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
- SG_ DI_SAFETY_HVSW3_PRECHARGE : 9|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ DI_PP_SAE_IEC : 15|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
- SG_ DI_SAFETY_DEV_1 : 0|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
- SG_ DI_SAFETY_DEV_2 : 1|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ DI_EV_CP_EDGE : 2|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ DI_CP_INVERT : 3|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
  SG_ DI_SAFETY_K1_IN : 7|1@0+ (1,0) [0|0] ""  chargeSOM_HostController
@@ -190,6 +203,9 @@ BO_TX_BU_ 4 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 2 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 10 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 11 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 20 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 21 : CCY_SafetyController,chargeSOM_SafetyController;
+BO_TX_BU_ 22 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 14 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 8 : CCY_SafetyController,chargeSOM_SafetyController;
 BO_TX_BU_ 1 : chargeSOM_SafetyController,CCY_SafetyController;
@@ -244,17 +260,22 @@ BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";
 BA_DEF_DEF_  "BusType" "";
 BA_ "BusType" "J1708";
-VAL_ 255 PacketId 10 "FirmwareVersion" 11 "GitHash" ;
+VAL_ 255 PacketId 10 "FirmwareVersion" 11 "GitHash" 20 "PartNumber1" 21 "PartNumber2" 22 "ChipInfo" ;
+VAL_ 255 ActionId 0 "No Action requested" 1 "Start RCM Selftest" 2 "Request Inlet Closing" 3 "Request Inlet Opening";
 VAL_ 17 CC_CCSReady 2 "CCS_EmergencyStop" 1 "CCS_Ready" 0 "CCS_NotReady" ;
 VAL_ 16 CS_SafeStateActive 3 "SNA" 1 "SafeState" 0 "NormalState" ;
-VAL_ 16 CS_EStop_Reason 14 "EmergencyInput" 13 "HVReady_Malfunction" 12 "CE_Malfunction" 11 "ID_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "InternalError" 0 "NoStop" ;
+VAL_ 16 CS_Estop1ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
+VAL_ 16 CS_EStop_Reason 22 "ParameterFailure" 16 "EmergencyInput" 13 "HVReady_Malfunction" 12 "CE_Malfunction" 11 "ID_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "InternalError" 0 "NoStop" ;
 VAL_ 16 CS_ID_State 3 "Invalid" 2 "Connected" 1 "Not Connected" 0 "Unknown" ;
 VAL_ 16 CS_CE_State 7 "Invalid" 6 "EC" 5 "E" 4 "C" 3 "B" 2 "B0" 1 "A" 0 "Unknown" ;
-VAL_ 7 CS_SafeStateReason 18 "EmergencyInput3" 17 "EmergencyInput2" 16 "EmergencyInput1" 15 "HVSW_Malfunction" 14 "CP_DiodeFault" 13 "CP_ShortCircuit" 12 "CP_Malfunction" 11 "PP_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "InternalError" 0 "NoStop" ;
+VAL_ 7 CS_SafeStateReason 22 "ParameterFailure" 21 "RCM_SelftestFailed" 20 "RCM_Error" 19 "EmergencyInput4IMD" 18 "EmergencyInput3" 17 "EmergencyInput2" 16 "EmergencyInput1" 15 "HVSW_Malfunction" 14 "CP_DiodeFault" 13 "CP_ShortCircuit" 12 "CP_Malfunction" 11 "PP_Malfunction" 10 "Temp4_Overtemp" 9 "Temp3_Overtemp" 8 "Temp2_Overtemp" 7 "Temp1_Overtemp" 6 "Temp4_Malfunction" 5 "Temp3_Malfunction" 4 "Temp2_Malfunction" 3 "Temp1_Malfunction" 2 "ComTimeout" 1 "InternalError" 0 "NoStop" ;
 VAL_ 7 CS_SafeStateActive 3 "SNA" 1 "SafeState" 0 "NormalState" ;
 VAL_ 7 CS_Estop1ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
 VAL_ 7 CS_Estop2ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
 VAL_ 7 CS_Estop3ChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
+VAL_ 7 CS_Estop4IMDChargingAbort 0 "FALSE" 1 "TRUE" 3 "NotConfigured" ;
+VAL_ 7 CS_RcmStatus 0 "NotConfigured" 1 "MONITORING" 2 "SELFTEST" 3 "ERROR" ;
+VAL_ 7 CS_InletState 0 "UNDEFINED" 1 "OPEN" 2 "OPENING" 3 "CLOSED" 4 "CLOSING" 5 "ERROR" 7 "NotConfigured" ;
 VAL_ 7 CS_Contactor1State 0 "UNDEFINED" 1 "OPEN" 2 "CLOSE" 3 "NotConfigured" ;
 VAL_ 7 CS_Contactor2State 0 "UNDEFINED" 1 "OPEN" 2 "CLOSE" 3 "NotConfigured" ;
 VAL_ 7 CS_Contactor3State 0 "UNDEFINED" 1 "OPEN" 2 "CLOSE" 3 "NotConfigured" ;

@@ -19,7 +19,7 @@ Repo Initialization
 This repository is using git submodules to share documents between the user guides.
 After cloning of the project please execute the following commands:
 
-git checkout everest/charge_som
+git checkout everest/charge_control_y
 
 git submodule update --init --force --remote
 
