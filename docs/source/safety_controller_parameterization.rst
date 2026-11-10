@@ -104,7 +104,7 @@ Possible configuration values for the first one are:
 - `active-high`
 
 When this emergency input is used, the selected setting should usually be `active-low` due to the
-internal circuit of the Charge Control Y: it checks the voltage of the emergeny input pin for 24 V
+internal circuit of the Charge Control Y: it checks the voltage of the emergency input pin for 24 V
 and raises an internal 3.3 V signal when the voltage is lower or higher than 24 V.
 
 .. important::
