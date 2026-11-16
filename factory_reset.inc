@@ -55,10 +55,11 @@ Access After the Reset
 
 After the device has rebooted:
 
-#. Reconnect using the factory network settings or a local serial connection.
-#. Complete the initial access setup. If the WebUI is available, create new
-   WebUI login credentials. Otherwise, use the serial console to set the
-   initial ``root`` password.
+#. Reconnect using the factory network settings or a
+   :ref:`local serial connection <connecting-via-ssh-or-serial-interface>`.
+#. Complete the initial access setup. If the :ref:`WebUI <webui>` is available,
+   create new WebUI login credentials. Otherwise, use the serial console to set
+   the initial ``root`` password.
 #. Enable SSH explicitly if remote shell access is required; SSH is disabled
    by default after the reset.
 #. Restore only the required, verified configuration and credentials, then
